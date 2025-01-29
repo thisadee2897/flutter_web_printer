@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_web_printer/config/routes/app_router.dart';
 import 'package:flutter_web_printer/config/translation/generated/l10n.dart';
-import 'package:responsive_framework/responsive_framework.dart';
 import '../config/theme/app_theme.dart';
 
 class App extends ConsumerStatefulWidget {

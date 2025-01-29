@@ -1,4 +1,3 @@
-export 'package:flutter_web_printer/screens/payment/view_models/genarate_to_widget.dart';
 export 'package:flutter_web_printer/screens/payment/views/widgets/pdf_for_payment_widget.dart';
 export 'package:flutter_web_printer/utils/extensions/number_to_thai_word.dart';
 export 'package:flutter_web_printer/screens/payment/controllers/providers/document_payment.dart';

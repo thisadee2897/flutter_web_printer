@@ -1,13 +1,14 @@
 import 'package:flutter_web_printer/apps/app_exports.dart';
 import 'package:flutter_web_printer/screens/payment/view_models/genarate_to_pdf.dart';
+import 'package:printing/printing.dart';
+import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 class PaymentScreen extends ConsumerWidget {
   const PaymentScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final List<Widget> widgets = ref.watch(documentWidgetProvider);
-    final List<GlobalKey> widgetKeys = List.generate(widgets.length, (index) => GlobalKey());
+    final filePdf = ref.watch(filePdfPayMentViewProvider);
     return Scaffold(
       backgroundColor: Colors.black87,
       appBar: AppBar(
@@ -21,11 +22,13 @@ class PaymentScreen extends ConsumerWidget {
         actions: [
           FilledButton.icon(
             onPressed: () async {
-              ref.read(isLoadGennaratePDFPaymentProvider.notifier).state = true;
-              await ref.read(genarateToPDFProvider.notifier).printPdf(widgetKeys);
+              // await p.Printing.sharePdf(bytes: filePdf!);
+
+              var pdfFile = ref.read(filePdfPayMentProvider);
+              await Printing.layoutPdf(onLayout: (format) async => pdfFile.save());
             },
             label: const Text('Print'),
-            icon:  ref.watch(isLoadGennaratePDFPaymentProvider)
+            icon: ref.watch(isLoadGennaratePDFPaymentProvider)
                 ? Transform.scale(
                     scale: 0.5,
                     child: const CircularProgressIndicator(
@@ -37,29 +40,15 @@ class PaymentScreen extends ConsumerWidget {
           const Gap(20),
         ],
       ),
-      body: Center(
-        child: SizedBox(
-          width: 595,
-          child: SingleChildScrollView(
-            child: Column(
-              children: List.generate(
-                widgets.length,
-                (index) => RepaintBoundary(
-                  key: widgetKeys[index], // ใช้ GlobalKey
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      const Gap(5),
-                      widgets[index],
-                      const Gap(5),
-                    ],
-                  ),
-                ),
+      body: filePdf == null
+          ? Center(child: Container())
+          : SizedBox(
+              width: double.infinity,
+              height: double.infinity,
+              child: SfPdfViewer.network(
+                'https://cdn.syncfusion.com/content/PDFViewer/flutter-succinctly.pdf',
               ),
             ),
-          ),
-        ),
-      ),
     );
   }
 }

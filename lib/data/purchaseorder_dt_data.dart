@@ -193,7 +193,7 @@ class SettingScopeData extends ChangeNotifier {
         },
       );
     } catch (e) {
-      print('Error: $e');
+      if (kDebugMode) print('Error: $e');
     }
   }
 }

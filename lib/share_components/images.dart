@@ -1,1 +1,1 @@
-get imgLogo => 'assets/images/logo.png';
+String get imgLogo => 'assets/images/logo.png';
