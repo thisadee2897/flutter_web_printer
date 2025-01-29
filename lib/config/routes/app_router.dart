@@ -10,19 +10,7 @@ final _rootNavigatorKey = GlobalKey<NavigatorState>();
 final appRouterProvider = Provider<GoRouter>(
   (ref) {
     return GoRouter(
-      redirect: (context, state) {
-        if (state.uri.path == Routes.initPath) {
-          //clear all queryParameters and replace path to payment
-          String id = idToBase64(id: '5');
-          Uri uriAndQuery = state.uri.replace(
-            path: Routes.payment,
-            queryParameters: {'cGF5bWVudF9oZF9pZA': id},
-          );
-          return uriAndQuery.toString();
-        } else {
-          return null;
-        }
-      },
+      onException: (context, state, router) {},
       initialLocation: Routes.initPath,
       navigatorKey: _rootNavigatorKey,
       routes: [
@@ -31,6 +19,7 @@ final appRouterProvider = Provider<GoRouter>(
           redirect: (context, state) {
             WidgetsBinding.instance.addPostFrameCallback((_) async {
               final paymentHdId = state.uri.queryParameters['cGF5bWVudF9oZF9pZA'];
+              if (kDebugMode) print('paymentHdId: $paymentHdId');
               var hdId = idFormBase64(id: paymentHdId);
               if (kDebugMode) print('hdId: $hdId');
               await ref.read(documentPaymentProvider.notifier).get(id: hdId);

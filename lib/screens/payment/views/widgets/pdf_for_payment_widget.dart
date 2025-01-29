@@ -14,7 +14,7 @@ class PDFForPayMentWidget extends ConsumerWidget {
     );
     final documentPaymentState = ref.watch(documentPaymentProvider);
     return Container(
-      color: const Color.fromRGBO(249, 250, 252, 1),
+      color: Colors.white,
       height: 842,
       width: 595,
       child: Column(
@@ -48,7 +48,7 @@ class PDFForPayMentWidget extends ConsumerWidget {
                     children: [
                       TextHDWidget(
                         width: 30,
-                        textAlign: TextAlign.end,
+                        textAlign: TextAlign.center,
                         title: 'ลำดับ',
                       ),
                       TextHDWidget(
@@ -80,7 +80,7 @@ class PDFForPayMentWidget extends ConsumerWidget {
                             children: [
                               TextDTWidget(
                                 width: 30,
-                                textAlign: TextAlign.end,
+                                textAlign: TextAlign.center,
                                 title: data[index].paymentDtListno.digits(0),
                               ),
                               TextDTWidget(

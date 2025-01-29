@@ -20,17 +20,17 @@ class _AppState extends ConsumerState<App> {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light,
       themeMode: ThemeMode.light,
-      title: 'OHO HRM',
+      title: 'ERP',
       localizationsDelegates: const [Trans.delegate],
       supportedLocales: Trans.delegate.supportedLocales,
       routerConfig: appRouter,
-      builder: (context, widget) => ResponsiveWrapper.builder(
-        BouncingScrollWrapper.builder(context, widget!),
-        minWidth: 1920,
-        maxWidth: 1920,
-        defaultScale: true,
-        background: Container(width: 1920),
-      ),
+      // builder: (context, widget) => ResponsiveWrapper.builder(
+      //   BouncingScrollWrapper.builder(context, widget!),
+      //   minWidth: 1920,
+      //   maxWidth: 1920,
+      //   defaultScale: true,
+      //   background: Container(width: 1920),
+      // ),
     );
   }
 }
