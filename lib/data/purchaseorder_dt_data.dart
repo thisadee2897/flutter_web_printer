@@ -197,3 +197,5 @@ class SettingScopeData extends ChangeNotifier {
     }
   }
 }
+
+//ฟีเจอร์ ภาษาอังกฤษ คือ feature
