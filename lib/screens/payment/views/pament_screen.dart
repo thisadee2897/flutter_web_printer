@@ -10,6 +10,8 @@ class PaymentScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     Uint8List? filePdf = ref.watch(filePdfPayMentViewProvider);
+    final dt = ref.watch(documentPaymentDTProvider);
+    final hd = ref.watch(documentPaymentProvider);
     return Scaffold(
       backgroundColor: Colors.black87,
       appBar: AppBar(
@@ -23,7 +25,6 @@ class PaymentScreen extends ConsumerWidget {
         actions: [
           FilledButton.icon(
             onPressed: () async {
-              // await p.Printing.sharePdf(bytes: filePdf!);
               var pdfFile = ref.read(filePdfPayMentProvider);
               await Printing.layoutPdf(onLayout: (format) async => pdfFile.save());
             },
@@ -40,21 +41,25 @@ class PaymentScreen extends ConsumerWidget {
           const Gap(20),
         ],
       ),
-      body: filePdf == null
-          ? const Center(child: CircularProgressIndicator())
-          : SfPdfViewerTheme(
-              data: const SfPdfViewerThemeData(backgroundColor: Colors.black87),
-              child: Center(
-                child: SizedBox(
-                  width: context.screenWidth > context.screenHeight ? context.screenHeight : context.screenWidth,
-                  child: SfPdfViewer.memory(
-                    filePdf,
-                    canShowPaginationDialog: false,
-                    pageSpacing: 10,
+      body: hd.isLoading || dt.isLoading
+          ? load()
+          : filePdf == null
+              ? Container()
+              : SfPdfViewerTheme(
+                  data: const SfPdfViewerThemeData(backgroundColor: Colors.black87),
+                  child: Center(
+                    child: SizedBox(
+                      width: context.screenWidth > context.screenHeight ? context.screenHeight : context.screenWidth,
+                      child: SfPdfViewer.memory(
+                        filePdf,
+                        canShowPaginationDialog: false,
+                        pageSpacing: 10,
+                      ),
+                    ),
                   ),
                 ),
-              ),
-            ),
     );
   }
+
+  Center load() => const Center(child: CircularProgressIndicator());
 }

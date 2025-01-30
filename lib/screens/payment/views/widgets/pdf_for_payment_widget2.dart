@@ -23,7 +23,7 @@ Future<Uint8List?> getImageBytes(String? imageUrl) async {
 class PDFGeneratorPayment {
   Future<pw.Page> generate({required DocumentPaymentModel hd, required List<DocumentPaymentDTModel> dt, required CompanyModel company}) async {
     Uint8List? imageBytesFormNetwork = await getImageBytes(company.companyLogo);
-    final ByteData data = await rootBundle.load('assets/fonts/THSarabun.ttf');
+    final ByteData data = await rootBundle.load('assets/fonts/THSarabun-Bold.ttf');
     final font = pw.Font.ttf(data.buffer.asByteData());
     var comapnyTextStyle = pw.TextStyle(
       fontSize: 14,
@@ -45,7 +45,7 @@ class PDFGeneratorPayment {
           children: [
             // เพิ่ม Header
             pw.Padding(
-              padding: const pw.EdgeInsets.only(left: 16, right: 16, top: 30),
+              padding: const pw.EdgeInsets.only(left: 16, right: 16, top: 20),
               child: pw.Row(
                 crossAxisAlignment: pw.CrossAxisAlignment.center,
                 mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
@@ -53,13 +53,13 @@ class PDFGeneratorPayment {
                 children: [
                   pw.SizedBox(
                     width: 200,
-                    height: 71,
+                    height: 90,
                     child: (imageBytesFormNetwork != null) ? pw.Image(pw.MemoryImage(imageBytesFormNetwork), width: 71, height: 71) : pw.Container(),
                   ),
                   pw.Padding(
                     padding: const pw.EdgeInsets.only(right: 10),
                     child: pw.SizedBox(
-                      height: 78,
+                      height: 90,
                       child: pw.Column(
                         crossAxisAlignment: pw.CrossAxisAlignment.end,
                         mainAxisAlignment: pw.MainAxisAlignment.start,
@@ -74,9 +74,8 @@ class PDFGeneratorPayment {
                             ),
                           ),
                           pw.Text("${company.companyName}", style: comapnyTextStyle),
-                          pw.Text(
-                              "${company.companyAddress}${company.addrDistrictName} ${company.addrPrefectureName} ${company.addrProvinceName} ${company.addrPostcodeCode}",
-                              style: comapnyTextStyle),
+                          pw.Text("${company.companyAddress}${company.addrDistrictName}", style: comapnyTextStyle),
+                          pw.Text("${company.addrPrefectureName} ${company.addrProvinceName} ${company.addrPostcodeCode}", style: comapnyTextStyle),
                           pw.Text("${company.companyTel}", style: comapnyTextStyle),
                           pw.Text("เลขประจำตัวผู้เสียภาษี: ${company.companyTaxid}", style: comapnyTextStyle),
                         ],
@@ -443,7 +442,7 @@ class PDFGeneratorPayment {
                     children: [
                       pw.Text("ผู้เบิกจ่าย", style: comapnyTextStyle),
                       pw.SizedBox(height: 10),
-                      pw.Text('...............................................................', style: comapnyTextStyle),
+                      pw.Text('.............................................................', style: comapnyTextStyle),
                       pw.Text(
                         "${hd.fullname}",
                         style: comapnyTextStyle.copyWith(
@@ -470,16 +469,16 @@ class PDFGeneratorPayment {
                     children: [
                       pw.Text("ผู้อนุมัติจ่าย", style: comapnyTextStyle),
                       pw.SizedBox(height: 10),
-                      pw.Text('...............................................................', style: comapnyTextStyle),
+                      pw.Text('...........................................................', style: comapnyTextStyle),
                       pw.Text(
-                        "(...............................................................)",
+                        "(...........................................................)",
                         style: comapnyTextStyle.copyWith(
                           fontWeight: pw.FontWeight.bold,
                           color: PdfColors.black,
                         ),
                       ),
                       pw.Text(
-                        "วันที่.........................................................",
+                        "วันที่.....................................................",
                         style: comapnyTextStyle.copyWith(
                           fontWeight: pw.FontWeight.bold,
                           color: PdfColors.black,
@@ -497,16 +496,16 @@ class PDFGeneratorPayment {
                     children: [
                       pw.Text("ผู้รับเงิน", style: comapnyTextStyle),
                       pw.SizedBox(height: 10),
-                      pw.Text('...............................................................', style: comapnyTextStyle),
+                      pw.Text('...........................................................', style: comapnyTextStyle),
                       pw.Text(
-                        "(...............................................................)",
+                        "(...........................................................)",
                         style: comapnyTextStyle.copyWith(
                           fontWeight: pw.FontWeight.bold,
                           color: PdfColors.black,
                         ),
                       ),
                       pw.Text(
-                        "วันที่.........................................................",
+                        "วันที่.....................................................",
                         style: comapnyTextStyle.copyWith(
                           fontWeight: pw.FontWeight.bold,
                           color: PdfColors.black,

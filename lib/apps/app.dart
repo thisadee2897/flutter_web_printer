@@ -23,13 +23,6 @@ class _AppState extends ConsumerState<App> {
       localizationsDelegates: const [Trans.delegate],
       supportedLocales: Trans.delegate.supportedLocales,
       routerConfig: appRouter,
-      // builder: (context, widget) => ResponsiveWrapper.builder(
-      //   BouncingScrollWrapper.builder(context, widget!),
-      //   minWidth: 1920,
-      //   maxWidth: 1920,
-      //   defaultScale: true,
-      //   background: Container(width: 1920),
-      // ),
     );
   }
 }
