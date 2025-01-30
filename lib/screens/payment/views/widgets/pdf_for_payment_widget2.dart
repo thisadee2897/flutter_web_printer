@@ -1,21 +1,38 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_web_printer/apps/app_exports.dart';
 import 'package:flutter_web_printer/models/document_payment_model.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
+import 'package:http/http.dart' as http;
+
+Future<Uint8List?> getImageBytes(String? imageUrl) async {
+  if (imageUrl == null || imageUrl.isEmpty) return null;
+
+  try {
+    final response = await http.get(Uri.parse(imageUrl));
+    if (response.statusCode == 200) {
+      return response.bodyBytes;
+    }
+  } catch (e) {
+    if (kDebugMode) print("Error fetching image: $e");
+  }
+
+  return null;
+}
 
 class PDFGeneratorPayment {
-  Future<pw.Page> generate({required DocumentPaymentModel hd, required List<DocumentPaymentDTModel> dt}) async {
-    final imageBytes = (await rootBundle.load(imgLogo)).buffer.asUint8List();
+  Future<pw.Page> generate({required DocumentPaymentModel hd, required List<DocumentPaymentDTModel> dt, required CompanyModel company}) async {
+    Uint8List? imageBytesFormNetwork = await getImageBytes(company.companyLogo);
     final ByteData data = await rootBundle.load('assets/fonts/THSarabun.ttf');
     final font = pw.Font.ttf(data.buffer.asByteData());
     var comapnyTextStyle = pw.TextStyle(
-      fontSize: 12,
+      fontSize: 14,
       fontWeight: pw.FontWeight.normal,
       color: PdfColors.grey800,
       font: font,
     );
     var textStyle = pw.TextStyle(
-      fontSize: 12,
+      fontSize: 14,
       color: PdfColor.fromHex("#5E6470"),
       font: font,
     );
@@ -32,8 +49,13 @@ class PDFGeneratorPayment {
               child: pw.Row(
                 crossAxisAlignment: pw.CrossAxisAlignment.center,
                 mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+                mainAxisSize: pw.MainAxisSize.max,
                 children: [
-                  pw.SizedBox(height: 71, child: pw.Image(pw.MemoryImage(imageBytes))),
+                  pw.SizedBox(
+                    width: 200,
+                    height: 71,
+                    child: (imageBytesFormNetwork != null) ? pw.Image(pw.MemoryImage(imageBytesFormNetwork), width: 71, height: 71) : pw.Container(),
+                  ),
                   pw.Padding(
                     padding: const pw.EdgeInsets.only(right: 10),
                     child: pw.SizedBox(
@@ -51,10 +73,12 @@ class PDFGeneratorPayment {
                               fontWeight: pw.FontWeight.bold,
                             ),
                           ),
-                          pw.Text('บริษัท เทค แคร์ โซลูชั่น จำกัด', style: comapnyTextStyle),
-                          pw.Text('ที่อยู่: 88/88 หมู่ 20 ต.บ้านเป็ด อ.เมืองขอนแก่น จ.ขอนแก่น 40000', style: comapnyTextStyle),
-                          pw.Text('โทร: 06-5464-5952', style: comapnyTextStyle),
-                          pw.Text('เลขประจำตัวผู้เสียภาษี: 00XXXXX1234X0XX', style: comapnyTextStyle),
+                          pw.Text("${company.companyName}", style: comapnyTextStyle),
+                          pw.Text(
+                              "${company.companyAddress}${company.addrDistrictName} ${company.addrPrefectureName} ${company.addrProvinceName} ${company.addrPostcodeCode}",
+                              style: comapnyTextStyle),
+                          pw.Text("${company.companyTel}", style: comapnyTextStyle),
+                          pw.Text("เลขประจำตัวผู้เสียภาษี: ${company.companyTaxid}", style: comapnyTextStyle),
                         ],
                       ),
                     ),
@@ -163,7 +187,7 @@ class PDFGeneratorPayment {
                               textAlign: pw.TextAlign.center,
                               style: pw.TextStyle(
                                 font: font,
-                                fontSize: 12,
+                                fontSize: 14,
                                 color: PdfColor.fromHex("#5E6470"),
                                 fontWeight: pw.FontWeight.bold,
                               ),
@@ -178,7 +202,7 @@ class PDFGeneratorPayment {
                               textAlign: pw.TextAlign.start,
                               style: pw.TextStyle(
                                 font: font,
-                                fontSize: 12,
+                                fontSize: 14,
                                 color: PdfColor.fromHex("#5E6470"),
                                 fontWeight: pw.FontWeight.bold,
                               ),
@@ -194,7 +218,7 @@ class PDFGeneratorPayment {
                               textAlign: pw.TextAlign.start,
                               style: pw.TextStyle(
                                 font: font,
-                                fontSize: 12,
+                                fontSize: 14,
                                 color: PdfColor.fromHex("#5E6470"),
                                 fontWeight: pw.FontWeight.bold,
                               ),
@@ -210,7 +234,7 @@ class PDFGeneratorPayment {
                               textAlign: pw.TextAlign.end,
                               style: pw.TextStyle(
                                 font: font,
-                                fontSize: 12,
+                                fontSize: 14,
                                 color: PdfColor.fromHex("#5E6470"),
                                 fontWeight: pw.FontWeight.bold,
                               ),
@@ -239,7 +263,7 @@ class PDFGeneratorPayment {
                                       dt[index].paymentDtListno.digits(0),
                                       textAlign: pw.TextAlign.center,
                                       style: pw.TextStyle(
-                                        fontSize: 12,
+                                        fontSize: 14,
                                         font: font,
                                         color: PdfColor.fromHex("#5E6470"),
                                         fontWeight: pw.FontWeight.bold,
@@ -254,7 +278,7 @@ class PDFGeneratorPayment {
                                       dt[index].receiveHdDocuno.toString(),
                                       textAlign: pw.TextAlign.start,
                                       style: pw.TextStyle(
-                                        fontSize: 12,
+                                        fontSize: 14,
                                         font: font,
                                         color: PdfColor.fromHex("#5E6470"),
                                         fontWeight: pw.FontWeight.bold,
@@ -271,7 +295,7 @@ class PDFGeneratorPayment {
                                       textAlign: pw.TextAlign.start,
                                       style: pw.TextStyle(
                                         font: font,
-                                        fontSize: 12,
+                                        fontSize: 14,
                                         color: PdfColor.fromHex("#1A1C21"),
                                         fontWeight: pw.FontWeight.bold,
                                       ),
@@ -287,7 +311,7 @@ class PDFGeneratorPayment {
                                       textAlign: pw.TextAlign.end,
                                       style: pw.TextStyle(
                                         font: font,
-                                        fontSize: 12,
+                                        fontSize: 14,
                                         color: PdfColor.fromHex("#1A1C21"),
                                         fontWeight: pw.FontWeight.bold,
                                       ),
@@ -320,7 +344,7 @@ class PDFGeneratorPayment {
                                     pw.Text(
                                       'Total',
                                       style: pw.TextStyle(
-                                        fontSize: 12,
+                                        fontSize: 14,
                                         fontWeight: pw.FontWeight.bold,
                                         color: PdfColor.fromHex("#1A1C21"),
                                         font: font,
@@ -332,7 +356,7 @@ class PDFGeneratorPayment {
                                         num.parse(hd.paymentHdAmount ?? '0').digits(2),
                                         style: pw.TextStyle(
                                           font: font,
-                                          fontSize: 12,
+                                          fontSize: 14,
                                           fontWeight: pw.FontWeight.bold,
                                           color: PdfColor.fromHex("#0064B0"),
                                         ),
@@ -419,7 +443,7 @@ class PDFGeneratorPayment {
                     children: [
                       pw.Text("ผู้เบิกจ่าย", style: comapnyTextStyle),
                       pw.SizedBox(height: 10),
-                      pw.Text('..........................................................................', style: comapnyTextStyle),
+                      pw.Text('...............................................................', style: comapnyTextStyle),
                       pw.Text(
                         "${hd.fullname}",
                         style: comapnyTextStyle.copyWith(
@@ -446,16 +470,16 @@ class PDFGeneratorPayment {
                     children: [
                       pw.Text("ผู้อนุมัติจ่าย", style: comapnyTextStyle),
                       pw.SizedBox(height: 10),
-                      pw.Text('..........................................................................', style: comapnyTextStyle),
+                      pw.Text('...............................................................', style: comapnyTextStyle),
                       pw.Text(
-                        "(..........................................................................)",
+                        "(...............................................................)",
                         style: comapnyTextStyle.copyWith(
                           fontWeight: pw.FontWeight.bold,
                           color: PdfColors.black,
                         ),
                       ),
                       pw.Text(
-                        "วันที่.........................................",
+                        "วันที่.........................................................",
                         style: comapnyTextStyle.copyWith(
                           fontWeight: pw.FontWeight.bold,
                           color: PdfColors.black,
@@ -473,16 +497,16 @@ class PDFGeneratorPayment {
                     children: [
                       pw.Text("ผู้รับเงิน", style: comapnyTextStyle),
                       pw.SizedBox(height: 10),
-                      pw.Text('..........................................................................', style: comapnyTextStyle),
+                      pw.Text('...............................................................', style: comapnyTextStyle),
                       pw.Text(
-                        "(..........................................................................)",
+                        "(...............................................................)",
                         style: comapnyTextStyle.copyWith(
                           fontWeight: pw.FontWeight.bold,
                           color: PdfColors.black,
                         ),
                       ),
                       pw.Text(
-                        "วันที่.........................................",
+                        "วันที่.........................................................",
                         style: comapnyTextStyle.copyWith(
                           fontWeight: pw.FontWeight.bold,
                           color: PdfColors.black,

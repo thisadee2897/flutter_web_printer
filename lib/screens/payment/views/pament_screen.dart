@@ -1,6 +1,7 @@
 import 'package:flutter_web_printer/apps/app_exports.dart';
 import 'package:flutter_web_printer/screens/payment/view_models/genarate_to_pdf.dart';
 import 'package:printing/printing.dart';
+import 'package:syncfusion_flutter_core/theme.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 class PaymentScreen extends ConsumerWidget {
@@ -8,7 +9,7 @@ class PaymentScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final filePdf = ref.watch(filePdfPayMentViewProvider);
+    Uint8List? filePdf = ref.watch(filePdfPayMentViewProvider);
     return Scaffold(
       backgroundColor: Colors.black87,
       appBar: AppBar(
@@ -23,7 +24,6 @@ class PaymentScreen extends ConsumerWidget {
           FilledButton.icon(
             onPressed: () async {
               // await p.Printing.sharePdf(bytes: filePdf!);
-
               var pdfFile = ref.read(filePdfPayMentProvider);
               await Printing.layoutPdf(onLayout: (format) async => pdfFile.save());
             },
@@ -41,12 +41,18 @@ class PaymentScreen extends ConsumerWidget {
         ],
       ),
       body: filePdf == null
-          ? Center(child: Container())
-          : SizedBox(
-              width: double.infinity,
-              height: double.infinity,
-              child: SfPdfViewer.network(
-                'https://cdn.syncfusion.com/content/PDFViewer/flutter-succinctly.pdf',
+          ? const Center(child: CircularProgressIndicator())
+          : SfPdfViewerTheme(
+              data: const SfPdfViewerThemeData(backgroundColor: Colors.black87),
+              child: Center(
+                child: SizedBox(
+                  width: context.screenWidth > context.screenHeight ? context.screenHeight : context.screenWidth,
+                  child: SfPdfViewer.memory(
+                    filePdf,
+                    canShowPaginationDialog: false,
+                    pageSpacing: 10,
+                  ),
+                ),
               ),
             ),
     );
