@@ -105,7 +105,7 @@ class PDFGeneratorSaleCash {
               padding: const pw.EdgeInsets.all(10),
               margin: const pw.EdgeInsets.only(left: 20, right: 20),
               width: 550,
-              height: 568,
+              height: 588,
               decoration: pw.BoxDecoration(
                 color: PdfColor.fromHex("#FFFFFF"),
                 border: pw.Border.all(color: PdfColor.fromHex("#D7DAE0"), width: 0.5),
@@ -215,7 +215,7 @@ class PDFGeneratorSaleCash {
                             padding: const pw.EdgeInsets.only(left: 2, right: 2),
                             child: pw.Text(
                               'รหัส',
-                              textAlign: pw.TextAlign.center,
+                              textAlign: pw.TextAlign.start,
                               style: pw.TextStyle(
                                 font: font,
                                 fontSize: 14,
@@ -443,7 +443,29 @@ class PDFGeneratorSaleCash {
                                         children: [
                                           pw.Row(
                                             children: [
-                                              pw.SvgImage(svg: num.parse(hd.saleHdTransferAmount ?? '0') > 0 ? svgTrue : svgTrue),
+                                              pw.SvgImage(svg: num.parse(hd.saleHdCashAmount ?? '0') > 0 ? svgTrue : svgTrue),
+                                              pw.SizedBox(width: 5),
+                                              pw.Text(
+                                                'เงินสด',
+                                                style: comapnyTextStyle.copyWith(fontWeight: pw.FontWeight.bold, color: PdfColors.black),
+                                              ),
+                                            ],
+                                          ),
+                                          pw.Padding(
+                                            padding: const pw.EdgeInsets.only(right: 10),
+                                            child: pw.Text(
+                                              num.parse(hd.saleHdCashAmount ?? '0').digits(2),
+                                              style: comapnyTextStyle.copyWith(fontWeight: pw.FontWeight.bold, color: PdfColors.black),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      pw.Row(
+                                        mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          pw.Row(
+                                            children: [
+                                              pw.SvgImage(svg: num.parse(hd.saleHdTransferAmount ?? '0') > 0 ? svgTrue : svgFasle),
                                               pw.SizedBox(width: 5),
                                               pw.Text(
                                                 'เงินโอน',
@@ -629,7 +651,7 @@ class PDFGeneratorSaleCash {
                               ),
                             ],
                           ),
-                          pw.SizedBox(height: 30),
+                          pw.SizedBox(height: 10),
                         ],
                       ),
                     ),
@@ -637,7 +659,7 @@ class PDFGeneratorSaleCash {
                 ],
               ),
             ),
-            pw.SizedBox(height: 30),
+            pw.SizedBox(height: 20),
             pw.Row(
               crossAxisAlignment: pw.CrossAxisAlignment.start,
               mainAxisAlignment: pw.MainAxisAlignment.center,

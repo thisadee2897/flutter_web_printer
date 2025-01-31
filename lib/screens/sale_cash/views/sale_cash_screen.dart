@@ -24,7 +24,7 @@ class SaleCashScreen extends ConsumerWidget {
         actions: [
           FilledButton.icon(
             onPressed: () async {
-              var pdfFile = ref.read(filePdfPayMentProvider);
+              var pdfFile = ref.read(filePdfSaleCashProvider);
               await Printing.layoutPdf(onLayout: (format) async => pdfFile.save());
             },
             label: const Text('Print'),

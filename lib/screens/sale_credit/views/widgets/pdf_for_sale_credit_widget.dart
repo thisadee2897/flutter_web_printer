@@ -204,7 +204,7 @@ class PDFGeneratorSaleCredit {
                             padding: const pw.EdgeInsets.only(left: 2, right: 2),
                             child: pw.Text(
                               'รหัส',
-                              textAlign: pw.TextAlign.center,
+                              textAlign: pw.TextAlign.start,
                               style: pw.TextStyle(
                                 font: font,
                                 fontSize: 14,
