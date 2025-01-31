@@ -80,7 +80,7 @@ class PDFGeneratorSaleCash {
                         mainAxisAlignment: pw.MainAxisAlignment.start,
                         children: [
                           pw.Text(
-                            'ใบจ่ายเงิน',
+                            'ใบเสร็จรับเงิน',
                             style: pw.TextStyle(
                               font: font,
                               color: PdfColors.black,

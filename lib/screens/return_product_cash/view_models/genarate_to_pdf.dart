@@ -5,12 +5,12 @@ import 'package:pdf/widgets.dart' as pw;
 import 'dart:ui' as ui;
 import 'package:printing/printing.dart';
 
-final genarateToPDFReturnProductProvider = StateNotifierProvider<GenaratePDFReturnProductNotifier, AsyncValue<pw.Document>>(
-  (ref) => GenaratePDFReturnProductNotifier(),
+final genarateToPDFReturnProductCashProvider = StateNotifierProvider<GenaratePDFReturnProductCashNotifier, AsyncValue<pw.Document>>(
+  (ref) => GenaratePDFReturnProductCashNotifier(),
 );
 
-class GenaratePDFReturnProductNotifier extends StateNotifier<AsyncValue<pw.Document>> {
-  GenaratePDFReturnProductNotifier() : super(AsyncValue.data(pw.Document())) {
+class GenaratePDFReturnProductCashNotifier extends StateNotifier<AsyncValue<pw.Document>> {
+  GenaratePDFReturnProductCashNotifier() : super(AsyncValue.data(pw.Document())) {
     _pdfFile = pw.Document();
   }
   late pw.Document _pdfFile;

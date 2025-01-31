@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_web_printer/apps/app_exports.dart';
-import 'package:flutter_web_printer/models/document_sale_model.dart';
-import 'package:flutter_web_printer/models/document_sale_d_t_model.dart';
+import 'package:flutter_web_printer/models/document_product_return_d_t_model.dart';
+import 'package:flutter_web_printer/models/document_product_return_model.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:http/http.dart' as http;
@@ -21,8 +21,8 @@ Future<Uint8List?> getImageBytes(String? imageUrl) async {
   return null;
 }
 
-class PDFGeneratorReturnProduct {
-  Future<pw.Page> generate({required DocumentSaleModel hd, required List<DocumentSaleDTModel> dt, required CompanyModel company}) async {
+class PDFGeneratorReturnProductCash {
+  Future<pw.Page> generate({required DocumentProductReturnModel hd, required List<DocumentProductReturnDTModel> dt, required CompanyModel company}) async {
     Uint8List? imageBytesFormNetwork = await getImageBytes(company.companyLogo);
     final ByteData data = await rootBundle.load('assets/fonts/THSarabun-Bold.ttf');
     final font = pw.Font.ttf(data.buffer.asByteData());
@@ -69,7 +69,7 @@ class PDFGeneratorReturnProduct {
                         mainAxisAlignment: pw.MainAxisAlignment.start,
                         children: [
                           pw.Text(
-                            'ใบจ่ายเงิน',
+                            'ใบกำกับภาษี/ใบเสร็จรับเงิน',
                             style: pw.TextStyle(
                               font: font,
                               color: PdfColors.black,
@@ -129,18 +129,18 @@ class PDFGeneratorReturnProduct {
                             crossAxisAlignment: pw.CrossAxisAlignment.start,
                             mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
                             children: [
-                              pw.SizedBox(
-                                height: 32,
-                                width: double.infinity,
-                                child: pw.Column(
-                                  crossAxisAlignment: pw.CrossAxisAlignment.start,
-                                  mainAxisAlignment: pw.MainAxisAlignment.center,
-                                  children: [
-                                    pw.Text('เลขที่', style: textStyle),
-                                    pw.Text(hd.saleHdDocuno.toString(), style: textStyle.copyWith(fontWeight: pw.FontWeight.bold, color: PdfColors.black)),
-                                  ],
-                                ),
-                              ),
+                              // pw.SizedBox(
+                              //   height: 32,
+                              //   width: double.infinity,
+                              //   child: pw.Column(
+                              //     crossAxisAlignment: pw.CrossAxisAlignment.start,
+                              //     mainAxisAlignment: pw.MainAxisAlignment.center,
+                              //     children: [
+                              //       pw.Text('เลขที่', style: textStyle),
+                              //       pw.Text(hd.saleHdDocuno.toString(), style: textStyle.copyWith(fontWeight: pw.FontWeight.bold, color: PdfColors.black)),
+                              //     ],
+                              //   ),
+                              // ),
                               // pw.SizedBox(
                               //   height: 32,
                               //   width: double.infinity,
@@ -161,7 +161,8 @@ class PDFGeneratorReturnProduct {
                                   mainAxisAlignment: pw.MainAxisAlignment.center,
                                   children: [
                                     pw.Text('วันที่', style: textStyle),
-                                    pw.Text(hd.saleHdDocudate.dateTHFormApi, style: textStyle.copyWith(fontWeight: pw.FontWeight.bold, color: PdfColors.black)),
+                                    pw.Text(hd.returnproductHdDocudate.dateTHFormApi,
+                                        style: textStyle.copyWith(fontWeight: pw.FontWeight.bold, color: PdfColors.black)),
                                   ],
                                 ),
                               ),
@@ -199,7 +200,23 @@ class PDFGeneratorReturnProduct {
                           ),
                         ),
                         pw.SizedBox(
-                          width: 100,
+                          width: 150,
+                          child: pw.Padding(
+                            padding: const pw.EdgeInsets.only(left: 2, right: 2),
+                            child: pw.Text(
+                              'เลขที่บิลขาย',
+                              textAlign: pw.TextAlign.start,
+                              style: pw.TextStyle(
+                                font: font,
+                                fontSize: 14,
+                                color: PdfColor.fromHex("#5E6470"),
+                                fontWeight: pw.FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                        pw.SizedBox(
+                          width: 60,
                           child: pw.Padding(
                             padding: const pw.EdgeInsets.only(left: 2, right: 2),
                             child: pw.Text(
@@ -265,7 +282,7 @@ class PDFGeneratorReturnProduct {
                                   child: pw.Padding(
                                     padding: const pw.EdgeInsets.only(left: 2, right: 2),
                                     child: pw.Text(
-                                      dt[index].saleDtListno.digits(0),
+                                      dt[index].returnproductDtListno.digits(0),
                                       textAlign: pw.TextAlign.center,
                                       style: pw.TextStyle(
                                         fontSize: 14,
@@ -277,11 +294,31 @@ class PDFGeneratorReturnProduct {
                                   ),
                                 ),
                                 pw.SizedBox(
-                                  width: 100,
+                                  width: 150,
                                   child: pw.Padding(
                                     padding: const pw.EdgeInsets.only(left: 2, right: 2),
                                     child: pw.Text(
-                                      "${dt[index].saleDtProductBarcodeCode}",
+                                      maxLines: 1,
+                                      overflow: pw.TextOverflow.visible,
+                                      "${dt[index].saleHdDocuno}",
+                                      textAlign: pw.TextAlign.start,
+                                      style: pw.TextStyle(
+                                        fontSize: 14,
+                                        font: font,
+                                        color: PdfColor.fromHex("#5E6470"),
+                                        fontWeight: pw.FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                pw.SizedBox(
+                                  width: 60,
+                                  child: pw.Padding(
+                                    padding: const pw.EdgeInsets.only(left: 2, right: 2),
+                                    child: pw.Text(
+                                      maxLines: 1,
+                                      overflow: pw.TextOverflow.visible,
+                                      "${dt[index].returnproductDtProductBarcodeCode}",
                                       textAlign: pw.TextAlign.start,
                                       style: pw.TextStyle(
                                         font: font,
@@ -298,7 +335,7 @@ class PDFGeneratorReturnProduct {
                                     child: pw.Text(
                                       maxLines: 1,
                                       overflow: pw.TextOverflow.visible,
-                                      "${dt[index].saleDtProductBarcodeName}",
+                                      "${dt[index].returnproductDtProductBarcodeName}",
                                       textAlign: pw.TextAlign.start,
                                       style: pw.TextStyle(
                                         fontSize: 14,
@@ -314,7 +351,7 @@ class PDFGeneratorReturnProduct {
                                   child: pw.Padding(
                                     padding: const pw.EdgeInsets.only(left: 2, right: 2),
                                     child: pw.Text(
-                                      num.parse(dt[index].saleDtNetamnt ?? '0').digits(2),
+                                      num.parse(dt[index].returnproductDtNetamnt ?? '0').digits(2),
                                       textAlign: pw.TextAlign.end,
                                       style: pw.TextStyle(
                                         font: font,
@@ -360,7 +397,7 @@ class PDFGeneratorReturnProduct {
                                     pw.Padding(
                                       padding: const pw.EdgeInsets.only(right: 10),
                                       child: pw.Text(
-                                        num.parse(hd.saleHdAmount ?? '0').digits(2),
+                                        num.parse(hd.returnproductHdAmount ?? '0').digits(2),
                                         style: pw.TextStyle(
                                           font: font,
                                           fontSize: 14,
@@ -383,7 +420,7 @@ class PDFGeneratorReturnProduct {
                                 crossAxisAlignment: pw.CrossAxisAlignment.start,
                                 children: [
                                   pw.Text('จำนวนเงิน (ตัวอักษร)', style: comapnyTextStyle),
-                                  pw.Text(NumberToThaiWords.convert(double.parse(hd.saleHdNetamnt ?? '0')),
+                                  pw.Text(NumberToThaiWords.convert(double.parse(hd.returnproductHdNetamnt ?? '0')),
                                       style: comapnyTextStyle.copyWith(fontWeight: pw.FontWeight.bold, color: PdfColors.black)),
                                 ],
                               ),
@@ -394,7 +431,7 @@ class PDFGeneratorReturnProduct {
                                   crossAxisAlignment: pw.CrossAxisAlignment.end,
                                   children: [
                                     pw.Text('รวมทั้งสิ้น', style: comapnyTextStyle),
-                                    pw.Text(double.parse(hd.saleHdNetamnt ?? '0').digits(2),
+                                    pw.Text(double.parse(hd.returnproductHdNetamnt ?? '0').digits(2),
                                         style: comapnyTextStyle.copyWith(fontWeight: pw.FontWeight.bold, color: PdfColors.black)),
                                   ],
                                 ),
@@ -407,16 +444,72 @@ class PDFGeneratorReturnProduct {
                             children: [
                               pw.Expanded(
                                 flex: 1,
-                                child: pw.Column(
-                                  mainAxisAlignment: pw.MainAxisAlignment.start,
-                                  crossAxisAlignment: pw.CrossAxisAlignment.start,
-                                  children: [
-                                    pw.Text('จำนวนวันเครดิต', style: comapnyTextStyle),
-                                    pw.Text(
-                                      "${hd.saleHdCreditday.digits(0)} วัน",
-                                      style: comapnyTextStyle.copyWith(fontWeight: pw.FontWeight.bold, color: PdfColors.black),
-                                    ),
-                                  ],
+                                child: pw.Padding(
+                                  padding: const pw.EdgeInsets.only(right: 30),
+                                  child: pw.Column(
+                                    children: [
+                                      pw.Row(
+                                        mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          pw.Text(
+                                            'ชำระโดย',
+                                            style: comapnyTextStyle,
+                                          ),
+                                          pw.Padding(
+                                            padding: const pw.EdgeInsets.only(right: 10),
+                                            child: pw.Text(
+                                              "จำนวน",
+                                              style: comapnyTextStyle,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      pw.Row(
+                                        mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          pw.Row(
+                                            children: [
+                                              pw.SvgImage(svg: num.parse(hd.returnproductHdCashAmount ?? '0') > 0 ? svgTrue : svgFasle),
+                                              pw.SizedBox(width: 5),
+                                              pw.Text(
+                                                'เงินสด',
+                                                style: comapnyTextStyle.copyWith(fontWeight: pw.FontWeight.bold, color: PdfColors.black),
+                                              ),
+                                            ],
+                                          ),
+                                          pw.Padding(
+                                            padding: const pw.EdgeInsets.only(right: 10),
+                                            child: pw.Text(
+                                              num.parse(hd.returnproductHdCashAmount ?? '0').digits(2),
+                                              style: comapnyTextStyle.copyWith(fontWeight: pw.FontWeight.bold, color: PdfColors.black),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      pw.Row(
+                                        mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          pw.Row(
+                                            children: [
+                                              pw.SvgImage(svg: num.parse(hd.returnproductHdTransferAmount ?? '0') > 0 ? svgTrue : svgFasle),
+                                              pw.SizedBox(width: 5),
+                                              pw.Text(
+                                                'เงินโอน',
+                                                style: comapnyTextStyle.copyWith(fontWeight: pw.FontWeight.bold, color: PdfColors.black),
+                                              ),
+                                            ],
+                                          ),
+                                          pw.Padding(
+                                            padding: const pw.EdgeInsets.only(right: 10),
+                                            child: pw.Text(
+                                              num.parse(hd.returnproductHdTransferAmount ?? '0').digits(2),
+                                              style: comapnyTextStyle.copyWith(fontWeight: pw.FontWeight.bold, color: PdfColors.black),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                               pw.Expanded(
@@ -449,7 +542,7 @@ class PDFGeneratorReturnProduct {
                                         pw.Padding(
                                           padding: const pw.EdgeInsets.only(right: 10),
                                           child: pw.Text(
-                                            num.parse(hd.saleHdTotalexcludeamnt ?? '0').digits(2),
+                                            num.parse(hd.returnproductHdTotalexcludeamnt ?? '0').digits(2),
                                             style: comapnyTextStyle.copyWith(fontWeight: pw.FontWeight.bold, color: PdfColors.black),
                                           ),
                                         ),
@@ -465,7 +558,7 @@ class PDFGeneratorReturnProduct {
                                         pw.Padding(
                                           padding: const pw.EdgeInsets.only(right: 10),
                                           child: pw.Text(
-                                            num.parse(hd.saleHdBaseamnt ?? '0').digits(2),
+                                            num.parse(hd.returnproductHdBaseamnt ?? '0').digits(2),
                                             style: comapnyTextStyle.copyWith(fontWeight: pw.FontWeight.bold, color: PdfColors.black),
                                           ),
                                         ),
@@ -481,7 +574,7 @@ class PDFGeneratorReturnProduct {
                                         pw.Padding(
                                           padding: const pw.EdgeInsets.only(right: 10),
                                           child: pw.Text(
-                                            num.parse(hd.saleHdVatamnt ?? '0').digits(2),
+                                            num.parse(hd.returnproductHdVatamnt ?? '0').digits(2),
                                             style: comapnyTextStyle.copyWith(fontWeight: pw.FontWeight.bold, color: PdfColors.black),
                                           ),
                                         ),
@@ -492,7 +585,7 @@ class PDFGeneratorReturnProduct {
                               ),
                             ],
                           ),
-                          pw.SizedBox(height: 30),
+                          // pw.SizedBox(height: 30),
                         ],
                       ),
                     ),
@@ -500,22 +593,45 @@ class PDFGeneratorReturnProduct {
                 ],
               ),
             ),
-            pw.SizedBox(height: 30),
+            pw.SizedBox(height: 10),
+            pw.SizedBox(
+              width: 149,
+              height: 80,
+              child: pw.Column(
+                mainAxisAlignment: pw.MainAxisAlignment.center,
+                crossAxisAlignment: pw.CrossAxisAlignment.center,
+                children: [
+                  pw.Text("ผู้จ่ายเงิน", style: comapnyTextStyle),
+                  pw.SizedBox(height: 10),
+                  pw.Text('...........................................................', style: comapnyTextStyle),
+                  pw.Text(
+                    "(...........................................................)",
+                    style: comapnyTextStyle.copyWith(
+                      fontWeight: pw.FontWeight.bold,
+                      color: PdfColors.black,
+                    ),
+                  ),
+                  pw.Text(
+                    "วันที่.....................................................",
+                    style: comapnyTextStyle.copyWith(
+                      fontWeight: pw.FontWeight.bold,
+                      color: PdfColors.black,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            pw.SizedBox(height: 10),
             pw.Row(
               crossAxisAlignment: pw.CrossAxisAlignment.start,
               mainAxisAlignment: pw.MainAxisAlignment.center,
               children: [
                 pw.SizedBox(
                   width: 50,
-                  child: pw.Text('หมายเหตุ', style: comapnyTextStyle),
+                  child: pw.Text('หมายเหตุ :', style: comapnyTextStyle),
                 ),
                 pw.SizedBox(width: 10),
-                pw.Column(
-                  children: [
-                    pw.Text('1.บริษัทฯขอสงวนสิทธิ์ในการแก้ไข/เปลี่ยนแปลงใบกำกับภาษี ภายในวันที่ออกใบกำกับภาษีเท่านั้น', style: comapnyTextStyle),
-                    pw.Text('2.บริษัทฯขอสงวนสิทธิ์ในการออกใบกำกับภาษีแบบเต็มรูปในวันที่ออกใบกำกับภาษีอย่างย่อเท่านั้น', style: comapnyTextStyle)
-                  ],
-                )
+                pw.Text("${hd.returnproductHdRemark}", style: comapnyTextStyle),
               ],
             )
           ],

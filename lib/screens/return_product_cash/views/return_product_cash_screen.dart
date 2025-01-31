@@ -2,21 +2,21 @@ import 'package:flutter_web_printer/apps/app_exports.dart';
 import 'package:printing/printing.dart';
 import 'package:syncfusion_flutter_core/theme.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
-import '../controllers/providers/document_return_product_dt.dart';
+import '../controllers/providers/document_return_product_cash_dt.dart';
 
-class ReturnProductScreen extends ConsumerWidget {
-  const ReturnProductScreen({super.key});
+class ReturnProductCashScreen extends ConsumerWidget {
+  const ReturnProductCashScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    Uint8List? filePdf = ref.watch(filePdfReturnProductViewProvider);
+    Uint8List? filePdf = ref.watch(filePdfReturnProductCashViewProvider);
     final hd = ref.watch(documentPaymentProvider);
     return Scaffold(
       backgroundColor: Colors.black87,
       appBar: AppBar(
         backgroundColor: Colors.black87,
         title: const Text(
-          'Return Product',
+          'Return Product Cash',
           style: TextStyle(
             color: Colors.white,
           ),
@@ -24,7 +24,7 @@ class ReturnProductScreen extends ConsumerWidget {
         actions: [
           FilledButton.icon(
             onPressed: () async {
-              var pdfFile = ref.read(filePdfReturnProductProvider);
+              var pdfFile = ref.read(filePdfReturnProductCashProvider);
               await Printing.layoutPdf(onLayout: (format) async => pdfFile.save());
             },
             label: const Text('Print'),

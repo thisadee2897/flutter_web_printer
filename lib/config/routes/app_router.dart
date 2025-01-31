@@ -1,6 +1,10 @@
 // ignore_for_file: unused_element
 import 'package:flutter/foundation.dart';
 import 'package:flutter_web_printer/apps/app_exports.dart';
+import 'package:flutter_web_printer/screens/return_product_cash/controllers/providers/document_return_product_cash.dart';
+import 'package:flutter_web_printer/screens/return_product_cash/views/return_product_cash_screen.dart';
+import 'package:flutter_web_printer/screens/return_product_credit/controllers/providers/document_return_product_credit.dart';
+import 'package:flutter_web_printer/screens/return_product_credit/views/return_product_credit_screen.dart';
 import 'package:flutter_web_printer/screens/sale_cash/controllers/providers/document_sale_cash.dart';
 import 'package:flutter_web_printer/screens/sale_cash/views/sale_cash_screen.dart';
 import 'package:flutter_web_printer/screens/sale_credit/controllers/providers/document_sale_credit.dart';
@@ -88,6 +92,50 @@ final appRouterProvider = Provider<GoRouter>(
           },
           pageBuilder: (context, state) {
             return const NoTransitionPage(child: SaleCashScreen());
+          },
+        ),
+        GoRoute(
+          path: Routes.returnProductCash,
+          redirect: (context, state) {
+            WidgetsBinding.instance.addPostFrameCallback((_) async {
+              try {
+                final saleHdId = state.uri.queryParameters['cmV0dXJucHJvZHVjdF9oZF9pZA'];
+                if (kDebugMode) print('returnproduct_hd_id: $saleHdId');
+                var hdId = idFormBase64(id: saleHdId);
+                if (kDebugMode) print('hdId: $hdId');
+                await ref.read(documentReturnProductCashProvider.notifier).get(id: hdId);
+              } catch (e) {
+                ref.read(routerHelperProvider).goPath('/error');
+                if (kDebugMode) print('error: $e');
+                return;
+              }
+            });
+            return;
+          },
+          pageBuilder: (context, state) {
+            return const NoTransitionPage(child: ReturnProductCashScreen());
+          },
+        ),
+        GoRoute(
+          path: Routes.returnProductCredit,
+          redirect: (context, state) {
+            WidgetsBinding.instance.addPostFrameCallback((_) async {
+              try {
+                final saleHdId = state.uri.queryParameters['cmV0dXJucHJvZHVjdF9oZF9pZA'];
+                if (kDebugMode) print('returnproduct_hd_id: $saleHdId');
+                var hdId = idFormBase64(id: saleHdId);
+                if (kDebugMode) print('hdId: $hdId');
+                await ref.read(documentReturnProductCreditProvider.notifier).get(id: hdId);
+              } catch (e) {
+                ref.read(routerHelperProvider).goPath('/error');
+                if (kDebugMode) print('error: $e');
+                return;
+              }
+            });
+            return;
+          },
+          pageBuilder: (context, state) {
+            return const NoTransitionPage(child: ReturnProductCreditScreen());
           },
         ),
       ],
