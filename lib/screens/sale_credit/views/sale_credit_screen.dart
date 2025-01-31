@@ -1,23 +1,22 @@
 import 'package:flutter_web_printer/apps/app_exports.dart';
-import 'package:flutter_web_printer/screens/sale/controllers/providers/document_sale_dt.dart';
-import 'package:flutter_web_printer/screens/sale/view_models/genarate_to_pdf.dart';
+import 'package:flutter_web_printer/screens/sale_credit/controllers/providers/document_sale_credit_dt.dart';
 import 'package:printing/printing.dart';
 import 'package:syncfusion_flutter_core/theme.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
-class SaleScreen extends ConsumerWidget {
-  const SaleScreen({super.key});
+class SaleCreditScreen extends ConsumerWidget {
+  const SaleCreditScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    Uint8List? filePdf = ref.watch(filePdfSaleViewProvider);
+    Uint8List? filePdf = ref.watch(filePdfSaleCreditViewProvider);
     final hd = ref.watch(documentPaymentProvider);
     return Scaffold(
       backgroundColor: Colors.black87,
       appBar: AppBar(
         backgroundColor: Colors.black87,
         title: const Text(
-          'Sale',
+          'Sale Credit',
           style: TextStyle(
             color: Colors.white,
           ),
@@ -29,14 +28,7 @@ class SaleScreen extends ConsumerWidget {
               await Printing.layoutPdf(onLayout: (format) async => pdfFile.save());
             },
             label: const Text('Print'),
-            icon: ref.watch(isLoadGennaratePDFSaleProvider)
-                ? Transform.scale(
-                    scale: 0.5,
-                    child: const CircularProgressIndicator(
-                      color: Colors.white,
-                    ),
-                  )
-                : const Icon(Icons.print),
+            icon: const Icon(Icons.print),
           ),
           const Gap(20),
         ],

@@ -5,16 +5,14 @@ import 'package:pdf/widgets.dart' as pw;
 import 'dart:ui' as ui;
 import 'package:printing/printing.dart';
 
-final genarateToPDFSaleProvider = StateNotifierProvider<GenaratePDFSaleNotifier, AsyncValue<pw.Document>>(
-  (ref) => GenaratePDFSaleNotifier(ref),
+final genarateToPDFSaleCreditProvider = StateNotifierProvider<GenaratePDFSaleCreditNotifier, AsyncValue<pw.Document>>(
+  (ref) => GenaratePDFSaleCreditNotifier(),
 );
 
-class GenaratePDFSaleNotifier extends StateNotifier<AsyncValue<pw.Document>> {
-  GenaratePDFSaleNotifier(this.ref) : super(AsyncValue.data(pw.Document())) {
+class GenaratePDFSaleCreditNotifier extends StateNotifier<AsyncValue<pw.Document>> {
+  GenaratePDFSaleCreditNotifier() : super(AsyncValue.data(pw.Document())) {
     _pdfFile = pw.Document();
   }
-
-  final Ref ref;
   late pw.Document _pdfFile;
 
   Future<void> printPdf(List<GlobalKey> widgetKeys) async {
@@ -58,9 +56,7 @@ class GenaratePDFSaleNotifier extends StateNotifier<AsyncValue<pw.Document>> {
   Future<void> showPrintedPdf() async {
     if (state.hasValue) {
       await Printing.layoutPdf(onLayout: (format) async => _pdfFile.save());
-      ref.read(isLoadGennaratePDFSaleProvider.notifier).state = false;
     }
   }
 }
 
-final isLoadGennaratePDFSaleProvider = StateProvider<bool>((ref) => false);

@@ -1,10 +1,11 @@
 // ignore_for_file: unused_element
 import 'package:flutter/foundation.dart';
 import 'package:flutter_web_printer/apps/app_exports.dart';
-import 'package:flutter_web_printer/screens/sale/controllers/providers/document_sale.dart';
-import 'package:flutter_web_printer/screens/sale/views/sale_screen.dart';
+import 'package:flutter_web_printer/screens/sale_cash/controllers/providers/document_sale_cash.dart';
+import 'package:flutter_web_printer/screens/sale_cash/views/sale_cash_screen.dart';
+import 'package:flutter_web_printer/screens/sale_credit/controllers/providers/document_sale_credit.dart';
+import 'package:flutter_web_printer/screens/sale_credit/views/sale_credit_screen.dart';
 import 'route_config.dart';
-
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 final appRouterProvider = Provider<GoRouter>(
@@ -46,7 +47,7 @@ final appRouterProvider = Provider<GoRouter>(
           },
         ),
         GoRoute(
-          path: Routes.sale,
+          path: Routes.saleCredit,
           redirect: (context, state) {
             WidgetsBinding.instance.addPostFrameCallback((_) async {
               try {
@@ -54,7 +55,7 @@ final appRouterProvider = Provider<GoRouter>(
                 if (kDebugMode) print('sale_hd_id: $saleHdId');
                 var hdId = idFormBase64(id: saleHdId);
                 if (kDebugMode) print('hdId: $hdId');
-                await ref.read(documentSaleProvider.notifier).get(id: hdId);
+                await ref.read(documentSaleCreditProvider.notifier).get(id: hdId);
               } catch (e) {
                 ref.read(routerHelperProvider).goPath('/error');
                 if (kDebugMode) print('error: $e');
@@ -64,7 +65,29 @@ final appRouterProvider = Provider<GoRouter>(
             return;
           },
           pageBuilder: (context, state) {
-            return const NoTransitionPage(child: SaleScreen());
+            return const NoTransitionPage(child: SaleCreditScreen());
+          },
+        ),
+        GoRoute(
+          path: Routes.saleCash,
+          redirect: (context, state) {
+            WidgetsBinding.instance.addPostFrameCallback((_) async {
+              try {
+                final saleHdId = state.uri.queryParameters['c2FsZV9oZF9pZAo'];
+                if (kDebugMode) print('sale_hd_id: $saleHdId');
+                var hdId = idFormBase64(id: saleHdId);
+                if (kDebugMode) print('hdId: $hdId');
+                await ref.read(documentSaleCashProvider.notifier).get(id: hdId);
+              } catch (e) {
+                ref.read(routerHelperProvider).goPath('/error');
+                if (kDebugMode) print('error: $e');
+                return;
+              }
+            });
+            return;
+          },
+          pageBuilder: (context, state) {
+            return const NoTransitionPage(child: SaleCashScreen());
           },
         ),
       ],

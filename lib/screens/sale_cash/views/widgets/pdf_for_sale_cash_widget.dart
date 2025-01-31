@@ -21,10 +21,21 @@ Future<Uint8List?> getImageBytes(String? imageUrl) async {
   return null;
 }
 
-class PDFGeneratorSale {
+class PDFGeneratorSaleCash {
   Future<pw.Page> generate({required DocumentSaleModel hd, required List<DocumentSaleDTModel> dt, required CompanyModel company}) async {
     Uint8List? imageBytesFormNetwork = await getImageBytes(company.companyLogo);
     final ByteData data = await rootBundle.load('assets/fonts/THSarabun-Bold.ttf');
+    String svgTrue = '''
+<svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="10" height="10" rx="2" fill="#0064B0"/>
+<path d="M7.33317 3.39453L4.12484 6.60286L2.6665 5.14453" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+''';
+    String svgFasle = '''
+<svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.25" y="0.25" width="9.5" height="9.5" rx="1.75" stroke="#687182" stroke-width="0.5"/>
+</svg>
+''';
     final font = pw.Font.ttf(data.buffer.asByteData());
     var comapnyTextStyle = pw.TextStyle(
       fontSize: 14,
@@ -407,16 +418,94 @@ class PDFGeneratorSale {
                             children: [
                               pw.Expanded(
                                 flex: 1,
-                                child: pw.Column(
-                                  mainAxisAlignment: pw.MainAxisAlignment.start,
-                                  crossAxisAlignment: pw.CrossAxisAlignment.start,
-                                  children: [
-                                    pw.Text('จำนวนวันเครดิต', style: comapnyTextStyle),
-                                    pw.Text(
-                                      "${hd.saleHdCreditday.digits(0)} วัน",
-                                      style: comapnyTextStyle.copyWith(fontWeight: pw.FontWeight.bold, color: PdfColors.black),
-                                    ),
-                                  ],
+                                child: pw.Padding(
+                                  padding: const pw.EdgeInsets.only(right: 30),
+                                  child: pw.Column(
+                                    children: [
+                                      pw.Row(
+                                        mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          pw.Text(
+                                            'ชำระโดย',
+                                            style: comapnyTextStyle,
+                                          ),
+                                          pw.Padding(
+                                            padding: const pw.EdgeInsets.only(right: 10),
+                                            child: pw.Text(
+                                              "จำนวน",
+                                              style: comapnyTextStyle,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      pw.Row(
+                                        mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          pw.Row(
+                                            children: [
+                                              pw.SvgImage(svg: num.parse(hd.saleHdTransferAmount ?? '0') > 0 ? svgTrue : svgTrue),
+                                              pw.SizedBox(width: 5),
+                                              pw.Text(
+                                                'เงินโอน',
+                                                style: comapnyTextStyle.copyWith(fontWeight: pw.FontWeight.bold, color: PdfColors.black),
+                                              ),
+                                            ],
+                                          ),
+                                          pw.Padding(
+                                            padding: const pw.EdgeInsets.only(right: 10),
+                                            child: pw.Text(
+                                              num.parse(hd.saleHdTransferAmount ?? '0').digits(2),
+                                              style: comapnyTextStyle.copyWith(fontWeight: pw.FontWeight.bold, color: PdfColors.black),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      pw.Row(
+                                        mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          pw.Row(
+                                            children: [
+                                              pw.SvgImage(svg: num.parse(hd.saleHdCreditAmount ?? '0') > 0 ? svgTrue : svgFasle),
+                                              pw.SizedBox(width: 5),
+                                              pw.Text(
+                                                'บัตรเครดิต',
+                                                style: comapnyTextStyle.copyWith(fontWeight: pw.FontWeight.bold, color: PdfColors.black),
+                                              ),
+                                            ],
+                                          ),
+                                          pw.Padding(
+                                            padding: const pw.EdgeInsets.only(right: 10),
+                                            child: pw.Text(
+                                              num.parse(hd.saleHdCreditAmount ?? '0').digits(2),
+                                              style: comapnyTextStyle.copyWith(fontWeight: pw.FontWeight.bold, color: PdfColors.black),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      pw.Row(
+                                        mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          pw.Row(
+                                            children: [
+                                              pw.SvgImage(svg: num.parse(hd.saleHdVoucherAmount ?? '0') > 0 ? svgTrue : svgFasle),
+                                              pw.SizedBox(width: 5),
+                                              pw.Text(
+                                                'VOUCHER',
+                                                style: comapnyTextStyle.copyWith(fontWeight: pw.FontWeight.bold, color: PdfColors.black),
+                                              ),
+                                            ],
+                                          ),
+                                          pw.Padding(
+                                            padding: const pw.EdgeInsets.only(right: 10),
+                                            child: pw.Text(
+                                              num.parse(hd.saleHdVoucherAmount ?? '0').digits(2),
+                                              style: comapnyTextStyle.copyWith(fontWeight: pw.FontWeight.bold, color: PdfColors.black),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                               pw.Expanded(
@@ -482,6 +571,54 @@ class PDFGeneratorSale {
                                           padding: const pw.EdgeInsets.only(right: 10),
                                           child: pw.Text(
                                             num.parse(hd.saleHdVatamnt ?? '0').digits(2),
+                                            style: comapnyTextStyle.copyWith(fontWeight: pw.FontWeight.bold, color: PdfColors.black),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    pw.Row(
+                                      mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        pw.Text(
+                                          'หัก ณ ที่จ่าย',
+                                          style: comapnyTextStyle.copyWith(fontWeight: pw.FontWeight.bold, color: PdfColors.black),
+                                        ),
+                                        pw.Padding(
+                                          padding: const pw.EdgeInsets.only(right: 10),
+                                          child: pw.Text(
+                                            num.parse(hd.saleHdWhtAmount ?? '0').digits(2),
+                                            style: comapnyTextStyle.copyWith(fontWeight: pw.FontWeight.bold, color: PdfColors.black),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    pw.Row(
+                                      mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        pw.Text(
+                                          'รวมเงิน',
+                                          style: comapnyTextStyle.copyWith(fontWeight: pw.FontWeight.bold, color: PdfColors.black),
+                                        ),
+                                        pw.Padding(
+                                          padding: const pw.EdgeInsets.only(right: 10),
+                                          child: pw.Text(
+                                            num.parse(hd.saleHdNetamnt ?? '0').digits(2),
+                                            style: comapnyTextStyle.copyWith(fontWeight: pw.FontWeight.bold, color: PdfColors.black),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    pw.Row(
+                                      mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        pw.Text(
+                                          'รับเงินสุดทธิ',
+                                          style: comapnyTextStyle.copyWith(fontWeight: pw.FontWeight.bold, color: PdfColors.black),
+                                        ),
+                                        pw.Padding(
+                                          padding: const pw.EdgeInsets.only(right: 10),
+                                          child: pw.Text(
+                                            num.parse(hd.saleHdNetamnt ?? '0').digits(2),
                                             style: comapnyTextStyle.copyWith(fontWeight: pw.FontWeight.bold, color: PdfColors.black),
                                           ),
                                         ),

@@ -16,7 +16,7 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
-version: 2.2.2+1
+version: 2.2.3+1
 
 environment:
   sdk: ^3.5.1
@@ -61,6 +61,7 @@ dependencies:
   http: ^1.3.0
   syncfusion_flutter_core: ^27.2.5
   lottie: ^3.2.0
+  font_awesome_flutter: ^10.8.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -92,6 +93,8 @@ flutter:
   assets:
     - assets/
     - assets/images/
+    - assets/fonts/THSarabun-Bold.ttf
+    - assets/fonts/RobotoMono-VariableFont_wght.ttf
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -111,6 +114,8 @@ flutter:
         - asset: assets/fonts/THSarabun.ttf
         - asset: assets/fonts/THSarabun-Bold.ttf
           weight: 700
+
+
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

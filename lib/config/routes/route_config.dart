@@ -5,5 +5,6 @@ class Routes {
   //payment
   static const String payment = '/payment';
   //Sale
-  static const String sale = '/sale';
+  static const String saleCredit = '/sale_credit';
+  static const String saleCash = '/sale_cash';
 }

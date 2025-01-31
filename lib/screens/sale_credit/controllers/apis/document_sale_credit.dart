@@ -3,9 +3,9 @@ import 'package:flutter_web_printer/config/routes/route_helper.dart';
 import 'package:flutter_web_printer/models/document_sale_model.dart';
 import 'package:flutter_web_printer/utils/services/rest_api_service.dart';
 
-class DocumentSaleApi {
+class DocumentSaleCreditApi {
   final Ref ref;
-  DocumentSaleApi({required this.ref});
+  DocumentSaleCreditApi({required this.ref});
   final String _detail = '/Saledata/Sale/get_document_sale';
 
   Future<DocumentSaleModel> get(Map<String, dynamic> body) async {
@@ -20,4 +20,4 @@ class DocumentSaleApi {
   }
 }
 
-final apiDocumentSale = Provider<DocumentSaleApi>((ref) => DocumentSaleApi(ref: ref));
+final apiDocumentSaleCredit = Provider<DocumentSaleCreditApi>((ref) => DocumentSaleCreditApi(ref: ref));

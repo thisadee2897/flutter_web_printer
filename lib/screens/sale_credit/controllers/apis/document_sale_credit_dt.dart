@@ -1,9 +1,9 @@
 import 'package:flutter_web_printer/apps/app_exports.dart';
 import 'package:flutter_web_printer/models/document_sale_d_t_model.dart';
 
-class DocumentSaleDTApi {
+class DocumentSaleCreditDTApi {
   final Ref ref;
-  DocumentSaleDTApi({required this.ref});
+  DocumentSaleCreditDTApi({required this.ref});
   final String _detail = '/Saledata/Sale/get_document_get_sale_dt';
 
   Future<List<DocumentSaleDTModel>> get(Map<String, dynamic> body) async {
@@ -13,4 +13,4 @@ class DocumentSaleDTApi {
   }
 }
 
-final apiDocumentSaleDT = Provider<DocumentSaleDTApi>((ref) => DocumentSaleDTApi(ref: ref));
+final apiDocumentSaleCreditDT = Provider<DocumentSaleCreditDTApi>((ref) => DocumentSaleCreditDTApi(ref: ref));
