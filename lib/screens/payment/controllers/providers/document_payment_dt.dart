@@ -31,7 +31,7 @@ class DocumentPaymentDTNotifier extends StateNotifier<AsyncValue<List<DocumentPa
       List<DocumentPaymentDTModel> dataWidget = [];
       for (int i = 1; i <= state.value!.length; i++) {
         dataWidget.add(state.value![i - 1]);
-        if (i % 8 == 0) {
+        if (i % 10 == 0) {
           var page = await PDFGeneratorPayment().generate(hd: hd!, dt: dataWidget, company: company);
           pdfFile.addPage(page);
           dataWidget = [];

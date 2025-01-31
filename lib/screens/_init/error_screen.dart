@@ -18,7 +18,7 @@ class ErrorScreen extends StatelessWidget {
               width: minScale * 0.8,
             ),
             Text(
-              'Data Not Found',
+              'ไม่พบข้อมูล',
               style: context.displayLarge.copyWith(color: Colors.white),
             ),
           ],

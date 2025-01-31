@@ -1,6 +1,8 @@
 // ignore_for_file: unused_element
 import 'package:flutter/foundation.dart';
 import 'package:flutter_web_printer/apps/app_exports.dart';
+import 'package:flutter_web_printer/screens/sale/controllers/providers/document_sale.dart';
+import 'package:flutter_web_printer/screens/sale/views/sale_screen.dart';
 import 'route_config.dart';
 
 
@@ -41,6 +43,28 @@ final appRouterProvider = Provider<GoRouter>(
           },
           pageBuilder: (context, state) {
             return const NoTransitionPage(child: PaymentScreen());
+          },
+        ),
+        GoRoute(
+          path: Routes.sale,
+          redirect: (context, state) {
+            WidgetsBinding.instance.addPostFrameCallback((_) async {
+              try {
+                final saleHdId = state.uri.queryParameters['c2FsZV9oZF9pZAo'];
+                if (kDebugMode) print('sale_hd_id: $saleHdId');
+                var hdId = idFormBase64(id: saleHdId);
+                if (kDebugMode) print('hdId: $hdId');
+                await ref.read(documentSaleProvider.notifier).get(id: hdId);
+              } catch (e) {
+                ref.read(routerHelperProvider).goPath('/error');
+                if (kDebugMode) print('error: $e');
+                return;
+              }
+            });
+            return;
+          },
+          pageBuilder: (context, state) {
+            return const NoTransitionPage(child: SaleScreen());
           },
         ),
       ],

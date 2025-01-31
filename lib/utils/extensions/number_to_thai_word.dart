@@ -3,14 +3,11 @@ class NumberToThaiWords {
   static const List<String> _scales = ['', 'สิบ', 'ร้อย', 'พัน', 'หมื่น', 'แสน', 'ล้าน'];
 
   static String _convertNumberToThaiWords(int number) {
-//     if (number == 0 ) return 'ศูนย์';
-
     String words = '';
     int scaleIndex = 0;
 
     while (number > 0) {
       if (scaleIndex == 6) {
-        // แยกหลักล้าน
         int millionPart = number ~/ 1000000;
         words = '${_convertNumberToThaiWords(millionPart)}ล้าน$words';
         number %= 1000000;
@@ -21,7 +18,6 @@ class NumberToThaiWords {
       int digit = number % 10;
       if (digit != 0) {
         if (scaleIndex == 1) {
-          // หลักสิบ: "ยี่สิบ" และ "สิบ"
           if (digit == 1) {
             words = 'สิบ$words';
           } else if (digit == 2) {
