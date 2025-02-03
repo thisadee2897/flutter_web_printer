@@ -26,7 +26,7 @@ _$DocumentReceivableCashModelImpl _$$DocumentReceivableCashModelImplFromJson(
           json['receivable_hd_transfer_amount'] as String?,
       receivableHdCreditAmount: json['receivable_hd_credit_amount'] as String?,
       branchBankbookId: json['master_branch_bankbook_id'] as String?,
-      bankId: json['master_bank_id'] as String?,
+      bankId: json['master_bank_id'] as num?,
       bankName: json['master_bank_name'] as String?,
       branchBankbookName: json['master_branch_bankbook_name'] as String?,
       branchBankbookBankbookno:

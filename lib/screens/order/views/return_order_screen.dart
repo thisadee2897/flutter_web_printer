@@ -1,27 +1,22 @@
 import 'package:flutter_web_printer/apps/app_exports.dart';
-import 'package:flutter_web_printer/screens/receivable_cash/controllers/providers/document_receivable_cash.dart';
 import 'package:printing/printing.dart';
 import 'package:syncfusion_flutter_core/theme.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
-import '../controllers/providers/document_receivable_cash_dt.dart';
+import '../controllers/providers/document_order_dt.dart';
 
-class ReceivableCashScreen extends ConsumerWidget {
-  const ReceivableCashScreen({super.key});
+class OrderScreen extends ConsumerWidget {
+  const OrderScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    Uint8List? filePdf = ref.watch(filePdfReceivableCashViewProvider);
-    final hd = ref.watch(documentReceivableCashProvider);
-    final dt = ref.watch(documentReceivableCashDTProvider);
-    if(dt.hasError){
-      return Center(child: Text('error: ${dt.error}'));
-    }
+    Uint8List? filePdf = ref.watch(filePdfOrderViewProvider);
+    final hd = ref.watch(documentPaymentProvider);
     return Scaffold(
       backgroundColor: Colors.black87,
       appBar: AppBar(
         backgroundColor: Colors.black87,
         title: const Text(
-          'Receivable Cash',
+          'Order',
           style: TextStyle(
             color: Colors.white,
           ),
@@ -29,7 +24,7 @@ class ReceivableCashScreen extends ConsumerWidget {
         actions: [
           FilledButton.icon(
             onPressed: () async {
-              var pdfFile = ref.read(filePdfReceivableCashProvider);
+              var pdfFile = ref.read(filePdfOrderProvider);
               await Printing.layoutPdf(onLayout: (format) async => pdfFile.save());
             },
             label: const Text('Print'),

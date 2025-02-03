@@ -44,9 +44,6 @@ class DocumentReceivableCashDTNotifier extends StateNotifier<AsyncValue<List<Doc
         }
       }
       ref.read(filePdfReceivableCashProvider.notifier).state = pdfFile;
-      // await Printing.sharePdf(bytes: await pdfFile.save());
-
-      // await Printing.layoutPdf(onLayout: (format) async => pdfFile.save());
       try {
         List<int> intFile = await pdfFile.save();
         String base64File = base64Encode(intFile);

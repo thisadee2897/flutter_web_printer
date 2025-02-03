@@ -11,4 +11,8 @@ class Routes {
   static const String returnProductCredit = '/return_product_credit';
   //receivable
   static const String receivableCash = '/receivable_cash';
+  //order
+  static const String order = '/order';
+  //quotation
+  static const String quotation = '/quotation';
 }

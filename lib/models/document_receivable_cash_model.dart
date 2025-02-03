@@ -23,7 +23,7 @@ class DocumentReceivableCashModel with _$DocumentReceivableCashModel {
   @JsonKey(name: 'receivable_hd_transfer_amount') String? receivableHdTransferAmount,
   @JsonKey(name: 'receivable_hd_credit_amount') String? receivableHdCreditAmount,
   @JsonKey(name: 'master_branch_bankbook_id') String? branchBankbookId,
-  @JsonKey(name: 'master_bank_id') String? bankId,
+  @JsonKey(name: 'master_bank_id') num? bankId,
   @JsonKey(name: 'master_bank_name') String? bankName,
   @JsonKey(name: 'master_branch_bankbook_name') String? branchBankbookName,
   @JsonKey(name: 'master_branch_bankbook_bankbookno') String? branchBankbookBankbookno,

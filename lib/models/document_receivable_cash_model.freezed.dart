@@ -54,7 +54,7 @@ mixin _$DocumentReceivableCashModel {
   @JsonKey(name: 'master_branch_bankbook_id')
   String? get branchBankbookId => throw _privateConstructorUsedError;
   @JsonKey(name: 'master_bank_id')
-  String? get bankId => throw _privateConstructorUsedError;
+  num? get bankId => throw _privateConstructorUsedError;
   @JsonKey(name: 'master_bank_name')
   String? get bankName => throw _privateConstructorUsedError;
   @JsonKey(name: 'master_branch_bankbook_name')
@@ -116,7 +116,7 @@ abstract class $DocumentReceivableCashModelCopyWith<$Res> {
       @JsonKey(name: 'receivable_hd_credit_amount')
       String? receivableHdCreditAmount,
       @JsonKey(name: 'master_branch_bankbook_id') String? branchBankbookId,
-      @JsonKey(name: 'master_bank_id') String? bankId,
+      @JsonKey(name: 'master_bank_id') num? bankId,
       @JsonKey(name: 'master_bank_name') String? bankName,
       @JsonKey(name: 'master_branch_bankbook_name') String? branchBankbookName,
       @JsonKey(name: 'master_branch_bankbook_bankbookno')
@@ -245,7 +245,7 @@ class _$DocumentReceivableCashModelCopyWithImpl<$Res,
       bankId: freezed == bankId
           ? _value.bankId
           : bankId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as num?,
       bankName: freezed == bankName
           ? _value.bankName
           : bankName // ignore: cast_nullable_to_non_nullable
@@ -323,7 +323,7 @@ abstract class _$$DocumentReceivableCashModelImplCopyWith<$Res>
       @JsonKey(name: 'receivable_hd_credit_amount')
       String? receivableHdCreditAmount,
       @JsonKey(name: 'master_branch_bankbook_id') String? branchBankbookId,
-      @JsonKey(name: 'master_bank_id') String? bankId,
+      @JsonKey(name: 'master_bank_id') num? bankId,
       @JsonKey(name: 'master_bank_name') String? bankName,
       @JsonKey(name: 'master_branch_bankbook_name') String? branchBankbookName,
       @JsonKey(name: 'master_branch_bankbook_bankbookno')
@@ -451,7 +451,7 @@ class __$$DocumentReceivableCashModelImplCopyWithImpl<$Res>
       bankId: freezed == bankId
           ? _value.bankId
           : bankId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as num?,
       bankName: freezed == bankName
           ? _value.bankName
           : bankName // ignore: cast_nullable_to_non_nullable
@@ -592,7 +592,7 @@ class _$DocumentReceivableCashModelImpl
   final String? branchBankbookId;
   @override
   @JsonKey(name: 'master_bank_id')
-  final String? bankId;
+  final num? bankId;
   @override
   @JsonKey(name: 'master_bank_name')
   final String? bankName;
@@ -773,7 +773,7 @@ abstract class _DocumentReceivableCashModel
       final String? receivableHdCreditAmount,
       @JsonKey(name: 'master_branch_bankbook_id')
       final String? branchBankbookId,
-      @JsonKey(name: 'master_bank_id') final String? bankId,
+      @JsonKey(name: 'master_bank_id') final num? bankId,
       @JsonKey(name: 'master_bank_name') final String? bankName,
       @JsonKey(name: 'master_branch_bankbook_name')
       final String? branchBankbookName,
@@ -844,7 +844,7 @@ abstract class _DocumentReceivableCashModel
   String? get branchBankbookId;
   @override
   @JsonKey(name: 'master_bank_id')
-  String? get bankId;
+  num? get bankId;
   @override
   @JsonKey(name: 'master_bank_name')
   String? get bankName;

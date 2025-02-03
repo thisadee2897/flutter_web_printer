@@ -1,6 +1,10 @@
 // ignore_for_file: unused_element
 import 'package:flutter/foundation.dart';
 import 'package:flutter_web_printer/apps/app_exports.dart';
+import 'package:flutter_web_printer/screens/order/controllers/providers/document_order.dart';
+import 'package:flutter_web_printer/screens/order/views/return_order_screen.dart';
+import 'package:flutter_web_printer/screens/quotation/controllers/providers/document_quotation.dart';
+import 'package:flutter_web_printer/screens/quotation/views/return_quotation_screen.dart';
 import 'package:flutter_web_printer/screens/receivable_cash/controllers/providers/document_receivable_cash.dart';
 import 'package:flutter_web_printer/screens/receivable_cash/views/return_receivable_cash_screen.dart';
 import 'package:flutter_web_printer/screens/return_product_cash/controllers/providers/document_return_product_cash.dart';
@@ -160,6 +164,50 @@ final appRouterProvider = Provider<GoRouter>(
           },
           pageBuilder: (context, state) {
             return const NoTransitionPage(child: ReceivableCashScreen());
+          },
+        ),
+        GoRoute(
+          path: Routes.order,
+          redirect: (context, state) {
+            WidgetsBinding.instance.addPostFrameCallback((_) async {
+              try {
+                final saleHdId = state.uri.queryParameters['b3JkZXJfaGRfaWQ'];
+                if (kDebugMode) print('Order: $saleHdId');
+                var hdId = idFormBase64(id: saleHdId);
+                if (kDebugMode) print('hdId: $hdId');
+                await ref.read(documentOrderProvider.notifier).get(id: hdId);
+              } catch (e) {
+                if (kDebugMode) print('error: $e');
+                ref.read(routerHelperProvider).goPath('/error');
+                return;
+              }
+            });
+            return;
+          },
+          pageBuilder: (context, state) {
+            return const NoTransitionPage(child: OrderScreen());
+          },
+        ),
+        GoRoute(
+          path: Routes.quotation,
+          redirect: (context, state) {
+            WidgetsBinding.instance.addPostFrameCallback((_) async {
+              try {
+                final saleHdId = state.uri.queryParameters['cXVvdGF0aW9uX2hkX2lk'];
+                if (kDebugMode) print('Quotation: $saleHdId');
+                var hdId = idFormBase64(id: saleHdId);
+                if (kDebugMode) print('hdId: $hdId');
+                await ref.read(documentQuotationProvider.notifier).get(id: hdId);
+              } catch (e) {
+                if (kDebugMode) print('error: $e');
+                ref.read(routerHelperProvider).goPath('/error');
+                return;
+              }
+            });
+            return;
+          },
+          pageBuilder: (context, state) {
+            return const NoTransitionPage(child: QuotationScreen());
           },
         ),
       ],

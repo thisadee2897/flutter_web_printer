@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_web_printer/config/routes/route_helper.dart';
 
@@ -36,7 +37,7 @@ class ApiInterceptor extends Interceptor {
 
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) {
-    // print(err.response?.statusCode);
+    if (kDebugMode) print(err.response?.statusCode);
     ref.read(routerHelperProvider).goPath('/error');
     if (err.response?.statusCode == 400) {
       handler.reject(
