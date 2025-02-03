@@ -3,6 +3,7 @@ import 'package:flutter_web_printer/models/document_product_return_d_t_model.dar
 import 'package:flutter_web_printer/models/document_product_return_model.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
+
 class PDFGeneratorReturnProductCash {
   Future<pw.Page> generate({required DocumentProductReturnModel hd, required List<DocumentProductReturnDTModel> dt, required CompanyModel company}) async {
     Uint8List? imageBytesFormNetwork = await getImageBytes(company.companyLogo);
@@ -40,10 +41,18 @@ class PDFGeneratorReturnProductCash {
                 mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
                 mainAxisSize: pw.MainAxisSize.max,
                 children: [
-                  pw.SizedBox(
-                    width: 200,
-                    height: 90,
-                    child: (imageBytesFormNetwork != null) ? pw.Image(pw.MemoryImage(imageBytesFormNetwork), width: 71, height: 71) : pw.Container(),
+                  pw.Container(
+                    width: 250,
+                    height: 50,
+                    child: (imageBytesFormNetwork != null)
+                        ? pw.Image(
+                            alignment: pw.Alignment.topLeft,
+                            fit: pw.BoxFit.fitHeight,
+                            pw.MemoryImage(imageBytesFormNetwork),
+                            width: 250,
+                            height: 50,
+                          )
+                        : pw.Container(),
                   ),
                   pw.Padding(
                     padding: const pw.EdgeInsets.only(right: 10),
@@ -481,18 +490,20 @@ class PDFGeneratorReturnProductCash {
               ),
             ),
             pw.SizedBox(height: 10),
-            pw.Row(
-              crossAxisAlignment: pw.CrossAxisAlignment.start,
-              mainAxisAlignment: pw.MainAxisAlignment.center,
-              children: [
-                pw.SizedBox(
-                  width: 50,
-                  child: pw.Text('หมายเหตุ :', style: textStyleNormal),
-                ),
-                pw.SizedBox(width: 10),
-                pw.Text("${hd.returnproductHdRemark}", style: textStyleNormal),
-              ],
-            )
+            pw.Padding(
+              padding: const pw.EdgeInsets.only(right: 20),
+              child: pw.Row(
+                crossAxisAlignment: pw.CrossAxisAlignment.start,
+                mainAxisAlignment: pw.MainAxisAlignment.center,
+                children: [
+                  pw.SizedBox(
+                    width: 50,
+                    child: pw.Text(textAlign: pw.TextAlign.right, 'หมายเหตุ : ', style: textStyleNormal),
+                  ),
+                  pw.Text("${hd.returnproductHdRemark}", style: textStyleNormal),
+                ],
+              ),
+            ),
           ],
         );
       },

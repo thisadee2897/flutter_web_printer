@@ -37,14 +37,22 @@ class PDFGeneratorQuotation {
             pw.Padding(
               padding: const pw.EdgeInsets.only(left: 16, right: 16, top: 20),
               child: pw.Row(
-                crossAxisAlignment: pw.CrossAxisAlignment.center,
+                crossAxisAlignment: pw.CrossAxisAlignment.start,
                 mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
                 mainAxisSize: pw.MainAxisSize.max,
                 children: [
-                  pw.SizedBox(
-                    width: 200,
-                    height: 90,
-                    child: (imageBytesFormNetwork != null) ? pw.Image(pw.MemoryImage(imageBytesFormNetwork), width: 71, height: 71) : pw.Container(),
+                  pw.Container(
+                    width: 250,
+                    height: 50,
+                    child: (imageBytesFormNetwork != null)
+                        ? pw.Image(
+                            alignment: pw.Alignment.topLeft,
+                            fit: pw.BoxFit.fitHeight,
+                            pw.MemoryImage(imageBytesFormNetwork),
+                            width: 250,
+                            height: 50,
+                          )
+                        : pw.Container(),
                   ),
                   pw.Padding(
                     padding: const pw.EdgeInsets.only(right: 10),
@@ -181,7 +189,7 @@ class PDFGeneratorQuotation {
                           ),
                         ),
                         pw.SizedBox(
-                          width: 30,
+                          width: 60,
                           child: pw.Padding(
                             padding: const pw.EdgeInsets.only(left: 2, right: 2),
                             child: pw.Text(
@@ -276,11 +284,11 @@ class PDFGeneratorQuotation {
                                   ),
                                 ),
                                 pw.SizedBox(
-                                  width: 30,
+                                  width: 60,
                                   child: pw.Padding(
                                     padding: const pw.EdgeInsets.only(left: 2, right: 2),
                                     child: pw.Text(
-                                      num.parse(dt[index].quotationDtQty ?? '0').digits(0),
+                                      num.parse(dt[index].quotationDtQty ?? '0').digits(2),
                                       textAlign: pw.TextAlign.end,
                                       style: textStyleNormal,
                                     ),
@@ -409,21 +417,19 @@ class PDFGeneratorQuotation {
               ],
             ),
             pw.SizedBox(height: 10),
-            pw.Row(
-              crossAxisAlignment: pw.CrossAxisAlignment.start,
-              mainAxisAlignment: pw.MainAxisAlignment.center,
-              children: [
-                pw.SizedBox(
-                  width: 50,
-                  child: pw.Text(
-                    textAlign: pw.TextAlign.right,
-                    'หมายเหตุ : ',
-                    style: textStyleNormal,
+            pw.Padding(
+              padding: const pw.EdgeInsets.only(right: 20),
+              child: pw.Row(
+                crossAxisAlignment: pw.CrossAxisAlignment.start,
+                mainAxisAlignment: pw.MainAxisAlignment.center,
+                children: [
+                  pw.SizedBox(
+                    width: 50,
+                    child: pw.Text(textAlign: pw.TextAlign.right, 'หมายเหตุ : ', style: textStyleNormal),
                   ),
-                ),
-                pw.SizedBox(width: 10),
-                pw.Text("${hd.quotationHdRemark}", style: textStyleNormal),
-              ],
+                  pw.Text("${hd.quotationHdRemark}", style: textStyleNormal),
+                ],
+              ),
             )
           ],
         );
