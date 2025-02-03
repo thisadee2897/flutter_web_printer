@@ -1,10 +1,11 @@
 import 'package:flutter_web_printer/apps/app_exports.dart';
-import 'package:flutter_web_printer/models/document_product_return_d_t_model.dart';
-import 'package:flutter_web_printer/models/document_product_return_model.dart';
+import 'package:flutter_web_printer/models/document_receivable_cash_d_t_model.dart';
+import 'package:flutter_web_printer/models/document_receivable_cash_model.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
-class PDFGeneratorReturnProductCash {
-  Future<pw.Page> generate({required DocumentProductReturnModel hd, required List<DocumentProductReturnDTModel> dt, required CompanyModel company}) async {
+
+class PDFGeneratorReceivableCash {
+  Future<pw.Page> generate({required DocumentReceivableCashModel hd, required List<DocumentReceivableCashDTModel> dt, required CompanyModel company}) async {
     Uint8List? imageBytesFormNetwork = await getImageBytes(company.companyLogo);
     final ByteData data = await rootBundle.load('assets/fonts/THSarabun.ttf');
     final font = pw.Font.ttf(data.buffer.asByteData());
@@ -53,15 +54,7 @@ class PDFGeneratorReturnProductCash {
                         crossAxisAlignment: pw.CrossAxisAlignment.end,
                         mainAxisAlignment: pw.MainAxisAlignment.start,
                         children: [
-                          pw.Text(
-                            'ใบกำกับภาษี/ใบเสร็จรับเงิน',
-                            style: pw.TextStyle(
-                              font: fontBold,
-                              color: PdfColors.black,
-                              fontSize: 20,
-                              fontWeight: pw.FontWeight.bold,
-                            ),
-                          ),
+                          pw.Text('ใบรับเงิน/ใบเสร็จรับเงิน', style: textStyleBold.copyWith(fontSize: 20)),
                           pw.Text("${company.companyName}", style: textStyleNormal),
                           pw.Text("${company.companyAddress}${company.addrDistrictName}", style: textStyleNormal),
                           pw.Text("${company.addrPrefectureName} ${company.addrProvinceName} ${company.addrPostcodeCode}", style: textStyleNormal),
@@ -122,7 +115,7 @@ class PDFGeneratorReturnProductCash {
                                   mainAxisAlignment: pw.MainAxisAlignment.center,
                                   children: [
                                     pw.Text('เลขที่', style: textStyleNormal),
-                                    pw.Text(hd.returnproductHdDocuno.toString(), style: textStyleBold),
+                                    pw.Text(hd.receivableHdDocuno.toString(), style: textStyleBold),
                                   ],
                                 ),
                               ),
@@ -134,7 +127,7 @@ class PDFGeneratorReturnProductCash {
                                   mainAxisAlignment: pw.MainAxisAlignment.center,
                                   children: [
                                     pw.Text('วันที่', style: textStyleNormal),
-                                    pw.Text(hd.returnproductHdDocudate.dateTHFormApi, style: textStyleBold),
+                                    pw.Text(hd.receivableHdDocudate.dateTHFormApi, style: textStyleBold),
                                   ],
                                 ),
                               ),
@@ -166,12 +159,11 @@ class PDFGeneratorReturnProductCash {
                             ),
                           ),
                         ),
-                        pw.SizedBox(
-                          width: 150,
+                        pw.Expanded(
                           child: pw.Padding(
                             padding: const pw.EdgeInsets.only(left: 2, right: 2),
                             child: pw.Text(
-                              'เลขที่บิลขาย',
+                              'เลขที่เอกสาร',
                               textAlign: pw.TextAlign.start,
                               style: textStyleNormal,
                             ),
@@ -182,17 +174,7 @@ class PDFGeneratorReturnProductCash {
                           child: pw.Padding(
                             padding: const pw.EdgeInsets.only(left: 2, right: 2),
                             child: pw.Text(
-                              'รหัส',
-                              textAlign: pw.TextAlign.start,
-                              style: textStyleNormal,
-                            ),
-                          ),
-                        ),
-                        pw.Expanded(
-                          child: pw.Padding(
-                            padding: const pw.EdgeInsets.only(left: 2, right: 2),
-                            child: pw.Text(
-                              'รายการ',
+                              'วันที่เอกสาร',
                               textAlign: pw.TextAlign.start,
                               style: textStyleNormal,
                             ),
@@ -203,7 +185,7 @@ class PDFGeneratorReturnProductCash {
                           child: pw.Padding(
                             padding: const pw.EdgeInsets.only(left: 2, right: 2),
                             child: pw.Text(
-                              'จำนวนเงินจ่าย',
+                              'จำนวนเงิน',
                               textAlign: pw.TextAlign.end,
                               style: textStyleNormal,
                             ),
@@ -229,14 +211,13 @@ class PDFGeneratorReturnProductCash {
                                   child: pw.Padding(
                                     padding: const pw.EdgeInsets.only(left: 2, right: 2),
                                     child: pw.Text(
-                                      dt[index].returnproductDtListno.digits(0),
+                                      dt[index].receivableDtListno.digits(0),
                                       textAlign: pw.TextAlign.center,
                                       style: textStyleNormal,
                                     ),
                                   ),
                                 ),
-                                pw.SizedBox(
-                                  width: 150,
+                                pw.Expanded(
                                   child: pw.Padding(
                                     padding: const pw.EdgeInsets.only(left: 2, right: 2),
                                     child: pw.Text(
@@ -255,19 +236,7 @@ class PDFGeneratorReturnProductCash {
                                     child: pw.Text(
                                       maxLines: 1,
                                       overflow: pw.TextOverflow.visible,
-                                      "${dt[index].returnproductDtProductBarcodeCode}",
-                                      textAlign: pw.TextAlign.start,
-                                      style: textStyleNormal,
-                                    ),
-                                  ),
-                                ),
-                                pw.Expanded(
-                                  child: pw.Padding(
-                                    padding: const pw.EdgeInsets.only(left: 2, right: 2),
-                                    child: pw.Text(
-                                      maxLines: 1,
-                                      overflow: pw.TextOverflow.visible,
-                                      "${dt[index].returnproductDtProductBarcodeName}",
+                                      dt[index].saleHdDocudate.dateTHFormApi,
                                       textAlign: pw.TextAlign.start,
                                       style: textStyleNormal,
                                     ),
@@ -278,7 +247,7 @@ class PDFGeneratorReturnProductCash {
                                   child: pw.Padding(
                                     padding: const pw.EdgeInsets.only(left: 2, right: 2),
                                     child: pw.Text(
-                                      num.parse(dt[index].returnproductDtNetamnt ?? '0').digits(2),
+                                      num.parse(dt[index].receivableDtReceiveamount ?? '0').digits(2),
                                       textAlign: pw.TextAlign.end,
                                       style: textStyleNormal,
                                     ),
@@ -311,7 +280,7 @@ class PDFGeneratorReturnProductCash {
                                     pw.Padding(
                                       padding: const pw.EdgeInsets.only(right: 10),
                                       child: pw.Text(
-                                        num.parse(hd.returnproductHdAmount ?? '0').digits(2),
+                                        num.parse(hd.receivableHdAmount ?? '0').digits(2),
                                         style: textStyleBold.copyWith(color: PdfColor.fromHex("#0064B0")),
                                       ),
                                     ),
@@ -329,7 +298,7 @@ class PDFGeneratorReturnProductCash {
                                 crossAxisAlignment: pw.CrossAxisAlignment.start,
                                 children: [
                                   pw.Text('จำนวนเงิน (ตัวอักษร)', style: textStyleNormal),
-                                  pw.Text(NumberToThaiWords.convert(double.parse(hd.returnproductHdNetamnt ?? '0')), style: textStyleBold),
+                                  pw.Text(NumberToThaiWords.convert(double.parse(hd.receivableHdNetamnt ?? '0')), style: textStyleBold),
                                 ],
                               ),
                               pw.Padding(
@@ -339,7 +308,7 @@ class PDFGeneratorReturnProductCash {
                                   crossAxisAlignment: pw.CrossAxisAlignment.end,
                                   children: [
                                     pw.Text('รวมทั้งสิ้น', style: textStyleNormal),
-                                    pw.Text(double.parse(hd.returnproductHdNetamnt ?? '0').digits(2), style: textStyleBold),
+                                    pw.Text(double.parse(hd.receivableHdNetamnt ?? '0').digits(2), style: textStyleBold),
                                   ],
                                 ),
                               ),
@@ -370,7 +339,7 @@ class PDFGeneratorReturnProductCash {
                                         children: [
                                           pw.Row(
                                             children: [
-                                              pw.SvgImage(svg: num.parse(hd.returnproductHdCashAmount ?? '0') > 0 ? svgTrue : svgFasle),
+                                              pw.SvgImage(svg: num.parse(hd.receivableHdCashAmount ?? '0') > 0 ? svgTrue : svgFasle),
                                               pw.SizedBox(width: 5),
                                               pw.Text('เงินสด', style: textStyleBold),
                                             ],
@@ -378,7 +347,7 @@ class PDFGeneratorReturnProductCash {
                                           pw.Padding(
                                             padding: const pw.EdgeInsets.only(right: 10),
                                             child: pw.Text(
-                                              num.parse(hd.returnproductHdCashAmount ?? '0').digits(2),
+                                              num.parse(hd.receivableHdCashAmount ?? '0').digits(2),
                                               style: textStyleBold,
                                             ),
                                           ),
@@ -389,14 +358,30 @@ class PDFGeneratorReturnProductCash {
                                         children: [
                                           pw.Row(
                                             children: [
-                                              pw.SvgImage(svg: num.parse(hd.returnproductHdTransferAmount ?? '0') > 0 ? svgTrue : svgFasle),
+                                              pw.SvgImage(svg: num.parse(hd.receivableHdTransferAmount ?? '0') > 0 ? svgTrue : svgFasle),
                                               pw.SizedBox(width: 5),
                                               pw.Text('เงินโอน', style: textStyleBold),
                                             ],
                                           ),
                                           pw.Padding(
                                             padding: const pw.EdgeInsets.only(right: 10),
-                                            child: pw.Text(num.parse(hd.returnproductHdTransferAmount ?? '0').digits(2), style: textStyleBold),
+                                            child: pw.Text(num.parse(hd.receivableHdTransferAmount ?? '0').digits(2), style: textStyleBold),
+                                          ),
+                                        ],
+                                      ),
+                                      pw.Row(
+                                        mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          pw.Row(
+                                            children: [
+                                              pw.SvgImage(svg: num.parse(hd.receivableHdCreditAmount ?? '0') > 0 ? svgTrue : svgFasle),
+                                              pw.SizedBox(width: 5),
+                                              pw.Text('บัตรเครดิต', style: textStyleBold),
+                                            ],
+                                          ),
+                                          pw.Padding(
+                                            padding: const pw.EdgeInsets.only(right: 10),
+                                            child: pw.Text(num.parse(hd.receivableHdCreditAmount ?? '0').digits(2), style: textStyleBold),
                                           ),
                                         ],
                                       ),
@@ -406,53 +391,7 @@ class PDFGeneratorReturnProductCash {
                               ),
                               pw.Expanded(
                                 flex: 1,
-                                child: pw.Column(
-                                  children: [
-                                    pw.Row(
-                                      mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        pw.Text(
-                                          '',
-                                          style: textStyleBold,
-                                        ),
-                                        pw.Padding(
-                                          padding: const pw.EdgeInsets.only(right: 10),
-                                          child: pw.Text("จำนวน", style: textStyleNormal),
-                                        ),
-                                      ],
-                                    ),
-                                    pw.Row(
-                                      mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        pw.Text('สินค้าที่ได้รับยกเว้นภาษีมูลค่าเพิ่ม', style: textStyleBold),
-                                        pw.Padding(
-                                          padding: const pw.EdgeInsets.only(right: 10),
-                                          child: pw.Text(num.parse(hd.returnproductHdTotalexcludeamnt ?? '0').digits(2), style: textStyleBold),
-                                        ),
-                                      ],
-                                    ),
-                                    pw.Row(
-                                      mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        pw.Text('สินค้าที่ต้องเสียภาษีมูลค่าเพิ่ม', style: textStyleBold),
-                                        pw.Padding(
-                                          padding: const pw.EdgeInsets.only(right: 10),
-                                          child: pw.Text(num.parse(hd.returnproductHdBaseamnt ?? '0').digits(2), style: textStyleBold),
-                                        ),
-                                      ],
-                                    ),
-                                    pw.Row(
-                                      mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        pw.Text('ภาษีมูลค่าเพิ่ม (7%)', style: textStyleBold),
-                                        pw.Padding(
-                                          padding: const pw.EdgeInsets.only(right: 10),
-                                          child: pw.Text(num.parse(hd.returnproductHdVatamnt ?? '0').digits(2), style: textStyleBold),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
+                                child: pw.Container(),
                               ),
                             ],
                           ),
@@ -472,7 +411,7 @@ class PDFGeneratorReturnProductCash {
                 mainAxisAlignment: pw.MainAxisAlignment.center,
                 crossAxisAlignment: pw.CrossAxisAlignment.center,
                 children: [
-                  pw.Text("ผู้จ่ายเงิน", style: textStyleNormal),
+                  pw.Text("ผู้รับเงิน", style: textStyleNormal),
                   pw.SizedBox(height: 10),
                   pw.Text('...........................................................', style: textStyleNormal),
                   pw.Text("(...........................................................)", style: textStyleNormal),
@@ -487,10 +426,14 @@ class PDFGeneratorReturnProductCash {
               children: [
                 pw.SizedBox(
                   width: 50,
-                  child: pw.Text('หมายเหตุ :', style: textStyleNormal),
+                  child: pw.Text(
+                    textAlign: pw.TextAlign.right,
+                    'หมายเหตุ : ',
+                    style: textStyleNormal,
+                  ),
                 ),
                 pw.SizedBox(width: 10),
-                pw.Text("${hd.returnproductHdRemark}", style: textStyleNormal),
+                pw.Text("${hd.receivableHdRemark}", style: textStyleNormal),
               ],
             )
           ],

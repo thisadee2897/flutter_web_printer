@@ -129,18 +129,19 @@ class PDFGeneratorReturnProductCredit {
                             crossAxisAlignment: pw.CrossAxisAlignment.start,
                             mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
                             children: [
-                              // pw.SizedBox(
-                              //   height: 32,
-                              //   width: double.infinity,
-                              //   child: pw.Column(
-                              //     crossAxisAlignment: pw.CrossAxisAlignment.start,
-                              //     mainAxisAlignment: pw.MainAxisAlignment.center,
-                              //     children: [
-                              //       pw.Text('เลขที่', style: textStyle),
-                              //       pw.Text(hd.saleHdDocuno.toString(), style: textStyle.copyWith(fontWeight: pw.FontWeight.bold, color: PdfColors.black)),
-                              //     ],
-                              //   ),
-                              // ),
+                              pw.SizedBox(
+                                height: 32,
+                                width: double.infinity,
+                                child: pw.Column(
+                                  crossAxisAlignment: pw.CrossAxisAlignment.start,
+                                  mainAxisAlignment: pw.MainAxisAlignment.center,
+                                  children: [
+                                    pw.Text('เลขที่', style: textStyle),
+                                    pw.Text(hd.returnproductHdDocuno.toString(),
+                                        style: textStyle.copyWith(fontWeight: pw.FontWeight.bold, color: PdfColors.black)),
+                                  ],
+                                ),
+                              ),
                               // pw.SizedBox(
                               //   height: 32,
                               //   width: double.infinity,
@@ -538,33 +539,33 @@ class PDFGeneratorReturnProductCredit {
               ),
             ),
             pw.SizedBox(height: 10),
-            pw.SizedBox(
-              width: 149,
-              height: 80,
-              child: pw.Column(
-                mainAxisAlignment: pw.MainAxisAlignment.center,
-                crossAxisAlignment: pw.CrossAxisAlignment.center,
-                children: [
-                  pw.Text("ผู้จ่ายเงิน", style: comapnyTextStyle),
-                  pw.SizedBox(height: 10),
-                  pw.Text('...........................................................', style: comapnyTextStyle),
-                  pw.Text(
-                    "(...........................................................)",
-                    style: comapnyTextStyle.copyWith(
-                      fontWeight: pw.FontWeight.bold,
-                      color: PdfColors.black,
-                    ),
-                  ),
-                  pw.Text(
-                    "วันที่.....................................................",
-                    style: comapnyTextStyle.copyWith(
-                      fontWeight: pw.FontWeight.bold,
-                      color: PdfColors.black,
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            // pw.SizedBox(
+            //   width: 149,
+            //   height: 80,
+            //   child: pw.Column(
+            //     mainAxisAlignment: pw.MainAxisAlignment.center,
+            //     crossAxisAlignment: pw.CrossAxisAlignment.center,
+            //     children: [
+            //       pw.Text("ผู้จ่ายเงิน", style: comapnyTextStyle),
+            //       pw.SizedBox(height: 10),
+            //       pw.Text('...........................................................', style: comapnyTextStyle),
+            //       pw.Text(
+            //         "(...........................................................)",
+            //         style: comapnyTextStyle.copyWith(
+            //           fontWeight: pw.FontWeight.bold,
+            //           color: PdfColors.black,
+            //         ),
+            //       ),
+            //       pw.Text(
+            //         "วันที่.....................................................",
+            //         style: comapnyTextStyle.copyWith(
+            //           fontWeight: pw.FontWeight.bold,
+            //           color: PdfColors.black,
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // ),
             pw.SizedBox(height: 10),
             pw.Row(
               crossAxisAlignment: pw.CrossAxisAlignment.start,

@@ -1,6 +1,8 @@
 // ignore_for_file: unused_element
 import 'package:flutter/foundation.dart';
 import 'package:flutter_web_printer/apps/app_exports.dart';
+import 'package:flutter_web_printer/screens/receivable_cash/controllers/providers/document_receivable_cash.dart';
+import 'package:flutter_web_printer/screens/receivable_cash/views/return_receivable_cash_screen.dart';
 import 'package:flutter_web_printer/screens/return_product_cash/controllers/providers/document_return_product_cash.dart';
 import 'package:flutter_web_printer/screens/return_product_cash/views/return_product_cash_screen.dart';
 import 'package:flutter_web_printer/screens/return_product_credit/controllers/providers/document_return_product_credit.dart';
@@ -136,6 +138,28 @@ final appRouterProvider = Provider<GoRouter>(
           },
           pageBuilder: (context, state) {
             return const NoTransitionPage(child: ReturnProductCreditScreen());
+          },
+        ),
+        GoRoute(
+          path: Routes.receivableCash,
+          redirect: (context, state) {
+            WidgetsBinding.instance.addPostFrameCallback((_) async {
+              try {
+                final saleHdId = state.uri.queryParameters['UmVjZWl2YWJsZUNhc2g'];
+                if (kDebugMode) print('ReceivableCash: $saleHdId');
+                var hdId = idFormBase64(id: saleHdId);
+                if (kDebugMode) print('hdId: $hdId');
+                await ref.read(documentReceivableCashProvider.notifier).get(id: hdId);
+              } catch (e) {
+                ref.read(routerHelperProvider).goPath('/error');
+                if (kDebugMode) print('error: $e');
+                return;
+              }
+            });
+            return;
+          },
+          pageBuilder: (context, state) {
+            return const NoTransitionPage(child: ReceivableCashScreen());
           },
         ),
       ],

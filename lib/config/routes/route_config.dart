@@ -9,4 +9,6 @@ class Routes {
   static const String saleCash = '/sale_cash';
   static const String returnProductCash = '/return_product_cash';
   static const String returnProductCredit = '/return_product_credit';
+  //receivable
+  static const String receivableCash = '/receivable_cash';
 }
