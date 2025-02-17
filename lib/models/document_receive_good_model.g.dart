@@ -33,7 +33,7 @@ _$DocumentReceiveGoodModelImpl _$$DocumentReceiveGoodModelImplFromJson(
       receiveHdCreditday: json['receive_hd_creditday'] as num?,
       receiveHdCashAmount: json['receive_hd_cash_amount'] as String?,
       receiveHdTransferAmount: json['receive_hd_transfer_amount'] as String?,
-      bankId: json['master_bank_id'] as String?,
+      bankId: json['master_bank_id'] as num?,
       receiveHdBankbookno: json['receive_hd_bankbookno'] as String?,
       receiveHdBankName: json['receive_hd_bank_name'] as String?,
       receiveHdBankBranchname: json['receive_hd_bank_branchname'] as String?,

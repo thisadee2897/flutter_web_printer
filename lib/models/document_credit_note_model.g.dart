@@ -37,7 +37,7 @@ _$DocumentCreditNoteModelImpl _$$DocumentCreditNoteModelImplFromJson(
       creditnoteHdTransferAmount:
           json['creditnote_hd_transfer_amount'] as String?,
       branchBankbookId: json['master_branch_bankbook_id'] as String?,
-      bankId: json['master_bank_id'] as String?,
+      bankId: json['master_bank_id'] as num?,
       bankName: json['master_bank_name'] as String?,
       branchBankbookBankbookno:
           json['master_branch_bankbook_bankbookno'] as String?,

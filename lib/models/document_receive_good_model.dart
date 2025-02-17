@@ -31,7 +31,7 @@ class DocumentReceiveGoodModel with _$DocumentReceiveGoodModel {
   @JsonKey(name: 'receive_hd_creditday') num? receiveHdCreditday,
   @JsonKey(name: 'receive_hd_cash_amount') String? receiveHdCashAmount,
   @JsonKey(name: 'receive_hd_transfer_amount') String? receiveHdTransferAmount,
-  @JsonKey(name: 'master_bank_id') String? bankId,
+  @JsonKey(name: 'master_bank_id') num? bankId,
   @JsonKey(name: 'receive_hd_bankbookno') String? receiveHdBankbookno,
   @JsonKey(name: 'receive_hd_bank_name') String? receiveHdBankName,
   @JsonKey(name: 'receive_hd_bank_branchname') String? receiveHdBankBranchname,

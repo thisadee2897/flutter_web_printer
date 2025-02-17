@@ -70,7 +70,7 @@ mixin _$DocumentReceiveGoodModel {
   @JsonKey(name: 'receive_hd_transfer_amount')
   String? get receiveHdTransferAmount => throw _privateConstructorUsedError;
   @JsonKey(name: 'master_bank_id')
-  String? get bankId => throw _privateConstructorUsedError;
+  num? get bankId => throw _privateConstructorUsedError;
   @JsonKey(name: 'receive_hd_bankbookno')
   String? get receiveHdBankbookno => throw _privateConstructorUsedError;
   @JsonKey(name: 'receive_hd_bank_name')
@@ -153,7 +153,7 @@ abstract class $DocumentReceiveGoodModelCopyWith<$Res> {
       @JsonKey(name: 'receive_hd_cash_amount') String? receiveHdCashAmount,
       @JsonKey(name: 'receive_hd_transfer_amount')
       String? receiveHdTransferAmount,
-      @JsonKey(name: 'master_bank_id') String? bankId,
+      @JsonKey(name: 'master_bank_id') num? bankId,
       @JsonKey(name: 'receive_hd_bankbookno') String? receiveHdBankbookno,
       @JsonKey(name: 'receive_hd_bank_name') String? receiveHdBankName,
       @JsonKey(name: 'receive_hd_bank_branchname')
@@ -337,7 +337,7 @@ class _$DocumentReceiveGoodModelCopyWithImpl<$Res,
       bankId: freezed == bankId
           ? _value.bankId
           : bankId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as num?,
       receiveHdBankbookno: freezed == receiveHdBankbookno
           ? _value.receiveHdBankbookno
           : receiveHdBankbookno // ignore: cast_nullable_to_non_nullable
@@ -450,7 +450,7 @@ abstract class _$$DocumentReceiveGoodModelImplCopyWith<$Res>
       @JsonKey(name: 'receive_hd_cash_amount') String? receiveHdCashAmount,
       @JsonKey(name: 'receive_hd_transfer_amount')
       String? receiveHdTransferAmount,
-      @JsonKey(name: 'master_bank_id') String? bankId,
+      @JsonKey(name: 'master_bank_id') num? bankId,
       @JsonKey(name: 'receive_hd_bankbookno') String? receiveHdBankbookno,
       @JsonKey(name: 'receive_hd_bank_name') String? receiveHdBankName,
       @JsonKey(name: 'receive_hd_bank_branchname')
@@ -633,7 +633,7 @@ class __$$DocumentReceiveGoodModelImplCopyWithImpl<$Res>
       bankId: freezed == bankId
           ? _value.bankId
           : bankId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as num?,
       receiveHdBankbookno: freezed == receiveHdBankbookno
           ? _value.receiveHdBankbookno
           : receiveHdBankbookno // ignore: cast_nullable_to_non_nullable
@@ -837,7 +837,7 @@ class _$DocumentReceiveGoodModelImpl implements _DocumentReceiveGoodModel {
   final String? receiveHdTransferAmount;
   @override
   @JsonKey(name: 'master_bank_id')
-  final String? bankId;
+  final num? bankId;
   @override
   @JsonKey(name: 'receive_hd_bankbookno')
   final String? receiveHdBankbookno;
@@ -1074,7 +1074,7 @@ abstract class _DocumentReceiveGoodModel implements DocumentReceiveGoodModel {
       final String? receiveHdCashAmount,
       @JsonKey(name: 'receive_hd_transfer_amount')
       final String? receiveHdTransferAmount,
-      @JsonKey(name: 'master_bank_id') final String? bankId,
+      @JsonKey(name: 'master_bank_id') final num? bankId,
       @JsonKey(name: 'receive_hd_bankbookno') final String? receiveHdBankbookno,
       @JsonKey(name: 'receive_hd_bank_name') final String? receiveHdBankName,
       @JsonKey(name: 'receive_hd_bank_branchname')
@@ -1177,7 +1177,7 @@ abstract class _DocumentReceiveGoodModel implements DocumentReceiveGoodModel {
   String? get receiveHdTransferAmount;
   @override
   @JsonKey(name: 'master_bank_id')
-  String? get bankId;
+  num? get bankId;
   @override
   @JsonKey(name: 'receive_hd_bankbookno')
   String? get receiveHdBankbookno;
