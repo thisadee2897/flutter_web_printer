@@ -494,18 +494,8 @@ class PDFGeneratorSaleCash {
                                     pw.Row(
                                       mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
                                       children: [
-                                        pw.Text('รวมเงิน', style: textStyleBold),
-                                        pw.Padding(
-                                          padding: const pw.EdgeInsets.only(right: 10),
-                                          child: pw.Text(num.parse(hd.saleHdNetamnt ?? '0').digits(2), style: textStyleBold),
-                                        ),
-                                      ],
-                                    ),
-                                    pw.Row(
-                                      mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                                      children: [
                                         pw.Text(
-                                          'รับเงินสุดทธิ',
+                                          'รวมมูลค่าสุทธิ',
                                           style: textStyleBold,
                                         ),
                                         pw.Padding(

@@ -416,19 +416,6 @@ class PDFGeneratorPayTheDeposit {
                                         ),
                                       ],
                                     ),
-                                    // pw.Row(
-                                    //   mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                                    //   children: [
-                                    //     pw.Text('สินค้าที่ได้รับยกเว้นภาษีมูลค่าเพิ่ม', style: textStyleBold),
-                                    //     pw.Padding(
-                                    //       padding: const pw.EdgeInsets.only(right: 10),
-                                    //       child: pw.Text(
-                                    //         num.parse(hd.payDepositTotalexcludeamnt ?? '0').digits(2),
-                                    //         style: textStyleBold,
-                                    //       ),
-                                    //     ),
-                                    //   ],
-                                    // ),
                                     pw.Row(
                                       mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
                                       children: [
@@ -455,31 +442,11 @@ class PDFGeneratorPayTheDeposit {
                                         ),
                                       ],
                                     ),
-                                    // pw.Row(
-                                    //   mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                                    //   children: [
-                                    //     pw.Text('หัก ณ ที่จ่าย', style: textStyleBold),
-                                    //     pw.Padding(
-                                    //       padding: const pw.EdgeInsets.only(right: 10),
-                                    //       child: pw.Text(num.parse(hd.payDepositWhtAmount ?? '0').digits(2), style: textStyleBold),
-                                    //     ),
-                                    //   ],
-                                    // ),
-                                    pw.Row(
-                                      mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        pw.Text('รวมเงิน', style: textStyleBold),
-                                        pw.Padding(
-                                          padding: const pw.EdgeInsets.only(right: 10),
-                                          child: pw.Text(num.parse(hd.payDepositNetamnt ?? '0').digits(2), style: textStyleBold),
-                                        ),
-                                      ],
-                                    ),
                                     pw.Row(
                                       mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
                                       children: [
                                         pw.Text(
-                                          'รับเงินสุดทธิ',
+                                          'รวมมูลค่าสุทธิ',
                                           style: textStyleBold,
                                         ),
                                         pw.Padding(

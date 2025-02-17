@@ -458,6 +458,16 @@ class PDFGeneratorReturnToReduceCashDebt {
                                         ),
                                       ],
                                     ),
+                                    pw.Row(
+                                      mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        pw.Text('รวมมูลค่าสุทธิ', style: textStyleBold),
+                                        pw.Padding(
+                                          padding: const pw.EdgeInsets.only(right: 10),
+                                          child: pw.Text(num.parse(hd.creditnoteHdNetamnt ?? '0').digits(2), style: textStyleBold),
+                                        ),
+                                      ],
+                                    ),
                                   ],
                                 ),
                               ),
