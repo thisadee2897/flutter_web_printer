@@ -33,4 +33,8 @@ class Routes {
   static const String expenseCash = '/expense_cash';
   //ExpenseCreditScreen
   static const String expenseCredit = '/expense_credit';
+  //InventoryAdjust
+  static const String inventoryAdjust = '/inventory_adjust';
+  //InventoryRequisition
+  static const String inventoryRequisition = '/inventory_requisition';
 }

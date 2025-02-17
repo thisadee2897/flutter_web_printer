@@ -3,7 +3,7 @@ import 'package:flutter_web_printer/apps/app_exports.dart';
 class DocumentExpenseCreditApi {
   final Ref ref;
   DocumentExpenseCreditApi({required this.ref});
-  final String _detail = '/Purchase/ReceiveGoods/get_document_receive';
+  final String _detail = '/Expense/Expense/get_document_expense';
 
   Future<DocumentExpenseModel> get(Map<String, dynamic> body) async {
     Response<dynamic> response = await ref.read(apiClientProvider).post(_detail, data: body);

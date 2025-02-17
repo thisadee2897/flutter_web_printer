@@ -1,3 +1,8 @@
+export 'package:flutter_web_printer/models/document_inventory_requisition_d_t_model.dart';
+export 'package:flutter_web_printer/models/document_inventory_requisition_model.dart';
+export 'package:flutter_web_printer/utils/extensions/stock_effect_type.dart';
+export 'package:flutter_web_printer/models/document_inventory_adjust_d_t_model.dart';
+export 'package:flutter_web_printer/models/document_inventory_adjust_model.dart';
 export 'package:flutter_web_printer/models/document_expense_model.dart';
 export 'package:flutter_web_printer/models/document_expense_d_t_model.dart';
 export 'package:flutter_web_printer/models/document_pay_the_diposit_model.dart';

@@ -9,6 +9,10 @@ import 'package:flutter_web_printer/screens/good_receive_cash/controllers/provid
 import 'package:flutter_web_printer/screens/good_receive_cash/views/good_receive_cash_screen.dart';
 import 'package:flutter_web_printer/screens/good_receive_credit/controllers/providers/document_good_receive_credit.dart';
 import 'package:flutter_web_printer/screens/good_receive_credit/views/good_receive_credit_screen.dart';
+import 'package:flutter_web_printer/screens/inventory_adjust/controllers/providers/document_inventory_adjust.dart';
+import 'package:flutter_web_printer/screens/inventory_adjust/views/inventory_adjust_screen.dart';
+import 'package:flutter_web_printer/screens/inventory_requisition/controllers/providers/document_inventory_requisition.dart';
+import 'package:flutter_web_printer/screens/inventory_requisition/views/inventory_requisition_screen.dart';
 import 'package:flutter_web_printer/screens/order/controllers/providers/document_order.dart';
 import 'package:flutter_web_printer/screens/order/views/return_order_screen.dart';
 import 'package:flutter_web_printer/screens/pay_the_deposit/controllers/providers/document_pay_the_deposit_cash.dart';
@@ -424,6 +428,50 @@ final appRouterProvider = Provider<GoRouter>(
           },
           pageBuilder: (context, state) {
             return const NoTransitionPage(child: ExpenseCreditScreen());
+          },
+        ),
+        GoRoute(
+          path: Routes.inventoryAdjust,
+          redirect: (context, state) {
+            WidgetsBinding.instance.addPostFrameCallback((_) async {
+              try {
+                final saleHdId = state.uri.queryParameters['aW52ZW50b3J5X2FkanVzdA'];
+                if (kDebugMode) print('adjust_hd_id: $saleHdId');
+                var hdId = idFormBase64(id: saleHdId);
+                if (kDebugMode) print('hdId: $hdId');
+                await ref.read(documentInventoryAdjustProvider.notifier).get(id: hdId);
+              } catch (e) {
+                if (kDebugMode) print('error: $e');
+                ref.read(routerHelperProvider).goPath('/error');
+                return;
+              }
+            });
+            return;
+          },
+          pageBuilder: (context, state) {
+            return const NoTransitionPage(child: InventoryAdjustScreen());
+          },
+        ),
+        GoRoute(
+          path: Routes.inventoryRequisition,
+          redirect: (context, state) {
+            WidgetsBinding.instance.addPostFrameCallback((_) async {
+              try {
+                final saleHdId = state.uri.queryParameters['aW52ZW50b3J5X3JlcXVpc2l0aW9u'];
+                if (kDebugMode) print('inventory_requisition: $saleHdId');
+                var hdId = idFormBase64(id: saleHdId);
+                if (kDebugMode) print('hdId: $hdId');
+                await ref.read(documentInventoryRequisitionProvider.notifier).get(id: hdId);
+              } catch (e) {
+                if (kDebugMode) print('error: $e');
+                ref.read(routerHelperProvider).goPath('/error');
+                return;
+              }
+            });
+            return;
+          },
+          pageBuilder: (context, state) {
+            return const NoTransitionPage(child: InventoryRequisitionScreen());
           },
         ),
       ],
