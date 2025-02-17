@@ -1,8 +1,18 @@
 // ignore_for_file: unused_element
 import 'package:flutter/foundation.dart';
 import 'package:flutter_web_printer/apps/app_exports.dart';
+import 'package:flutter_web_printer/screens/good_receive_cash/controllers/providers/document_good_receive_cash.dart';
+import 'package:flutter_web_printer/screens/good_receive_cash/views/good_receive_cash_screen.dart';
+import 'package:flutter_web_printer/screens/good_receive_credit/controllers/providers/document_good_receive_credit.dart';
+import 'package:flutter_web_printer/screens/good_receive_credit/views/good_receive_credit_screen.dart';
 import 'package:flutter_web_printer/screens/order/controllers/providers/document_order.dart';
 import 'package:flutter_web_printer/screens/order/views/return_order_screen.dart';
+import 'package:flutter_web_printer/screens/pay_the_deposit/controllers/providers/document_pay_the_deposit_cash.dart';
+import 'package:flutter_web_printer/screens/pay_the_deposit/views/pay_the_deposit_screen.dart';
+import 'package:flutter_web_printer/screens/purchase_order/controllers/providers/document_purchase_order.dart';
+import 'package:flutter_web_printer/screens/purchase_order/views/return_purchase_order_screen.dart';
+import 'package:flutter_web_printer/screens/purchase_request/controllers/providers/document_purchase_request.dart';
+import 'package:flutter_web_printer/screens/purchase_request/views/return_purchase_request_screen.dart';
 import 'package:flutter_web_printer/screens/quotation/controllers/providers/document_quotation.dart';
 import 'package:flutter_web_printer/screens/quotation/views/return_quotation_screen.dart';
 import 'package:flutter_web_printer/screens/receivable_cash/controllers/providers/document_receivable_cash.dart';
@@ -11,6 +21,10 @@ import 'package:flutter_web_printer/screens/return_product_cash/controllers/prov
 import 'package:flutter_web_printer/screens/return_product_cash/views/return_product_cash_screen.dart';
 import 'package:flutter_web_printer/screens/return_product_credit/controllers/providers/document_return_product_credit.dart';
 import 'package:flutter_web_printer/screens/return_product_credit/views/return_product_credit_screen.dart';
+import 'package:flutter_web_printer/screens/return_to_reduce_cash_debt/controllers/providers/document_return_to_reduce_cash_debt.dart';
+import 'package:flutter_web_printer/screens/return_to_reduce_cash_debt/views/return_to_reduce_cash_debt_screen.dart';
+import 'package:flutter_web_printer/screens/return_to_reduce_credit_debt/controllers/providers/document_return_to_reduce_credit_debt.dart';
+import 'package:flutter_web_printer/screens/return_to_reduce_credit_debt/views/return_to_reduce_credit_debt_screen.dart';
 import 'package:flutter_web_printer/screens/sale_cash/controllers/providers/document_sale_cash.dart';
 import 'package:flutter_web_printer/screens/sale_cash/views/sale_cash_screen.dart';
 import 'package:flutter_web_printer/screens/sale_credit/controllers/providers/document_sale_credit.dart';
@@ -208,6 +222,160 @@ final appRouterProvider = Provider<GoRouter>(
           },
           pageBuilder: (context, state) {
             return const NoTransitionPage(child: QuotationScreen());
+          },
+        ),
+        GoRoute(
+          path: Routes.purchaseRequest,
+          redirect: (context, state) {
+            WidgetsBinding.instance.addPostFrameCallback((_) async {
+              try {
+                final saleHdId = state.uri.queryParameters['cHVyY2hhc2VfcmVxdWVzdA'];
+                if (kDebugMode) print('purchase_request: $saleHdId');
+                var hdId = idFormBase64(id: saleHdId);
+                if (kDebugMode) print('hdId: $hdId');
+                await ref.read(documentPurchaseRequestProvider.notifier).get(id: hdId);
+              } catch (e) {
+                if (kDebugMode) print('error: $e');
+                ref.read(routerHelperProvider).goPath('/error');
+                return;
+              }
+            });
+            return;
+          },
+          pageBuilder: (context, state) {
+            return const NoTransitionPage(child: PurchaseRequestScreen());
+          },
+        ),
+        GoRoute(
+          path: Routes.purchaseOrder,
+          redirect: (context, state) {
+            WidgetsBinding.instance.addPostFrameCallback((_) async {
+              try {
+                final saleHdId = state.uri.queryParameters['cHVyY2hhc2Vfb3JkZXI'];
+                if (kDebugMode) print('purchase_order: $saleHdId');
+                var hdId = idFormBase64(id: saleHdId);
+                if (kDebugMode) print('hdId: $hdId');
+                await ref.read(documentPurchaseOrderProvider.notifier).get(id: hdId);
+              } catch (e) {
+                if (kDebugMode) print('error: $e');
+                ref.read(routerHelperProvider).goPath('/error');
+                return;
+              }
+            });
+            return;
+          },
+          pageBuilder: (context, state) {
+            return const NoTransitionPage(child: PurchaseOrderScreen());
+          },
+        ),
+        GoRoute(
+          path: Routes.goodReceiveCash,
+          redirect: (context, state) {
+            WidgetsBinding.instance.addPostFrameCallback((_) async {
+              try {
+                final saleHdId = state.uri.queryParameters['Z29vZF9yZWNlaXZlX2Nhc2g'];
+                if (kDebugMode) print('good_receive_cash: $saleHdId');
+                var hdId = idFormBase64(id: saleHdId);
+                if (kDebugMode) print('hdId: $hdId');
+                await ref.read(documentGoodReceiveCashProvider.notifier).get(id: hdId);
+              } catch (e) {
+                if (kDebugMode) print('error: $e');
+                ref.read(routerHelperProvider).goPath('/error');
+                return;
+              }
+            });
+            return;
+          },
+          pageBuilder: (context, state) {
+            return const NoTransitionPage(child: GoodReceiveCashScreen());
+          },
+        ),
+        GoRoute(
+          path: Routes.goodReceiveCredit,
+          redirect: (context, state) {
+            WidgetsBinding.instance.addPostFrameCallback((_) async {
+              try {
+                final saleHdId = state.uri.queryParameters['Z29vZF9yZWNlaXZlX2NyZWRpdA'];
+                if (kDebugMode) print('good_receive_credit: $saleHdId');
+                var hdId = idFormBase64(id: saleHdId);
+                if (kDebugMode) print('hdId: $hdId');
+                await ref.read(documentGoodReceiveCreditProvider.notifier).get(id: hdId);
+              } catch (e) {
+                if (kDebugMode) print('error: $e');
+                ref.read(routerHelperProvider).goPath('/error');
+                return;
+              }
+            });
+            return;
+          },
+          pageBuilder: (context, state) {
+            return const NoTransitionPage(child: GoodReceiveCreditScreen());
+          },
+        ),
+        GoRoute(
+          path: Routes.returnToReduceCashDebt,
+          redirect: (context, state) {
+            WidgetsBinding.instance.addPostFrameCallback((_) async {
+              try {
+                final saleHdId = state.uri.queryParameters['cmV0dXJuX3RvX3JlZHVjZV9jYXNoX2RlYnQ'];
+                if (kDebugMode) print('return_to_reduce_cash_debt: $saleHdId');
+                var hdId = idFormBase64(id: saleHdId);
+                if (kDebugMode) print('hdId: $hdId');
+                await ref.read(documentReturnToReduceCashDebtProvider.notifier).get(id: hdId);
+              } catch (e) {
+                if (kDebugMode) print('error: $e');
+                ref.read(routerHelperProvider).goPath('/error');
+                return;
+              }
+            });
+            return;
+          },
+          pageBuilder: (context, state) {
+            return const NoTransitionPage(child: ReturnToReduceCashDebtScreen());
+          },
+        ),
+        GoRoute(
+          path: Routes.returnToReduceCreditDebt,
+          redirect: (context, state) {
+            WidgetsBinding.instance.addPostFrameCallback((_) async {
+              try {
+                final saleHdId = state.uri.queryParameters['cmV0dXJuX3RvX3JlZHVjZV9jcmVkaXRfZGVidA'];
+                if (kDebugMode) print('return_to_reduce_credit_debt: $saleHdId');
+                var hdId = idFormBase64(id: saleHdId);
+                if (kDebugMode) print('hdId: $hdId');
+                await ref.read(documentReturnToReduceCreditDebtProvider.notifier).get(id: hdId);
+              } catch (e) {
+                if (kDebugMode) print('error: $e');
+                ref.read(routerHelperProvider).goPath('/error');
+                return;
+              }
+            });
+            return;
+          },
+          pageBuilder: (context, state) {
+            return const NoTransitionPage(child: ReturnToReduceCreditDebtScreen());
+          },
+        ),
+        GoRoute(
+          path: Routes.payTheDeposit,
+          redirect: (context, state) {
+            WidgetsBinding.instance.addPostFrameCallback((_) async {
+              try {
+                final saleHdId = state.uri.queryParameters['cGF5X3RoZV9kZXBvc2l0'];
+                if (kDebugMode) print('pay_the_deposit: $saleHdId');
+                var hdId = idFormBase64(id: saleHdId);
+                if (kDebugMode) print('hdId: $hdId');
+                await ref.read(documentPayTheDepositProvider.notifier).get(id: hdId);
+              } catch (e) {
+                if (kDebugMode) print('error: $e');
+                ref.read(routerHelperProvider).goPath('/error');
+                return;
+              }
+            });
+            return;
+          },
+          pageBuilder: (context, state) {
+            return const NoTransitionPage(child: PayTheDepositScreen());
           },
         ),
       ],

@@ -1,3 +1,12 @@
+export 'package:flutter_web_printer/models/document_pay_the_diposit_model.dart';
+export 'package:flutter_web_printer/models/document_credit_note_d_t_model.dart';
+export 'package:flutter_web_printer/models/document_credit_note_model.dart';
+export 'package:flutter_web_printer/models/document_receive_good_d_t_model.dart';
+export 'package:flutter_web_printer/models/document_receive_good_model.dart';
+export 'package:flutter_web_printer/models/document_purchase_order_d_t_model.dart';
+export 'package:flutter_web_printer/models/document_purchase_order_model.dart';
+export 'package:flutter_web_printer/models/document_purchase_request_model.dart';
+export 'package:flutter_web_printer/models/document_purchase_request_d_t_model.dart';
 export 'package:flutter_web_printer/config/routes/route_helper.dart';
 export 'package:flutter_web_printer/screens/_init/error_screen.dart';
 export 'package:flutter_web_printer/screens/_init/view.dart';

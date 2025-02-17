@@ -37,7 +37,7 @@ class PDFGeneratorOrder {
             pw.Padding(
               padding: const pw.EdgeInsets.only(left: 16, right: 16, top: 20),
               child: pw.Row(
-                crossAxisAlignment: pw.CrossAxisAlignment.center,
+                crossAxisAlignment: pw.CrossAxisAlignment.start,
                 mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
                 mainAxisSize: pw.MainAxisSize.max,
                 children: [
@@ -463,21 +463,21 @@ class PDFGeneratorOrder {
             pw.Row(
               mainAxisAlignment: pw.MainAxisAlignment.spaceEvenly,
               children: [
-                pw.SizedBox(
-                  width: 149,
-                  height: 80,
-                  child: pw.Column(
-                    mainAxisAlignment: pw.MainAxisAlignment.center,
-                    crossAxisAlignment: pw.CrossAxisAlignment.center,
-                    children: [
-                      pw.Text("ผู้รับเงิน", style: textStyleNormal),
-                      pw.SizedBox(height: 10),
-                      pw.Text('...........................................................', style: textStyleNormal),
-                      pw.Text("(...........................................................)", style: textStyleNormal),
-                      pw.Text("วันที่.....................................................", style: textStyleNormal),
-                    ],
-                  ),
-                ),
+                // pw.SizedBox(
+                //   width: 149,
+                //   height: 80,
+                //   child: pw.Column(
+                //     mainAxisAlignment: pw.MainAxisAlignment.center,
+                //     crossAxisAlignment: pw.CrossAxisAlignment.center,
+                //     children: [
+                //       pw.Text("ผู้รับเงิน", style: textStyleNormal),
+                //       pw.SizedBox(height: 10),
+                //       pw.Text('...........................................................', style: textStyleNormal),
+                //       pw.Text("(...........................................................)", style: textStyleNormal),
+                //       pw.Text("วันที่.....................................................", style: textStyleNormal),
+                //     ],
+                //   ),
+                // ),
                 pw.SizedBox(
                   width: 149,
                   height: 80,

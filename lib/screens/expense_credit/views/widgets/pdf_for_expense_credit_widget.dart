@@ -51,7 +51,7 @@ class PDFGeneratorExpenseCredit {
             pw.Padding(
               padding: const pw.EdgeInsets.only(left: 16, right: 16, top: 20),
               child: pw.Row(
-                crossAxisAlignment: pw.CrossAxisAlignment.center,
+                crossAxisAlignment: pw.CrossAxisAlignment.start,
                 mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
                 mainAxisSize: pw.MainAxisSize.max,
                 children: [

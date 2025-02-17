@@ -64,7 +64,8 @@ class DocumentSaleCashDTNotifier extends StateNotifier<AsyncValue<List<DocumentS
   }
 }
 
-final documentSaleCashDTProvider = StateNotifierProvider<DocumentSaleCashDTNotifier, AsyncValue<List<DocumentSaleDTModel>>>((ref) => DocumentSaleCashDTNotifier(ref));
+final documentSaleCashDTProvider =
+    StateNotifierProvider<DocumentSaleCashDTNotifier, AsyncValue<List<DocumentSaleDTModel>>>((ref) => DocumentSaleCashDTNotifier(ref));
 
 final filePdfSaleCashProvider = StateProvider<pw.Document>((ref) => pw.Document());
 final filePdfSaleCashViewProvider = StateProvider<Uint8List?>((ref) => null);
