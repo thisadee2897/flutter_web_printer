@@ -39,18 +39,22 @@ extension BuildContextExtension on BuildContext {
 
   void showSnackBarError(String message) {
     ScaffoldMessenger.of(this).clearSnackBars();
-    ScaffoldMessenger.of(this).showSnackBar(SnackBar(
-      content: Text(message),
-      backgroundColor: errorColor.withOpacity(0.9),
-    ));
+    ScaffoldMessenger.of(this).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        backgroundColor: errorColor.withValues(alpha: 0.9),
+      ),
+    );
   }
 
   void showSnackBarSuccess(String message) {
     ScaffoldMessenger.of(this).clearSnackBars();
-    ScaffoldMessenger.of(this).showSnackBar(SnackBar(
-      content: Text(message),
-      backgroundColor: Colors.green.shade700.withOpacity(0.9),
-    ));
+    ScaffoldMessenger.of(this).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        backgroundColor: Colors.green.shade700.withValues(alpha: 0.9),
+      ),
+    );
   }
 
   // void modalBottomSheet(Widget child, {bool showButtom = true,isDismissible = true}) {
