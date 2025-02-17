@@ -1,28 +1,9 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter_web_printer/apps/app_exports.dart';
-import 'package:flutter_web_printer/models/document_sale_model.dart';
-import 'package:flutter_web_printer/models/document_sale_d_t_model.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
-import 'package:http/http.dart' as http;
-
-Future<Uint8List?> getImageBytes(String? imageUrl) async {
-  if (imageUrl == null || imageUrl.isEmpty) return null;
-
-  try {
-    final response = await http.get(Uri.parse(imageUrl));
-    if (response.statusCode == 200) {
-      return response.bodyBytes;
-    }
-  } catch (e) {
-    if (kDebugMode) print("Error fetching image: $e");
-  }
-
-  return null;
-}
 
 class PDFGeneratorExpenseCash {
-  Future<pw.Page> generate({required DocumentSaleModel hd, required List<DocumentSaleDTModel> dt, required CompanyModel company}) async {
+  Future<pw.Page> generate({required DocumentExpenseModel hd, required List<DocumentExpenseDTModel> dt, required CompanyModel company}) async {
     Uint8List? imageBytesFormNetwork = await getImageBytes(company.companyLogo);
     final ByteData data = await rootBundle.load('assets/fonts/THSarabun.ttf');
     final font = pw.Font.ttf(data.buffer.asByteData());
@@ -80,8 +61,13 @@ class PDFGeneratorExpenseCash {
                         mainAxisAlignment: pw.MainAxisAlignment.start,
                         children: [
                           pw.Text(
-                            'ใบจ่ายเงิน',
-                            style: textStyleBold.copyWith(fontSize: 20),
+                            'ค่าใช้จ่ายเงินสด / Expense cash',
+                            style: pw.TextStyle(
+                              font: font,
+                              color: PdfColors.black,
+                              fontSize: 20,
+                              fontWeight: pw.FontWeight.bold,
+                            ),
                           ),
                           pw.Text("${company.companyName}", style: textStyleNormal),
                           pw.Text("${company.companyAddress}${company.addrDistrictName}", style: textStyleNormal),
@@ -100,7 +86,7 @@ class PDFGeneratorExpenseCash {
               padding: const pw.EdgeInsets.all(10),
               margin: const pw.EdgeInsets.only(left: 20, right: 20),
               width: 550,
-              height: 568,
+              height: 588,
               decoration: pw.BoxDecoration(
                 color: PdfColor.fromHex("#FFFFFF"),
                 border: pw.Border.all(color: PdfColor.fromHex("#D7DAE0"), width: 0.5),
@@ -143,22 +129,10 @@ class PDFGeneratorExpenseCash {
                                   mainAxisAlignment: pw.MainAxisAlignment.center,
                                   children: [
                                     pw.Text('เลขที่', style: textStyleNormal),
-                                    pw.Text(hd.saleHdDocuno.toString(), style: textStyleBold),
+                                    pw.Text(hd.expenseHdDocuno.toString(), style: textStyleBold),
                                   ],
                                 ),
                               ),
-                              // pw.SizedBox(
-                              //   height: 32,
-                              //   width: double.infinity,
-                              //   child: pw.Column(
-                              //     crossAxisAlignment: pw.CrossAxisAlignment.start,
-                              //     mainAxisAlignment: pw.MainAxisAlignment.center,
-                              //     children: [
-                              //       pw.Text('รหัสผู้ขาย', style: textStyleNormal),
-                              //       pw.Text(hd.contactCode.toString(), style: textStyleBold),
-                              //     ],
-                              //   ),
-                              // ),
                               pw.SizedBox(
                                 height: 32,
                                 width: double.infinity,
@@ -167,7 +141,7 @@ class PDFGeneratorExpenseCash {
                                   mainAxisAlignment: pw.MainAxisAlignment.center,
                                   children: [
                                     pw.Text('วันที่', style: textStyleNormal),
-                                    pw.Text(hd.saleHdDocudate.dateTHFormApi, style: textStyleBold),
+                                    pw.Text(hd.expenseHdDocudate.dateTHFormApi, style: textStyleBold),
                                   ],
                                 ),
                               ),
@@ -195,7 +169,7 @@ class PDFGeneratorExpenseCash {
                             child: pw.Text(
                               'ลำดับ',
                               textAlign: pw.TextAlign.center,
-                              style: textStyleBold,
+                              style: textStyleNormal,
                             ),
                           ),
                         ),
@@ -206,7 +180,7 @@ class PDFGeneratorExpenseCash {
                             child: pw.Text(
                               'รหัส',
                               textAlign: pw.TextAlign.start,
-                              style: textStyleBold,
+                              style: textStyleNormal,
                             ),
                           ),
                         ),
@@ -216,7 +190,7 @@ class PDFGeneratorExpenseCash {
                             child: pw.Text(
                               'รายการ',
                               textAlign: pw.TextAlign.start,
-                              style: textStyleBold,
+                              style: textStyleNormal,
                             ),
                           ),
                         ),
@@ -227,7 +201,7 @@ class PDFGeneratorExpenseCash {
                             child: pw.Text(
                               'จำนวนเงินจ่าย',
                               textAlign: pw.TextAlign.end,
-                              style: textStyleBold,
+                              style: textStyleNormal,
                             ),
                           ),
                         ),
@@ -251,9 +225,9 @@ class PDFGeneratorExpenseCash {
                                   child: pw.Padding(
                                     padding: const pw.EdgeInsets.only(left: 2, right: 2),
                                     child: pw.Text(
-                                      dt[index].saleDtListno.digits(0),
+                                      dt[index].expenseDtListno.digits(0),
                                       textAlign: pw.TextAlign.center,
-                                      style: textStyleBold,
+                                      style: textStyleNormal,
                                     ),
                                   ),
                                 ),
@@ -262,9 +236,9 @@ class PDFGeneratorExpenseCash {
                                   child: pw.Padding(
                                     padding: const pw.EdgeInsets.only(left: 2, right: 2),
                                     child: pw.Text(
-                                      "${dt[index].saleDtProductBarcodeCode}",
+                                      "${dt[index].expenseDtProductBarcodeCode}",
                                       textAlign: pw.TextAlign.start,
-                                      style: textStyleBold,
+                                      style: textStyleNormal,
                                     ),
                                   ),
                                 ),
@@ -274,9 +248,9 @@ class PDFGeneratorExpenseCash {
                                     child: pw.Text(
                                       maxLines: 1,
                                       overflow: pw.TextOverflow.visible,
-                                      "${dt[index].saleDtProductBarcodeName}",
+                                      "${dt[index].productBarcodeName}",
                                       textAlign: pw.TextAlign.start,
-                                      style: textStyleBold,
+                                      style: textStyleNormal,
                                     ),
                                   ),
                                 ),
@@ -284,7 +258,11 @@ class PDFGeneratorExpenseCash {
                                   width: 100,
                                   child: pw.Padding(
                                     padding: const pw.EdgeInsets.only(left: 2, right: 2),
-                                    child: pw.Text(num.parse(dt[index].saleDtNetamnt ?? '0').digits(2), textAlign: pw.TextAlign.end, style: textStyleBold),
+                                    child: pw.Text(
+                                      num.parse(dt[index].expenseDtNetamnt ?? '0').digits(2),
+                                      textAlign: pw.TextAlign.end,
+                                      style: textStyleNormal,
+                                    ),
                                   ),
                                 ),
                               ],
@@ -317,10 +295,8 @@ class PDFGeneratorExpenseCash {
                                     pw.Padding(
                                       padding: const pw.EdgeInsets.only(right: 10),
                                       child: pw.Text(
-                                        num.parse(hd.saleHdAmount ?? '0').digits(2),
-                                        style: textStyleBold.copyWith(
-                                          color: PdfColor.fromHex("#0064B0"),
-                                        ),
+                                        num.parse(hd.expenseHdAmount ?? '0').digits(2),
+                                        style: textStyleBold.copyWith(color: PdfColor.fromHex("#0064B0")),
                                       ),
                                     ),
                                   ],
@@ -337,7 +313,7 @@ class PDFGeneratorExpenseCash {
                                 crossAxisAlignment: pw.CrossAxisAlignment.start,
                                 children: [
                                   pw.Text('จำนวนเงิน (ตัวอักษร)', style: textStyleNormal),
-                                  pw.Text(NumberToThaiWords.convert(double.parse(hd.saleHdNetamnt ?? '0')), style: textStyleBold),
+                                  pw.Text(NumberToThaiWords.convert(double.parse(hd.expenseHdNetamnt ?? '0')), style: textStyleBold),
                                 ],
                               ),
                               pw.Padding(
@@ -347,7 +323,7 @@ class PDFGeneratorExpenseCash {
                                   crossAxisAlignment: pw.CrossAxisAlignment.end,
                                   children: [
                                     pw.Text('รวมทั้งสิ้น', style: textStyleNormal),
-                                    pw.Text(double.parse(hd.saleHdNetamnt ?? '0').digits(2), style: textStyleBold),
+                                    pw.Text(double.parse(hd.expenseHdNetamnt ?? '0').digits(2), style: textStyleBold),
                                   ],
                                 ),
                               ),
@@ -359,16 +335,92 @@ class PDFGeneratorExpenseCash {
                             children: [
                               pw.Expanded(
                                 flex: 1,
-                                child: pw.Column(
-                                  mainAxisAlignment: pw.MainAxisAlignment.start,
-                                  crossAxisAlignment: pw.CrossAxisAlignment.start,
-                                  children: [
-                                    pw.Text('จำนวนวันเครดิต', style: textStyleNormal),
-                                    pw.Text(
-                                      "${hd.saleHdCreditday.digits(0)} วัน",
-                                      style: textStyleBold,
-                                    ),
-                                  ],
+                                child: pw.Padding(
+                                  padding: const pw.EdgeInsets.only(right: 30),
+                                  child: pw.Column(
+                                    children: [
+                                      pw.Row(
+                                        mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          pw.Text(
+                                            'ชำระโดย',
+                                            style: textStyleNormal,
+                                          ),
+                                          pw.Padding(
+                                            padding: const pw.EdgeInsets.only(right: 10),
+                                            child: pw.Text(
+                                              "จำนวน",
+                                              style: textStyleNormal,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      pw.Row(
+                                        mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          pw.Row(
+                                            children: [
+                                              pw.SvgImage(svg: num.parse(hd.expenseHdCashAmount ?? '0') > 0 ? svgTrue : svgFasle),
+                                              pw.SizedBox(width: 5),
+                                              pw.Text('เงินสด', style: textStyleBold),
+                                            ],
+                                          ),
+                                          pw.Padding(
+                                            padding: const pw.EdgeInsets.only(right: 10),
+                                            child: pw.Text(num.parse(hd.expenseHdCashAmount ?? '0').digits(2), style: textStyleBold),
+                                          ),
+                                        ],
+                                      ),
+                                      pw.Row(
+                                        mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          pw.Row(
+                                            children: [
+                                              pw.SvgImage(svg: num.parse(hd.expenseHdTransferAmount ?? '0') > 0 ? svgTrue : svgFasle),
+                                              pw.SizedBox(width: 5),
+                                              pw.Text('เงินโอน', style: textStyleBold),
+                                            ],
+                                          ),
+                                          pw.Padding(
+                                            padding: const pw.EdgeInsets.only(right: 10),
+                                            child: pw.Text(num.parse(hd.expenseHdTransferAmount ?? '0').digits(2), style: textStyleBold),
+                                          ),
+                                        ],
+                                      ),
+                                      // pw.Row(
+                                      //   mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+                                      //   children: [
+                                      //     pw.Row(
+                                      //       children: [
+                                      //         pw.SvgImage(svg: num.parse(hd.expenseHdCreditAmount ?? '0') > 0 ? svgTrue : svgFasle),
+                                      //         pw.SizedBox(width: 5),
+                                      //         pw.Text('บัตรเครดิต', style: textStyleBold),
+                                      //       ],
+                                      //     ),
+                                      //     pw.Padding(
+                                      //       padding: const pw.EdgeInsets.only(right: 10),
+                                      //       child: pw.Text(num.parse(hd.expenseHdCreditAmount ?? '0').digits(2), style: textStyleBold),
+                                      //     ),
+                                      //   ],
+                                      // ),
+                                      // pw.Row(
+                                      //   mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+                                      //   children: [
+                                      //     pw.Row(
+                                      //       children: [
+                                      //         pw.SvgImage(svg: num.parse(hd.expenseHdVoucherAmount ?? '0') > 0 ? svgTrue : svgFasle),
+                                      //         pw.SizedBox(width: 5),
+                                      //         pw.Text('VOUCHER', style: textStyleBold),
+                                      //       ],
+                                      //     ),
+                                      //     pw.Padding(
+                                      //       padding: const pw.EdgeInsets.only(right: 10),
+                                      //       child: pw.Text(num.parse(hd.expenseHdVoucherAmount ?? '0').digits(2), style: textStyleBold),
+                                      //     ),
+                                      //   ],
+                                      // ),
+                                    ],
+                                  ),
                                 ),
                               ),
                               pw.Expanded(
@@ -384,9 +436,19 @@ class PDFGeneratorExpenseCash {
                                         ),
                                         pw.Padding(
                                           padding: const pw.EdgeInsets.only(right: 10),
+                                          child: pw.Text("จำนวน", style: textStyleNormal),
+                                        ),
+                                      ],
+                                    ),
+                                    pw.Row(
+                                      mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        pw.Text('สินค้าที่ได้รับยกเว้นภาษีมูลค่าเพิ่ม', style: textStyleBold),
+                                        pw.Padding(
+                                          padding: const pw.EdgeInsets.only(right: 10),
                                           child: pw.Text(
-                                            "จำนวน",
-                                            style: textStyleNormal,
+                                            num.parse(hd.expenseHdTotalexcludeamnt ?? '0').digits(2),
+                                            style: textStyleBold,
                                           ),
                                         ),
                                       ],
@@ -394,14 +456,24 @@ class PDFGeneratorExpenseCash {
                                     pw.Row(
                                       mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
                                       children: [
-                                        pw.Text(
-                                          'สินค้าที่ได้รับยกเว้นภาษีมูลค่าเพิ่ม',
-                                          style: textStyleBold,
-                                        ),
+                                        pw.Text('สินค้าที่ต้องเสียภาษีมูลค่าเพิ่ม', style: textStyleBold),
                                         pw.Padding(
                                           padding: const pw.EdgeInsets.only(right: 10),
                                           child: pw.Text(
-                                            num.parse(hd.saleHdTotalexcludeamnt ?? '0').digits(2),
+                                            num.parse(hd.expenseHdBaseamnt ?? '0').digits(2),
+                                            style: textStyleBold,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    pw.Row(
+                                      mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        pw.Text('ภาษีมูลค่าเพิ่ม (7%)', style: textStyleBold),
+                                        pw.Padding(
+                                          padding: const pw.EdgeInsets.only(right: 10),
+                                          child: pw.Text(
+                                            num.parse(hd.expenseHdVatamnt ?? '0').digits(2),
                                             style: textStyleBold,
                                           ),
                                         ),
@@ -411,31 +483,12 @@ class PDFGeneratorExpenseCash {
                                       mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
                                       children: [
                                         pw.Text(
-                                          'สินค้าที่ต้องเสียภาษีมูลค่าเพิ่ม',
+                                          'รวมมูลค่าสุทธิ',
                                           style: textStyleBold,
                                         ),
                                         pw.Padding(
                                           padding: const pw.EdgeInsets.only(right: 10),
-                                          child: pw.Text(
-                                            num.parse(hd.saleHdBaseamnt ?? '0').digits(2),
-                                            style: textStyleBold,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    pw.Row(
-                                      mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        pw.Text(
-                                          'ภาษีมูลค่าเพิ่ม (7%)',
-                                          style: textStyleBold,
-                                        ),
-                                        pw.Padding(
-                                          padding: const pw.EdgeInsets.only(right: 10),
-                                          child: pw.Text(
-                                            num.parse(hd.saleHdVatamnt ?? '0').digits(2),
-                                            style: textStyleBold,
-                                          ),
+                                          child: pw.Text(num.parse(hd.expenseHdNetamnt ?? '0').digits(2), style: textStyleBold),
                                         ),
                                       ],
                                     ),
@@ -444,7 +497,7 @@ class PDFGeneratorExpenseCash {
                               ),
                             ],
                           ),
-                          pw.SizedBox(height: 30),
+                          pw.SizedBox(height: 10),
                         ],
                       ),
                     ),
@@ -452,21 +505,20 @@ class PDFGeneratorExpenseCash {
                 ],
               ),
             ),
-            pw.SizedBox(height: 30),
-            pw.Row(
-              crossAxisAlignment: pw.CrossAxisAlignment.start,
-              mainAxisAlignment: pw.MainAxisAlignment.center,
-              children: [
-                pw.SizedBox(
-                  width: 50,
-                  child: pw.Text(
-                    textAlign: pw.TextAlign.end,
-                    'หมายเหตุ : ',
-                    style: textStyleNormal,
+            pw.SizedBox(height: 20),
+            pw.Padding(
+              padding: const pw.EdgeInsets.only(right: 20),
+              child: pw.Row(
+                crossAxisAlignment: pw.CrossAxisAlignment.start,
+                mainAxisAlignment: pw.MainAxisAlignment.center,
+                children: [
+                  pw.SizedBox(
+                    width: 50,
+                    child: pw.Text(textAlign: pw.TextAlign.right, 'หมายเหตุ : ', style: textStyleNormal),
                   ),
-                ),
-                pw.Text("${hd.saleHdRemark}", style: textStyleNormal),
-              ],
+                  pw.Text("${hd.expenseHdRemark}", style: textStyleNormal),
+                ],
+              ),
             )
           ],
         );

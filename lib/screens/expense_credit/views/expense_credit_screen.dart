@@ -1,8 +1,9 @@
 import 'package:flutter_web_printer/apps/app_exports.dart';
-import 'package:flutter_web_printer/screens/expense_credit/controllers/providers/document_expense_credit_dt.dart';
 import 'package:printing/printing.dart';
 import 'package:syncfusion_flutter_core/theme.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
+
+import '../controllers/providers/document_expense_credit_dt.dart';
 
 class ExpenseCreditScreen extends ConsumerWidget {
   const ExpenseCreditScreen({super.key});
@@ -16,7 +17,7 @@ class ExpenseCreditScreen extends ConsumerWidget {
       appBar: AppBar(
         backgroundColor: Colors.black87,
         title: const Text(
-          'Expense Credit',
+          'Expense credit',
           style: TextStyle(
             color: Colors.white,
           ),

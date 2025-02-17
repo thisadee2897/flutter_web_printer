@@ -1,15 +1,15 @@
 import 'package:flutter_web_printer/apps/app_exports.dart';
-import 'package:flutter_web_printer/models/document_sale_d_t_model.dart';
+
 
 class DocumentExpenseCashDTApi {
   final Ref ref;
   DocumentExpenseCashDTApi({required this.ref});
-  final String _detail = '/Saledata/Sale/get_document_get_sale_dt';
+  final String _detail = '/Expense/Expense/get_document_expense_dt';
 
-  Future<List<DocumentSaleDTModel>> get(Map<String, dynamic> body) async {
+  Future<List<DocumentExpenseDTModel>> get(Map<String, dynamic> body) async {
     Response<dynamic> response = await ref.read(apiClientProvider).post(_detail, data: body);
     List<Map<String, dynamic>> data = List<Map<String, dynamic>>.from(response.data);
-    return data.map((e) => DocumentSaleDTModel.fromJson(e)).toList();
+    return data.map((e) => DocumentExpenseDTModel.fromJson(e)).toList();
   }
 }
 

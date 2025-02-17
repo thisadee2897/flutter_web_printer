@@ -1,3 +1,5 @@
+export 'package:flutter_web_printer/models/document_expense_model.dart';
+export 'package:flutter_web_printer/models/document_expense_d_t_model.dart';
 export 'package:flutter_web_printer/models/document_pay_the_diposit_model.dart';
 export 'package:flutter_web_printer/models/document_credit_note_d_t_model.dart';
 export 'package:flutter_web_printer/models/document_credit_note_model.dart';

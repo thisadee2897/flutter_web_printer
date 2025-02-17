@@ -1,21 +1,18 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_web_printer/config/routes/route_helper.dart';
-import 'package:flutter_web_printer/models/document_sale_model.dart';
-import 'package:flutter_web_printer/utils/services/rest_api_service.dart';
+import 'package:flutter_web_printer/apps/app_exports.dart';
 
 class DocumentExpenseCreditApi {
   final Ref ref;
   DocumentExpenseCreditApi({required this.ref});
-  final String _detail = '/Saledata/Sale/get_document_sale';
+  final String _detail = '/Purchase/ReceiveGoods/get_document_receive';
 
-  Future<DocumentSaleModel> get(Map<String, dynamic> body) async {
+  Future<DocumentExpenseModel> get(Map<String, dynamic> body) async {
     Response<dynamic> response = await ref.read(apiClientProvider).post(_detail, data: body);
     if (response.data == null) {
       ref.read(routerHelperProvider).goPath('/error');
-      return const DocumentSaleModel();
+      return const DocumentExpenseModel();
     } else {
       Map<String, dynamic> data = Map<String, dynamic>.from(response.data);
-      return DocumentSaleModel.fromJson(data);
+      return DocumentExpenseModel.fromJson(data);
     }
   }
 }

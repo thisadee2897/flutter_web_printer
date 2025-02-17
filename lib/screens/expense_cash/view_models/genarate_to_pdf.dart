@@ -13,6 +13,7 @@ class GenaratePDFExpenseCashNotifier extends StateNotifier<AsyncValue<pw.Documen
   GenaratePDFExpenseCashNotifier() : super(AsyncValue.data(pw.Document())) {
     _pdfFile = pw.Document();
   }
+
   late pw.Document _pdfFile;
 
   Future<void> printPdf(List<GlobalKey> widgetKeys) async {
@@ -59,4 +60,3 @@ class GenaratePDFExpenseCashNotifier extends StateNotifier<AsyncValue<pw.Documen
     }
   }
 }
-

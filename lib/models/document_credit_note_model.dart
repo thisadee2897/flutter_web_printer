@@ -37,7 +37,7 @@ class DocumentCreditNoteModel with _$DocumentCreditNoteModel {
   @JsonKey(name: 'master_branch_bankbook_bankbookno') String? branchBankbookBankbookno,
   @JsonKey(name: 'master_branch_bankbook_branchname') String? branchBankbookBranchname,
   @JsonKey(name: 'master_branch_bankbook_name') String? branchBankbookName,
-  @JsonKey(name: 'vendor_master_bank_id') String? vendorBankId,
+  @JsonKey(name: 'vendor_master_bank_id') num? vendorBankId,
   @JsonKey(name: 'vendor_master_bank_name') String? vendorBankName,
   @JsonKey(name: 'vendor_bankbookno') String? vendorBankbookno,
   @JsonKey(name: 'vendor_bankbook_name') String? vendorBankbookName,

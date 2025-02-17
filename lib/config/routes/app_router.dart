@@ -1,6 +1,10 @@
 // ignore_for_file: unused_element
 import 'package:flutter/foundation.dart';
 import 'package:flutter_web_printer/apps/app_exports.dart';
+import 'package:flutter_web_printer/screens/expense_cash/controllers/providers/document_expense_cash.dart';
+import 'package:flutter_web_printer/screens/expense_cash/views/expense_cash_screen.dart';
+import 'package:flutter_web_printer/screens/expense_credit/controllers/providers/document_expense_credit.dart';
+import 'package:flutter_web_printer/screens/expense_credit/views/expense_credit_screen.dart';
 import 'package:flutter_web_printer/screens/good_receive_cash/controllers/providers/document_good_receive_cash.dart';
 import 'package:flutter_web_printer/screens/good_receive_cash/views/good_receive_cash_screen.dart';
 import 'package:flutter_web_printer/screens/good_receive_credit/controllers/providers/document_good_receive_credit.dart';
@@ -376,6 +380,50 @@ final appRouterProvider = Provider<GoRouter>(
           },
           pageBuilder: (context, state) {
             return const NoTransitionPage(child: PayTheDepositScreen());
+          },
+        ),
+        GoRoute(
+          path: Routes.expenseCash,
+          redirect: (context, state) {
+            WidgetsBinding.instance.addPostFrameCallback((_) async {
+              try {
+                final saleHdId = state.uri.queryParameters['ZXhwZW5zZV9jYXNo'];
+                if (kDebugMode) print('expense_hd_id: $saleHdId');
+                var hdId = idFormBase64(id: saleHdId);
+                if (kDebugMode) print('hdId: $hdId');
+                await ref.read(documentExpenseCashProvider.notifier).get(id: hdId);
+              } catch (e) {
+                if (kDebugMode) print('error: $e');
+                ref.read(routerHelperProvider).goPath('/error');
+                return;
+              }
+            });
+            return;
+          },
+          pageBuilder: (context, state) {
+            return const NoTransitionPage(child: ExpenseCashScreen());
+          },
+        ),
+        GoRoute(
+          path: Routes.expenseCredit,
+          redirect: (context, state) {
+            WidgetsBinding.instance.addPostFrameCallback((_) async {
+              try {
+                final saleHdId = state.uri.queryParameters['ZXhwZW5zZV9jcmVkaXQ'];
+                if (kDebugMode) print('expense_hd_id: $saleHdId');
+                var hdId = idFormBase64(id: saleHdId);
+                if (kDebugMode) print('hdId: $hdId');
+                await ref.read(documentExpenseCreditProvider.notifier).get(id: hdId);
+              } catch (e) {
+                if (kDebugMode) print('error: $e');
+                ref.read(routerHelperProvider).goPath('/error');
+                return;
+              }
+            });
+            return;
+          },
+          pageBuilder: (context, state) {
+            return const NoTransitionPage(child: ExpenseCreditScreen());
           },
         ),
       ],

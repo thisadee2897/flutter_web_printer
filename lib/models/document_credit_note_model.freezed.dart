@@ -84,7 +84,7 @@ mixin _$DocumentCreditNoteModel {
   @JsonKey(name: 'master_branch_bankbook_name')
   String? get branchBankbookName => throw _privateConstructorUsedError;
   @JsonKey(name: 'vendor_master_bank_id')
-  String? get vendorBankId => throw _privateConstructorUsedError;
+  num? get vendorBankId => throw _privateConstructorUsedError;
   @JsonKey(name: 'vendor_master_bank_name')
   String? get vendorBankName => throw _privateConstructorUsedError;
   @JsonKey(name: 'vendor_bankbookno')
@@ -155,7 +155,7 @@ abstract class $DocumentCreditNoteModelCopyWith<$Res> {
       @JsonKey(name: 'master_branch_bankbook_branchname')
       String? branchBankbookBranchname,
       @JsonKey(name: 'master_branch_bankbook_name') String? branchBankbookName,
-      @JsonKey(name: 'vendor_master_bank_id') String? vendorBankId,
+      @JsonKey(name: 'vendor_master_bank_id') num? vendorBankId,
       @JsonKey(name: 'vendor_master_bank_name') String? vendorBankName,
       @JsonKey(name: 'vendor_bankbookno') String? vendorBankbookno,
       @JsonKey(name: 'vendor_bankbook_name') String? vendorBankbookName,
@@ -347,7 +347,7 @@ class _$DocumentCreditNoteModelCopyWithImpl<$Res,
       vendorBankId: freezed == vendorBankId
           ? _value.vendorBankId
           : vendorBankId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as num?,
       vendorBankName: freezed == vendorBankName
           ? _value.vendorBankName
           : vendorBankName // ignore: cast_nullable_to_non_nullable
@@ -430,7 +430,7 @@ abstract class _$$DocumentCreditNoteModelImplCopyWith<$Res>
       @JsonKey(name: 'master_branch_bankbook_branchname')
       String? branchBankbookBranchname,
       @JsonKey(name: 'master_branch_bankbook_name') String? branchBankbookName,
-      @JsonKey(name: 'vendor_master_bank_id') String? vendorBankId,
+      @JsonKey(name: 'vendor_master_bank_id') num? vendorBankId,
       @JsonKey(name: 'vendor_master_bank_name') String? vendorBankName,
       @JsonKey(name: 'vendor_bankbookno') String? vendorBankbookno,
       @JsonKey(name: 'vendor_bankbook_name') String? vendorBankbookName,
@@ -621,7 +621,7 @@ class __$$DocumentCreditNoteModelImplCopyWithImpl<$Res>
       vendorBankId: freezed == vendorBankId
           ? _value.vendorBankId
           : vendorBankId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as num?,
       vendorBankName: freezed == vendorBankName
           ? _value.vendorBankName
           : vendorBankName // ignore: cast_nullable_to_non_nullable
@@ -803,7 +803,7 @@ class _$DocumentCreditNoteModelImpl implements _DocumentCreditNoteModel {
   final String? branchBankbookName;
   @override
   @JsonKey(name: 'vendor_master_bank_id')
-  final String? vendorBankId;
+  final num? vendorBankId;
   @override
   @JsonKey(name: 'vendor_master_bank_name')
   final String? vendorBankName;
@@ -1022,7 +1022,7 @@ abstract class _DocumentCreditNoteModel implements DocumentCreditNoteModel {
       final String? branchBankbookBranchname,
       @JsonKey(name: 'master_branch_bankbook_name')
       final String? branchBankbookName,
-      @JsonKey(name: 'vendor_master_bank_id') final String? vendorBankId,
+      @JsonKey(name: 'vendor_master_bank_id') final num? vendorBankId,
       @JsonKey(name: 'vendor_master_bank_name') final String? vendorBankName,
       @JsonKey(name: 'vendor_bankbookno') final String? vendorBankbookno,
       @JsonKey(name: 'vendor_bankbook_name') final String? vendorBankbookName,
@@ -1129,7 +1129,7 @@ abstract class _DocumentCreditNoteModel implements DocumentCreditNoteModel {
   String? get branchBankbookName;
   @override
   @JsonKey(name: 'vendor_master_bank_id')
-  String? get vendorBankId;
+  num? get vendorBankId;
   @override
   @JsonKey(name: 'vendor_master_bank_name')
   String? get vendorBankName;

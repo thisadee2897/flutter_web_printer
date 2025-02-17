@@ -24,7 +24,7 @@ _$DocumentPayTheDipositModelImpl _$$DocumentPayTheDipositModelImplFromJson(
       vatGroupId: json['master_vat_group_id'] as num?,
       vatRate: json['master_vat_rate'] as String?,
       branchBankbookId: json['master_branch_bankbook_id'] as String?,
-      vendorBankId: json['vendor_master_bank_id'] as String?,
+      vendorBankId: json['vendor_master_bank_id'] as num?,
       vendorBankName: json['vendor_master_bank_name'] as String?,
       vendorBankbookno: json['vendor_bankbookno'] as String?,
       vendorBankbookName: json['vendor_bankbook_name'] as String?,

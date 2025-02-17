@@ -29,4 +29,8 @@ class Routes {
   static const String returnToReduceCreditDebt = '/return_to_reduce_credit_debt';
   //PayTheDepositScreen
   static const String payTheDeposit = '/pay_the_deposit';
+  //expense_cash
+  static const String expenseCash = '/expense_cash';
+  //ExpenseCreditScreen
+  static const String expenseCredit = '/expense_credit';
 }

@@ -22,7 +22,7 @@ class DocumentPayTheDipositModel with _$DocumentPayTheDipositModel {
   @JsonKey(name: 'master_vat_group_id') num? vatGroupId,
   @JsonKey(name: 'master_vat_rate') String? vatRate,
   @JsonKey(name: 'master_branch_bankbook_id') String? branchBankbookId,
-  @JsonKey(name: 'vendor_master_bank_id') String? vendorBankId,
+  @JsonKey(name: 'vendor_master_bank_id') num? vendorBankId,
   @JsonKey(name: 'vendor_master_bank_name') String? vendorBankName,
   @JsonKey(name: 'vendor_bankbookno') String? vendorBankbookno,
   @JsonKey(name: 'vendor_bankbook_name') String? vendorBankbookName,

@@ -52,7 +52,7 @@ mixin _$DocumentPayTheDipositModel {
   @JsonKey(name: 'master_branch_bankbook_id')
   String? get branchBankbookId => throw _privateConstructorUsedError;
   @JsonKey(name: 'vendor_master_bank_id')
-  String? get vendorBankId => throw _privateConstructorUsedError;
+  num? get vendorBankId => throw _privateConstructorUsedError;
   @JsonKey(name: 'vendor_master_bank_name')
   String? get vendorBankName => throw _privateConstructorUsedError;
   @JsonKey(name: 'vendor_bankbookno')
@@ -127,7 +127,7 @@ abstract class $DocumentPayTheDipositModelCopyWith<$Res> {
       @JsonKey(name: 'master_vat_group_id') num? vatGroupId,
       @JsonKey(name: 'master_vat_rate') String? vatRate,
       @JsonKey(name: 'master_branch_bankbook_id') String? branchBankbookId,
-      @JsonKey(name: 'vendor_master_bank_id') String? vendorBankId,
+      @JsonKey(name: 'vendor_master_bank_id') num? vendorBankId,
       @JsonKey(name: 'vendor_master_bank_name') String? vendorBankName,
       @JsonKey(name: 'vendor_bankbookno') String? vendorBankbookno,
       @JsonKey(name: 'vendor_bankbook_name') String? vendorBankbookName,
@@ -271,7 +271,7 @@ class _$DocumentPayTheDipositModelCopyWithImpl<$Res,
       vendorBankId: freezed == vendorBankId
           ? _value.vendorBankId
           : vendorBankId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as num?,
       vendorBankName: freezed == vendorBankName
           ? _value.vendorBankName
           : vendorBankName // ignore: cast_nullable_to_non_nullable
@@ -381,7 +381,7 @@ abstract class _$$DocumentPayTheDipositModelImplCopyWith<$Res>
       @JsonKey(name: 'master_vat_group_id') num? vatGroupId,
       @JsonKey(name: 'master_vat_rate') String? vatRate,
       @JsonKey(name: 'master_branch_bankbook_id') String? branchBankbookId,
-      @JsonKey(name: 'vendor_master_bank_id') String? vendorBankId,
+      @JsonKey(name: 'vendor_master_bank_id') num? vendorBankId,
       @JsonKey(name: 'vendor_master_bank_name') String? vendorBankName,
       @JsonKey(name: 'vendor_bankbookno') String? vendorBankbookno,
       @JsonKey(name: 'vendor_bankbook_name') String? vendorBankbookName,
@@ -524,7 +524,7 @@ class __$$DocumentPayTheDipositModelImplCopyWithImpl<$Res>
       vendorBankId: freezed == vendorBankId
           ? _value.vendorBankId
           : vendorBankId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as num?,
       vendorBankName: freezed == vendorBankName
           ? _value.vendorBankName
           : vendorBankName // ignore: cast_nullable_to_non_nullable
@@ -704,7 +704,7 @@ class _$DocumentPayTheDipositModelImpl implements _DocumentPayTheDipositModel {
   final String? branchBankbookId;
   @override
   @JsonKey(name: 'vendor_master_bank_id')
-  final String? vendorBankId;
+  final num? vendorBankId;
   @override
   @JsonKey(name: 'vendor_master_bank_name')
   final String? vendorBankName;
@@ -929,7 +929,7 @@ abstract class _DocumentPayTheDipositModel
       @JsonKey(name: 'master_vat_rate') final String? vatRate,
       @JsonKey(name: 'master_branch_bankbook_id')
       final String? branchBankbookId,
-      @JsonKey(name: 'vendor_master_bank_id') final String? vendorBankId,
+      @JsonKey(name: 'vendor_master_bank_id') final num? vendorBankId,
       @JsonKey(name: 'vendor_master_bank_name') final String? vendorBankName,
       @JsonKey(name: 'vendor_bankbookno') final String? vendorBankbookno,
       @JsonKey(name: 'vendor_bankbook_name') final String? vendorBankbookName,
@@ -1009,7 +1009,7 @@ abstract class _DocumentPayTheDipositModel
   String? get branchBankbookId;
   @override
   @JsonKey(name: 'vendor_master_bank_id')
-  String? get vendorBankId;
+  num? get vendorBankId;
   @override
   @JsonKey(name: 'vendor_master_bank_name')
   String? get vendorBankName;
