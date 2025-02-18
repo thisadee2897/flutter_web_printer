@@ -61,7 +61,7 @@ class PDFGeneratorInventoryRequisition {
                         crossAxisAlignment: pw.CrossAxisAlignment.end,
                         mainAxisAlignment: pw.MainAxisAlignment.start,
                         children: [
-                          pw.Text('ปรับปรุงเพิ่ม/ลดจำนวนสินค้า / Inventory requisition', style: textStyleBold.copyWith(fontSize: 20)),
+                          pw.Text('เบิกสินค้า / Inventory Requisition', style: textStyleBold.copyWith(fontSize: 20)),
                           pw.Text("${company.companyName}", style: textStyleNormal),
                           pw.Text("${company.companyAddress}${company.addrDistrictName}", style: textStyleNormal),
                           pw.Text("${company.addrPrefectureName} ${company.addrProvinceName} ${company.addrPostcodeCode}", style: textStyleNormal),
@@ -90,10 +90,17 @@ class PDFGeneratorInventoryRequisition {
                 crossAxisAlignment: pw.CrossAxisAlignment.center,
                 children: [
                   pw.Row(
+                    crossAxisAlignment: pw.CrossAxisAlignment.start,
                     children: [
                       pw.Expanded(
                         flex: 2,
-                        child: pw.Container(),
+                        child: pw.Column(
+                          crossAxisAlignment: pw.CrossAxisAlignment.start,
+                          children: [
+                            pw.Text('สาขา', style: textStyleNormal),
+                            pw.Text(hd.branchName.toString(), style: textStyleBold),
+                          ],
+                        ),
                       ),
                       pw.Expanded(
                         flex: 1,
@@ -341,53 +348,53 @@ class PDFGeneratorInventoryRequisition {
                         mainAxisAlignment: pw.MainAxisAlignment.start,
                         crossAxisAlignment: pw.CrossAxisAlignment.start,
                         children: [
-                          // pw.Divider(color: PdfColor.fromHex("#D7DAE0"), thickness: 0.5),
-                          // pw.Row(
-                          //   children: [
-                          //     pw.Expanded(flex: 1, child: pw.Container()),
-                          //     pw.Expanded(
-                          //       flex: 1,
-                          //       child: pw.Row(
-                          //         mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                          //         children: [
-                          //           pw.Text('Total', style: textStyleBold),
-                          //           pw.Padding(
-                          //             padding: const pw.EdgeInsets.only(right: 10),
-                          //             child: pw.Text(
-                          //               num.parse(hd.requisitionHdAmount ?? '0').digits(2),
-                          //               style: textStyleBold.copyWith(color: PdfColor.fromHex("#0064B0")),
-                          //             ),
-                          //           ),
-                          //         ],
-                          //       ),
-                          //     ),
-                          //   ],
-                          // ),
-                          // pw.Divider(color: PdfColor.fromHex("#D7DAE0"), thickness: 0.5),
-                          // pw.Row(
-                          //   mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                          //   children: [
-                          //     pw.Column(
-                          //       mainAxisAlignment: pw.MainAxisAlignment.start,
-                          //       crossAxisAlignment: pw.CrossAxisAlignment.start,
-                          //       children: [
-                          //         pw.Text('จำนวนเงิน (ตัวอักษร)', style: textStyleNormal),
-                          //         pw.Text(NumberToThaiWords.convert(double.parse(hd.requisitionHdNetamount ?? '0')), style: textStyleBold),
-                          //       ],
-                          //     ),
-                          //     pw.Padding(
-                          //       padding: const pw.EdgeInsets.only(right: 10),
-                          //       child: pw.Column(
-                          //         mainAxisAlignment: pw.MainAxisAlignment.end,
-                          //         crossAxisAlignment: pw.CrossAxisAlignment.end,
-                          //         children: [
-                          //           pw.Text('รวมทั้งสิ้น', style: textStyleNormal),
-                          //           pw.Text(double.parse(hd.requisitionHdNetamount ?? '0').digits(2), style: textStyleBold),
-                          //         ],
-                          //       ),
-                          //     ),
-                          //   ],
-                          // ),
+                          pw.Divider(color: PdfColor.fromHex("#D7DAE0"), thickness: 0.5),
+                          pw.Row(
+                            children: [
+                              pw.Expanded(flex: 1, child: pw.Container()),
+                              pw.Expanded(
+                                flex: 1,
+                                child: pw.Row(
+                                  mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    pw.Text('Total', style: textStyleBold),
+                                    pw.Padding(
+                                      padding: const pw.EdgeInsets.only(right: 10),
+                                      child: pw.Text(
+                                        num.parse(hd.requisitionAmount ?? '0').digits(2),
+                                        style: textStyleBold.copyWith(color: PdfColor.fromHex("#0064B0")),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                          pw.Divider(color: PdfColor.fromHex("#D7DAE0"), thickness: 0.5),
+                          pw.Row(
+                            mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+                            children: [
+                              pw.Column(
+                                mainAxisAlignment: pw.MainAxisAlignment.start,
+                                crossAxisAlignment: pw.CrossAxisAlignment.start,
+                                children: [
+                                  pw.Text('จำนวนเงิน (ตัวอักษร)', style: textStyleNormal),
+                                  pw.Text(NumberToThaiWords.convert(double.parse(hd.requisitionAmount ?? '0')), style: textStyleBold),
+                                ],
+                              ),
+                              pw.Padding(
+                                padding: const pw.EdgeInsets.only(right: 10),
+                                child: pw.Column(
+                                  mainAxisAlignment: pw.MainAxisAlignment.end,
+                                  crossAxisAlignment: pw.CrossAxisAlignment.end,
+                                  children: [
+                                    pw.Text('รวมทั้งสิ้น', style: textStyleNormal),
+                                    pw.Text(double.parse(hd.requisitionAmount ?? '0').digits(2), style: textStyleBold),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
                         ],
                       ),
                     ),

@@ -21,6 +21,7 @@ _$DocumentInventoryRequisitionModelImpl
           requisitionHdRemark: json['requisition_hd_remark'] as String?,
           fullname: json['fullname'] as String?,
           menuId: json['master_menu_id'] as String?,
+          requisitionAmount: json['requisition_amount'] as String?,
         );
 
 Map<String, dynamic> _$$DocumentInventoryRequisitionModelImplToJson(
@@ -37,4 +38,5 @@ Map<String, dynamic> _$$DocumentInventoryRequisitionModelImplToJson(
       'requisition_hd_remark': instance.requisitionHdRemark,
       'fullname': instance.fullname,
       'master_menu_id': instance.menuId,
+      'requisition_amount': instance.requisitionAmount,
     };

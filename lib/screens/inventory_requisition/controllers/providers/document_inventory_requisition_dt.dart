@@ -30,7 +30,7 @@ class DocumentInventoryRequisitionDTNotifier extends StateNotifier<AsyncValue<Li
       List<DocumentInventoryRequisitionDTModel> dataWidget = [];
       for (int i = 1; i <= state.value!.length; i++) {
         dataWidget.add(state.value![i - 1]);
-        if (i % 10 == 0) {
+        if (i % 15 == 0) {
           var page = await PDFGeneratorInventoryRequisition().generate(hd: hd!, dt: dataWidget, company: company);
           pdfFile.addPage(page);
           dataWidget = [];

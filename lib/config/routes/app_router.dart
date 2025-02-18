@@ -5,6 +5,8 @@ import 'package:flutter_web_printer/screens/expense_cash/controllers/providers/d
 import 'package:flutter_web_printer/screens/expense_cash/views/expense_cash_screen.dart';
 import 'package:flutter_web_printer/screens/expense_credit/controllers/providers/document_expense_credit.dart';
 import 'package:flutter_web_printer/screens/expense_credit/views/expense_credit_screen.dart';
+import 'package:flutter_web_printer/screens/general_ledger/controllers/providers/document_general_ledger.dart';
+import 'package:flutter_web_printer/screens/general_ledger/views/general_ledger_screen.dart';
 import 'package:flutter_web_printer/screens/good_receive_cash/controllers/providers/document_good_receive_cash.dart';
 import 'package:flutter_web_printer/screens/good_receive_cash/views/good_receive_cash_screen.dart';
 import 'package:flutter_web_printer/screens/good_receive_credit/controllers/providers/document_good_receive_credit.dart';
@@ -472,6 +474,28 @@ final appRouterProvider = Provider<GoRouter>(
           },
           pageBuilder: (context, state) {
             return const NoTransitionPage(child: InventoryRequisitionScreen());
+          },
+        ),
+        GoRoute(
+          path: Routes.generalLedger,
+          redirect: (context, state) {
+            WidgetsBinding.instance.addPostFrameCallback((_) async {
+              try {
+                final saleHdId = state.uri.queryParameters['Z2VuZXJhbF9sZWRnZXI'];
+                if (kDebugMode) print('general_ledger: $saleHdId');
+                var hdId = idFormBase64(id: saleHdId);
+                if (kDebugMode) print('hdId: $hdId');
+                await ref.read(documentGeneralLedgerProvider.notifier).get(id: hdId);
+              } catch (e) {
+                if (kDebugMode) print('error: $e');
+                ref.read(routerHelperProvider).goPath('/error');
+                return;
+              }
+            });
+            return;
+          },
+          pageBuilder: (context, state) {
+            return const NoTransitionPage(child: GeneralLedgerScreen());
           },
         ),
       ],

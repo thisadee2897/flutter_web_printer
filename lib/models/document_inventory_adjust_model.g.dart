@@ -20,6 +20,7 @@ _$DocumentInventoryAdjustModelImpl _$$DocumentInventoryAdjustModelImplFromJson(
       adjustHdRemark: json['adjust_hd_remark'] as String?,
       fullname: json['fullname'] as String?,
       menuId: json['master_menu_id'] as String?,
+      adjustAmount: json['adjust_amount'] as String?,
     );
 
 Map<String, dynamic> _$$DocumentInventoryAdjustModelImplToJson(
@@ -36,4 +37,5 @@ Map<String, dynamic> _$$DocumentInventoryAdjustModelImplToJson(
       'adjust_hd_remark': instance.adjustHdRemark,
       'fullname': instance.fullname,
       'master_menu_id': instance.menuId,
+      'adjust_amount': instance.adjustAmount,
     };

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_web_printer/config/routes/route_helper.dart';
 import 'package:flutter_web_printer/models/document_payment_model.dart';
@@ -14,8 +15,14 @@ class DocumentPaymentApi {
       ref.read(routerHelperProvider).goPath('/error');
       return const DocumentPaymentModel();
     } else {
-      Map<String, dynamic> data = Map<String, dynamic>.from(response.data);
-      return DocumentPaymentModel.fromJson(data);
+      try {
+        Map<String, dynamic> data = Map<String, dynamic>.from(response.data);
+        return DocumentPaymentModel.fromJson(data);
+      } catch (err, stx) {
+        if (kDebugMode) print(err);
+        if (kDebugMode) print(stx);
+        return const DocumentPaymentModel();
+      }
     }
   }
 }

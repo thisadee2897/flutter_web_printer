@@ -1,3 +1,5 @@
+export 'package:flutter_web_printer/models/document_general_ledger_d_t_model.dart';
+export 'package:flutter_web_printer/models/document_general_ledger_model.dart';
 export 'package:flutter_web_printer/models/document_inventory_requisition_d_t_model.dart';
 export 'package:flutter_web_printer/models/document_inventory_requisition_model.dart';
 export 'package:flutter_web_printer/utils/extensions/stock_effect_type.dart';

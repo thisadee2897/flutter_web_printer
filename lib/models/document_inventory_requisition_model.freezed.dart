@@ -43,6 +43,8 @@ mixin _$DocumentInventoryRequisitionModel {
   String? get fullname => throw _privateConstructorUsedError;
   @JsonKey(name: 'master_menu_id')
   String? get menuId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'requisition_amount')
+  String? get requisitionAmount => throw _privateConstructorUsedError;
 
   /// Serializes this DocumentInventoryRequisitionModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -73,7 +75,8 @@ abstract class $DocumentInventoryRequisitionModelCopyWith<$Res> {
       @JsonKey(name: 'requisition_hd_status_id') num? requisitionHdStatusId,
       @JsonKey(name: 'requisition_hd_remark') String? requisitionHdRemark,
       @JsonKey(name: 'fullname') String? fullname,
-      @JsonKey(name: 'master_menu_id') String? menuId});
+      @JsonKey(name: 'master_menu_id') String? menuId,
+      @JsonKey(name: 'requisition_amount') String? requisitionAmount});
 }
 
 /// @nodoc
@@ -103,6 +106,7 @@ class _$DocumentInventoryRequisitionModelCopyWithImpl<$Res,
     Object? requisitionHdRemark = freezed,
     Object? fullname = freezed,
     Object? menuId = freezed,
+    Object? requisitionAmount = freezed,
   }) {
     return _then(_value.copyWith(
       requisitionHdId: freezed == requisitionHdId
@@ -149,6 +153,10 @@ class _$DocumentInventoryRequisitionModelCopyWithImpl<$Res,
           ? _value.menuId
           : menuId // ignore: cast_nullable_to_non_nullable
               as String?,
+      requisitionAmount: freezed == requisitionAmount
+          ? _value.requisitionAmount
+          : requisitionAmount // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -173,7 +181,8 @@ abstract class _$$DocumentInventoryRequisitionModelImplCopyWith<$Res>
       @JsonKey(name: 'requisition_hd_status_id') num? requisitionHdStatusId,
       @JsonKey(name: 'requisition_hd_remark') String? requisitionHdRemark,
       @JsonKey(name: 'fullname') String? fullname,
-      @JsonKey(name: 'master_menu_id') String? menuId});
+      @JsonKey(name: 'master_menu_id') String? menuId,
+      @JsonKey(name: 'requisition_amount') String? requisitionAmount});
 }
 
 /// @nodoc
@@ -202,6 +211,7 @@ class __$$DocumentInventoryRequisitionModelImplCopyWithImpl<$Res>
     Object? requisitionHdRemark = freezed,
     Object? fullname = freezed,
     Object? menuId = freezed,
+    Object? requisitionAmount = freezed,
   }) {
     return _then(_$DocumentInventoryRequisitionModelImpl(
       requisitionHdId: freezed == requisitionHdId
@@ -248,6 +258,10 @@ class __$$DocumentInventoryRequisitionModelImplCopyWithImpl<$Res>
           ? _value.menuId
           : menuId // ignore: cast_nullable_to_non_nullable
               as String?,
+      requisitionAmount: freezed == requisitionAmount
+          ? _value.requisitionAmount
+          : requisitionAmount // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -267,7 +281,8 @@ class _$DocumentInventoryRequisitionModelImpl
       @JsonKey(name: 'requisition_hd_status_id') this.requisitionHdStatusId,
       @JsonKey(name: 'requisition_hd_remark') this.requisitionHdRemark,
       @JsonKey(name: 'fullname') this.fullname,
-      @JsonKey(name: 'master_menu_id') this.menuId});
+      @JsonKey(name: 'master_menu_id') this.menuId,
+      @JsonKey(name: 'requisition_amount') this.requisitionAmount});
 
   factory _$DocumentInventoryRequisitionModelImpl.fromJson(
           Map<String, dynamic> json) =>
@@ -306,10 +321,13 @@ class _$DocumentInventoryRequisitionModelImpl
   @override
   @JsonKey(name: 'master_menu_id')
   final String? menuId;
+  @override
+  @JsonKey(name: 'requisition_amount')
+  final String? requisitionAmount;
 
   @override
   String toString() {
-    return 'DocumentInventoryRequisitionModel(requisitionHdId: $requisitionHdId, companyId: $companyId, branchId: $branchId, branchCode: $branchCode, branchName: $branchName, requisitionHdDocudate: $requisitionHdDocudate, requisitionHdDocuno: $requisitionHdDocuno, requisitionHdStatusId: $requisitionHdStatusId, requisitionHdRemark: $requisitionHdRemark, fullname: $fullname, menuId: $menuId)';
+    return 'DocumentInventoryRequisitionModel(requisitionHdId: $requisitionHdId, companyId: $companyId, branchId: $branchId, branchCode: $branchCode, branchName: $branchName, requisitionHdDocudate: $requisitionHdDocudate, requisitionHdDocuno: $requisitionHdDocuno, requisitionHdStatusId: $requisitionHdStatusId, requisitionHdRemark: $requisitionHdRemark, fullname: $fullname, menuId: $menuId, requisitionAmount: $requisitionAmount)';
   }
 
   @override
@@ -337,7 +355,9 @@ class _$DocumentInventoryRequisitionModelImpl
                 other.requisitionHdRemark == requisitionHdRemark) &&
             (identical(other.fullname, fullname) ||
                 other.fullname == fullname) &&
-            (identical(other.menuId, menuId) || other.menuId == menuId));
+            (identical(other.menuId, menuId) || other.menuId == menuId) &&
+            (identical(other.requisitionAmount, requisitionAmount) ||
+                other.requisitionAmount == requisitionAmount));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -354,7 +374,8 @@ class _$DocumentInventoryRequisitionModelImpl
       requisitionHdStatusId,
       requisitionHdRemark,
       fullname,
-      menuId);
+      menuId,
+      requisitionAmount);
 
   /// Create a copy of DocumentInventoryRequisitionModel
   /// with the given fields replaced by the non-null parameter values.
@@ -389,8 +410,10 @@ abstract class _DocumentInventoryRequisitionModel
       final num? requisitionHdStatusId,
       @JsonKey(name: 'requisition_hd_remark') final String? requisitionHdRemark,
       @JsonKey(name: 'fullname') final String? fullname,
-      @JsonKey(name: 'master_menu_id')
-      final String? menuId}) = _$DocumentInventoryRequisitionModelImpl;
+      @JsonKey(name: 'master_menu_id') final String? menuId,
+      @JsonKey(name: 'requisition_amount')
+      final String?
+          requisitionAmount}) = _$DocumentInventoryRequisitionModelImpl;
 
   factory _DocumentInventoryRequisitionModel.fromJson(
           Map<String, dynamic> json) =
@@ -429,6 +452,9 @@ abstract class _DocumentInventoryRequisitionModel
   @override
   @JsonKey(name: 'master_menu_id')
   String? get menuId;
+  @override
+  @JsonKey(name: 'requisition_amount')
+  String? get requisitionAmount;
 
   /// Create a copy of DocumentInventoryRequisitionModel
   /// with the given fields replaced by the non-null parameter values.

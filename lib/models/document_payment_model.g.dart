@@ -32,7 +32,7 @@ _$DocumentPaymentModelImpl _$$DocumentPaymentModelImplFromJson(
           json['master_branch_bankbook_bankbookno'] as String?,
       branchBankbookBranchname:
           json['master_branch_bankbook_branchname'] as String?,
-      vendorBankId: json['vendor_master_bank_id'] as num?,
+      vendorBankId: json['vendor_master_bank_id'] as String?,
       vendorBankName: json['vendor_master_bank_name'] as String?,
       vendorBankbookno: json['vendor_bankbookno'] as String?,
       vendorBankbookName: json['vendor_bankbook_name'] as String?,

@@ -18,6 +18,7 @@ class DocumentInventoryAdjustModel with _$DocumentInventoryAdjustModel {
   @JsonKey(name: 'adjust_hd_remark') String? adjustHdRemark,
   @JsonKey(name: 'fullname') String? fullname,
   @JsonKey(name: 'master_menu_id') String? menuId,
+  @JsonKey(name: 'adjust_amount') String? adjustAmount,
   }) = _DocumentInventoryAdjustModel;
 
   factory DocumentInventoryAdjustModel.fromJson(Map<String, dynamic> json) => _$DocumentInventoryAdjustModelFromJson(json);
