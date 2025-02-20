@@ -39,4 +39,6 @@ class Routes {
   static const String inventoryRequisition = '/inventory_requisition';
   //GeneralLedgerScreen
   static const String generalLedger = '/general_ledger';
+  //BillScreen
+  static const String bill = '/bill';
 }

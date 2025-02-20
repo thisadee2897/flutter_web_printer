@@ -1,3 +1,6 @@
+
+export 'package:flutter_web_printer/models/document_bill_d_t_model.dart';
+export 'package:flutter_web_printer/models/document_bill_model.dart';
 export 'package:flutter_web_printer/models/document_general_ledger_d_t_model.dart';
 export 'package:flutter_web_printer/models/document_general_ledger_model.dart';
 export 'package:flutter_web_printer/models/document_inventory_requisition_d_t_model.dart';

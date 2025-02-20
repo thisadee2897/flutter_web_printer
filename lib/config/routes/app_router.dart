@@ -1,6 +1,8 @@
 // ignore_for_file: unused_element
 import 'package:flutter/foundation.dart';
 import 'package:flutter_web_printer/apps/app_exports.dart';
+import 'package:flutter_web_printer/screens/bill/controllers/providers/document_bill_cash.dart';
+import 'package:flutter_web_printer/screens/bill/views/bill_screen.dart';
 import 'package:flutter_web_printer/screens/expense_cash/controllers/providers/document_expense_cash.dart';
 import 'package:flutter_web_printer/screens/expense_cash/views/expense_cash_screen.dart';
 import 'package:flutter_web_printer/screens/expense_credit/controllers/providers/document_expense_credit.dart';
@@ -496,6 +498,28 @@ final appRouterProvider = Provider<GoRouter>(
           },
           pageBuilder: (context, state) {
             return const NoTransitionPage(child: GeneralLedgerScreen());
+          },
+        ),
+        GoRoute(
+          path: Routes.bill,
+          redirect: (context, state) {
+            WidgetsBinding.instance.addPostFrameCallback((_) async {
+              try {
+                final saleHdId = state.uri.queryParameters['YmlsbA'];
+                if (kDebugMode) print('bill: $saleHdId');
+                var hdId = idFormBase64(id: saleHdId);
+                if (kDebugMode) print('hdId: $hdId');
+                await ref.read(documentBillProvider.notifier).get(id: hdId);
+              } catch (e) {
+                if (kDebugMode) print('error: $e');
+                ref.read(routerHelperProvider).goPath('/error');
+                return;
+              }
+            });
+            return;
+          },
+          pageBuilder: (context, state) {
+            return const NoTransitionPage(child: BillScreen());
           },
         ),
       ],
