@@ -167,8 +167,8 @@ class PDFGeneratorReturnProductCredit {
                             ),
                           ),
                         ),
-                        pw.SizedBox(
-                          width: 150,
+                        pw.Container(
+                          width: 120,
                           child: pw.Padding(
                             padding: const pw.EdgeInsets.only(left: 2, right: 2),
                             child: pw.Text(
@@ -178,8 +178,8 @@ class PDFGeneratorReturnProductCredit {
                             ),
                           ),
                         ),
-                        pw.SizedBox(
-                          width: 60,
+                        pw.Container(
+                          width: 50,
                           child: pw.Padding(
                             padding: const pw.EdgeInsets.only(left: 2, right: 2),
                             child: pw.Text(
@@ -199,12 +199,34 @@ class PDFGeneratorReturnProductCredit {
                             ),
                           ),
                         ),
-                        pw.SizedBox(
-                          width: 100,
+                        pw.Container(
+                          width: 40,
                           child: pw.Padding(
                             padding: const pw.EdgeInsets.only(left: 2, right: 2),
                             child: pw.Text(
-                              'จำนวนเงินจ่าย',
+                              'จำนวน',
+                              textAlign: pw.TextAlign.end,
+                              style: textStyleNormal,
+                            ),
+                          ),
+                        ),
+                        pw.Container(
+                          width: 50,
+                          child: pw.Padding(
+                            padding: const pw.EdgeInsets.only(left: 2, right: 2),
+                            child: pw.Text(
+                              ' ราคา',
+                              textAlign: pw.TextAlign.end,
+                              style: textStyleNormal,
+                            ),
+                          ),
+                        ),
+                        pw.Container(
+                          width: 80,
+                          child: pw.Padding(
+                            padding: const pw.EdgeInsets.only(left: 2, right: 2),
+                            child: pw.Text(
+                              ' มูลค่าสุทธิ',
                               textAlign: pw.TextAlign.end,
                               style: textStyleNormal,
                             ),
@@ -237,7 +259,7 @@ class PDFGeneratorReturnProductCredit {
                                   ),
                                 ),
                                 pw.SizedBox(
-                                  width: 150,
+                                  width: 120,
                                   child: pw.Padding(
                                     padding: const pw.EdgeInsets.only(left: 2, right: 2),
                                     child: pw.Text(
@@ -250,7 +272,7 @@ class PDFGeneratorReturnProductCredit {
                                   ),
                                 ),
                                 pw.SizedBox(
-                                  width: 60,
+                                  width: 50,
                                   child: pw.Padding(
                                     padding: const pw.EdgeInsets.only(left: 2, right: 2),
                                     child: pw.Text(
@@ -280,7 +302,22 @@ class PDFGeneratorReturnProductCredit {
                                   ),
                                 ),
                                 pw.SizedBox(
-                                  width: 100,
+                                  width: 40,
+                                  child: pw.Padding(
+                                    padding: const pw.EdgeInsets.only(left: 2, right: 2),
+                                    child: pw.Text(num.parse(dt[index].saleDtQty ?? '0').digits(2), textAlign: pw.TextAlign.end, style: textStyleNormal),
+                                  ),
+                                ),
+                                pw.SizedBox(
+                                  width: 50,
+                                  child: pw.Padding(
+                                    padding: const pw.EdgeInsets.only(left: 2, right: 2),
+                                    child: pw.Text(num.parse(dt[index].returnproductDtPrice ?? '0').digits(2),
+                                        textAlign: pw.TextAlign.end, style: textStyleNormal),
+                                  ),
+                                ),
+                                pw.SizedBox(
+                                  width: 80,
                                   child: pw.Padding(
                                     padding: const pw.EdgeInsets.only(left: 2, right: 2),
                                     child: pw.Text(num.parse(dt[index].returnproductDtNetamnt ?? '0').digits(2),

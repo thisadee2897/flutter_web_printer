@@ -196,12 +196,34 @@ class PDFGeneratorSaleCash {
                             ),
                           ),
                         ),
-                        pw.SizedBox(
-                          width: 100,
+                        pw.Container(
+                          width: 50,
                           child: pw.Padding(
                             padding: const pw.EdgeInsets.only(left: 2, right: 2),
                             child: pw.Text(
-                              'จำนวนเงินจ่าย',
+                              'จำนวน',
+                              textAlign: pw.TextAlign.end,
+                              style: textStyleNormal,
+                            ),
+                          ),
+                        ),
+                        pw.Container(
+                          width: 60,
+                          child: pw.Padding(
+                            padding: const pw.EdgeInsets.only(left: 2, right: 2),
+                            child: pw.Text(
+                              ' ราคา',
+                              textAlign: pw.TextAlign.end,
+                              style: textStyleNormal,
+                            ),
+                          ),
+                        ),
+                        pw.SizedBox(
+                          width: 80,
+                          child: pw.Padding(
+                            padding: const pw.EdgeInsets.only(left: 2, right: 2),
+                            child: pw.Text(
+                              ' มูลค่าสุทธิ',
                               textAlign: pw.TextAlign.end,
                               style: textStyleNormal,
                             ),
@@ -257,7 +279,29 @@ class PDFGeneratorSaleCash {
                                   ),
                                 ),
                                 pw.SizedBox(
-                                  width: 100,
+                                  width: 50,
+                                  child: pw.Padding(
+                                    padding: const pw.EdgeInsets.only(left: 2, right: 2),
+                                    child: pw.Text(
+                                      num.parse(dt[index].saleDtQty ?? '0').digitsConfig,
+                                      textAlign: pw.TextAlign.end,
+                                      style: textStyleNormal,
+                                    ),
+                                  ),
+                                ),
+                                pw.SizedBox(
+                                  width: 60,
+                                  child: pw.Padding(
+                                    padding: const pw.EdgeInsets.only(left: 2, right: 2),
+                                    child: pw.Text(
+                                      num.parse(dt[index].saleDtPrice ?? '0').digitsConfig,
+                                      textAlign: pw.TextAlign.end,
+                                      style: textStyleNormal,
+                                    ),
+                                  ),
+                                ),
+                                pw.SizedBox(
+                                  width: 80,
                                   child: pw.Padding(
                                     padding: const pw.EdgeInsets.only(left: 2, right: 2),
                                     child: pw.Text(

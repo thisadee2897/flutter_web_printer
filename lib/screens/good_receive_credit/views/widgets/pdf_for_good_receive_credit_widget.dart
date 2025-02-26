@@ -117,30 +117,67 @@ class PDFGeneratorGoodReceiveCredit {
                         child: pw.Padding(
                           padding: const pw.EdgeInsets.only(left: 8.0),
                           child: pw.Column(
+                            mainAxisAlignment: pw.MainAxisAlignment.start,
+                            mainAxisSize: pw.MainAxisSize.max,
+                            crossAxisAlignment: pw.CrossAxisAlignment.start,
+                            children: [
+                              pw.SizedBox(
+                                width: double.infinity,
+                                child: pw.Column(
+                                  crossAxisAlignment: pw.CrossAxisAlignment.start,
+                                  mainAxisAlignment: pw.MainAxisAlignment.center,
+                                  children: [
+                                    pw.Text('เลขที่ใบกำกับภาษี', style: textStyleNormal),
+                                    pw.Text(hd.receiveHdInvoiceNo ?? '-', style: textStyleBold),
+                                  ],
+                                ),
+                              ),
+                              pw.SizedBox(
+                                width: double.infinity,
+                                child: pw.Column(
+                                  crossAxisAlignment: pw.CrossAxisAlignment.start,
+                                  mainAxisAlignment: pw.MainAxisAlignment.center,
+                                  children: [
+                                    pw.Text('วันที่ใบกำกับภาษี', style: textStyleNormal),
+                                    pw.Text(hd.receiveHdInvoiceDate.dateTHFormApi, style: textStyleBold),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      pw.Expanded(
+                        flex: 1,
+                        child: pw.Padding(
+                          padding: const pw.EdgeInsets.only(left: 8.0),
+                          child: pw.Column(
                             mainAxisSize: pw.MainAxisSize.max,
                             crossAxisAlignment: pw.CrossAxisAlignment.start,
                             mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
                             children: [
                               pw.SizedBox(
-                                height: 32,
                                 width: double.infinity,
                                 child: pw.Column(
+                                  mainAxisAlignment: pw.MainAxisAlignment.start,
                                   crossAxisAlignment: pw.CrossAxisAlignment.start,
-                                  mainAxisAlignment: pw.MainAxisAlignment.center,
                                   children: [
-                                    pw.Text('เลขที่', style: textStyleNormal),
-                                    pw.Text(hd.receiveHdDocuno.toString(), style: textStyleBold),
+                                    pw.Text('เลขที่รับสินค้า', style: textStyleNormal),
+                                    pw.Text(
+                                      textAlign: pw.TextAlign.left,
+                                      hd.receiveHdDocuno ?? '-',
+                                      style: textStyleBold,
+                                    ),
                                   ],
                                 ),
                               ),
                               pw.SizedBox(
-                                height: 32,
                                 width: double.infinity,
                                 child: pw.Column(
                                   crossAxisAlignment: pw.CrossAxisAlignment.start,
                                   mainAxisAlignment: pw.MainAxisAlignment.center,
                                   children: [
-                                    pw.Text('วันที่', style: textStyleNormal),
+                                    pw.Text('วันที่รับสินค้า', style: textStyleNormal),
                                     pw.Text(hd.receiveHdDocudate.dateTHFormApi, style: textStyleBold),
                                   ],
                                 ),
