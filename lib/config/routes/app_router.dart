@@ -3,6 +3,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_web_printer/apps/app_exports.dart';
 import 'package:flutter_web_printer/screens/bill/controllers/providers/document_bill_cash.dart';
 import 'package:flutter_web_printer/screens/bill/views/bill_screen.dart';
+import 'package:flutter_web_printer/screens/earning_statement/controllers/providers/earning_statement_dt.dart';
+import 'package:flutter_web_printer/screens/earning_statement/views/earning_statement_screen.dart';
 import 'package:flutter_web_printer/screens/expense_cash/controllers/providers/document_expense_cash.dart';
 import 'package:flutter_web_printer/screens/expense_cash/views/expense_cash_screen.dart';
 import 'package:flutter_web_printer/screens/expense_credit/controllers/providers/document_expense_credit.dart';
@@ -520,6 +522,37 @@ final appRouterProvider = Provider<GoRouter>(
           },
           pageBuilder: (context, state) {
             return const NoTransitionPage(child: BillScreen());
+          },
+        ),
+        GoRoute(
+          path: Routes.reportEarningStatement,
+          redirect: (context, state) {
+            WidgetsBinding.instance.addPostFrameCallback((_) async {
+              try {
+                final Uri uri = state.uri;
+                if (kDebugMode) print(uri.toString());
+                if (kDebugMode) print(idFormBase64(id: uri.queryParameters['YmVnaW4']));
+                if (kDebugMode) print(idFormBase64(id: uri.queryParameters['ZW5k']));
+                if (kDebugMode) print(uri.queryParametersAll['YnJhbmNoSWQ']?.map((e) => int.parse(idFormBase64(id: e))).toList() ?? []);
+                if (kDebugMode) print(idFormBase64(id: uri.queryParameters['Y29tcGFueUlk']));
+                if (kDebugMode) print(idFormBase64(id: uri.queryParameters['dHlwZUZpbmQ']));
+                ref.read(documentEarningStatementDTProvider.notifier).get(
+                      begin: idFormBase64(id: uri.queryParameters['YmVnaW4']),
+                      end: idFormBase64(id: uri.queryParameters['ZW5k']),
+                      branchId: uri.queryParametersAll['YnJhbmNoSWQ']?.map((e) => int.parse(idFormBase64(id: e))).toList() ?? [],
+                      companyId: idFormBase64(id: uri.queryParameters['Y29tcGFueUlk']),
+                      typeFind: idFormBase64(id: uri.queryParameters['dHlwZUZpbmQ']),
+                    );
+              } catch (e) {
+                if (kDebugMode) print('error: $e');
+                ref.read(routerHelperProvider).goPath('/error');
+                return;
+              }
+            });
+            return;
+          },
+          pageBuilder: (context, state) {
+            return const NoTransitionPage(child: EarningStatementScreen());
           },
         ),
       ],

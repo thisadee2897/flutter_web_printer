@@ -21,6 +21,7 @@ extension DateTimeExtension on DateTime {
   String get formattedDateTime => DateFormat('dd/MM/yyyy HH:mm').format(this);
   // String get formattedDate Thailand
   String get formattedDateTH => DateFormat('dd/MM/yyyy').format(this);
+  String get formattedFullMonthTH=> DateFormat('dd MMMM yyyy','th').format(this);
 
   String formattedShortDate(WidgetRef ref) {
     final locale = ref.watch(localeProvider);

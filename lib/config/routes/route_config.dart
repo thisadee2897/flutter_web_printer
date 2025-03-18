@@ -41,4 +41,6 @@ class Routes {
   static const String generalLedger = '/general_ledger';
   //BillScreen
   static const String bill = '/bill';
+  //report_earning_statement
+  static const String reportEarningStatement = '/report_earning_statement';
 }
