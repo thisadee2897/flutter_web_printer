@@ -37,6 +37,11 @@ class DocumentEarningStatementDTNotifier extends StateNotifier<AsyncValue<List<E
       } catch (e) {
         if (kDebugMode) print('Error : $e');
       }
+      if (num.parse(response.last.sumProfit!) < 0) {
+        response.last = response.last.copyWith(
+          sumProfit: (num.parse(response.last.sumProfit!) * -1).toString(),
+        );
+      }
       // print(response);
       return response;
     });
@@ -44,7 +49,6 @@ class DocumentEarningStatementDTNotifier extends StateNotifier<AsyncValue<List<E
       pw.Document pdfFile = pw.Document();
       // List<EarningStatementModel> dataWidget = [];
       List<EarningStatementMappingModel> mappedData = mapEarningStatements(state.value!);
-
       var page = await PDFGeneratorEarningStatement().generate(hd: hd, dt: mappedData);
       pdfFile.addPage(page);
       // for (int i = 1; i <= state.value!.length; i++) {

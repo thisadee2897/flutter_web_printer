@@ -530,12 +530,12 @@ final appRouterProvider = Provider<GoRouter>(
             WidgetsBinding.instance.addPostFrameCallback((_) async {
               try {
                 final Uri uri = state.uri;
-                if (kDebugMode) print(uri.toString());
-                if (kDebugMode) print(idFormBase64(id: uri.queryParameters['YmVnaW4']));
-                if (kDebugMode) print(idFormBase64(id: uri.queryParameters['ZW5k']));
-                if (kDebugMode) print(uri.queryParametersAll['YnJhbmNoSWQ']?.map((e) => int.parse(idFormBase64(id: e))).toList() ?? []);
-                if (kDebugMode) print(idFormBase64(id: uri.queryParameters['Y29tcGFueUlk']));
-                if (kDebugMode) print(idFormBase64(id: uri.queryParameters['dHlwZUZpbmQ']));
+                // if (kDebugMode) print(uri.toString());
+                // if (kDebugMode) print(idFormBase64(id: uri.queryParameters['YmVnaW4']));
+                // if (kDebugMode) print(idFormBase64(id: uri.queryParameters['ZW5k']));
+                // if (kDebugMode) print(uri.queryParametersAll['YnJhbmNoSWQ']?.map((e) => int.parse(idFormBase64(id: e))).toList() ?? []);
+                // if (kDebugMode) print(idFormBase64(id: uri.queryParameters['Y29tcGFueUlk']));
+                // if (kDebugMode) print(idFormBase64(id: uri.queryParameters['dHlwZUZpbmQ']));
                 ref.read(documentEarningStatementDTProvider.notifier).get(
                       begin: idFormBase64(id: uri.queryParameters['YmVnaW4']),
                       end: idFormBase64(id: uri.queryParameters['ZW5k']),
