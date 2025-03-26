@@ -1,4 +1,6 @@
 // ignore_for_file: unused_element
+import 'dart:convert';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter_web_printer/apps/app_exports.dart';
 import 'package:flutter_web_printer/screens/bill/controllers/providers/document_bill_cash.dart';
@@ -49,6 +51,19 @@ final _rootNavigatorKey = GlobalKey<NavigatorState>();
 final appRouterProvider = Provider<GoRouter>(
   (ref) {
     return GoRouter(
+      redirect: (context, state) {
+        final Uri uri = state.uri;
+        Map<String, String> queryParameters = uri.queryParameters;
+        String server = queryParameters['c2VydmVyVXJsUmVxdWVzdA'] ?? '';
+        String token = queryParameters['dG9rZW5SZXF1ZXN0'] ?? '';
+        String base64DeCodeServer = idFormBase64(id: server);
+        String base64DeCodeToken = idFormBase64(id: token);
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          ref.read(serverUrlRequest.notifier).state = base64DeCodeServer;
+          ref.read(tokenRequest.notifier).state = base64DeCodeToken;
+        });
+        if (kDebugMode) print(jsonEncode(queryParameters));
+      },
       onException: (context, state, router) => router.go(Routes.error),
       initialLocation: Routes.initPath,
       navigatorKey: _rootNavigatorKey,

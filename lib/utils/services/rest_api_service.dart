@@ -10,7 +10,7 @@ export 'package:dio/dio.dart';
 /// if the rest call is a success or need to return custom error exception
 /// on the basis of 4xx, 5xx status code. We can make use of http or dio package
 /// to make the rest API call in the flutter
-const prod = 'https://techcaresolution-ssl.com/erp-api';
+// const prod = 'https://techcaresolution-ssl.com/erp-api';
 
 class ApiInterceptor extends Interceptor {
   final Ref ref;
@@ -21,7 +21,8 @@ class ApiInterceptor extends Interceptor {
 
   @override
   Future<void> onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
-    String token = "ZVGQJZiJSuWLRvECu45CAdhqEVXsHLLTrgMFY4Y8jhb25LD7ePmkBjRBm7nrv6MvexUURgkpsoVGYJjJ4XkYQKo8YY2QJ7LWBuWTkBcZXUTxkhCoa8yP9pji96ov4JCv";
+    // String token = "ZVGQJZiJSuWLRvECu45CAdhqEVXsHLLTrgMFY4Y8jhb25LD7ePmkBjRBm7nrv6MvexUURgkpsoVGYJjJ4XkYQKo8YY2QJ7LWBuWTkBcZXUTxkhCoa8yP9pji96ov4JCv";
+    String token = ref.read(tokenRequest);
     options.headers["x-access-token"] = token;
     options.headers["Accept-Language"] = "th";
     // var lang = ref.read(languageProvider);
@@ -102,8 +103,9 @@ class ApiInterceptor extends Interceptor {
 
 class ApiClient {
   Dio baseUrl(Ref<Dio> ref) {
+    String baseUrl = ref.read(serverUrlRequest);
     Dio dio = Dio();
-    dio.options.baseUrl = prod;
+    dio.options.baseUrl = baseUrl;
     dio.interceptors.add(ApiInterceptor(ref: ref));
     return dio;
   }
@@ -116,3 +118,8 @@ final apiClientProvider = Provider<Dio>((ref) {
     throw Exception(e);
   }
 });
+
+final serverUrlRequest = StateProvider<String>((ref) => '');
+//c2VydmVyVXJsUmVxdWVzdA
+final tokenRequest = StateProvider<String>((ref) => '');
+//dG9rZW5SZXF1ZXN0
