@@ -108,6 +108,10 @@ mixin _$DocumentSaleModel {
   String? get contactTel => throw _privateConstructorUsedError;
   @JsonKey(name: 'master_contact_taxid')
   String? get contactTaxid => throw _privateConstructorUsedError;
+  @JsonKey(name: 'sale_hd_savetime')
+  String? get saleHdSavetime => throw _privateConstructorUsedError;
+  @JsonKey(name: 'master_contact_branchname')
+  String? get contactBranchname => throw _privateConstructorUsedError;
 
   /// Serializes this DocumentSaleModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -170,7 +174,9 @@ abstract class $DocumentSaleModelCopyWith<$Res> {
       @JsonKey(name: 'sale_hd_voucher_amount') String? saleHdVoucherAmount,
       @JsonKey(name: 'master_contact_address') String? contactAddress,
       @JsonKey(name: 'master_contact_tel') String? contactTel,
-      @JsonKey(name: 'master_contact_taxid') String? contactTaxid});
+      @JsonKey(name: 'master_contact_taxid') String? contactTaxid,
+      @JsonKey(name: 'sale_hd_savetime') String? saleHdSavetime,
+      @JsonKey(name: 'master_contact_branchname') String? contactBranchname});
 }
 
 /// @nodoc
@@ -232,6 +238,8 @@ class _$DocumentSaleModelCopyWithImpl<$Res, $Val extends DocumentSaleModel>
     Object? contactAddress = freezed,
     Object? contactTel = freezed,
     Object? contactTaxid = freezed,
+    Object? saleHdSavetime = freezed,
+    Object? contactBranchname = freezed,
   }) {
     return _then(_value.copyWith(
       saleHdId: freezed == saleHdId
@@ -410,6 +418,14 @@ class _$DocumentSaleModelCopyWithImpl<$Res, $Val extends DocumentSaleModel>
           ? _value.contactTaxid
           : contactTaxid // ignore: cast_nullable_to_non_nullable
               as String?,
+      saleHdSavetime: freezed == saleHdSavetime
+          ? _value.saleHdSavetime
+          : saleHdSavetime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      contactBranchname: freezed == contactBranchname
+          ? _value.contactBranchname
+          : contactBranchname // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -467,7 +483,9 @@ abstract class _$$DocumentSaleModelImplCopyWith<$Res>
       @JsonKey(name: 'sale_hd_voucher_amount') String? saleHdVoucherAmount,
       @JsonKey(name: 'master_contact_address') String? contactAddress,
       @JsonKey(name: 'master_contact_tel') String? contactTel,
-      @JsonKey(name: 'master_contact_taxid') String? contactTaxid});
+      @JsonKey(name: 'master_contact_taxid') String? contactTaxid,
+      @JsonKey(name: 'sale_hd_savetime') String? saleHdSavetime,
+      @JsonKey(name: 'master_contact_branchname') String? contactBranchname});
 }
 
 /// @nodoc
@@ -527,6 +545,8 @@ class __$$DocumentSaleModelImplCopyWithImpl<$Res>
     Object? contactAddress = freezed,
     Object? contactTel = freezed,
     Object? contactTaxid = freezed,
+    Object? saleHdSavetime = freezed,
+    Object? contactBranchname = freezed,
   }) {
     return _then(_$DocumentSaleModelImpl(
       saleHdId: freezed == saleHdId
@@ -705,6 +725,14 @@ class __$$DocumentSaleModelImplCopyWithImpl<$Res>
           ? _value.contactTaxid
           : contactTaxid // ignore: cast_nullable_to_non_nullable
               as String?,
+      saleHdSavetime: freezed == saleHdSavetime
+          ? _value.saleHdSavetime
+          : saleHdSavetime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      contactBranchname: freezed == contactBranchname
+          ? _value.contactBranchname
+          : contactBranchname // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -756,7 +784,9 @@ class _$DocumentSaleModelImpl implements _DocumentSaleModel {
       @JsonKey(name: 'sale_hd_voucher_amount') this.saleHdVoucherAmount,
       @JsonKey(name: 'master_contact_address') this.contactAddress,
       @JsonKey(name: 'master_contact_tel') this.contactTel,
-      @JsonKey(name: 'master_contact_taxid') this.contactTaxid});
+      @JsonKey(name: 'master_contact_taxid') this.contactTaxid,
+      @JsonKey(name: 'sale_hd_savetime') this.saleHdSavetime,
+      @JsonKey(name: 'master_contact_branchname') this.contactBranchname});
 
   factory _$DocumentSaleModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$DocumentSaleModelImplFromJson(json);
@@ -893,10 +923,16 @@ class _$DocumentSaleModelImpl implements _DocumentSaleModel {
   @override
   @JsonKey(name: 'master_contact_taxid')
   final String? contactTaxid;
+  @override
+  @JsonKey(name: 'sale_hd_savetime')
+  final String? saleHdSavetime;
+  @override
+  @JsonKey(name: 'master_contact_branchname')
+  final String? contactBranchname;
 
   @override
   String toString() {
-    return 'DocumentSaleModel(saleHdId: $saleHdId, companyId: $companyId, branchId: $branchId, branchCode: $branchCode, branchName: $branchName, saleHdDocudate: $saleHdDocudate, saleHdDocuno: $saleHdDocuno, saleHdStatusId: $saleHdStatusId, saleHdStatusName: $saleHdStatusName, contactId: $contactId, contactCode: $contactCode, contactName: $contactName, contactDistrictId: $contactDistrictId, contactPrefectureId: $contactPrefectureId, contactProvinceId: $contactProvinceId, contactPostcodeId: $contactPostcodeId, saleHdRemark: $saleHdRemark, vatGroupId: $vatGroupId, saleHdTypeId: $saleHdTypeId, saleHdCreditday: $saleHdCreditday, whtCategoryId: $whtCategoryId, saleHdAmount: $saleHdAmount, saleHdTotalexcludeamnt: $saleHdTotalexcludeamnt, saleHdTotalincludeamnt: $saleHdTotalincludeamnt, saleHdBaseamnt: $saleHdBaseamnt, saleHdVatamnt: $saleHdVatamnt, saleHdDiscountAmount: $saleHdDiscountAmount, saleHdWhtAmount: $saleHdWhtAmount, saleHdNetamnt: $saleHdNetamnt, saleHdCashAmount: $saleHdCashAmount, saleHdTransferAmount: $saleHdTransferAmount, saleHdCreditAmount: $saleHdCreditAmount, saleHdChangeAmount: $saleHdChangeAmount, fullname: $fullname, saleHdCashReceived: $saleHdCashReceived, saleHdRoundingAmount: $saleHdRoundingAmount, whtCategoryName: $whtCategoryName, whtCategoryRate: $whtCategoryRate, vatGroupName: $vatGroupName, saleHdVatrate: $saleHdVatrate, saleHdVoucherAmount: $saleHdVoucherAmount, contactAddress: $contactAddress, contactTel: $contactTel, contactTaxid: $contactTaxid)';
+    return 'DocumentSaleModel(saleHdId: $saleHdId, companyId: $companyId, branchId: $branchId, branchCode: $branchCode, branchName: $branchName, saleHdDocudate: $saleHdDocudate, saleHdDocuno: $saleHdDocuno, saleHdStatusId: $saleHdStatusId, saleHdStatusName: $saleHdStatusName, contactId: $contactId, contactCode: $contactCode, contactName: $contactName, contactDistrictId: $contactDistrictId, contactPrefectureId: $contactPrefectureId, contactProvinceId: $contactProvinceId, contactPostcodeId: $contactPostcodeId, saleHdRemark: $saleHdRemark, vatGroupId: $vatGroupId, saleHdTypeId: $saleHdTypeId, saleHdCreditday: $saleHdCreditday, whtCategoryId: $whtCategoryId, saleHdAmount: $saleHdAmount, saleHdTotalexcludeamnt: $saleHdTotalexcludeamnt, saleHdTotalincludeamnt: $saleHdTotalincludeamnt, saleHdBaseamnt: $saleHdBaseamnt, saleHdVatamnt: $saleHdVatamnt, saleHdDiscountAmount: $saleHdDiscountAmount, saleHdWhtAmount: $saleHdWhtAmount, saleHdNetamnt: $saleHdNetamnt, saleHdCashAmount: $saleHdCashAmount, saleHdTransferAmount: $saleHdTransferAmount, saleHdCreditAmount: $saleHdCreditAmount, saleHdChangeAmount: $saleHdChangeAmount, fullname: $fullname, saleHdCashReceived: $saleHdCashReceived, saleHdRoundingAmount: $saleHdRoundingAmount, whtCategoryName: $whtCategoryName, whtCategoryRate: $whtCategoryRate, vatGroupName: $vatGroupName, saleHdVatrate: $saleHdVatrate, saleHdVoucherAmount: $saleHdVoucherAmount, contactAddress: $contactAddress, contactTel: $contactTel, contactTaxid: $contactTaxid, saleHdSavetime: $saleHdSavetime, contactBranchname: $contactBranchname)';
   }
 
   @override
@@ -990,7 +1026,9 @@ class _$DocumentSaleModelImpl implements _DocumentSaleModel {
                 other.contactAddress == contactAddress) &&
             (identical(other.contactTel, contactTel) ||
                 other.contactTel == contactTel) &&
-            (identical(other.contactTaxid, contactTaxid) || other.contactTaxid == contactTaxid));
+            (identical(other.contactTaxid, contactTaxid) || other.contactTaxid == contactTaxid) &&
+            (identical(other.saleHdSavetime, saleHdSavetime) || other.saleHdSavetime == saleHdSavetime) &&
+            (identical(other.contactBranchname, contactBranchname) || other.contactBranchname == contactBranchname));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -1040,7 +1078,9 @@ class _$DocumentSaleModelImpl implements _DocumentSaleModel {
         saleHdVoucherAmount,
         contactAddress,
         contactTel,
-        contactTaxid
+        contactTaxid,
+        saleHdSavetime,
+        contactBranchname
       ]);
 
   /// Create a copy of DocumentSaleModel
@@ -1115,8 +1155,10 @@ abstract class _DocumentSaleModel implements DocumentSaleModel {
       final String? saleHdVoucherAmount,
       @JsonKey(name: 'master_contact_address') final String? contactAddress,
       @JsonKey(name: 'master_contact_tel') final String? contactTel,
-      @JsonKey(name: 'master_contact_taxid')
-      final String? contactTaxid}) = _$DocumentSaleModelImpl;
+      @JsonKey(name: 'master_contact_taxid') final String? contactTaxid,
+      @JsonKey(name: 'sale_hd_savetime') final String? saleHdSavetime,
+      @JsonKey(name: 'master_contact_branchname')
+      final String? contactBranchname}) = _$DocumentSaleModelImpl;
 
   factory _DocumentSaleModel.fromJson(Map<String, dynamic> json) =
       _$DocumentSaleModelImpl.fromJson;
@@ -1253,6 +1295,12 @@ abstract class _DocumentSaleModel implements DocumentSaleModel {
   @override
   @JsonKey(name: 'master_contact_taxid')
   String? get contactTaxid;
+  @override
+  @JsonKey(name: 'sale_hd_savetime')
+  String? get saleHdSavetime;
+  @override
+  @JsonKey(name: 'master_contact_branchname')
+  String? get contactBranchname;
 
   /// Create a copy of DocumentSaleModel
   /// with the given fields replaced by the non-null parameter values.

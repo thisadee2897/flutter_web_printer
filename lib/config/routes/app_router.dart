@@ -45,6 +45,8 @@ import 'package:flutter_web_printer/screens/sale_cash/controllers/providers/docu
 import 'package:flutter_web_printer/screens/sale_cash/views/sale_cash_screen.dart';
 import 'package:flutter_web_printer/screens/sale_credit/controllers/providers/document_sale_credit.dart';
 import 'package:flutter_web_printer/screens/sale_credit/views/sale_credit_screen.dart';
+import 'package:flutter_web_printer/screens/sticker_sale_cash/controllers/providers/document_sale_cash.dart';
+import 'package:flutter_web_printer/screens/sticker_sale_cash/views/sticker_sale_cash_screen.dart';
 import 'route_config.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -58,11 +60,13 @@ final appRouterProvider = Provider<GoRouter>(
         String token = queryParameters['dG9rZW5SZXF1ZXN0'] ?? '';
         String base64DeCodeServer = idFormBase64(id: server);
         String base64DeCodeToken = idFormBase64(id: token);
+        // if (kDebugMode) print('server: $base64DeCodeServer');
+        // if (kDebugMode) print('token: $base64DeCodeToken');
         WidgetsBinding.instance.addPostFrameCallback((_) {
           ref.read(serverUrlRequest.notifier).state = base64DeCodeServer;
           ref.read(tokenRequest.notifier).state = base64DeCodeToken;
         });
-        if (kDebugMode) print(jsonEncode(queryParameters));
+        // if (kDebugMode) print(jsonEncode(queryParameters));
       },
       onException: (context, state, router) => router.go(Routes.error),
       initialLocation: Routes.initPath,
@@ -568,6 +572,50 @@ final appRouterProvider = Provider<GoRouter>(
           },
           pageBuilder: (context, state) {
             return const NoTransitionPage(child: EarningStatementScreen());
+          },
+        ),
+        GoRoute(
+          path: Routes.stickerSaleCredit,
+          redirect: (context, state) {
+            WidgetsBinding.instance.addPostFrameCallback((_) async {
+              try {
+                final saleHdId = state.uri.queryParameters['c2FsZV9oZF9pZAo'];
+                // if (kDebugMode) print('sale_hd_id: $saleHdId');
+                var hdId = idFormBase64(id: saleHdId);
+                // if (kDebugMode) print('hdId: $hdId');
+                await ref.read(documentSaleCreditProvider.notifier).get(id: hdId);
+              } catch (e) {
+                ref.read(routerHelperProvider).goPath('/error');
+                if (kDebugMode) print('error: $e');
+                return;
+              }
+            });
+            return;
+          },
+          pageBuilder: (context, state) {
+            return const NoTransitionPage(child: SaleCreditScreen());
+          },
+        ),
+        GoRoute(
+          path: Routes.stickerSaleCash,
+          redirect: (context, state) {
+            WidgetsBinding.instance.addPostFrameCallback((_) async {
+              try {
+                final saleHdId = state.uri.queryParameters['c2FsZV9oZF9pZAo'];
+                // if (kDebugMode) print('sale_hd_id: $saleHdId');
+                var hdId = idFormBase64(id: saleHdId);
+                // if (kDebugMode) print('hdId: $hdId');
+                await ref.read(documentStickerSaleCashProvider.notifier).get(id: hdId);
+              } catch (e) {
+                ref.read(routerHelperProvider).goPath('/error');
+                if (kDebugMode) print('error: $e');
+                return;
+              }
+            });
+            return;
+          },
+          pageBuilder: (context, state) {
+            return const NoTransitionPage(child: StickerSaleCashScreen());
           },
         ),
       ],
