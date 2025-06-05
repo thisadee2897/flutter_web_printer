@@ -45,4 +45,9 @@ class Routes {
   static const String bill = '/bill';
   //report_earning_statement
   static const String reportEarningStatement = '/report_earning_statement';
+
+
+
+  //GoodMeal
+  static const String reportHQVatPosttSaleScreen = '/report_hq_vat_postt_sale';
 }

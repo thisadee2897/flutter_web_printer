@@ -17,6 +17,9 @@ import 'package:flutter_web_printer/screens/good_receive_cash/controllers/provid
 import 'package:flutter_web_printer/screens/good_receive_cash/views/good_receive_cash_screen.dart';
 import 'package:flutter_web_printer/screens/good_receive_credit/controllers/providers/document_good_receive_credit.dart';
 import 'package:flutter_web_printer/screens/good_receive_credit/views/good_receive_credit_screen.dart';
+import 'package:flutter_web_printer/screens/goodmeal_report_hq_vat_postt_sale/controllers/providers/get_company_data.dart';
+import 'package:flutter_web_printer/screens/goodmeal_report_hq_vat_postt_sale/controllers/providers/report_hq_vat_postt_sale.dart';
+import 'package:flutter_web_printer/screens/goodmeal_report_hq_vat_postt_sale/views/report_hq_vat_postt_sale_screen.dart';
 import 'package:flutter_web_printer/screens/inventory_adjust/controllers/providers/document_inventory_adjust.dart';
 import 'package:flutter_web_printer/screens/inventory_adjust/views/inventory_adjust_screen.dart';
 import 'package:flutter_web_printer/screens/inventory_requisition/controllers/providers/document_inventory_requisition.dart';
@@ -66,6 +69,7 @@ final appRouterProvider = Provider<GoRouter>(
           ref.read(serverUrlRequest.notifier).state = base64DeCodeServer;
           ref.read(tokenRequest.notifier).state = base64DeCodeToken;
         });
+        return null;
         // if (kDebugMode) print(jsonEncode(queryParameters));
       },
       onException: (context, state, router) => router.go(Routes.error),
@@ -616,6 +620,55 @@ final appRouterProvider = Provider<GoRouter>(
           },
           pageBuilder: (context, state) {
             return const NoTransitionPage(child: StickerSaleCashScreen());
+          },
+        ),
+        GoRoute(
+          path: Routes.reportHQVatPosttSaleScreen,
+          redirect: (context, state) {
+            WidgetsBinding.instance.addPostFrameCallback((_) async {
+              try {
+                final companyBase64Id = state.uri.queryParameters['Y29tcGFueV9pZA'];
+                // final masterBranchIdBase64 = state.uri.queryParameters['bWFzdGVyX2JyYW5jaF9pZA'];
+                List<String> masterBranchBase64List = state.uri.queryParametersAll['bWFzdGVyX2JyYW5jaF9pZA'] ?? [];
+                if (kDebugMode) print('masterBranchBase64List: $masterBranchBase64List');
+                final startDateBase64 = state.uri.queryParameters['c3RhcnRfZGF0ZQ'];
+                final endDateBase64 = state.uri.queryParameters['ZW5kX2RhdGU'];
+                List<int> masterBranchIds = masterBranchBase64List
+                    .map((b64) => int.tryParse(utf8.decode(base64Decode(b64))))
+                    .whereType<int>() // กรองค่า null ออก
+                    .toList();
+                // if (kDebugMode) print('masterBranchIdBase64: $masterBranchIdBase64');
+                if (kDebugMode) print('companyBase64Id: $companyBase64Id');
+                if (kDebugMode) print('startDateBase64: $startDateBase64');
+                if (kDebugMode) print('endDateBase64: $endDateBase64');
+                var companyId = idFormBase64(id: companyBase64Id);
+                // var masterBranchId = idFormBase64(id: masterBranchIdBase64);
+                var startDate = idFormBase64(id: startDateBase64);
+                var endDate = idFormBase64(id: endDateBase64);
+                if (kDebugMode) print('companyId: $companyId');
+                if (kDebugMode) print('masterBranchIds: $masterBranchIds');
+                if (kDebugMode) print('startDate: $startDate');
+                if (kDebugMode) print('endDate: $endDate');
+                ref.read(startDateProvider.notifier).state = DateTime.parse(startDate);
+                ref.read(endDateProvider.notifier).state = DateTime.parse(endDate);
+                await ref.read(hdReportHQVatPosttSaleProvider.notifier).get(id: companyId);
+                await ref.read(detailReportHQVatPosttSaleProvider.notifier).get(
+                  body: {
+                    "master_branch_id": masterBranchIds.join(','),
+                    "start_date": startDate,
+                    "end_date": endDate,
+                  },
+                );
+              } catch (e) {
+                ref.read(routerHelperProvider).goPath('/error');
+                if (kDebugMode) print('error: $e');
+                return;
+              }
+            });
+            return;
+          },
+          pageBuilder: (context, state) {
+            return const NoTransitionPage(child: ReportHQVatPosttSaleScreen());
           },
         ),
       ],
