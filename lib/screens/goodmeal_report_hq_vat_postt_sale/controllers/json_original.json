@@ -1,0 +1,88 @@
+[
+    {
+        "original": true,
+        "copy": true,
+        "header": {
+            "title": "ใบกำกับภาษี/ใบเสร็จรับเงิน",
+            "company_logo_image_network": "www.xxxx.com/dada",
+            "company_name": "บริษัท พีพีเอส จำกัด",
+            "company_address": "856/68 ถนนพระราม 9 แขวงสวนหลวง เขตสวนหลวง กรุงเทพมหานคร 10250",
+            "company_phone_number": "02-6361566",
+            "company_tax_id": "0155661444399",
+            "customer_name": "บริษัท พีพีเอส จำกัด",
+            "customer_address": "892 ถนนรำมค ำแหง แขวงวังทองทลำง เขตวังทองหลำง กรุงเทพมหำนคร 10310 ",
+            "customer_phone_number": "0958644567",
+            "customer_tax_id": "0105566144888",
+            "docu_no": "TAX2025052200001",
+            "docu_date": "2025-05-22",
+            "branchs": [
+                {
+                    "branch_name": "สำนักงานใหญ่",
+                    "selected": false
+                },
+                {
+                    "branch_name": "สาขา 00001",
+                    "selected": true
+                }
+            ]
+        },
+        "details": [
+            {
+                "list_no": 1,
+                "item_name": "ค่าอาหารและเครื่องดื่ม",
+                "amount": 3105.00
+            }
+        ],
+        "footer": {
+            "payment_method": "เงินสด , โอนเงิน",
+            "vat_exempt": 0.00,
+            "vat_included": 2901.00,
+            "vat_amount": 203.13,
+            "withholding_tax": 0.00,
+            "net_amount": 3105.00
+        }
+    },
+    {
+        "original": true,
+        "copy": true,
+        "header": {
+            "title": "ใบกำกับภาษี/ใบเสร็จรับเงิน",
+            "company_logo_image_network": "www.xxxx.com/dada",
+            "company_name": "บริษัท พีพีเอส จำกัด",
+            "company_address": "856/68 ถนนพระราม 9 แขวงสวนหลวง เขตสวนหลวง กรุงเทพมหานคร 10250",
+            "company_phone_number": "02-6361566",
+            "company_tax_id": "0155661444399",
+            "customer_name": "บริษัท พีพีเอส จำกัด",
+            "customer_address": "892 ถนนรำมค ำแหง แขวงวังทองทลำง เขตวังทองหลำง กรุงเทพมหำนคร 10310 ",
+            "customer_phone_number": "0958644567",
+            "customer_tax_id": "0105566144888",
+            "docu_no": "TAX2025052200001",
+            "docu_date": "2025-05-22",
+            "branchs": [
+                {
+                    "branch_name": "สำนักงานใหญ่",
+                    "selected": false
+                },
+                {
+                    "branch_name": "สาขา 00001",
+                    "selected": true
+                }
+            ]
+        },
+        "details": [
+            {
+                "list_no": 1,
+                "item_name": "ค่าอาหารและเครื่องดื่ม",
+                "amount": 3105.00
+            }
+        ],
+        "footer": {
+            "payment_method": "เงินสด , โอนเงิน",
+            "vat_exempt": 0.00,
+            "vat_included": 2901.00,
+            "vat_amount": 203.13,
+            "withholding_tax": 0.00,
+            "net_amount": 3105.00
+        }
+    }
+]

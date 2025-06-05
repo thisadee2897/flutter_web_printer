@@ -1,0 +1,97 @@
+[
+    {
+        "header": {
+            "title": "ใบเสร็จรับเงิน / ใบกำกับภาษี (อย่างย่อ)",
+            "company_logo_image_network": "www.xxxx.com/dada",
+            "company_name": "บริษัท คินเดอะบูตะ สาขาขอนแก่น",
+            "company_address": "99/122 หมู่ 2 ตำบลบ้านเป็ด อำเภอเมืองขอนแก่น จังหวัดขอนแก่น 40000",
+            "company_phone_number": "099338585828",
+            "company_tax_id": "0123456789123",
+            "employee_name": "ขวัญฤทัย ใจแสนดี",
+            "customer_name": "คุณทวีศักดิ์ จริงใจ",
+            "table_number": "B2",
+            "docu_no": "SIKCWKC1680522-001",
+            "docu_date": "2025-05-22T08:04:56Z"
+        },
+        "details": [
+            {
+                "list_no": 1,
+                "item_name": "น้ำสไปร์ท",
+                "unit_price": 20.00,
+                "quantity": 4,
+                "amount": 80.00
+            },
+            {
+                "list_no": 2,
+                "item_name": "น้ำเปล่า",
+                "unit_price": 10.00,
+                "quantity": 2,
+                "amount": 20.00
+            },
+            {
+                "list_no": 3,
+                "item_name": "กระเพราหมู",
+                "unit_price": 50.00,
+                "quantity": 10,
+                "amount": 500.00
+            }
+        ],
+        "footer": {
+            "total_items": 16,
+            "total_amount": 600.00,
+            "service_charge": 0.00,
+            "entertainment_discount": 0.00,
+            "beverage_discount": 0.00,
+            "total_discount": 0.00,
+            "vat_included": 0.00,
+            "net_amount": 600.00,
+            "cash_received": 600.00,
+            "change": 0.00,
+            "payment_methods": [
+                {
+                    "payment_method": "เงินสด",
+                    "amount": 600.00
+                },
+                {
+                    "payment_method": "บัตรเครดิต",
+                    "amount": 10.00
+                },
+                {
+                    "payment_method": "โอนเงิน",
+                    "amount": 2.00
+                }
+            ],
+            "categories": [
+                {
+                    "category_name": "เครื่องดื่ม",
+                    "quantity": 6,
+                    "amount": 100.00
+                },
+                {
+                    "category_name": "อาหาร",
+                    "quantity": 10,
+                    "amount": 500.00
+                }
+            ],
+            "total_categories_amount": 600.00,
+            "points": [
+                {
+                    "point_name": "คะแนนสะสมยอดยกมา",
+                    "point_value": 305.00
+                },
+                {
+                    "point_name": "คะแนนที่ใช้ไป",
+                    "point_value": 0.00
+                },
+                {
+                    "point_name": "คะแนนสะสมจำกกำรซื้อครั้งนี้",
+                    "point_value": 1
+                },
+                {
+                    "point_name": "รวมคะแนนสะสมปัจจุบัน",
+                    "point_value": 306.00
+                }
+            ]
+        }
+    }
+]

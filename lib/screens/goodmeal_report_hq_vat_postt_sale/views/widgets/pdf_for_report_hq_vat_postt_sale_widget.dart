@@ -92,7 +92,7 @@ class PDFGeneratorReportHQVatPosttSale {
                                   mainAxisAlignment: pw.MainAxisAlignment.start,
                                   children: [
                                     pw.Text('ชื่อสถานประกอบการ : ', style: textStyleNormal),
-                                    pw.Text(hd.shopName ?? '-', style: textStyleBold),
+                                    pw.Text(hd.companyName ?? '-', style: textStyleBold),
                                   ],
                                 ),
                               ),
@@ -116,11 +116,19 @@ class PDFGeneratorReportHQVatPosttSale {
                                   crossAxisAlignment: pw.CrossAxisAlignment.start,
                                   children: [
                                     pw.Text('เลขประจำตัวผู้เสียภาษีอากร : ', style: textStyleNormal),
-                                    pw.Text(
-                                      textAlign: pw.TextAlign.left,
-                                      hd.companyTaxid ?? '-',
-                                      style: textStyleBold,
+                                    // 0105566144399 ใส่กรอบ 4 เหลี่ยม 
+                                    pw.Container(
+                                      padding: const pw.EdgeInsets.all(2),
+                                      decoration: pw.BoxDecoration(
+                                        border: pw.Border.all(color: PdfColors.black, width: 0.5),
+                                        borderRadius: pw.BorderRadius.circular(4),
+                                      ),
+                                      child: pw.Text(
+                                        hd.companyTaxid ?? '-',
+                                        style: textStyleBold,
+                                      ),
                                     ),
+                                    
                                   ],
                                 ),
                               ),
