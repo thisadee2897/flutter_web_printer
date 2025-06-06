@@ -39,12 +39,20 @@
         "footer": {
             "total_items": 16,
             "total_amount": 600.00,
-            "service_charge": 0.00,
-            "entertainment_discount": 0.00,
-            "beverage_discount": 0.00,
-            "total_discount": 0.00,
-            "vat_included": 0.00,
-            "net_amount": 600.00,
+            "service_charge": 60.00,
+            "discounts": [
+                {
+                    "discount_name": "ส่วนลดเอ็นเตอร์เทน",
+                    "discount_value": -36.00
+                },
+                {
+                    "discount_name": "ส่วนลดค่ำเครื่องดื่ม 10%",
+                    "discount_value": -10.00
+                }
+            ],
+            "total_discount": -46.00,
+            "vat_included": 42.98,
+            "net_amount": 657.00,
             "cash_received": 600.00,
             "change": 0.00,
             "payment_methods": [

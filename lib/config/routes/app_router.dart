@@ -17,9 +17,13 @@ import 'package:flutter_web_printer/screens/good_receive_cash/controllers/provid
 import 'package:flutter_web_printer/screens/good_receive_cash/views/good_receive_cash_screen.dart';
 import 'package:flutter_web_printer/screens/good_receive_credit/controllers/providers/document_good_receive_credit.dart';
 import 'package:flutter_web_printer/screens/good_receive_credit/views/good_receive_credit_screen.dart';
+import 'package:flutter_web_printer/screens/goodmeal_full_tax_invoice/controllers/providers/print_full_tax_invoice.dart';
+import 'package:flutter_web_printer/screens/goodmeal_full_tax_invoice/views/report_full_tax_invoice_screen.dart';
 import 'package:flutter_web_printer/screens/goodmeal_report_hq_vat_postt_sale/controllers/providers/get_company_data.dart';
 import 'package:flutter_web_printer/screens/goodmeal_report_hq_vat_postt_sale/controllers/providers/report_hq_vat_postt_sale.dart';
 import 'package:flutter_web_printer/screens/goodmeal_report_hq_vat_postt_sale/views/report_hq_vat_postt_sale_screen.dart';
+import 'package:flutter_web_printer/screens/goodmeal_simplified_tax_invoice/controllers/providers/print_simplified_tax_invoice.dart';
+import 'package:flutter_web_printer/screens/goodmeal_simplified_tax_invoice/views/report_simplified_tax_invoice_screen.dart';
 import 'package:flutter_web_printer/screens/inventory_adjust/controllers/providers/document_inventory_adjust.dart';
 import 'package:flutter_web_printer/screens/inventory_adjust/views/inventory_adjust_screen.dart';
 import 'package:flutter_web_printer/screens/inventory_requisition/controllers/providers/document_inventory_requisition.dart';
@@ -669,6 +673,105 @@ final appRouterProvider = Provider<GoRouter>(
           },
           pageBuilder: (context, state) {
             return const NoTransitionPage(child: ReportHQVatPosttSaleScreen());
+          },
+        ),
+        GoRoute(
+          path: Routes.simplifiedTaxInvoiceScreen,
+          redirect: (context, state) {
+            WidgetsBinding.instance.addPostFrameCallback((_) async {
+              try {
+                // final companyBase64Id = state.uri.queryParameters['Y29tcGFueV9pZA'];
+                // // final masterBranchIdBase64 = state.uri.queryParameters['bWFzdGVyX2JyYW5jaF9pZA'];
+                // List<String> masterBranchBase64List = state.uri.queryParametersAll['bWFzdGVyX2JyYW5jaF9pZA'] ?? [];
+                // if (kDebugMode) print('masterBranchBase64List: $masterBranchBase64List');
+                // final startDateBase64 = state.uri.queryParameters['c3RhcnRfZGF0ZQ'];
+                // final endDateBase64 = state.uri.queryParameters['ZW5kX2RhdGU'];
+                // List<int> masterBranchIds = masterBranchBase64List
+                //     .map((b64) => int.tryParse(utf8.decode(base64Decode(b64))))
+                //     .whereType<int>() // กรองค่า null ออก
+                //     .toList();
+                // // if (kDebugMode) print('masterBranchIdBase64: $masterBranchIdBase64');
+                // if (kDebugMode) print('companyBase64Id: $companyBase64Id');
+                // if (kDebugMode) print('startDateBase64: $startDateBase64');
+                // if (kDebugMode) print('endDateBase64: $endDateBase64');
+                // var companyId = idFormBase64(id: companyBase64Id);
+                // // var masterBranchId = idFormBase64(id: masterBranchIdBase64);
+                // var startDate = idFormBase64(id: startDateBase64);
+                // var endDate = idFormBase64(id: endDateBase64);
+                // if (kDebugMode) print('companyId: $companyId');
+                // if (kDebugMode) print('masterBranchIds: $masterBranchIds');
+                // if (kDebugMode) print('startDate: $startDate');
+                // if (kDebugMode) print('endDate: $endDate');
+                // ref.read(startDateProvider.notifier).state = DateTime.parse(startDate);
+                // ref.read(endDateProvider.notifier).state = DateTime.parse(endDate);
+                // await ref.read(hdReportHQVatPosttSaleProvider.notifier).get(id: companyId);
+                await ref.read(simplifiedTaxInvoiceProvider.notifier).get(
+                  body: {
+                    "docu_no": "TAX2025052200001,TAX2025052200002,TAX2025052200003",
+                    "company": "1",
+                    "branchs": "147,23",
+                  },
+                );
+              } catch (e) {
+                ref.read(routerHelperProvider).goPath('/error');
+                if (kDebugMode) print('error: $e');
+                return;
+              }
+            });
+            return;
+          },
+          pageBuilder: (context, state) {
+            return const NoTransitionPage(child: SimplifiedTaxInvoiceScreen());
+          },
+        ),
+        GoRoute(
+          path: Routes.fullTaxInvoiceScreen,
+          redirect: (context, state) {
+            WidgetsBinding.instance.addPostFrameCallback((_) async {
+              try {
+                // final companyBase64Id = state.uri.queryParameters['Y29tcGFueV9pZA'];
+                // // final masterBranchIdBase64 = state.uri.queryParameters['bWFzdGVyX2JyYW5jaF9pZA'];
+                // List<String> masterBranchBase64List = state.uri.queryParametersAll['bWFzdGVyX2JyYW5jaF9pZA'] ?? [];
+                // if (kDebugMode) print('masterBranchBase64List: $masterBranchBase64List');
+                // final startDateBase64 = state.uri.queryParameters['c3RhcnRfZGF0ZQ'];
+                // final endDateBase64 = state.uri.queryParameters['ZW5kX2RhdGU'];
+                // List<int> masterBranchIds = masterBranchBase64List
+                //     .map((b64) => int.tryParse(utf8.decode(base64Decode(b64))))
+                //     .whereType<int>() // กรองค่า null ออก
+                //     .toList();
+                // // if (kDebugMode) print('masterBranchIdBase64: $masterBranchIdBase64');
+                // if (kDebugMode) print('companyBase64Id: $companyBase64Id');
+                // if (kDebugMode) print('startDateBase64: $startDateBase64');
+                // if (kDebugMode) print('endDateBase64: $endDateBase64');
+                // var companyId = idFormBase64(id: companyBase64Id);
+                // // var masterBranchId = idFormBase64(id: masterBranchIdBase64);
+                // var startDate = idFormBase64(id: startDateBase64);
+                // var endDate = idFormBase64(id: endDateBase64);
+                // if (kDebugMode) print('companyId: $companyId');
+                // if (kDebugMode) print('masterBranchIds: $masterBranchIds');
+                // if (kDebugMode) print('startDate: $startDate');
+                // if (kDebugMode) print('endDate: $endDate');
+                // ref.read(startDateProvider.notifier).state = DateTime.parse(startDate);
+                // ref.read(endDateProvider.notifier).state = DateTime.parse(endDate);
+                await ref.read(fullTaxInvoiceProvider.notifier).get(
+                  body: {
+                    "original": true,
+                    "copy": true,
+                    "docu_no": "TAX2025052200001,TAX2025052200002,TAX2025052200003",
+                    "company": "1",
+                    "branchs": "147,23",
+                  },
+                );
+              } catch (e) {
+                ref.read(routerHelperProvider).goPath('/error');
+                if (kDebugMode) print('error: $e');
+                return;
+              }
+            });
+            return;
+          },
+          pageBuilder: (context, state) {
+            return const NoTransitionPage(child: FullTaxInvoiceScreen());
           },
         ),
       ],

@@ -128,7 +128,6 @@ class PDFGeneratorReportHQVatPosttSale {
                                         style: textStyleBold,
                                       ),
                                     ),
-                                    
                                   ],
                                 ),
                               ),

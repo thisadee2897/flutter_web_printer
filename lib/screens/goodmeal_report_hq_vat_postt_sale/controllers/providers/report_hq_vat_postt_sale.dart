@@ -58,7 +58,6 @@ class DetailReportHQVatPosttSaleNotifier extends StateNotifier<AsyncValue<List<D
               'Vatamnt': state.value!.fold<num>(0, (previousValue, element) => previousValue + num.parse(element.vatPosttSaleVatamnt.toString())),
               'Sumamnt': state.value!.fold<num>(0, (previousValue, element) => previousValue + num.parse(element.vatPosttSaleSumamnt.toString())),
             };
-            print('Summary: $summary');
             var page = await PDFGeneratorReportHQVatPosttSale().generate(hd: hd!, dt: dataWidget, company: company, summary: summary);
             pdfFile.addPage(page);
           }
