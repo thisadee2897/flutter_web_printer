@@ -46,7 +46,11 @@ final dummyDataSimplifiedTaxInvoice = Provider<List<Map<String, dynamic>>>((ref)
       "details": [
         {"list_no": 1, "item_name": "น้ำสไปร์ท", "unit_price": 20.00, "quantity": 4, "amount": 80.00},
         {"list_no": 2, "item_name": "น้ำเปล่า", "unit_price": 10.00, "quantity": 2, "amount": 20.00},
-        {"list_no": 3, "item_name": "กระเพราหมู", "unit_price": 50.00, "quantity": 10, "amount": 500.00}
+        {"list_no": 3, "item_name": "กระเพราหมู", "unit_price": 50.00, "quantity": 10, "amount": 500.00},
+        {"list_no": 4, "item_name": "ข้าวผัดกะเพรา", "unit_price": 50.00, "quantity": 2, "amount": 100.00},
+        {"list_no": 5, "item_name": "น้ำส้ม", "unit_price": 30.00, "quantity": 1, "amount": 30.00},
+        {"list_no": 6, "item_name": "ขนมจีบ", "unit_price": 20.00, "quantity": 2, "amount": 40.00},
+        {"list_no": 7, "item_name": "ขนมปังปิ้ง", "unit_price": 15.00, "quantity": 2, "amount": 30.00}
       ],
       "footer": {
         "total_items": 16,
@@ -64,7 +68,10 @@ final dummyDataSimplifiedTaxInvoice = Provider<List<Map<String, dynamic>>>((ref)
         "payment_methods": [
           {"payment_method": "เงินสด", "amount": 600.00},
           {"payment_method": "บัตรเครดิต", "amount": 10.00},
-          {"payment_method": "โอนเงิน", "amount": 2.00}
+          {"payment_method": "โอนเงิน", "amount": 2.00},
+          // Giftvoucher, Coupon, Points, etc. can be added here
+          {"payment_method": "บัตรกำนัล", "amount": 5.00},
+          {"payment_method": "คูปองส่วนลด", "amount": 3.00},
         ],
         "categories": [
           {"category_name": "เครื่องดื่ม", "quantity": 6, "amount": 100.00},
@@ -131,7 +138,12 @@ final dummyDataSimplifiedTaxInvoice = Provider<List<Map<String, dynamic>>>((ref)
         "service_charge": 60.00,
         "discounts": [
           {"discount_name": "ส่วนลดเอ็นเตอร์เทน", "discount_value": -36.00},
-          {"discount_name": "ส่วนลดค่าเครื่องดื่ม 10%", "discount_value": -10.00}
+          {"discount_name": "ส่วนลดค่าเครื่องดื่ม 10%", "discount_value": -10.00},
+          {"discount_name": "ส่วนลดพิเศษสำหรับลูกค้าประจำ", "discount_value": -5.00},
+          {"discount_name": "ส่วนลดโปรโมชั่นพิเศษ", "discount_value": -5.00},
+          {"discount_name": "ส่วนลดสำหรับสมาชิก", "discount_value": -5.00},
+          {"discount_name": "ส่วนลดสำหรับการสั่งซื้อออนไลน์", "discount_value": -5.00},
+          {"discount_name": "ส่วนลดสำหรับการชำระเงินล่วงหน้า", "discount_value": -5.00}
         ],
         "total_discount": -46.00,
         "vat_included": 42.98,
@@ -145,7 +157,12 @@ final dummyDataSimplifiedTaxInvoice = Provider<List<Map<String, dynamic>>>((ref)
         ],
         "categories": [
           {"category_name": "เครื่องดื่ม", "quantity": 6, "amount": 100.00},
-          {"category_name": "อาหารตามสั่ง", "quantity": 10, "amount": 500.00}
+          {"category_name": "อาหารตามสั่ง", "quantity": 10, "amount": 500.00},
+          {"category_name": "ขนมปัง", "quantity": 4, "amount": 100.00},
+          {"category_name": "ของหวาน", "quantity": 2, "amount": 50.00},
+          {"category_name": "ผลไม้", "quantity": 1, "amount": 25.00},
+          {"category_name": "ขนมจีบ", "quantity": 2, "amount": 40.00},
+          {"category_name": "ข้าวผัด", "quantity": 1, "amount": 40.00}
         ],
         "total_categories_amount": 600.00,
         "points": [

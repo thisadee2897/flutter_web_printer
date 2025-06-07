@@ -6,7 +6,7 @@ import 'package:pdf/widgets.dart' as pw;
 class PDFGeneratorSimplifiedTaxInvoice {
   Future<pw.Page> generate({
     required SimplifiedTaxInvoiceModel dt,
-    bool showFooter = false,
+    bool showFooter = true,
     bool showDiscounts = false,
     bool showPaymentMethods = false,
     bool showCategories = false,
@@ -405,385 +405,395 @@ class PDFGeneratorSimplifiedTaxInvoice {
                   if (showFooter)
                     pw.Column(
                       children: [
-                        if (dt.footer!.paymentMethods!.isNotEmpty)
+                        if (showDiscounts)
                           pw.Divider(
                             color: PdfColor.fromHex("#000000"),
                             thickness: 0.2,
                             borderStyle: pw.BorderStyle.dashed,
                           ),
-                        pw.Table(
-                          children: [
-                            pw.TableRow(
-                              children: [
-                                pw.Row(
-                                  children: [
-                                    pw.SizedBox(
-                                      height: 20,
-                                      width: 150,
-                                      child: pw.Padding(
-                                        padding: const pw.EdgeInsets.only(left: 2, right: 2),
-                                        child: pw.Text(
-                                          'รวมจำนวนสินค้า',
-                                          style: textStyleNormal,
-                                        ),
-                                      ),
-                                    ),
-                                    pw.SizedBox(height: 20, child: pw.Text(':', style: textStyleBold)),
-                                  ],
-                                ),
-                                pw.Row(
-                                  mainAxisAlignment: pw.MainAxisAlignment.end,
-                                  children: [
-                                    pw.SizedBox(
-                                      height: 20,
-                                      child: pw.Padding(
-                                        padding: const pw.EdgeInsets.only(left: 2, right: 2),
-                                        child: pw.Text(
-                                          dt.footer!.totalItems.digits(2),
-                                          textAlign: pw.TextAlign.end,
-                                          style: textStyleNormal,
-                                        ),
-                                      ),
-                                    ),
-                                    pw.SizedBox(width: 80),
-                                  ],
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                        pw.Table(
-                          children: [
-                            pw.TableRow(
-                              children: [
-                                pw.Row(
-                                  children: [
-                                    pw.SizedBox(
-                                      height: 20,
-                                      width: 150,
-                                      child: pw.Padding(
-                                        padding: const pw.EdgeInsets.only(left: 2, right: 2),
-                                        child: pw.Text(
-                                          'รวมค่าสินค้า',
-                                          style: textStyleNormal,
-                                        ),
-                                      ),
-                                    ),
-                                    pw.SizedBox(height: 20, child: pw.Text(':', style: textStyleBold)),
-                                  ],
-                                ),
-                                pw.Row(
-                                  mainAxisAlignment: pw.MainAxisAlignment.end,
-                                  children: [
-                                    pw.SizedBox(
-                                      height: 20,
-                                      child: pw.Padding(
-                                        padding: const pw.EdgeInsets.only(left: 2, right: 2),
-                                        child: pw.Text(
-                                          dt.footer!.totalAmount.digits(2),
-                                          textAlign: pw.TextAlign.end,
-                                          style: textStyleNormal,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                        pw.Table(
-                          children: [
-                            pw.TableRow(
-                              children: [
-                                pw.Row(
-                                  children: [
-                                    pw.SizedBox(
-                                      height: 20,
-                                      width: 150,
-                                      child: pw.Padding(
-                                        padding: const pw.EdgeInsets.only(left: 2, right: 2),
-                                        child: pw.Text(
-                                          'ค่าบริการ',
-                                          style: textStyleNormal,
-                                        ),
-                                      ),
-                                    ),
-                                    pw.SizedBox(height: 20, child: pw.Text(':', style: textStyleBold)),
-                                  ],
-                                ),
-                                pw.Row(
-                                  mainAxisAlignment: pw.MainAxisAlignment.end,
-                                  children: [
-                                    pw.SizedBox(
-                                      height: 20,
-                                      child: pw.Padding(
-                                        padding: const pw.EdgeInsets.only(left: 2, right: 2),
-                                        child: pw.Text(
-                                          dt.footer!.serviceCharge.digits(2),
-                                          textAlign: pw.TextAlign.end,
-                                          style: textStyleNormal,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                        ...List.generate(
-                          dt.footer!.discounts!.length,
-                          (index) {
-                            var itemDiscount = dt.footer!.discounts![index];
-                            return pw.Table(
-                              children: [
-                                pw.TableRow(
-                                  children: [
-                                    pw.Row(
-                                      children: [
-                                        pw.SizedBox(
-                                          height: 20,
-                                          width: 150,
-                                          child: pw.Padding(
-                                            padding: const pw.EdgeInsets.only(left: 2, right: 2),
-                                            child: pw.Text(
-                                              itemDiscount.discountName!,
-                                              style: textStyleNormal,
-                                            ),
+                        if (showDiscounts)
+                          pw.Table(
+                            children: [
+                              pw.TableRow(
+                                children: [
+                                  pw.Row(
+                                    children: [
+                                      pw.SizedBox(
+                                        height: 20,
+                                        width: 150,
+                                        child: pw.Padding(
+                                          padding: const pw.EdgeInsets.only(left: 2, right: 2),
+                                          child: pw.Text(
+                                            'รวมจำนวนสินค้า',
+                                            style: textStyleNormal,
                                           ),
                                         ),
-                                        pw.SizedBox(height: 20, child: pw.Text(':', style: textStyleBold)),
-                                      ],
-                                    ),
-                                    pw.Row(
-                                      mainAxisAlignment: pw.MainAxisAlignment.end,
-                                      children: [
-                                        pw.SizedBox(
-                                          height: 20,
-                                          child: pw.Padding(
-                                            padding: const pw.EdgeInsets.only(left: 2, right: 2),
-                                            child: pw.Text(
-                                              itemDiscount.discountValue.digits(2),
-                                              textAlign: pw.TextAlign.end,
-                                              style: textStyleNormal,
-                                            ),
+                                      ),
+                                      pw.SizedBox(height: 20, child: pw.Text(':', style: textStyleBold)),
+                                    ],
+                                  ),
+                                  pw.Row(
+                                    mainAxisAlignment: pw.MainAxisAlignment.end,
+                                    children: [
+                                      pw.SizedBox(
+                                        height: 20,
+                                        child: pw.Padding(
+                                          padding: const pw.EdgeInsets.only(left: 2, right: 2),
+                                          child: pw.Text(
+                                            dt.footer!.totalItems.digits(2),
+                                            textAlign: pw.TextAlign.end,
+                                            style: textStyleNormal,
                                           ),
                                         ),
-                                        pw.SizedBox(width: 80),
-                                      ],
-                                    )
-                                  ],
-                                )
-                              ],
-                            );
-                          },
-                        ),
-                        pw.Table(
-                          children: [
-                            pw.TableRow(
-                              children: [
-                                pw.Row(
-                                  children: [
-                                    pw.SizedBox(
-                                      height: 20,
-                                      width: 150,
-                                      child: pw.Padding(
-                                        padding: const pw.EdgeInsets.only(left: 2, right: 2),
-                                        child: pw.Text(
-                                          'รวมส่วนลด',
-                                          style: textStyleNormal,
+                                      ),
+                                      pw.SizedBox(width: 80),
+                                    ],
+                                  )
+                                ],
+                              )
+                            ],
+                          ),
+                        if (showDiscounts)
+                          pw.Table(
+                            children: [
+                              pw.TableRow(
+                                children: [
+                                  pw.Row(
+                                    children: [
+                                      pw.SizedBox(
+                                        height: 20,
+                                        width: 150,
+                                        child: pw.Padding(
+                                          padding: const pw.EdgeInsets.only(left: 2, right: 2),
+                                          child: pw.Text(
+                                            'รวมค่าสินค้า',
+                                            style: textStyleNormal,
+                                          ),
                                         ),
                                       ),
+                                      pw.SizedBox(height: 20, child: pw.Text(':', style: textStyleBold)),
+                                    ],
+                                  ),
+                                  pw.Row(
+                                    mainAxisAlignment: pw.MainAxisAlignment.end,
+                                    children: [
+                                      pw.SizedBox(
+                                        height: 20,
+                                        child: pw.Padding(
+                                          padding: const pw.EdgeInsets.only(left: 2, right: 2),
+                                          child: pw.Text(
+                                            dt.footer!.totalAmount.digits(2),
+                                            textAlign: pw.TextAlign.end,
+                                            style: textStyleNormal,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              )
+                            ],
+                          ),
+                        if (showDiscounts)
+                          pw.Table(
+                            children: [
+                              pw.TableRow(
+                                children: [
+                                  pw.Row(
+                                    children: [
+                                      pw.SizedBox(
+                                        height: 20,
+                                        width: 150,
+                                        child: pw.Padding(
+                                          padding: const pw.EdgeInsets.only(left: 2, right: 2),
+                                          child: pw.Text(
+                                            'ค่าบริการ',
+                                            style: textStyleNormal,
+                                          ),
+                                        ),
+                                      ),
+                                      pw.SizedBox(height: 20, child: pw.Text(':', style: textStyleBold)),
+                                    ],
+                                  ),
+                                  pw.Row(
+                                    mainAxisAlignment: pw.MainAxisAlignment.end,
+                                    children: [
+                                      pw.SizedBox(
+                                        height: 20,
+                                        child: pw.Padding(
+                                          padding: const pw.EdgeInsets.only(left: 2, right: 2),
+                                          child: pw.Text(
+                                            dt.footer!.serviceCharge.digits(2),
+                                            textAlign: pw.TextAlign.end,
+                                            style: textStyleNormal,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              )
+                            ],
+                          ),
+                        if (showDiscounts)
+                          ...List.generate(
+                            dt.footer!.discounts!.length,
+                            (index) {
+                              var itemDiscount = dt.footer!.discounts![index];
+                              return pw.Table(
+                                children: [
+                                  pw.TableRow(
+                                    children: [
+                                      pw.Row(
+                                        children: [
+                                          pw.SizedBox(
+                                            height: 20,
+                                            width: 150,
+                                            child: pw.Padding(
+                                              padding: const pw.EdgeInsets.only(left: 2, right: 2),
+                                              child: pw.Text(
+                                                itemDiscount.discountName!,
+                                                style: textStyleNormal,
+                                              ),
+                                            ),
+                                          ),
+                                          pw.SizedBox(height: 20, child: pw.Text(':', style: textStyleBold)),
+                                        ],
+                                      ),
+                                      pw.Row(
+                                        mainAxisAlignment: pw.MainAxisAlignment.end,
+                                        children: [
+                                          pw.SizedBox(
+                                            height: 20,
+                                            child: pw.Padding(
+                                              padding: const pw.EdgeInsets.only(left: 2, right: 2),
+                                              child: pw.Text(
+                                                itemDiscount.discountValue.digits(2),
+                                                textAlign: pw.TextAlign.end,
+                                                style: textStyleNormal,
+                                              ),
+                                            ),
+                                          ),
+                                          pw.SizedBox(width: 80),
+                                        ],
+                                      )
+                                    ],
+                                  )
+                                ],
+                              );
+                            },
+                          ),
+                        if (showDiscounts)
+                          pw.Table(
+                            children: [
+                              pw.TableRow(
+                                children: [
+                                  pw.Row(
+                                    children: [
+                                      pw.SizedBox(
+                                        height: 20,
+                                        width: 150,
+                                        child: pw.Padding(
+                                          padding: const pw.EdgeInsets.only(left: 2, right: 2),
+                                          child: pw.Text(
+                                            'รวมส่วนลด',
+                                            style: textStyleNormal,
+                                          ),
+                                        ),
+                                      ),
+                                      pw.SizedBox(height: 20, child: pw.Text(':', style: textStyleBold)),
+                                    ],
+                                  ),
+                                  pw.Row(
+                                    mainAxisAlignment: pw.MainAxisAlignment.end,
+                                    children: [
+                                      pw.SizedBox(
+                                        height: 20,
+                                        child: pw.Padding(
+                                          padding: const pw.EdgeInsets.only(left: 2, right: 2),
+                                          child: pw.Text(
+                                            dt.footer!.totalDiscount.digits(2),
+                                            textAlign: pw.TextAlign.end,
+                                            style: textStyleNormal,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              )
+                            ],
+                          ),
+                        if (showDiscounts)
+                          pw.Table(
+                            children: [
+                              pw.TableRow(
+                                children: [
+                                  pw.Row(
+                                    children: [
+                                      pw.SizedBox(
+                                        height: 20,
+                                        width: 150,
+                                        child: pw.Padding(
+                                          padding: const pw.EdgeInsets.only(left: 2, right: 2),
+                                          child: pw.Text(
+                                            'ภาษีมูลค่าเพิ่ม',
+                                            style: textStyleNormal,
+                                          ),
+                                        ),
+                                      ),
+                                      pw.SizedBox(height: 20, child: pw.Text(':', style: textStyleBold)),
+                                    ],
+                                  ),
+                                  pw.Row(
+                                    mainAxisAlignment: pw.MainAxisAlignment.end,
+                                    children: [
+                                      pw.SizedBox(
+                                        height: 20,
+                                        child: pw.Padding(
+                                          padding: const pw.EdgeInsets.only(left: 2, right: 2),
+                                          child: pw.Text(
+                                            dt.footer!.vatIncluded.digits(2),
+                                            textAlign: pw.TextAlign.end,
+                                            style: textStyleNormal,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              )
+                            ],
+                          ),
+                        if (showDiscounts)
+                          pw.Table(
+                            children: [
+                              pw.TableRow(
+                                children: [
+                                  pw.Row(
+                                    crossAxisAlignment: pw.CrossAxisAlignment.center,
+                                    children: [
+                                      pw.SizedBox(
+                                        height: 20,
+                                        width: 150,
+                                        child: pw.Padding(
+                                          padding: const pw.EdgeInsets.only(left: 2, right: 2),
+                                          child: pw.Text(
+                                            'รวมจำนวนเงินสุทธิ',
+                                            style: textStyleBold,
+                                          ),
+                                        ),
+                                      ),
+                                      pw.SizedBox(height: 20, child: pw.Text(':', style: textStyleBold)),
+                                    ],
+                                  ),
+                                  pw.Row(
+                                    mainAxisAlignment: pw.MainAxisAlignment.end,
+                                    children: [
+                                      pw.SizedBox(
+                                        height: 20,
+                                        child: pw.Padding(
+                                          padding: const pw.EdgeInsets.only(left: 2, right: 2),
+                                          child: pw.Text(
+                                            dt.footer!.netAmount.digits(2),
+                                            textAlign: pw.TextAlign.end,
+                                            style: textStyleBold,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              )
+                            ],
+                          ),
+                        if (showPaymentMethods)
+                          pw.Divider(
+                            color: PdfColor.fromHex("#000000"),
+                            thickness: 0.2,
+                            borderStyle: pw.BorderStyle.dashed,
+                          ),
+                        if (showPaymentMethods)
+                          pw.Row(
+                            mainAxisAlignment: pw.MainAxisAlignment.end,
+                            children: [
+                              pw.SizedBox(
+                                height: 20,
+                                width: 80,
+                                child: pw.Align(
+                                  alignment: pw.Alignment.centerLeft,
+                                  child: pw.Padding(
+                                    padding: const pw.EdgeInsets.only(left: 2, right: 2),
+                                    child: pw.Text(
+                                      'เงินสดที่ได้รับ',
+                                      style: textStyleNormal,
                                     ),
-                                    pw.SizedBox(height: 20, child: pw.Text(':', style: textStyleBold)),
-                                  ],
+                                  ),
                                 ),
-                                pw.Row(
-                                  mainAxisAlignment: pw.MainAxisAlignment.end,
-                                  children: [
-                                    pw.SizedBox(
-                                      height: 20,
-                                      child: pw.Padding(
-                                        padding: const pw.EdgeInsets.only(left: 2, right: 2),
-                                        child: pw.Text(
-                                          dt.footer!.totalDiscount.digits(2),
-                                          textAlign: pw.TextAlign.end,
-                                          style: textStyleNormal,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                        pw.Table(
-                          children: [
-                            pw.TableRow(
-                              children: [
-                                pw.Row(
-                                  children: [
-                                    pw.SizedBox(
-                                      height: 20,
-                                      width: 150,
-                                      child: pw.Padding(
-                                        padding: const pw.EdgeInsets.only(left: 2, right: 2),
-                                        child: pw.Text(
-                                          'ภาษีมูลค่าเพิ่ม',
-                                          style: textStyleNormal,
-                                        ),
-                                      ),
-                                    ),
-                                    pw.SizedBox(height: 20, child: pw.Text(':', style: textStyleBold)),
-                                  ],
+                              ),
+                              pw.SizedBox(
+                                width: 80,
+                                height: 20,
+                                child: pw.Align(
+                                  alignment: pw.Alignment.centerLeft,
+                                  child: pw.Text(':', style: textStyleNormal),
                                 ),
-                                pw.Row(
-                                  mainAxisAlignment: pw.MainAxisAlignment.end,
-                                  children: [
-                                    pw.SizedBox(
-                                      height: 20,
-                                      child: pw.Padding(
-                                        padding: const pw.EdgeInsets.only(left: 2, right: 2),
-                                        child: pw.Text(
-                                          dt.footer!.vatIncluded.digits(2),
-                                          textAlign: pw.TextAlign.end,
-                                          style: textStyleNormal,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                        pw.Table(
-                          children: [
-                            pw.TableRow(
-                              children: [
-                                pw.Row(
-                                  crossAxisAlignment: pw.CrossAxisAlignment.center,
-                                  children: [
-                                    pw.SizedBox(
-                                      height: 20,
-                                      width: 150,
-                                      child: pw.Padding(
-                                        padding: const pw.EdgeInsets.only(left: 2, right: 2),
-                                        child: pw.Text(
-                                          'รวมจำนวนเงินสุทธิ',
-                                          style: textStyleBold,
-                                        ),
-                                      ),
-                                    ),
-                                    pw.SizedBox(height: 20, child: pw.Text(':', style: textStyleBold)),
-                                  ],
-                                ),
-                                pw.Row(
-                                  mainAxisAlignment: pw.MainAxisAlignment.end,
-                                  children: [
-                                    pw.SizedBox(
-                                      height: 20,
-                                      child: pw.Padding(
-                                        padding: const pw.EdgeInsets.only(left: 2, right: 2),
-                                        child: pw.Text(
-                                          dt.footer!.netAmount.digits(2),
-                                          textAlign: pw.TextAlign.end,
-                                          style: textStyleBold,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                        pw.Divider(
-                          color: PdfColor.fromHex("#000000"),
-                          thickness: 0.2,
-                          borderStyle: pw.BorderStyle.dashed,
-                        ),
-                        pw.Row(
-                          mainAxisAlignment: pw.MainAxisAlignment.end,
-                          children: [
-                            pw.SizedBox(
-                              height: 20,
-                              width: 80,
-                              child: pw.Align(
-                                alignment: pw.Alignment.centerLeft,
+                              ),
+                              pw.SizedBox(
+                                width: 130,
+                                height: 20,
                                 child: pw.Padding(
                                   padding: const pw.EdgeInsets.only(left: 2, right: 2),
                                   child: pw.Text(
-                                    'เงินสดที่ได้รับ',
+                                    dt.footer!.cashReceived.digits(2),
+                                    textAlign: pw.TextAlign.end,
                                     style: textStyleNormal,
                                   ),
                                 ),
                               ),
-                            ),
-                            pw.SizedBox(
-                              width: 80,
-                              height: 20,
-                              child: pw.Align(
-                                alignment: pw.Alignment.centerLeft,
-                                child: pw.Text(':', style: textStyleNormal),
-                              ),
-                            ),
-                            pw.SizedBox(
-                              width: 130,
-                              height: 20,
-                              child: pw.Padding(
-                                padding: const pw.EdgeInsets.only(left: 2, right: 2),
-                                child: pw.Text(
-                                  dt.footer!.cashReceived.digits(2),
-                                  textAlign: pw.TextAlign.end,
-                                  style: textStyleNormal,
+                            ],
+                          ),
+                        if (showPaymentMethods)
+                          pw.Row(
+                            mainAxisAlignment: pw.MainAxisAlignment.end,
+                            children: [
+                              pw.SizedBox(
+                                height: 20,
+                                width: 80,
+                                child: pw.Align(
+                                  alignment: pw.Alignment.centerLeft,
+                                  child: pw.Padding(
+                                    padding: const pw.EdgeInsets.only(left: 2, right: 2),
+                                    child: pw.Text(
+                                      'เงินทอน',
+                                      style: textStyleNormal,
+                                    ),
+                                  ),
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                        pw.Row(
-                          mainAxisAlignment: pw.MainAxisAlignment.end,
-                          children: [
-                            pw.SizedBox(
-                              height: 20,
-                              width: 80,
-                              child: pw.Align(
-                                alignment: pw.Alignment.centerLeft,
+                              pw.SizedBox(
+                                width: 80,
+                                height: 20,
+                                child: pw.Align(
+                                  alignment: pw.Alignment.centerLeft,
+                                  child: pw.Text(':', style: textStyleNormal),
+                                ),
+                              ),
+                              pw.SizedBox(
+                                width: 130,
+                                height: 20,
                                 child: pw.Padding(
                                   padding: const pw.EdgeInsets.only(left: 2, right: 2),
                                   child: pw.Text(
-                                    'เงินทอน',
+                                    dt.footer!.change.digits(2),
+                                    textAlign: pw.TextAlign.end,
                                     style: textStyleNormal,
                                   ),
                                 ),
                               ),
-                            ),
-                            pw.SizedBox(
-                              width: 80,
-                              height: 20,
-                              child: pw.Align(
-                                alignment: pw.Alignment.centerLeft,
-                                child: pw.Text(':', style: textStyleNormal),
-                              ),
-                            ),
-                            pw.SizedBox(
-                              width: 130,
-                              height: 20,
-                              child: pw.Padding(
-                                padding: const pw.EdgeInsets.only(left: 2, right: 2),
-                                child: pw.Text(
-                                  dt.footer!.change.digits(2),
-                                  textAlign: pw.TextAlign.end,
-                                  style: textStyleNormal,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        if (dt.footer!.paymentMethods!.isNotEmpty)
+                            ],
+                          ),
+                        if (dt.footer!.paymentMethods!.isNotEmpty &&  showPaymentMethods)
                           pw.SizedBox(
                             height: 20,
                             child: pw.Align(
@@ -791,7 +801,7 @@ class PDFGeneratorSimplifiedTaxInvoice {
                               child: pw.Text("ชำระโดย", style: textStyleBold),
                             ),
                           ),
-                        if (dt.footer!.paymentMethods!.isNotEmpty)
+                        if (dt.footer!.paymentMethods!.isNotEmpty && showPaymentMethods)
                           ...List.generate(
                             dt.footer!.paymentMethods!.length,
                             (index) {
@@ -831,13 +841,13 @@ class PDFGeneratorSimplifiedTaxInvoice {
                               );
                             },
                           ),
-                        if (dt.footer!.categories!.isNotEmpty)
+                        if (dt.footer!.categories!.isNotEmpty && showCategories)
                           pw.Divider(
                             color: PdfColor.fromHex("#000000"),
                             thickness: 0.2,
                             borderStyle: pw.BorderStyle.dashed,
                           ),
-                        if (dt.footer!.categories!.isNotEmpty)
+                        if (dt.footer!.categories!.isNotEmpty && showCategories)
                           pw.SizedBox(
                             height: 20,
                             child: pw.Align(
@@ -845,7 +855,7 @@ class PDFGeneratorSimplifiedTaxInvoice {
                               child: pw.Text("หมวดหมู่สินค้า", style: textStyleBold),
                             ),
                           ),
-                        if (dt.footer!.categories!.isNotEmpty)
+                        if (dt.footer!.categories!.isNotEmpty && showCategories)
                           ...List.generate(
                             dt.footer!.categories!.length,
                             (index) {
@@ -899,7 +909,7 @@ class PDFGeneratorSimplifiedTaxInvoice {
                               );
                             },
                           ),
-                        if (dt.footer!.totalCategoriesAmount != 0)
+                        if (dt.footer!.totalCategoriesAmount != 0 && showCategories)
                           pw.Table(
                             children: [
                               pw.TableRow(
@@ -936,13 +946,13 @@ class PDFGeneratorSimplifiedTaxInvoice {
                               )
                             ],
                           ),
-                        if (dt.footer!.points!.isNotEmpty)
+                        if (dt.footer!.points!.isNotEmpty && showPoints)
                           pw.Divider(
                             color: PdfColor.fromHex("#000000"),
                             thickness: 0.2,
                             borderStyle: pw.BorderStyle.dashed,
                           ),
-                        if (dt.footer!.points!.isNotEmpty)
+                        if (dt.footer!.points!.isNotEmpty && showPoints)
                           ...List.generate(
                             dt.footer!.points!.length,
                             (index) {
