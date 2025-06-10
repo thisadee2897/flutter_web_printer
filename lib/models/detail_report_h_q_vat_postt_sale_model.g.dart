@@ -23,6 +23,10 @@ _$DetailReportHQVatPosttSaleModelImpl
           vatPosttSaleSumamnt: json['vat_postt_sale_sumamnt'] as String?,
           vatPosttSaleTotalexcludeamnt:
               json['vat_postt_sale_totalexcludeamnt'] as String?,
+          companyAddress: json['company_address'] as String?,
+          branchs: (json['branch'] as List<dynamic>?)
+              ?.map((e) => Branch2.fromJson(e as Map<String, dynamic>))
+              .toList(),
           listno: (json['listno'] as num?)?.toInt(),
         );
 
@@ -40,5 +44,7 @@ Map<String, dynamic> _$$DetailReportHQVatPosttSaleModelImplToJson(
       'vat_postt_sale_vatamnt': instance.vatPosttSaleVatamnt,
       'vat_postt_sale_sumamnt': instance.vatPosttSaleSumamnt,
       'vat_postt_sale_totalexcludeamnt': instance.vatPosttSaleTotalexcludeamnt,
+      'company_address': instance.companyAddress,
+      'branch': instance.branchs,
       'listno': instance.listno,
     };

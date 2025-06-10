@@ -92,7 +92,7 @@ class PDFGeneratorReportHQVatPosttSale {
                                   mainAxisAlignment: pw.MainAxisAlignment.start,
                                   children: [
                                     pw.Text('ชื่อสถานประกอบการ : ', style: textStyleNormal),
-                                    pw.Text(hd.companyName ?? '-', style: textStyleBold),
+                                    pw.Text(dt.first.companyAddress ?? '-', style: textStyleBold),
                                   ],
                                 ),
                               ),
@@ -119,10 +119,10 @@ class PDFGeneratorReportHQVatPosttSale {
                                     // 0105566144399 ใส่กรอบ 4 เหลี่ยม 
                                     pw.Container(
                                       padding: const pw.EdgeInsets.all(2),
-                                      decoration: pw.BoxDecoration(
-                                        border: pw.Border.all(color: PdfColors.black, width: 0.5),
-                                        borderRadius: pw.BorderRadius.circular(4),
-                                      ),
+                                      // decoration: pw.BoxDecoration(
+                                      //   border: pw.Border.all(color: PdfColors.black, width: 0.5),
+                                      //   borderRadius: pw.BorderRadius.circular(4),
+                                      // ),
                                       child: pw.Text(
                                         hd.companyTaxid ?? '-',
                                         style: textStyleBold,
@@ -140,15 +140,15 @@ class PDFGeneratorReportHQVatPosttSale {
                                   children: List.generate(
                                     hd.branchsName!.length,
                                     (index) {
-                                      var item = hd.branchsName![index];
+                                      var item = dt.first.branchs![index];
                                       return pw.Padding(
                                         padding: const pw.EdgeInsets.only(left: 12.0),
                                         child: pw.Row(
                                           children: [
-                                            pw.SvgImage(svg: svgTrue),
+                                            pw.SvgImage(svg: item.isSelected! ? svgTrue : svgFasle),
                                             pw.SizedBox(width: 5),
                                             pw.Text(
-                                              "สาขา $item",
+                                              "สาขา ${item.branchNumber}",
                                               style: textStyleBold,
                                             ),
                                           ],

@@ -42,7 +42,11 @@ mixin _$DetailReportHQVatPosttSaleModel {
   String? get vatPosttSaleSumamnt => throw _privateConstructorUsedError;
   @JsonKey(name: 'vat_postt_sale_totalexcludeamnt')
   String? get vatPosttSaleTotalexcludeamnt =>
-      throw _privateConstructorUsedError; //listno
+      throw _privateConstructorUsedError;
+  @JsonKey(name: 'company_address')
+  String? get companyAddress => throw _privateConstructorUsedError; //branch
+  @JsonKey(name: 'branch')
+  List<Branch2>? get branchs => throw _privateConstructorUsedError; //listno
   @JsonKey(name: 'listno')
   int? get listno => throw _privateConstructorUsedError;
 
@@ -79,6 +83,8 @@ abstract class $DetailReportHQVatPosttSaleModelCopyWith<$Res> {
       @JsonKey(name: 'vat_postt_sale_sumamnt') String? vatPosttSaleSumamnt,
       @JsonKey(name: 'vat_postt_sale_totalexcludeamnt')
       String? vatPosttSaleTotalexcludeamnt,
+      @JsonKey(name: 'company_address') String? companyAddress,
+      @JsonKey(name: 'branch') List<Branch2>? branchs,
       @JsonKey(name: 'listno') int? listno});
 }
 
@@ -108,6 +114,8 @@ class _$DetailReportHQVatPosttSaleModelCopyWithImpl<$Res,
     Object? vatPosttSaleVatamnt = freezed,
     Object? vatPosttSaleSumamnt = freezed,
     Object? vatPosttSaleTotalexcludeamnt = freezed,
+    Object? companyAddress = freezed,
+    Object? branchs = freezed,
     Object? listno = freezed,
   }) {
     return _then(_value.copyWith(
@@ -152,6 +160,14 @@ class _$DetailReportHQVatPosttSaleModelCopyWithImpl<$Res,
           ? _value.vatPosttSaleTotalexcludeamnt
           : vatPosttSaleTotalexcludeamnt // ignore: cast_nullable_to_non_nullable
               as String?,
+      companyAddress: freezed == companyAddress
+          ? _value.companyAddress
+          : companyAddress // ignore: cast_nullable_to_non_nullable
+              as String?,
+      branchs: freezed == branchs
+          ? _value.branchs
+          : branchs // ignore: cast_nullable_to_non_nullable
+              as List<Branch2>?,
       listno: freezed == listno
           ? _value.listno
           : listno // ignore: cast_nullable_to_non_nullable
@@ -184,6 +200,8 @@ abstract class _$$DetailReportHQVatPosttSaleModelImplCopyWith<$Res>
       @JsonKey(name: 'vat_postt_sale_sumamnt') String? vatPosttSaleSumamnt,
       @JsonKey(name: 'vat_postt_sale_totalexcludeamnt')
       String? vatPosttSaleTotalexcludeamnt,
+      @JsonKey(name: 'company_address') String? companyAddress,
+      @JsonKey(name: 'branch') List<Branch2>? branchs,
       @JsonKey(name: 'listno') int? listno});
 }
 
@@ -212,6 +230,8 @@ class __$$DetailReportHQVatPosttSaleModelImplCopyWithImpl<$Res>
     Object? vatPosttSaleVatamnt = freezed,
     Object? vatPosttSaleSumamnt = freezed,
     Object? vatPosttSaleTotalexcludeamnt = freezed,
+    Object? companyAddress = freezed,
+    Object? branchs = freezed,
     Object? listno = freezed,
   }) {
     return _then(_$DetailReportHQVatPosttSaleModelImpl(
@@ -256,6 +276,14 @@ class __$$DetailReportHQVatPosttSaleModelImplCopyWithImpl<$Res>
           ? _value.vatPosttSaleTotalexcludeamnt
           : vatPosttSaleTotalexcludeamnt // ignore: cast_nullable_to_non_nullable
               as String?,
+      companyAddress: freezed == companyAddress
+          ? _value.companyAddress
+          : companyAddress // ignore: cast_nullable_to_non_nullable
+              as String?,
+      branchs: freezed == branchs
+          ? _value._branchs
+          : branchs // ignore: cast_nullable_to_non_nullable
+              as List<Branch2>?,
       listno: freezed == listno
           ? _value.listno
           : listno // ignore: cast_nullable_to_non_nullable
@@ -283,7 +311,10 @@ class _$DetailReportHQVatPosttSaleModelImpl
       @JsonKey(name: 'vat_postt_sale_sumamnt') this.vatPosttSaleSumamnt,
       @JsonKey(name: 'vat_postt_sale_totalexcludeamnt')
       this.vatPosttSaleTotalexcludeamnt,
-      @JsonKey(name: 'listno') this.listno});
+      @JsonKey(name: 'company_address') this.companyAddress,
+      @JsonKey(name: 'branch') final List<Branch2>? branchs,
+      @JsonKey(name: 'listno') this.listno})
+      : _branchs = branchs;
 
   factory _$DetailReportHQVatPosttSaleModelImpl.fromJson(
           Map<String, dynamic> json) =>
@@ -319,6 +350,22 @@ class _$DetailReportHQVatPosttSaleModelImpl
   @override
   @JsonKey(name: 'vat_postt_sale_totalexcludeamnt')
   final String? vatPosttSaleTotalexcludeamnt;
+  @override
+  @JsonKey(name: 'company_address')
+  final String? companyAddress;
+//branch
+  final List<Branch2>? _branchs;
+//branch
+  @override
+  @JsonKey(name: 'branch')
+  List<Branch2>? get branchs {
+    final value = _branchs;
+    if (value == null) return null;
+    if (_branchs is EqualUnmodifiableListView) return _branchs;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
 //listno
   @override
   @JsonKey(name: 'listno')
@@ -326,7 +373,7 @@ class _$DetailReportHQVatPosttSaleModelImpl
 
   @override
   String toString() {
-    return 'DetailReportHQVatPosttSaleModel(vatPosttSaleDocudate: $vatPosttSaleDocudate, vatPosttSaleDocuno: $vatPosttSaleDocuno, vatPosttSaleArcustomerName: $vatPosttSaleArcustomerName, vatPosttSaleArcustomerTaxid: $vatPosttSaleArcustomerTaxid, vatPosttSaleArcustomerBranchNumber: $vatPosttSaleArcustomerBranchNumber, salehdPaymenttype: $salehdPaymenttype, vatPosttSaleBaseamnt: $vatPosttSaleBaseamnt, vatPosttSaleVatamnt: $vatPosttSaleVatamnt, vatPosttSaleSumamnt: $vatPosttSaleSumamnt, vatPosttSaleTotalexcludeamnt: $vatPosttSaleTotalexcludeamnt, listno: $listno)';
+    return 'DetailReportHQVatPosttSaleModel(vatPosttSaleDocudate: $vatPosttSaleDocudate, vatPosttSaleDocuno: $vatPosttSaleDocuno, vatPosttSaleArcustomerName: $vatPosttSaleArcustomerName, vatPosttSaleArcustomerTaxid: $vatPosttSaleArcustomerTaxid, vatPosttSaleArcustomerBranchNumber: $vatPosttSaleArcustomerBranchNumber, salehdPaymenttype: $salehdPaymenttype, vatPosttSaleBaseamnt: $vatPosttSaleBaseamnt, vatPosttSaleVatamnt: $vatPosttSaleVatamnt, vatPosttSaleSumamnt: $vatPosttSaleSumamnt, vatPosttSaleTotalexcludeamnt: $vatPosttSaleTotalexcludeamnt, companyAddress: $companyAddress, branchs: $branchs, listno: $listno)';
   }
 
   @override
@@ -362,6 +409,9 @@ class _$DetailReportHQVatPosttSaleModelImpl
                     vatPosttSaleTotalexcludeamnt) ||
                 other.vatPosttSaleTotalexcludeamnt ==
                     vatPosttSaleTotalexcludeamnt) &&
+            (identical(other.companyAddress, companyAddress) ||
+                other.companyAddress == companyAddress) &&
+            const DeepCollectionEquality().equals(other._branchs, _branchs) &&
             (identical(other.listno, listno) || other.listno == listno));
   }
 
@@ -379,6 +429,8 @@ class _$DetailReportHQVatPosttSaleModelImpl
       vatPosttSaleVatamnt,
       vatPosttSaleSumamnt,
       vatPosttSaleTotalexcludeamnt,
+      companyAddress,
+      const DeepCollectionEquality().hash(_branchs),
       listno);
 
   /// Create a copy of DetailReportHQVatPosttSaleModel
@@ -420,6 +472,8 @@ abstract class _DetailReportHQVatPosttSaleModel
       final String? vatPosttSaleSumamnt,
       @JsonKey(name: 'vat_postt_sale_totalexcludeamnt')
       final String? vatPosttSaleTotalexcludeamnt,
+      @JsonKey(name: 'company_address') final String? companyAddress,
+      @JsonKey(name: 'branch') final List<Branch2>? branchs,
       @JsonKey(name: 'listno')
       final int? listno}) = _$DetailReportHQVatPosttSaleModelImpl;
 
@@ -455,7 +509,13 @@ abstract class _DetailReportHQVatPosttSaleModel
   String? get vatPosttSaleSumamnt;
   @override
   @JsonKey(name: 'vat_postt_sale_totalexcludeamnt')
-  String? get vatPosttSaleTotalexcludeamnt; //listno
+  String? get vatPosttSaleTotalexcludeamnt;
+  @override
+  @JsonKey(name: 'company_address')
+  String? get companyAddress; //branch
+  @override
+  @JsonKey(name: 'branch')
+  List<Branch2>? get branchs; //listno
   @override
   @JsonKey(name: 'listno')
   int? get listno;
