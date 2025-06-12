@@ -1,7 +1,5 @@
 import 'package:flutter_web_printer/models/branch2.dart';
-import 'package:flutter_web_printer/models/branch_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
 part 'detail_report_h_q_vat_postt_sale_model.freezed.dart';
 part 'detail_report_h_q_vat_postt_sale_model.g.dart';
 

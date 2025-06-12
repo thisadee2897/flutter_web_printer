@@ -19,7 +19,7 @@ class _AppState extends ConsumerState<App> {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light,
       themeMode: ThemeMode.light,
-      title: 'ERP',
+      title: 'Printer',
       localizationsDelegates: const [Trans.delegate],
       supportedLocales: Trans.delegate.supportedLocales,
       routerConfig: appRouter,

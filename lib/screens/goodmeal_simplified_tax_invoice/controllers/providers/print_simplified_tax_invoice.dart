@@ -19,7 +19,7 @@ class SimplifiedTaxInvoiceNotifier extends StateNotifier<AsyncValue<List<Simplif
     }
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() async {
-      List<SimplifiedTaxInvoiceModel> response = await ref.read(apiSimplifiedTaxInvoice).getDummy(body);
+      List<SimplifiedTaxInvoiceModel> response = await ref.read(apiSimplifiedTaxInvoice).get(body);
       return response;
     });
     if (state.hasValue) {

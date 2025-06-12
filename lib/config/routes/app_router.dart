@@ -680,38 +680,23 @@ final appRouterProvider = Provider<GoRouter>(
           redirect: (context, state) {
             WidgetsBinding.instance.addPostFrameCallback((_) async {
               try {
-                // final companyBase64Id = state.uri.queryParameters['Y29tcGFueV9pZA'];
-                // // final masterBranchIdBase64 = state.uri.queryParameters['bWFzdGVyX2JyYW5jaF9pZA'];
-                // List<String> masterBranchBase64List = state.uri.queryParametersAll['bWFzdGVyX2JyYW5jaF9pZA'] ?? [];
-                // if (kDebugMode) print('masterBranchBase64List: $masterBranchBase64List');
-                // final startDateBase64 = state.uri.queryParameters['c3RhcnRfZGF0ZQ'];
-                // final endDateBase64 = state.uri.queryParameters['ZW5kX2RhdGU'];
-                // List<int> masterBranchIds = masterBranchBase64List
+                final companyBase64Id = state.uri.queryParameters['Y29tcGFueV9pZA'];
+                print('companyBase64Id: $companyBase64Id');
+                List<String> salehdIdBase64List = state.uri.queryParametersAll['c2FsZWhkX2lk'] ?? [];
+                print('salehdIdBase64List: $salehdIdBase64List');
+                // List<int> salehdIdIds = salehdIdBase64List
                 //     .map((b64) => int.tryParse(utf8.decode(base64Decode(b64))))
                 //     .whereType<int>() // กรองค่า null ออก
                 //     .toList();
-                // // if (kDebugMode) print('masterBranchIdBase64: $masterBranchIdBase64');
-                // if (kDebugMode) print('companyBase64Id: $companyBase64Id');
-                // if (kDebugMode) print('startDateBase64: $startDateBase64');
-                // if (kDebugMode) print('endDateBase64: $endDateBase64');
                 // var companyId = idFormBase64(id: companyBase64Id);
-                // // var masterBranchId = idFormBase64(id: masterBranchIdBase64);
-                // var startDate = idFormBase64(id: startDateBase64);
-                // var endDate = idFormBase64(id: endDateBase64);
-                // if (kDebugMode) print('companyId: $companyId');
-                // if (kDebugMode) print('masterBranchIds: $masterBranchIds');
-                // if (kDebugMode) print('startDate: $startDate');
-                // if (kDebugMode) print('endDate: $endDate');
-                // ref.read(startDateProvider.notifier).state = DateTime.parse(startDate);
-                // ref.read(endDateProvider.notifier).state = DateTime.parse(endDate);
-                // await ref.read(hdReportHQVatPosttSaleProvider.notifier).get(id: companyId);
-                await ref.read(simplifiedTaxInvoiceProvider.notifier).get(
-                  body: {
-                    "docu_no": "TAX2025052200001,TAX2025052200002,TAX2025052200003",
-                    "company": "1",
-                    "branchs": "147,23",
-                  },
-                );
+                // print(salehdIdIds.join(','));
+                // print('companyId: $companyId');
+                // await ref.read(simplifiedTaxInvoiceProvider.notifier).get(
+                //   body: {
+                //     "salehd_id": salehdIdIds.join(','),
+                //     "company": companyId,
+                //   },
+                // );
               } catch (e) {
                 ref.read(routerHelperProvider).goPath('/error');
                 if (kDebugMode) print('error: $e');
