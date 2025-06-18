@@ -55,6 +55,7 @@ _$DocumentSaleModelImpl _$$DocumentSaleModelImplFromJson(
       contactTaxid: json['master_contact_taxid'] as String?,
       saleHdSavetime: json['sale_hd_savetime'] as String?,
       contactBranchname: json['master_contact_branchname'] as String?,
+      title: json['title'] as String?,
     );
 
 Map<String, dynamic> _$$DocumentSaleModelImplToJson(
@@ -106,4 +107,5 @@ Map<String, dynamic> _$$DocumentSaleModelImplToJson(
       'master_contact_taxid': instance.contactTaxid,
       'sale_hd_savetime': instance.saleHdSavetime,
       'master_contact_branchname': instance.contactBranchname,
+      'title': instance.title,
     };

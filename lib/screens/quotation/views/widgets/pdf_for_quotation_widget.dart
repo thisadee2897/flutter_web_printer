@@ -62,7 +62,7 @@ class PDFGeneratorQuotation {
                         crossAxisAlignment: pw.CrossAxisAlignment.end,
                         mainAxisAlignment: pw.MainAxisAlignment.start,
                         children: [
-                          pw.Text('ใบเสนอราคา / Quotatiion', style: textStyleBold.copyWith(fontSize: 20)),
+                          pw.Text('ใบเสนอราคา / Quotation', style: textStyleBold.copyWith(fontSize: 20)),
                           pw.Text("${company.companyName}", style: textStyleNormal),
                           pw.Text("${company.companyAddress}${company.addrDistrictName}", style: textStyleNormal),
                           pw.Text("${company.addrPrefectureName} ${company.addrProvinceName} ${company.addrPostcodeCode}", style: textStyleNormal),

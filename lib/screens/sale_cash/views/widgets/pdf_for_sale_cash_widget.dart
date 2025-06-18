@@ -57,13 +57,13 @@ class PDFGeneratorSaleCash {
                   pw.Padding(
                     padding: const pw.EdgeInsets.only(right: 10),
                     child: pw.SizedBox(
-                      height: 90,
+                      height: 100,
                       child: pw.Column(
                         crossAxisAlignment: pw.CrossAxisAlignment.end,
                         mainAxisAlignment: pw.MainAxisAlignment.start,
                         children: [
                           pw.Text(
-                            'ใบกำกับภาษี',
+                            hd.title?? "ใบเสร็จรับเงิน",
                             style: pw.TextStyle(
                               font: font,
                               color: PdfColors.black,
@@ -110,7 +110,7 @@ class PDFGeneratorSaleCash {
                             pw.Text(hd.contactAddress.toString(), style: textStyleNormal),
                             pw.Text("เบอร์ติดต่อ : ${hd.contactTel}", style: textStyleNormal),
                             pw.Text('เลขประจำตัวผู้เสียภาษี ', style: textStyleNormal),
-                            pw.Text(hd.contactTaxid.toString(), style: textStyleBold),
+                            pw.Text(company.companyTaxid.toString(), style: textStyleBold),
                           ],
                         ),
                       ),

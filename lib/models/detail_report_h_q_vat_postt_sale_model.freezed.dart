@@ -44,7 +44,7 @@ mixin _$DetailReportHQVatPosttSaleModel {
   String? get vatPosttSaleTotalexcludeamnt =>
       throw _privateConstructorUsedError;
   @JsonKey(name: 'company_address')
-  String? get companyAddress => throw _privateConstructorUsedError; //branch
+  String? get companyAddress => throw _privateConstructorUsedError;
   @JsonKey(name: 'branch')
   List<Branch2>? get branchs => throw _privateConstructorUsedError; //listno
   @JsonKey(name: 'listno')
@@ -353,9 +353,7 @@ class _$DetailReportHQVatPosttSaleModelImpl
   @override
   @JsonKey(name: 'company_address')
   final String? companyAddress;
-//branch
   final List<Branch2>? _branchs;
-//branch
   @override
   @JsonKey(name: 'branch')
   List<Branch2>? get branchs {
@@ -512,7 +510,7 @@ abstract class _DetailReportHQVatPosttSaleModel
   String? get vatPosttSaleTotalexcludeamnt;
   @override
   @JsonKey(name: 'company_address')
-  String? get companyAddress; //branch
+  String? get companyAddress;
   @override
   @JsonKey(name: 'branch')
   List<Branch2>? get branchs; //listno
