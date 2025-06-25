@@ -110,7 +110,7 @@ class PDFGeneratorSaleCredit {
                             pw.Text(hd.contactAddress.toString(), style: textStyleNormal),
                             pw.Text("เบอร์ติดต่อ : ${hd.contactTel}", style: textStyleNormal),
                             pw.Text('เลขประจำตัวผู้เสียภาษี ', style: textStyleNormal),
-                            pw.Text(company.companyTaxid.toString(), style: textStyleBold),
+                            pw.Text(hd.contactTaxid.toString(), style: textStyleBold),
                           ],
                         ),
                       ),
