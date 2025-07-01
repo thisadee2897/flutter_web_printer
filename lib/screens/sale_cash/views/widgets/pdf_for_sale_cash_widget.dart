@@ -63,7 +63,7 @@ class PDFGeneratorSaleCash {
                         mainAxisAlignment: pw.MainAxisAlignment.start,
                         children: [
                           pw.Text(
-                            hd.title?? "ใบเสร็จรับเงิน",
+                            hd.title ?? "ใบเสร็จรับเงิน",
                             style: pw.TextStyle(
                               font: font,
                               color: PdfColors.black,
@@ -88,7 +88,8 @@ class PDFGeneratorSaleCash {
               padding: const pw.EdgeInsets.all(10),
               margin: const pw.EdgeInsets.only(left: 20, right: 20),
               width: 550,
-              height: 588,
+              // height: 588,
+              height: 500,
               decoration: pw.BoxDecoration(
                 color: PdfColor.fromHex("#FFFFFF"),
                 border: pw.Border.all(color: PdfColor.fromHex("#D7DAE0"), width: 0.5),
@@ -561,24 +562,165 @@ class PDFGeneratorSaleCash {
                 ],
               ),
             ),
-            pw.SizedBox(height: 20),
-            pw.Padding(
-              padding: const pw.EdgeInsets.only(right: 20),
-              child: pw.Row(
-                crossAxisAlignment: pw.CrossAxisAlignment.start,
-                mainAxisAlignment: pw.MainAxisAlignment.center,
-                children: [
-                  pw.SizedBox(
-                    width: 50,
-                    child: pw.Text(textAlign: pw.TextAlign.right, 'หมายเหตุ : ', style: textStyleNormal),
-                  ),
-                  pw.Text("${hd.saleHdRemark}", style: textStyleNormal),
-                ],
+            pw.SizedBox(height: 10),
+            pw.SizedBox(
+              width: 550,
+              child: pw.Padding(
+                padding: const pw.EdgeInsets.only(right: 20),
+                child: pw.Row(
+                  crossAxisAlignment: pw.CrossAxisAlignment.start,
+                  mainAxisAlignment: pw.MainAxisAlignment.center,
+                  children: [
+                    pw.SizedBox(
+                      width: 50,
+                      child: pw.Text(maxLines: 2, overflow: pw.TextOverflow.visible, textAlign: pw.TextAlign.right, 'หมายเหตุ : ', style: textStyleNormal),
+                    ),
+                    pw.Expanded(
+                      child: pw.Text(
+                        maxLines: 2,
+                        overflow: pw.TextOverflow.visible,
+                        hd.saleHdRemark ?? '-',
+                        style: textStyleNormal.copyWith(fontSize: 12),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            )
+            ),
+            pw.Expanded(
+              child: pw.Container(
+                margin: const pw.EdgeInsets.only(left: 20, right: 20, top: 10),
+                // decoration: pw.BoxDecoration(
+                //   borderRadius: pw.BorderRadius.circular(10),
+                //   border: pw.Border.all(color: PdfColor.fromHex("#D7DAE0"), width: 0.5),
+                // ),
+                child: pw.Row(
+                
+                  children: [
+                    pw.Expanded(
+                      flex: 2,
+                      child: pw.Container(
+                        decoration: pw.BoxDecoration(
+                          borderRadius: pw.BorderRadius.circular(10),
+                          border: pw.Border.all(color: PdfColor.fromHex("#D7DAE0"), width: 0.5),
+                        ),
+                        child: pw.Padding(
+                          padding: const pw.EdgeInsets.all(8.0),
+                          child: pw.Column(
+                            mainAxisAlignment: pw.MainAxisAlignment.start,
+                            crossAxisAlignment: pw.CrossAxisAlignment.center,
+                            children: [
+                              pw.Text(
+                                khodpunFooter['title_th'] ?? '',
+                                style: textStyleNormal.copyWith(fontSize: 12),
+                                textAlign: pw.TextAlign.start,
+                              ),
+                              pw.Text(
+                                textAlign: pw.TextAlign.start,
+                                "THE 'TITLE OF GOODS' BELONG TO ${(company.companyNameEng ?? '').toUpperCase()} ${khodpunFooter['title_en'] ?? ''}",
+                                style: textStyleNormal.copyWith(fontSize: 12),
+                              ),
+                              pw.Expanded(
+                                // height: 100,
+                                child: pw.Row(
+                                  mainAxisAlignment: pw.MainAxisAlignment.spaceAround,
+                                  crossAxisAlignment: pw.CrossAxisAlignment.end,
+                                  children: [
+                                    pw.Column(
+                                      crossAxisAlignment: pw.CrossAxisAlignment.center,
+                                      mainAxisAlignment: pw.MainAxisAlignment.end,
+                                      children: [
+                                        pw.Text(".............................................................................",
+                                            style: textStyleNormal.copyWith(fontSize: 11)),
+                                        pw.Text(khodpunFooter['received_by'] ?? '', style: textStyleNormal.copyWith(fontSize: 11)),
+                                        pw.Text('วันที่/DATE................../................../..................',
+                                            style: textStyleNormal.copyWith(fontSize: 11)),
+                                      ],
+                                    ),
+                                    pw.Column(
+                                      mainAxisAlignment: pw.MainAxisAlignment.end,
+                                      crossAxisAlignment: pw.CrossAxisAlignment.center,
+                                      children: [
+                                        pw.Text(".............................................................................",
+                                            style: textStyleNormal.copyWith(fontSize: 11)),
+                                        pw.Text(khodpunFooter['delivered_by'] ?? '', style: textStyleNormal.copyWith(fontSize: 11)),
+                                        pw.Text('วันที่/DATE................../................../..................',
+                                            style: textStyleNormal.copyWith(fontSize: 11)),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              pw.Text(
+                                khodpunFooter['footer_th'] ?? '',
+                                style: textStyleNormal.copyWith(fontSize: 12),
+                                textAlign: pw.TextAlign.center,
+                              ),
+                              pw.Text(
+                                textAlign: pw.TextAlign.center,
+                                khodpunFooter['footer_en'] ?? '',
+                                style: textStyleNormal.copyWith(fontSize: 11),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    pw.SizedBox(width: 10),
+                    pw.Expanded(
+                      flex: 1,
+                      child: pw.Container(
+                        decoration: pw.BoxDecoration(
+                          borderRadius: pw.BorderRadius.circular(10),
+                          border: pw.Border.all(color: PdfColor.fromHex("#D7DAE0"), width: 0.5),
+                        ),
+                        child: pw.Padding(
+                          padding: const pw.EdgeInsets.all(8.0),
+                          child: pw.Column(
+                            children: [
+                              pw.Text(
+                                (company.companyName ?? ""),
+                                style: textStyleBold.copyWith(fontSize: 12, fontWeight: pw.FontWeight.bold),
+                                textAlign: pw.TextAlign.center,
+                              ),
+                              pw.Text(
+                                (company.companyNameEng ?? "").toUpperCase(),
+                                style: textStyleBold.copyWith(fontSize: 12, fontWeight: pw.FontWeight.bold),
+                                textAlign: pw.TextAlign.center,
+                              ),
+                              pw.Expanded(child: pw.Container()),
+                              pw.Text(
+                                maxLines: 1,
+                                overflow: pw.TextOverflow.visible,
+                                "............................................................................................................................................................",
+                                style: textStyleNormal.copyWith(fontSize: 11),
+                              ),
+                              pw.Text(
+                                "ผู้มีอำนาจลงนาม/AUTHORIZED SIGNATURE",
+                                style: textStyleNormal.copyWith(fontSize: 11),
+                                textAlign: pw.TextAlign.center,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ],
         );
       },
     );
   }
 }
+
+final khodpunFooter = {
+  "title_th": "สินค้าใบสั่งของนี้แม้ได้ส่งมอบต่อผู้ซื้อแล้วก็ยังเป็นทรัพทย์สินของผู้ขายจนกว่าผู้ซื้อจะชำระเงินเสร็จเรียบร้อย",
+  "title_en": "UNIT ALL INVOICE COVERING THE DELIVERED GOODS ARE FULLY PAID BY THE BUYER",
+  "received_by": "ผู้รับสินค้า/RECEIVED BY",
+  "delivered_by": "ผู้ส่งสินค้า/DELIVERED BY",
+  "footer_th": "ได้รับสิ่งของและบริการตามรายการข้างบนครบถ้วนในสภาพเรียบร้อย",
+  "footer_en": "RECEIVED ABOVE MENTIONED GOODS AND SERVICE IN  CORRECT QUANTITY AND GOODS CONDITION",
+};

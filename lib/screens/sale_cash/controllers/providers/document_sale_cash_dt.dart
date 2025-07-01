@@ -32,13 +32,13 @@ class DocumentSaleCashDTNotifier extends StateNotifier<AsyncValue<List<DocumentS
       List<DocumentSaleDTModel> dataWidget = [];
       for (int i = 1; i <= state.value!.length; i++) {
         dataWidget.add(state.value![i - 1]);
-        if (i % 10 == 0) {
-          var page = await PDFGeneratorSaleCash().generate(hd: hd!, dt: dataWidget, company: company);
+        if (i % (hd!.khodpunFooter == true ? 6 : 10) == 0) {
+          var page = await PDFGeneratorSaleCash().generate(hd: hd, dt: dataWidget, company: company);
           pdfFile.addPage(page);
           dataWidget = [];
         } else {
           if (i == state.value!.length) {
-            var page = await PDFGeneratorSaleCash().generate(hd: hd!, dt: dataWidget, company: company);
+            var page = await PDFGeneratorSaleCash().generate(hd: hd, dt: dataWidget, company: company);
             pdfFile.addPage(page);
           }
         }

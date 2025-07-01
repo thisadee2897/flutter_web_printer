@@ -56,6 +56,7 @@ _$DocumentSaleModelImpl _$$DocumentSaleModelImplFromJson(
       saleHdSavetime: json['sale_hd_savetime'] as String?,
       contactBranchname: json['master_contact_branchname'] as String?,
       title: json['title'] as String?,
+      khodpunFooter: json['khodpun_footer'] as bool?,
     );
 
 Map<String, dynamic> _$$DocumentSaleModelImplToJson(
@@ -108,4 +109,5 @@ Map<String, dynamic> _$$DocumentSaleModelImplToJson(
       'sale_hd_savetime': instance.saleHdSavetime,
       'master_contact_branchname': instance.contactBranchname,
       'title': instance.title,
+      'khodpun_footer': instance.khodpunFooter,
     };

@@ -54,6 +54,7 @@ class DocumentSaleModel with _$DocumentSaleModel {
   @JsonKey(name: 'sale_hd_savetime') String? saleHdSavetime,
   @JsonKey(name: 'master_contact_branchname') String? contactBranchname,
   @JsonKey(name: 'title') String? title,
+  @JsonKey(name: 'khodpun_footer') bool? khodpunFooter,
   }) = _DocumentSaleModel;
 
   factory DocumentSaleModel.fromJson(Map<String, dynamic> json) => _$DocumentSaleModelFromJson(json);
