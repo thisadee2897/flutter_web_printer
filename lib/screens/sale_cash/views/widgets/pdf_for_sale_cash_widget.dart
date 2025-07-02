@@ -57,7 +57,7 @@ class PDFGeneratorSaleCash {
                   pw.Padding(
                     padding: const pw.EdgeInsets.only(right: 10),
                     child: pw.SizedBox(
-                      height: 100,
+                      height: 65,
                       child: pw.Column(
                         crossAxisAlignment: pw.CrossAxisAlignment.end,
                         mainAxisAlignment: pw.MainAxisAlignment.start,
@@ -71,11 +71,44 @@ class PDFGeneratorSaleCash {
                               fontWeight: pw.FontWeight.bold,
                             ),
                           ),
-                          pw.Text("${company.companyName}", style: textStyleNormal),
-                          pw.Text("${company.companyAddress}${company.addrDistrictName}", style: textStyleNormal),
-                          pw.Text("${company.addrPrefectureName} ${company.addrProvinceName} ${company.addrPostcodeCode}", style: textStyleNormal),
-                          pw.Text("${company.companyTel}", style: textStyleNormal),
-                          pw.Text("เลขประจำตัวผู้เสียภาษี: ${company.companyTaxid}", style: textStyleNormal),
+                          pw.RichText(
+                              text: pw.TextSpan(children: [
+                            pw.TextSpan(
+                              text: "${company.companyName}",
+                              style: textStyleNormal.copyWith(fontSize: 11),
+                            ),
+                          ])),
+                          pw.RichText(
+                              text: pw.TextSpan(children: [
+                            pw.TextSpan(
+                              text: "${company.companyAddress}${company.addrDistrictName}",
+                              style: textStyleNormal.copyWith(fontSize: 11),
+                            ),
+                            pw.TextSpan(
+                              text: " ${company.addrPrefectureName} ${company.addrProvinceName} ${company.addrPostcodeCode}",
+                              style: textStyleNormal.copyWith(fontSize: 11),
+                            ),
+                          ])),
+                          pw.RichText(
+                            text: pw.TextSpan(
+                              children: [
+                                pw.TextSpan(
+                                  text: "${company.companyTel}",
+                                  style: textStyleNormal.copyWith(fontSize: 11),
+                                ),
+                                pw.TextSpan(
+                                  text: " เลขประจำตัวผู้เสียภาษี: ${company.companyTaxid}",
+                                  style: textStyleNormal.copyWith(fontSize: 11),
+                                ),
+                              ],
+                            ),
+                          ),
+                          // pw.Text("${company.companyName}", style: textStyleNormal.copyWith(fontSize: 11)),
+                          // pw.Text("${company.companyAddress}${company.addrDistrictName}", style: textStyleNormal.copyWith(fontSize: 11)),
+                          // pw.Text("${company.addrPrefectureName} ${company.addrProvinceName} ${company.addrPostcodeCode}",
+                          //     style: textStyleNormal.copyWith(fontSize: 11)),
+                          // pw.Text("${company.companyTel}", style: textStyleNormal.copyWith(fontSize: 11)),
+                          // pw.Text("เลขประจำตัวผู้เสียภาษี: ${company.companyTaxid}", style: textStyleNormal.copyWith(fontSize: 11)),
                         ],
                       ),
                     ),
@@ -83,13 +116,13 @@ class PDFGeneratorSaleCash {
                 ],
               ),
             ),
-            pw.SizedBox(height: 10),
+            // pw.SizedBox(height: 10),
             pw.Container(
               padding: const pw.EdgeInsets.all(10),
               margin: const pw.EdgeInsets.only(left: 20, right: 20),
               width: 550,
-              // height: 588,
-              height: 500,
+              height: 560,
+              // height: 500,
               decoration: pw.BoxDecoration(
                 color: PdfColor.fromHex("#FFFFFF"),
                 border: pw.Border.all(color: PdfColor.fromHex("#D7DAE0"), width: 0.5),
@@ -240,7 +273,7 @@ class PDFGeneratorSaleCash {
                         return pw.Center(
                           child: pw.Container(
                             padding: const pw.EdgeInsets.only(right: 8),
-                            height: 22,
+                            height: 18,
                             color: index.isOdd ? PdfColor.fromHex("#F9F8F9") : PdfColor.fromHex("#FFFFFF"),
                             width: 531,
                             child: pw.Row(
@@ -326,7 +359,7 @@ class PDFGeneratorSaleCash {
                         mainAxisAlignment: pw.MainAxisAlignment.start,
                         crossAxisAlignment: pw.CrossAxisAlignment.start,
                         children: [
-                          pw.Divider(color: PdfColor.fromHex("#D7DAE0"), thickness: 0.5),
+                          pw.Divider(height: 2, color: PdfColor.fromHex("#D7DAE0"), thickness: 0.5),
                           pw.Row(
                             children: [
                               pw.Expanded(flex: 1, child: pw.Container()),
@@ -351,7 +384,7 @@ class PDFGeneratorSaleCash {
                               ),
                             ],
                           ),
-                          pw.Divider(color: PdfColor.fromHex("#D7DAE0"), thickness: 0.5),
+                          pw.Divider(height: 3, color: PdfColor.fromHex("#D7DAE0"), thickness: 0.5),
                           pw.Row(
                             mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
                             children: [
@@ -376,7 +409,7 @@ class PDFGeneratorSaleCash {
                               ),
                             ],
                           ),
-                          pw.Divider(color: PdfColor.fromHex("#D7DAE0"), thickness: 0.5),
+                          pw.Divider(height: 0.5, color: PdfColor.fromHex("#D7DAE0"), thickness: 0.5),
                           pw.Row(
                             crossAxisAlignment: pw.CrossAxisAlignment.start,
                             children: [
@@ -554,7 +587,7 @@ class PDFGeneratorSaleCash {
                               ),
                             ],
                           ),
-                          pw.SizedBox(height: 10),
+                          // pw.SizedBox(height: 10),
                         ],
                       ),
                     ),
@@ -562,7 +595,7 @@ class PDFGeneratorSaleCash {
                 ],
               ),
             ),
-            pw.SizedBox(height: 10),
+            // pw.SizedBox(height: 10),
             pw.SizedBox(
               width: 550,
               child: pw.Padding(
@@ -587,128 +620,128 @@ class PDFGeneratorSaleCash {
                 ),
               ),
             ),
-            pw.Expanded(
-              child: pw.Container(
-                margin: const pw.EdgeInsets.only(left: 20, right: 20, top: 10),
-                // decoration: pw.BoxDecoration(
-                //   borderRadius: pw.BorderRadius.circular(10),
-                //   border: pw.Border.all(color: PdfColor.fromHex("#D7DAE0"), width: 0.5),
-                // ),
-                child: pw.Row(
-                
-                  children: [
-                    pw.Expanded(
-                      flex: 2,
-                      child: pw.Container(
-                        decoration: pw.BoxDecoration(
-                          borderRadius: pw.BorderRadius.circular(10),
-                          border: pw.Border.all(color: PdfColor.fromHex("#D7DAE0"), width: 0.5),
-                        ),
-                        child: pw.Padding(
-                          padding: const pw.EdgeInsets.all(8.0),
-                          child: pw.Column(
-                            mainAxisAlignment: pw.MainAxisAlignment.start,
-                            crossAxisAlignment: pw.CrossAxisAlignment.center,
-                            children: [
-                              pw.Text(
-                                khodpunFooter['title_th'] ?? '',
-                                style: textStyleNormal.copyWith(fontSize: 12),
-                                textAlign: pw.TextAlign.start,
-                              ),
-                              pw.Text(
-                                textAlign: pw.TextAlign.start,
-                                "THE 'TITLE OF GOODS' BELONG TO ${(company.companyNameEng ?? '').toUpperCase()} ${khodpunFooter['title_en'] ?? ''}",
-                                style: textStyleNormal.copyWith(fontSize: 12),
-                              ),
-                              pw.Expanded(
-                                // height: 100,
-                                child: pw.Row(
-                                  mainAxisAlignment: pw.MainAxisAlignment.spaceAround,
-                                  crossAxisAlignment: pw.CrossAxisAlignment.end,
-                                  children: [
-                                    pw.Column(
-                                      crossAxisAlignment: pw.CrossAxisAlignment.center,
-                                      mainAxisAlignment: pw.MainAxisAlignment.end,
-                                      children: [
-                                        pw.Text(".............................................................................",
-                                            style: textStyleNormal.copyWith(fontSize: 11)),
-                                        pw.Text(khodpunFooter['received_by'] ?? '', style: textStyleNormal.copyWith(fontSize: 11)),
-                                        pw.Text('วันที่/DATE................../................../..................',
-                                            style: textStyleNormal.copyWith(fontSize: 11)),
-                                      ],
-                                    ),
-                                    pw.Column(
-                                      mainAxisAlignment: pw.MainAxisAlignment.end,
-                                      crossAxisAlignment: pw.CrossAxisAlignment.center,
-                                      children: [
-                                        pw.Text(".............................................................................",
-                                            style: textStyleNormal.copyWith(fontSize: 11)),
-                                        pw.Text(khodpunFooter['delivered_by'] ?? '', style: textStyleNormal.copyWith(fontSize: 11)),
-                                        pw.Text('วันที่/DATE................../................../..................',
-                                            style: textStyleNormal.copyWith(fontSize: 11)),
-                                      ],
-                                    ),
-                                  ],
+            if (hd.khodpunFooter == true)
+              pw.Expanded(
+                child: pw.Container(
+                  margin: const pw.EdgeInsets.only(left: 20, right: 20, top: 10),
+                  // decoration: pw.BoxDecoration(
+                  //   borderRadius: pw.BorderRadius.circular(10),
+                  //   border: pw.Border.all(color: PdfColor.fromHex("#D7DAE0"), width: 0.5),
+                  // ),
+                  child: pw.Row(
+                    children: [
+                      pw.Expanded(
+                        flex: 2,
+                        child: pw.Container(
+                          decoration: pw.BoxDecoration(
+                            borderRadius: pw.BorderRadius.circular(10),
+                            border: pw.Border.all(color: PdfColor.fromHex("#D7DAE0"), width: 0.5),
+                          ),
+                          child: pw.Padding(
+                            padding: const pw.EdgeInsets.all(8.0),
+                            child: pw.Column(
+                              mainAxisAlignment: pw.MainAxisAlignment.start,
+                              crossAxisAlignment: pw.CrossAxisAlignment.center,
+                              children: [
+                                pw.Text(
+                                  khodpunFooter['title_th'] ?? '',
+                                  style: textStyleNormal.copyWith(fontSize: 11),
+                                  textAlign: pw.TextAlign.start,
                                 ),
-                              ),
-                              pw.Text(
-                                khodpunFooter['footer_th'] ?? '',
-                                style: textStyleNormal.copyWith(fontSize: 12),
-                                textAlign: pw.TextAlign.center,
-                              ),
-                              pw.Text(
-                                textAlign: pw.TextAlign.center,
-                                khodpunFooter['footer_en'] ?? '',
-                                style: textStyleNormal.copyWith(fontSize: 11),
-                              ),
-                            ],
+                                pw.Text(
+                                  textAlign: pw.TextAlign.start,
+                                  "THE 'TITLE OF THE GOODS' BELONGS TO ${(company.companyNameEng ?? '').toUpperCase()} ${khodpunFooter['title_en'] ?? ''}",
+                                  style: textStyleNormal.copyWith(fontSize: 11),
+                                ),
+                                pw.Expanded(
+                                  // height: 100,
+                                  child: pw.Row(
+                                    mainAxisAlignment: pw.MainAxisAlignment.spaceAround,
+                                    crossAxisAlignment: pw.CrossAxisAlignment.end,
+                                    children: [
+                                      pw.Column(
+                                        crossAxisAlignment: pw.CrossAxisAlignment.center,
+                                        mainAxisAlignment: pw.MainAxisAlignment.end,
+                                        children: [
+                                          pw.Text(".............................................................................",
+                                              style: textStyleNormal.copyWith(fontSize: 11)),
+                                          pw.Text(khodpunFooter['received_by'] ?? '', style: textStyleNormal.copyWith(fontSize: 11)),
+                                          pw.Text('วันที่/DATE................../................../..................',
+                                              style: textStyleNormal.copyWith(fontSize: 11)),
+                                        ],
+                                      ),
+                                      pw.Column(
+                                        mainAxisAlignment: pw.MainAxisAlignment.end,
+                                        crossAxisAlignment: pw.CrossAxisAlignment.center,
+                                        children: [
+                                          pw.Text(".............................................................................",
+                                              style: textStyleNormal.copyWith(fontSize: 11)),
+                                          pw.Text(khodpunFooter['delivered_by'] ?? '', style: textStyleNormal.copyWith(fontSize: 11)),
+                                          pw.Text('วันที่/DATE................../................../..................',
+                                              style: textStyleNormal.copyWith(fontSize: 11)),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                pw.Text(
+                                  khodpunFooter['footer_th'] ?? '',
+                                  style: textStyleNormal.copyWith(fontSize: 12),
+                                  textAlign: pw.TextAlign.center,
+                                ),
+                                pw.Text(
+                                  textAlign: pw.TextAlign.center,
+                                  khodpunFooter['footer_en'] ?? '',
+                                  style: textStyleNormal.copyWith(fontSize: 11),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    pw.SizedBox(width: 10),
-                    pw.Expanded(
-                      flex: 1,
-                      child: pw.Container(
-                        decoration: pw.BoxDecoration(
-                          borderRadius: pw.BorderRadius.circular(10),
-                          border: pw.Border.all(color: PdfColor.fromHex("#D7DAE0"), width: 0.5),
-                        ),
-                        child: pw.Padding(
-                          padding: const pw.EdgeInsets.all(8.0),
-                          child: pw.Column(
-                            children: [
-                              pw.Text(
-                                (company.companyName ?? ""),
-                                style: textStyleBold.copyWith(fontSize: 12, fontWeight: pw.FontWeight.bold),
-                                textAlign: pw.TextAlign.center,
-                              ),
-                              pw.Text(
-                                (company.companyNameEng ?? "").toUpperCase(),
-                                style: textStyleBold.copyWith(fontSize: 12, fontWeight: pw.FontWeight.bold),
-                                textAlign: pw.TextAlign.center,
-                              ),
-                              pw.Expanded(child: pw.Container()),
-                              pw.Text(
-                                maxLines: 1,
-                                overflow: pw.TextOverflow.visible,
-                                "............................................................................................................................................................",
-                                style: textStyleNormal.copyWith(fontSize: 11),
-                              ),
-                              pw.Text(
-                                "ผู้มีอำนาจลงนาม/AUTHORIZED SIGNATURE",
-                                style: textStyleNormal.copyWith(fontSize: 11),
-                                textAlign: pw.TextAlign.center,
-                              ),
-                            ],
+                      pw.SizedBox(width: 10),
+                      pw.Expanded(
+                        flex: 1,
+                        child: pw.Container(
+                          decoration: pw.BoxDecoration(
+                            borderRadius: pw.BorderRadius.circular(10),
+                            border: pw.Border.all(color: PdfColor.fromHex("#D7DAE0"), width: 0.5),
+                          ),
+                          child: pw.Padding(
+                            padding: const pw.EdgeInsets.all(8.0),
+                            child: pw.Column(
+                              children: [
+                                pw.Text(
+                                  (company.companyName ?? ""),
+                                  style: textStyleBold.copyWith(fontSize: 12, fontWeight: pw.FontWeight.bold),
+                                  textAlign: pw.TextAlign.center,
+                                ),
+                                pw.Text(
+                                  (company.companyNameEng ?? "").toUpperCase(),
+                                  style: textStyleBold.copyWith(fontSize: 12, fontWeight: pw.FontWeight.bold),
+                                  textAlign: pw.TextAlign.center,
+                                ),
+                                pw.Expanded(child: pw.Container()),
+                                pw.Text(
+                                  maxLines: 1,
+                                  overflow: pw.TextOverflow.visible,
+                                  "............................................................................................................................................................",
+                                  style: textStyleNormal.copyWith(fontSize: 11),
+                                ),
+                                pw.Text(
+                                  "ผู้มีอำนาจลงนาม/AUTHORIZED SIGNATURE",
+                                  style: textStyleNormal.copyWith(fontSize: 11),
+                                  textAlign: pw.TextAlign.center,
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
-            ),
           ],
         );
       },
@@ -717,8 +750,8 @@ class PDFGeneratorSaleCash {
 }
 
 final khodpunFooter = {
-  "title_th": "สินค้าใบสั่งของนี้แม้ได้ส่งมอบต่อผู้ซื้อแล้วก็ยังเป็นทรัพทย์สินของผู้ขายจนกว่าผู้ซื้อจะชำระเงินเสร็จเรียบร้อย",
-  "title_en": "UNIT ALL INVOICE COVERING THE DELIVERED GOODS ARE FULLY PAID BY THE BUYER",
+  "title_th": "สินค้าตามใบส่งของนี้แม้ได้ส่งมอบต่อผู้ซื้อแล้วก็ยังเป็นทรัพย์สินของผู้ขายจนกว่าผู้ซื้อจะชำระเงินเสร็จเรียบร้อย",
+  "title_en": "UNTIL ALL INVOICES COVERING THE DELIVERED GOODS ARE FULLY (100%) PAID BY THE BUYER.",
   "received_by": "ผู้รับสินค้า/RECEIVED BY",
   "delivered_by": "ผู้ส่งสินค้า/DELIVERED BY",
   "footer_th": "ได้รับสิ่งของและบริการตามรายการข้างบนครบถ้วนในสภาพเรียบร้อย",
