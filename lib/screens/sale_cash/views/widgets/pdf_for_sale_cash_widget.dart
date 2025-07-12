@@ -273,7 +273,7 @@ class PDFGeneratorSaleCash {
                         return pw.Center(
                           child: pw.Container(
                             padding: const pw.EdgeInsets.only(right: 8),
-                            height: 18,
+                            height: 17,
                             color: index.isOdd ? PdfColor.fromHex("#F9F8F9") : PdfColor.fromHex("#FFFFFF"),
                             width: 531,
                             child: pw.Row(
