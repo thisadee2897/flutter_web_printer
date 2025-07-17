@@ -483,6 +483,19 @@ class PDFGeneratorExpenseCash {
                                       mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
                                       children: [
                                         pw.Text(
+                                          'มูลค่าหัก ณ ที่จ่าย',
+                                          style: textStyleBold,
+                                        ),
+                                        pw.Padding(
+                                          padding: const pw.EdgeInsets.only(right: 10),
+                                          child: pw.Text((hd.expenseHdWhtamnt ?? 0).digits(2), style: textStyleBold),
+                                        ),
+                                      ],
+                                    ),
+                                    pw.Row(
+                                      mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        pw.Text(
                                           'รวมมูลค่าสุทธิ',
                                           style: textStyleBold,
                                         ),

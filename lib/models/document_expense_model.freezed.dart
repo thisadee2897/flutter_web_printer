@@ -96,6 +96,8 @@ mixin _$DocumentExpenseModel {
   String? get contactTel => throw _privateConstructorUsedError;
   @JsonKey(name: 'master_contact_taxid')
   String? get contactTaxid => throw _privateConstructorUsedError;
+  @JsonKey(name: 'expense_hd_whtamnt')
+  num? get expenseHdWhtamnt => throw _privateConstructorUsedError;
 
   /// Serializes this DocumentExpenseModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -158,7 +160,8 @@ abstract class $DocumentExpenseModelCopyWith<$Res> {
       @JsonKey(name: 'fullname') String? fullname,
       @JsonKey(name: 'master_contact_address') String? contactAddress,
       @JsonKey(name: 'master_contact_tel') String? contactTel,
-      @JsonKey(name: 'master_contact_taxid') String? contactTaxid});
+      @JsonKey(name: 'master_contact_taxid') String? contactTaxid,
+      @JsonKey(name: 'expense_hd_whtamnt') num? expenseHdWhtamnt});
 }
 
 /// @nodoc
@@ -215,6 +218,7 @@ class _$DocumentExpenseModelCopyWithImpl<$Res,
     Object? contactAddress = freezed,
     Object? contactTel = freezed,
     Object? contactTaxid = freezed,
+    Object? expenseHdWhtamnt = freezed,
   }) {
     return _then(_value.copyWith(
       expenseHdId: freezed == expenseHdId
@@ -369,6 +373,10 @@ class _$DocumentExpenseModelCopyWithImpl<$Res,
           ? _value.contactTaxid
           : contactTaxid // ignore: cast_nullable_to_non_nullable
               as String?,
+      expenseHdWhtamnt: freezed == expenseHdWhtamnt
+          ? _value.expenseHdWhtamnt
+          : expenseHdWhtamnt // ignore: cast_nullable_to_non_nullable
+              as num?,
     ) as $Val);
   }
 }
@@ -426,7 +434,8 @@ abstract class _$$DocumentExpenseModelImplCopyWith<$Res>
       @JsonKey(name: 'fullname') String? fullname,
       @JsonKey(name: 'master_contact_address') String? contactAddress,
       @JsonKey(name: 'master_contact_tel') String? contactTel,
-      @JsonKey(name: 'master_contact_taxid') String? contactTaxid});
+      @JsonKey(name: 'master_contact_taxid') String? contactTaxid,
+      @JsonKey(name: 'expense_hd_whtamnt') num? expenseHdWhtamnt});
 }
 
 /// @nodoc
@@ -480,6 +489,7 @@ class __$$DocumentExpenseModelImplCopyWithImpl<$Res>
     Object? contactAddress = freezed,
     Object? contactTel = freezed,
     Object? contactTaxid = freezed,
+    Object? expenseHdWhtamnt = freezed,
   }) {
     return _then(_$DocumentExpenseModelImpl(
       expenseHdId: freezed == expenseHdId
@@ -634,6 +644,10 @@ class __$$DocumentExpenseModelImplCopyWithImpl<$Res>
           ? _value.contactTaxid
           : contactTaxid // ignore: cast_nullable_to_non_nullable
               as String?,
+      expenseHdWhtamnt: freezed == expenseHdWhtamnt
+          ? _value.expenseHdWhtamnt
+          : expenseHdWhtamnt // ignore: cast_nullable_to_non_nullable
+              as num?,
     ));
   }
 }
@@ -684,7 +698,8 @@ class _$DocumentExpenseModelImpl implements _DocumentExpenseModel {
       @JsonKey(name: 'fullname') this.fullname,
       @JsonKey(name: 'master_contact_address') this.contactAddress,
       @JsonKey(name: 'master_contact_tel') this.contactTel,
-      @JsonKey(name: 'master_contact_taxid') this.contactTaxid});
+      @JsonKey(name: 'master_contact_taxid') this.contactTaxid,
+      @JsonKey(name: 'expense_hd_whtamnt') this.expenseHdWhtamnt});
 
   factory _$DocumentExpenseModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$DocumentExpenseModelImplFromJson(json);
@@ -803,10 +818,13 @@ class _$DocumentExpenseModelImpl implements _DocumentExpenseModel {
   @override
   @JsonKey(name: 'master_contact_taxid')
   final String? contactTaxid;
+  @override
+  @JsonKey(name: 'expense_hd_whtamnt')
+  final num? expenseHdWhtamnt;
 
   @override
   String toString() {
-    return 'DocumentExpenseModel(expenseHdId: $expenseHdId, companyId: $companyId, branchId: $branchId, branchName: $branchName, expenseHdDocudate: $expenseHdDocudate, expenseHdDocuno: $expenseHdDocuno, expenseHdStatusId: $expenseHdStatusId, contactId: $contactId, contactCode: $contactCode, contactName: $contactName, expenseHdRemark: $expenseHdRemark, vatGroupId: $vatGroupId, vatGroupName: $vatGroupName, vatRate: $vatRate, expenseHdTypeId: $expenseHdTypeId, expenseHdCreditday: $expenseHdCreditday, expenseHdCashAmount: $expenseHdCashAmount, expenseHdTransferAmount: $expenseHdTransferAmount, branchBankbookId: $branchBankbookId, bankId: $bankId, bankName: $bankName, branchBankbookBankbookno: $branchBankbookBankbookno, branchBankbookBranchname: $branchBankbookBranchname, branchBankbookName: $branchBankbookName, vendorBankbookno: $vendorBankbookno, vendorBankName: $vendorBankName, vendorBankbookBranchname: $vendorBankbookBranchname, expenseHdAmount: $expenseHdAmount, expenseHdTotalexcludeamnt: $expenseHdTotalexcludeamnt, expenseHdTotalincludeamnt: $expenseHdTotalincludeamnt, expenseHdBaseamnt: $expenseHdBaseamnt, expenseHdVatamnt: $expenseHdVatamnt, expenseHdDiscountAmount: $expenseHdDiscountAmount, expenseHdNetamnt: $expenseHdNetamnt, fullname: $fullname, contactAddress: $contactAddress, contactTel: $contactTel, contactTaxid: $contactTaxid)';
+    return 'DocumentExpenseModel(expenseHdId: $expenseHdId, companyId: $companyId, branchId: $branchId, branchName: $branchName, expenseHdDocudate: $expenseHdDocudate, expenseHdDocuno: $expenseHdDocuno, expenseHdStatusId: $expenseHdStatusId, contactId: $contactId, contactCode: $contactCode, contactName: $contactName, expenseHdRemark: $expenseHdRemark, vatGroupId: $vatGroupId, vatGroupName: $vatGroupName, vatRate: $vatRate, expenseHdTypeId: $expenseHdTypeId, expenseHdCreditday: $expenseHdCreditday, expenseHdCashAmount: $expenseHdCashAmount, expenseHdTransferAmount: $expenseHdTransferAmount, branchBankbookId: $branchBankbookId, bankId: $bankId, bankName: $bankName, branchBankbookBankbookno: $branchBankbookBankbookno, branchBankbookBranchname: $branchBankbookBranchname, branchBankbookName: $branchBankbookName, vendorBankbookno: $vendorBankbookno, vendorBankName: $vendorBankName, vendorBankbookBranchname: $vendorBankbookBranchname, expenseHdAmount: $expenseHdAmount, expenseHdTotalexcludeamnt: $expenseHdTotalexcludeamnt, expenseHdTotalincludeamnt: $expenseHdTotalincludeamnt, expenseHdBaseamnt: $expenseHdBaseamnt, expenseHdVatamnt: $expenseHdVatamnt, expenseHdDiscountAmount: $expenseHdDiscountAmount, expenseHdNetamnt: $expenseHdNetamnt, fullname: $fullname, contactAddress: $contactAddress, contactTel: $contactTel, contactTaxid: $contactTaxid, expenseHdWhtamnt: $expenseHdWhtamnt)';
   }
 
   @override
@@ -885,7 +903,8 @@ class _$DocumentExpenseModelImpl implements _DocumentExpenseModel {
             (identical(other.contactAddress, contactAddress) ||
                 other.contactAddress == contactAddress) &&
             (identical(other.contactTel, contactTel) || other.contactTel == contactTel) &&
-            (identical(other.contactTaxid, contactTaxid) || other.contactTaxid == contactTaxid));
+            (identical(other.contactTaxid, contactTaxid) || other.contactTaxid == contactTaxid) &&
+            (identical(other.expenseHdWhtamnt, expenseHdWhtamnt) || other.expenseHdWhtamnt == expenseHdWhtamnt));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -929,7 +948,8 @@ class _$DocumentExpenseModelImpl implements _DocumentExpenseModel {
         fullname,
         contactAddress,
         contactTel,
-        contactTaxid
+        contactTaxid,
+        expenseHdWhtamnt
       ]);
 
   /// Create a copy of DocumentExpenseModel
@@ -999,7 +1019,8 @@ abstract class _DocumentExpenseModel implements DocumentExpenseModel {
           @JsonKey(name: 'fullname') final String? fullname,
           @JsonKey(name: 'master_contact_address') final String? contactAddress,
           @JsonKey(name: 'master_contact_tel') final String? contactTel,
-          @JsonKey(name: 'master_contact_taxid') final String? contactTaxid}) =
+          @JsonKey(name: 'master_contact_taxid') final String? contactTaxid,
+          @JsonKey(name: 'expense_hd_whtamnt') final num? expenseHdWhtamnt}) =
       _$DocumentExpenseModelImpl;
 
   factory _DocumentExpenseModel.fromJson(Map<String, dynamic> json) =
@@ -1119,6 +1140,9 @@ abstract class _DocumentExpenseModel implements DocumentExpenseModel {
   @override
   @JsonKey(name: 'master_contact_taxid')
   String? get contactTaxid;
+  @override
+  @JsonKey(name: 'expense_hd_whtamnt')
+  num? get expenseHdWhtamnt;
 
   /// Create a copy of DocumentExpenseModel
   /// with the given fields replaced by the non-null parameter values.

@@ -45,6 +45,7 @@ class DocumentExpenseModel with _$DocumentExpenseModel {
   @JsonKey(name: 'master_contact_address') String? contactAddress,
   @JsonKey(name: 'master_contact_tel') String? contactTel,
   @JsonKey(name: 'master_contact_taxid') String? contactTaxid,
+  @JsonKey(name: 'expense_hd_whtamnt') num? expenseHdWhtamnt,
   }) = _DocumentExpenseModel;
 
   factory DocumentExpenseModel.fromJson(Map<String, dynamic> json) => _$DocumentExpenseModelFromJson(json);
