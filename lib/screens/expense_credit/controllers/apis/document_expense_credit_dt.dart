@@ -6,9 +6,15 @@ class DocumentExpenseCreditDTApi {
   final String _detail = '/Expense/Expense/get_document_expense_dt';
 
   Future<List<DocumentExpenseDTModel>> get(Map<String, dynamic> body) async {
-    Response<dynamic> response = await ref.read(apiClientProvider).post(_detail, data: body);
-    List<Map<String, dynamic>> data = List<Map<String, dynamic>>.from(response.data);
-    return data.map((e) => DocumentExpenseDTModel.fromJson(e)).toList();
+    try {
+      Response<dynamic> response = await ref.read(apiClientProvider).post(_detail, data: body);
+      print("response.data: ${response.data}");
+      List<Map<String, dynamic>> data = List<Map<String, dynamic>>.from(response.data);
+      return data.map((e) => DocumentExpenseDTModel.fromJson(e)).toList();
+    } catch (e, stx) {
+      print("stx<><><> $stx");
+      rethrow;
+    }
   }
 }
 

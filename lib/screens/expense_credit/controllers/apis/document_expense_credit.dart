@@ -11,8 +11,14 @@ class DocumentExpenseCreditApi {
       ref.read(routerHelperProvider).goPath('/error');
       return const DocumentExpenseModel();
     } else {
-      Map<String, dynamic> data = Map<String, dynamic>.from(response.data);
-      return DocumentExpenseModel.fromJson(data);
+      try {
+        DocumentExpenseModel data = DocumentExpenseModel.fromJson(response.data);
+        return data;
+      } catch (e) {
+        print("Error parsing response: $e");
+        // ref.read(routerHelperProvider).goPath('/error');
+        return const DocumentExpenseModel();
+      }
     }
   }
 }

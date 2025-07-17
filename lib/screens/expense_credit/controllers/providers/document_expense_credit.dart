@@ -14,9 +14,11 @@ class DocumentExpenseCreditNotifier extends StateNotifier<AsyncValue<DocumentExp
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() async {
       DocumentExpenseModel response = await ref.read(apiDocumentExpenseCredit).get({"expense_hd_id": id});
+      print("response: ${response.toJson()}");
       return response;
     });
     if (state.hasValue) {
+      print("state.value: ${state.value}");
       await ref.read(companyProvider.notifier).get(id: state.value!.companyId);
       await ref.read(documentExpenseCreditDTProvider.notifier).get(id: id);
     }

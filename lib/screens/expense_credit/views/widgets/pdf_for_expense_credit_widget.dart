@@ -390,7 +390,7 @@ class PDFGeneratorExpenseCredit {
                                         ),
                                         pw.Padding(
                                           padding: const pw.EdgeInsets.only(right: 10),
-                                          child: pw.Text((hd.expenseHdWhtamnt ?? 0).digits(2), style: textStyleBold),
+                                          child: pw.Text(num.parse(hd.expenseHdWhtamnt ?? '0').digits(2), style: textStyleBold),
                                         ),
                                       ],
                                     ),

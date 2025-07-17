@@ -49,7 +49,7 @@ _$DocumentExpenseModelImpl _$$DocumentExpenseModelImplFromJson(
       contactAddress: json['master_contact_address'] as String?,
       contactTel: json['master_contact_tel'] as String?,
       contactTaxid: json['master_contact_taxid'] as String?,
-      expenseHdWhtamnt: json['expense_hd_whtamnt'] as num?,
+      expenseHdWhtamnt: json['expense_hd_whtamnt'] as String?,
     );
 
 Map<String, dynamic> _$$DocumentExpenseModelImplToJson(

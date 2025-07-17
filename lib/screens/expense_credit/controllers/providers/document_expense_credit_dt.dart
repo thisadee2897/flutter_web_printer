@@ -28,6 +28,7 @@ class DocumentExpenseCreditDTNotifier extends StateNotifier<AsyncValue<List<Docu
       final company = ref.read(companyDataProvider);
       pw.Document pdfFile = pw.Document();
       List<DocumentExpenseDTModel> dataWidget = [];
+      print(jsonEncode(dataWidget));
       for (int i = 1; i <= state.value!.length; i++) {
         dataWidget.add(state.value![i - 1]);
         if (i % 10 == 0) {

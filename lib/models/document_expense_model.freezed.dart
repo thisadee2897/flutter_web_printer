@@ -97,7 +97,7 @@ mixin _$DocumentExpenseModel {
   @JsonKey(name: 'master_contact_taxid')
   String? get contactTaxid => throw _privateConstructorUsedError;
   @JsonKey(name: 'expense_hd_whtamnt')
-  num? get expenseHdWhtamnt => throw _privateConstructorUsedError;
+  String? get expenseHdWhtamnt => throw _privateConstructorUsedError;
 
   /// Serializes this DocumentExpenseModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -161,7 +161,7 @@ abstract class $DocumentExpenseModelCopyWith<$Res> {
       @JsonKey(name: 'master_contact_address') String? contactAddress,
       @JsonKey(name: 'master_contact_tel') String? contactTel,
       @JsonKey(name: 'master_contact_taxid') String? contactTaxid,
-      @JsonKey(name: 'expense_hd_whtamnt') num? expenseHdWhtamnt});
+      @JsonKey(name: 'expense_hd_whtamnt') String? expenseHdWhtamnt});
 }
 
 /// @nodoc
@@ -376,7 +376,7 @@ class _$DocumentExpenseModelCopyWithImpl<$Res,
       expenseHdWhtamnt: freezed == expenseHdWhtamnt
           ? _value.expenseHdWhtamnt
           : expenseHdWhtamnt // ignore: cast_nullable_to_non_nullable
-              as num?,
+              as String?,
     ) as $Val);
   }
 }
@@ -435,7 +435,7 @@ abstract class _$$DocumentExpenseModelImplCopyWith<$Res>
       @JsonKey(name: 'master_contact_address') String? contactAddress,
       @JsonKey(name: 'master_contact_tel') String? contactTel,
       @JsonKey(name: 'master_contact_taxid') String? contactTaxid,
-      @JsonKey(name: 'expense_hd_whtamnt') num? expenseHdWhtamnt});
+      @JsonKey(name: 'expense_hd_whtamnt') String? expenseHdWhtamnt});
 }
 
 /// @nodoc
@@ -647,7 +647,7 @@ class __$$DocumentExpenseModelImplCopyWithImpl<$Res>
       expenseHdWhtamnt: freezed == expenseHdWhtamnt
           ? _value.expenseHdWhtamnt
           : expenseHdWhtamnt // ignore: cast_nullable_to_non_nullable
-              as num?,
+              as String?,
     ));
   }
 }
@@ -820,7 +820,7 @@ class _$DocumentExpenseModelImpl implements _DocumentExpenseModel {
   final String? contactTaxid;
   @override
   @JsonKey(name: 'expense_hd_whtamnt')
-  final num? expenseHdWhtamnt;
+  final String? expenseHdWhtamnt;
 
   @override
   String toString() {
@@ -972,56 +972,56 @@ class _$DocumentExpenseModelImpl implements _DocumentExpenseModel {
 
 abstract class _DocumentExpenseModel implements DocumentExpenseModel {
   const factory _DocumentExpenseModel(
-          {@JsonKey(name: 'expense_hd_id') final String? expenseHdId,
-          @JsonKey(name: 'master_company_id') final String? companyId,
-          @JsonKey(name: 'master_branch_id') final String? branchId,
-          @JsonKey(name: 'master_branch_name') final String? branchName,
-          @JsonKey(name: 'expense_hd_docudate') final String? expenseHdDocudate,
-          @JsonKey(name: 'expense_hd_docuno') final String? expenseHdDocuno,
-          @JsonKey(name: 'expense_hd_status_id') final num? expenseHdStatusId,
-          @JsonKey(name: 'master_contact_id') final String? contactId,
-          @JsonKey(name: 'master_contact_code') final String? contactCode,
-          @JsonKey(name: 'master_contact_name') final String? contactName,
-          @JsonKey(name: 'expense_hd_remark') final String? expenseHdRemark,
-          @JsonKey(name: 'master_vat_group_id') final num? vatGroupId,
-          @JsonKey(name: 'master_vat_group_name') final String? vatGroupName,
-          @JsonKey(name: 'master_vat_rate') final String? vatRate,
-          @JsonKey(name: 'expense_hd_type_id') final num? expenseHdTypeId,
-          @JsonKey(name: 'expense_hd_creditday') final num? expenseHdCreditday,
-          @JsonKey(name: 'expense_hd_cash_amount')
-          final String? expenseHdCashAmount,
-          @JsonKey(name: 'expense_hd_transfer_amount')
-          final String? expenseHdTransferAmount,
-          @JsonKey(name: 'master_branch_bankbook_id')
-          final String? branchBankbookId,
-          @JsonKey(name: 'master_bank_id') final num? bankId,
-          @JsonKey(name: 'master_bank_name') final String? bankName,
-          @JsonKey(name: 'master_branch_bankbook_bankbookno')
-          final String? branchBankbookBankbookno,
-          @JsonKey(name: 'master_branch_bankbook_branchname')
-          final String? branchBankbookBranchname,
-          @JsonKey(name: 'master_branch_bankbook_name')
-          final String? branchBankbookName,
-          @JsonKey(name: 'vendor_bankbookno') final String? vendorBankbookno,
-          @JsonKey(name: 'vendor_bank_name') final String? vendorBankName,
-          @JsonKey(name: 'vendor_bankbook_branchname')
-          final String? vendorBankbookBranchname,
-          @JsonKey(name: 'expense_hd_amount') final String? expenseHdAmount,
-          @JsonKey(name: 'expense_hd_totalexcludeamnt')
-          final String? expenseHdTotalexcludeamnt,
-          @JsonKey(name: 'expense_hd_totalincludeamnt')
-          final String? expenseHdTotalincludeamnt,
-          @JsonKey(name: 'expense_hd_baseamnt') final String? expenseHdBaseamnt,
-          @JsonKey(name: 'expense_hd_vatamnt') final String? expenseHdVatamnt,
-          @JsonKey(name: 'expense_hd_discount_amount')
-          final String? expenseHdDiscountAmount,
-          @JsonKey(name: 'expense_hd_netamnt') final String? expenseHdNetamnt,
-          @JsonKey(name: 'fullname') final String? fullname,
-          @JsonKey(name: 'master_contact_address') final String? contactAddress,
-          @JsonKey(name: 'master_contact_tel') final String? contactTel,
-          @JsonKey(name: 'master_contact_taxid') final String? contactTaxid,
-          @JsonKey(name: 'expense_hd_whtamnt') final num? expenseHdWhtamnt}) =
-      _$DocumentExpenseModelImpl;
+      {@JsonKey(name: 'expense_hd_id') final String? expenseHdId,
+      @JsonKey(name: 'master_company_id') final String? companyId,
+      @JsonKey(name: 'master_branch_id') final String? branchId,
+      @JsonKey(name: 'master_branch_name') final String? branchName,
+      @JsonKey(name: 'expense_hd_docudate') final String? expenseHdDocudate,
+      @JsonKey(name: 'expense_hd_docuno') final String? expenseHdDocuno,
+      @JsonKey(name: 'expense_hd_status_id') final num? expenseHdStatusId,
+      @JsonKey(name: 'master_contact_id') final String? contactId,
+      @JsonKey(name: 'master_contact_code') final String? contactCode,
+      @JsonKey(name: 'master_contact_name') final String? contactName,
+      @JsonKey(name: 'expense_hd_remark') final String? expenseHdRemark,
+      @JsonKey(name: 'master_vat_group_id') final num? vatGroupId,
+      @JsonKey(name: 'master_vat_group_name') final String? vatGroupName,
+      @JsonKey(name: 'master_vat_rate') final String? vatRate,
+      @JsonKey(name: 'expense_hd_type_id') final num? expenseHdTypeId,
+      @JsonKey(name: 'expense_hd_creditday') final num? expenseHdCreditday,
+      @JsonKey(name: 'expense_hd_cash_amount')
+      final String? expenseHdCashAmount,
+      @JsonKey(name: 'expense_hd_transfer_amount')
+      final String? expenseHdTransferAmount,
+      @JsonKey(name: 'master_branch_bankbook_id')
+      final String? branchBankbookId,
+      @JsonKey(name: 'master_bank_id') final num? bankId,
+      @JsonKey(name: 'master_bank_name') final String? bankName,
+      @JsonKey(name: 'master_branch_bankbook_bankbookno')
+      final String? branchBankbookBankbookno,
+      @JsonKey(name: 'master_branch_bankbook_branchname')
+      final String? branchBankbookBranchname,
+      @JsonKey(name: 'master_branch_bankbook_name')
+      final String? branchBankbookName,
+      @JsonKey(name: 'vendor_bankbookno') final String? vendorBankbookno,
+      @JsonKey(name: 'vendor_bank_name') final String? vendorBankName,
+      @JsonKey(name: 'vendor_bankbook_branchname')
+      final String? vendorBankbookBranchname,
+      @JsonKey(name: 'expense_hd_amount') final String? expenseHdAmount,
+      @JsonKey(name: 'expense_hd_totalexcludeamnt')
+      final String? expenseHdTotalexcludeamnt,
+      @JsonKey(name: 'expense_hd_totalincludeamnt')
+      final String? expenseHdTotalincludeamnt,
+      @JsonKey(name: 'expense_hd_baseamnt') final String? expenseHdBaseamnt,
+      @JsonKey(name: 'expense_hd_vatamnt') final String? expenseHdVatamnt,
+      @JsonKey(name: 'expense_hd_discount_amount')
+      final String? expenseHdDiscountAmount,
+      @JsonKey(name: 'expense_hd_netamnt') final String? expenseHdNetamnt,
+      @JsonKey(name: 'fullname') final String? fullname,
+      @JsonKey(name: 'master_contact_address') final String? contactAddress,
+      @JsonKey(name: 'master_contact_tel') final String? contactTel,
+      @JsonKey(name: 'master_contact_taxid') final String? contactTaxid,
+      @JsonKey(name: 'expense_hd_whtamnt')
+      final String? expenseHdWhtamnt}) = _$DocumentExpenseModelImpl;
 
   factory _DocumentExpenseModel.fromJson(Map<String, dynamic> json) =
       _$DocumentExpenseModelImpl.fromJson;
@@ -1142,7 +1142,7 @@ abstract class _DocumentExpenseModel implements DocumentExpenseModel {
   String? get contactTaxid;
   @override
   @JsonKey(name: 'expense_hd_whtamnt')
-  num? get expenseHdWhtamnt;
+  String? get expenseHdWhtamnt;
 
   /// Create a copy of DocumentExpenseModel
   /// with the given fields replaced by the non-null parameter values.
