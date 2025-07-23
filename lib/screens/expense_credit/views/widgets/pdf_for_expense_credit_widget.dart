@@ -99,7 +99,7 @@ class PDFGeneratorExpenseCredit {
                   pw.Row(
                     children: [
                       pw.Expanded(
-                        flex: 2,
+                        flex: 3,
                         child: pw.Column(
                           crossAxisAlignment: pw.CrossAxisAlignment.start,
                           children: [
@@ -113,7 +113,7 @@ class PDFGeneratorExpenseCredit {
                         ),
                       ),
                       pw.Expanded(
-                        flex: 1,
+                        flex: 2,
                         child: pw.Padding(
                           padding: const pw.EdgeInsets.only(left: 8.0),
                           child: pw.Column(
@@ -122,26 +122,51 @@ class PDFGeneratorExpenseCredit {
                             mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
                             children: [
                               pw.SizedBox(
-                                height: 32,
+                                // height: 32,
                                 width: double.infinity,
-                                child: pw.Column(
+                                child: pw.Row(
                                   crossAxisAlignment: pw.CrossAxisAlignment.start,
-                                  mainAxisAlignment: pw.MainAxisAlignment.center,
+                                  mainAxisAlignment: pw.MainAxisAlignment.start,
                                   children: [
-                                    pw.Text('เลขที่', style: textStyleNormal),
+                                    pw.Text('เลขที่เอกสาร : ', style: textStyleNormal),
                                     pw.Text(hd.expenseHdDocuno.toString(), style: textStyleBold),
                                   ],
                                 ),
                               ),
                               pw.SizedBox(
-                                height: 32,
+                                // height: 32,
                                 width: double.infinity,
-                                child: pw.Column(
+                                child: pw.Row(
                                   crossAxisAlignment: pw.CrossAxisAlignment.start,
-                                  mainAxisAlignment: pw.MainAxisAlignment.center,
+                                  mainAxisAlignment: pw.MainAxisAlignment.start,
                                   children: [
-                                    pw.Text('วันที่', style: textStyleNormal),
+                                    pw.Text('วันที่เอกสาร : ', style: textStyleNormal),
                                     pw.Text(hd.expenseHdDocudate.dateTHFormApi, style: textStyleBold),
+                                  ],
+                                ),
+                              ),
+                              pw.SizedBox(height: 10),
+                              pw.SizedBox(
+                                // height: 32,
+                                width: double.infinity,
+                                child: pw.Row(
+                                  crossAxisAlignment: pw.CrossAxisAlignment.start,
+                                  mainAxisAlignment: pw.MainAxisAlignment.start,
+                                  children: [
+                                    pw.Text('เลขที่ใบกำกับภาษี : ', style: textStyleNormal),
+                                    pw.Text(hd.expenseHdInvoiceNo.toString(), style: textStyleBold),
+                                  ],
+                                ),
+                              ),
+                              pw.SizedBox(
+                                // height: 32,
+                                width: double.infinity,
+                                child: pw.Row(
+                                  crossAxisAlignment: pw.CrossAxisAlignment.start,
+                                  mainAxisAlignment: pw.MainAxisAlignment.start,
+                                  children: [
+                                    pw.Text('วันที่ใบกำกับภาษี : ', style: textStyleNormal),
+                                    pw.Text(hd.expenseHdInvoiceDate.dateTHFormApi, style: textStyleBold),
                                   ],
                                 ),
                               ),

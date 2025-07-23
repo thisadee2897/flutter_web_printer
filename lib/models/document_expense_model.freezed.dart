@@ -98,6 +98,10 @@ mixin _$DocumentExpenseModel {
   String? get contactTaxid => throw _privateConstructorUsedError;
   @JsonKey(name: 'expense_hd_whtamnt')
   String? get expenseHdWhtamnt => throw _privateConstructorUsedError;
+  @JsonKey(name: 'expense_hd_invoice_date')
+  String? get expenseHdInvoiceDate => throw _privateConstructorUsedError;
+  @JsonKey(name: 'expense_hd_invoice_no')
+  String? get expenseHdInvoiceNo => throw _privateConstructorUsedError;
 
   /// Serializes this DocumentExpenseModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -161,7 +165,9 @@ abstract class $DocumentExpenseModelCopyWith<$Res> {
       @JsonKey(name: 'master_contact_address') String? contactAddress,
       @JsonKey(name: 'master_contact_tel') String? contactTel,
       @JsonKey(name: 'master_contact_taxid') String? contactTaxid,
-      @JsonKey(name: 'expense_hd_whtamnt') String? expenseHdWhtamnt});
+      @JsonKey(name: 'expense_hd_whtamnt') String? expenseHdWhtamnt,
+      @JsonKey(name: 'expense_hd_invoice_date') String? expenseHdInvoiceDate,
+      @JsonKey(name: 'expense_hd_invoice_no') String? expenseHdInvoiceNo});
 }
 
 /// @nodoc
@@ -219,6 +225,8 @@ class _$DocumentExpenseModelCopyWithImpl<$Res,
     Object? contactTel = freezed,
     Object? contactTaxid = freezed,
     Object? expenseHdWhtamnt = freezed,
+    Object? expenseHdInvoiceDate = freezed,
+    Object? expenseHdInvoiceNo = freezed,
   }) {
     return _then(_value.copyWith(
       expenseHdId: freezed == expenseHdId
@@ -377,6 +385,14 @@ class _$DocumentExpenseModelCopyWithImpl<$Res,
           ? _value.expenseHdWhtamnt
           : expenseHdWhtamnt // ignore: cast_nullable_to_non_nullable
               as String?,
+      expenseHdInvoiceDate: freezed == expenseHdInvoiceDate
+          ? _value.expenseHdInvoiceDate
+          : expenseHdInvoiceDate // ignore: cast_nullable_to_non_nullable
+              as String?,
+      expenseHdInvoiceNo: freezed == expenseHdInvoiceNo
+          ? _value.expenseHdInvoiceNo
+          : expenseHdInvoiceNo // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -435,7 +451,9 @@ abstract class _$$DocumentExpenseModelImplCopyWith<$Res>
       @JsonKey(name: 'master_contact_address') String? contactAddress,
       @JsonKey(name: 'master_contact_tel') String? contactTel,
       @JsonKey(name: 'master_contact_taxid') String? contactTaxid,
-      @JsonKey(name: 'expense_hd_whtamnt') String? expenseHdWhtamnt});
+      @JsonKey(name: 'expense_hd_whtamnt') String? expenseHdWhtamnt,
+      @JsonKey(name: 'expense_hd_invoice_date') String? expenseHdInvoiceDate,
+      @JsonKey(name: 'expense_hd_invoice_no') String? expenseHdInvoiceNo});
 }
 
 /// @nodoc
@@ -490,6 +508,8 @@ class __$$DocumentExpenseModelImplCopyWithImpl<$Res>
     Object? contactTel = freezed,
     Object? contactTaxid = freezed,
     Object? expenseHdWhtamnt = freezed,
+    Object? expenseHdInvoiceDate = freezed,
+    Object? expenseHdInvoiceNo = freezed,
   }) {
     return _then(_$DocumentExpenseModelImpl(
       expenseHdId: freezed == expenseHdId
@@ -648,6 +668,14 @@ class __$$DocumentExpenseModelImplCopyWithImpl<$Res>
           ? _value.expenseHdWhtamnt
           : expenseHdWhtamnt // ignore: cast_nullable_to_non_nullable
               as String?,
+      expenseHdInvoiceDate: freezed == expenseHdInvoiceDate
+          ? _value.expenseHdInvoiceDate
+          : expenseHdInvoiceDate // ignore: cast_nullable_to_non_nullable
+              as String?,
+      expenseHdInvoiceNo: freezed == expenseHdInvoiceNo
+          ? _value.expenseHdInvoiceNo
+          : expenseHdInvoiceNo // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -699,7 +727,9 @@ class _$DocumentExpenseModelImpl implements _DocumentExpenseModel {
       @JsonKey(name: 'master_contact_address') this.contactAddress,
       @JsonKey(name: 'master_contact_tel') this.contactTel,
       @JsonKey(name: 'master_contact_taxid') this.contactTaxid,
-      @JsonKey(name: 'expense_hd_whtamnt') this.expenseHdWhtamnt});
+      @JsonKey(name: 'expense_hd_whtamnt') this.expenseHdWhtamnt,
+      @JsonKey(name: 'expense_hd_invoice_date') this.expenseHdInvoiceDate,
+      @JsonKey(name: 'expense_hd_invoice_no') this.expenseHdInvoiceNo});
 
   factory _$DocumentExpenseModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$DocumentExpenseModelImplFromJson(json);
@@ -821,10 +851,16 @@ class _$DocumentExpenseModelImpl implements _DocumentExpenseModel {
   @override
   @JsonKey(name: 'expense_hd_whtamnt')
   final String? expenseHdWhtamnt;
+  @override
+  @JsonKey(name: 'expense_hd_invoice_date')
+  final String? expenseHdInvoiceDate;
+  @override
+  @JsonKey(name: 'expense_hd_invoice_no')
+  final String? expenseHdInvoiceNo;
 
   @override
   String toString() {
-    return 'DocumentExpenseModel(expenseHdId: $expenseHdId, companyId: $companyId, branchId: $branchId, branchName: $branchName, expenseHdDocudate: $expenseHdDocudate, expenseHdDocuno: $expenseHdDocuno, expenseHdStatusId: $expenseHdStatusId, contactId: $contactId, contactCode: $contactCode, contactName: $contactName, expenseHdRemark: $expenseHdRemark, vatGroupId: $vatGroupId, vatGroupName: $vatGroupName, vatRate: $vatRate, expenseHdTypeId: $expenseHdTypeId, expenseHdCreditday: $expenseHdCreditday, expenseHdCashAmount: $expenseHdCashAmount, expenseHdTransferAmount: $expenseHdTransferAmount, branchBankbookId: $branchBankbookId, bankId: $bankId, bankName: $bankName, branchBankbookBankbookno: $branchBankbookBankbookno, branchBankbookBranchname: $branchBankbookBranchname, branchBankbookName: $branchBankbookName, vendorBankbookno: $vendorBankbookno, vendorBankName: $vendorBankName, vendorBankbookBranchname: $vendorBankbookBranchname, expenseHdAmount: $expenseHdAmount, expenseHdTotalexcludeamnt: $expenseHdTotalexcludeamnt, expenseHdTotalincludeamnt: $expenseHdTotalincludeamnt, expenseHdBaseamnt: $expenseHdBaseamnt, expenseHdVatamnt: $expenseHdVatamnt, expenseHdDiscountAmount: $expenseHdDiscountAmount, expenseHdNetamnt: $expenseHdNetamnt, fullname: $fullname, contactAddress: $contactAddress, contactTel: $contactTel, contactTaxid: $contactTaxid, expenseHdWhtamnt: $expenseHdWhtamnt)';
+    return 'DocumentExpenseModel(expenseHdId: $expenseHdId, companyId: $companyId, branchId: $branchId, branchName: $branchName, expenseHdDocudate: $expenseHdDocudate, expenseHdDocuno: $expenseHdDocuno, expenseHdStatusId: $expenseHdStatusId, contactId: $contactId, contactCode: $contactCode, contactName: $contactName, expenseHdRemark: $expenseHdRemark, vatGroupId: $vatGroupId, vatGroupName: $vatGroupName, vatRate: $vatRate, expenseHdTypeId: $expenseHdTypeId, expenseHdCreditday: $expenseHdCreditday, expenseHdCashAmount: $expenseHdCashAmount, expenseHdTransferAmount: $expenseHdTransferAmount, branchBankbookId: $branchBankbookId, bankId: $bankId, bankName: $bankName, branchBankbookBankbookno: $branchBankbookBankbookno, branchBankbookBranchname: $branchBankbookBranchname, branchBankbookName: $branchBankbookName, vendorBankbookno: $vendorBankbookno, vendorBankName: $vendorBankName, vendorBankbookBranchname: $vendorBankbookBranchname, expenseHdAmount: $expenseHdAmount, expenseHdTotalexcludeamnt: $expenseHdTotalexcludeamnt, expenseHdTotalincludeamnt: $expenseHdTotalincludeamnt, expenseHdBaseamnt: $expenseHdBaseamnt, expenseHdVatamnt: $expenseHdVatamnt, expenseHdDiscountAmount: $expenseHdDiscountAmount, expenseHdNetamnt: $expenseHdNetamnt, fullname: $fullname, contactAddress: $contactAddress, contactTel: $contactTel, contactTaxid: $contactTaxid, expenseHdWhtamnt: $expenseHdWhtamnt, expenseHdInvoiceDate: $expenseHdInvoiceDate, expenseHdInvoiceNo: $expenseHdInvoiceNo)';
   }
 
   @override
@@ -904,7 +940,9 @@ class _$DocumentExpenseModelImpl implements _DocumentExpenseModel {
                 other.contactAddress == contactAddress) &&
             (identical(other.contactTel, contactTel) || other.contactTel == contactTel) &&
             (identical(other.contactTaxid, contactTaxid) || other.contactTaxid == contactTaxid) &&
-            (identical(other.expenseHdWhtamnt, expenseHdWhtamnt) || other.expenseHdWhtamnt == expenseHdWhtamnt));
+            (identical(other.expenseHdWhtamnt, expenseHdWhtamnt) || other.expenseHdWhtamnt == expenseHdWhtamnt) &&
+            (identical(other.expenseHdInvoiceDate, expenseHdInvoiceDate) || other.expenseHdInvoiceDate == expenseHdInvoiceDate) &&
+            (identical(other.expenseHdInvoiceNo, expenseHdInvoiceNo) || other.expenseHdInvoiceNo == expenseHdInvoiceNo));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -949,7 +987,9 @@ class _$DocumentExpenseModelImpl implements _DocumentExpenseModel {
         contactAddress,
         contactTel,
         contactTaxid,
-        expenseHdWhtamnt
+        expenseHdWhtamnt,
+        expenseHdInvoiceDate,
+        expenseHdInvoiceNo
       ]);
 
   /// Create a copy of DocumentExpenseModel
@@ -1020,8 +1060,11 @@ abstract class _DocumentExpenseModel implements DocumentExpenseModel {
       @JsonKey(name: 'master_contact_address') final String? contactAddress,
       @JsonKey(name: 'master_contact_tel') final String? contactTel,
       @JsonKey(name: 'master_contact_taxid') final String? contactTaxid,
-      @JsonKey(name: 'expense_hd_whtamnt')
-      final String? expenseHdWhtamnt}) = _$DocumentExpenseModelImpl;
+      @JsonKey(name: 'expense_hd_whtamnt') final String? expenseHdWhtamnt,
+      @JsonKey(name: 'expense_hd_invoice_date')
+      final String? expenseHdInvoiceDate,
+      @JsonKey(name: 'expense_hd_invoice_no')
+      final String? expenseHdInvoiceNo}) = _$DocumentExpenseModelImpl;
 
   factory _DocumentExpenseModel.fromJson(Map<String, dynamic> json) =
       _$DocumentExpenseModelImpl.fromJson;
@@ -1143,6 +1186,12 @@ abstract class _DocumentExpenseModel implements DocumentExpenseModel {
   @override
   @JsonKey(name: 'expense_hd_whtamnt')
   String? get expenseHdWhtamnt;
+  @override
+  @JsonKey(name: 'expense_hd_invoice_date')
+  String? get expenseHdInvoiceDate;
+  @override
+  @JsonKey(name: 'expense_hd_invoice_no')
+  String? get expenseHdInvoiceNo;
 
   /// Create a copy of DocumentExpenseModel
   /// with the given fields replaced by the non-null parameter values.
