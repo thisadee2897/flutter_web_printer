@@ -32,6 +32,7 @@ _$DocumentExpenseDTModelImpl _$$DocumentExpenseDTModelImplFromJson(
       expenseDtQty: json['expense_dt_qty'] as String?,
       expenseDtDiscount: json['expense_dt_discount'] as String?,
       expenseDtNetamnt: json['expense_dt_netamnt'] as String?,
+      isCancel: json['is_cancel'] as bool?,
     );
 
 Map<String, dynamic> _$$DocumentExpenseDTModelImplToJson(
@@ -60,4 +61,5 @@ Map<String, dynamic> _$$DocumentExpenseDTModelImplToJson(
       'expense_dt_qty': instance.expenseDtQty,
       'expense_dt_discount': instance.expenseDtDiscount,
       'expense_dt_netamnt': instance.expenseDtNetamnt,
+      'is_cancel': instance.isCancel,
     };

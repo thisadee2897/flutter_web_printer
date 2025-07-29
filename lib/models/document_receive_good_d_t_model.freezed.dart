@@ -67,6 +67,8 @@ mixin _$DocumentReceiveGoodDTModel {
   String? get purchaseorderHdDocuno => throw _privateConstructorUsedError;
   @JsonKey(name: 'receive_dt_tank_no')
   String? get receiveDtTankNo => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel => throw _privateConstructorUsedError;
 
   /// Serializes this DocumentReceiveGoodDTModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -112,7 +114,8 @@ abstract class $DocumentReceiveGoodDTModelCopyWith<$Res> {
       @JsonKey(name: 'receive_dt_master_product_barcode_rate')
       String? receiveDtProductBarcodeRate,
       @JsonKey(name: 'purchaseorder_hd_docuno') String? purchaseorderHdDocuno,
-      @JsonKey(name: 'receive_dt_tank_no') String? receiveDtTankNo});
+      @JsonKey(name: 'receive_dt_tank_no') String? receiveDtTankNo,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -153,6 +156,7 @@ class _$DocumentReceiveGoodDTModelCopyWithImpl<$Res,
     Object? receiveDtProductBarcodeRate = freezed,
     Object? purchaseorderHdDocuno = freezed,
     Object? receiveDtTankNo = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_value.copyWith(
       receiveDtId: freezed == receiveDtId
@@ -245,6 +249,10 @@ class _$DocumentReceiveGoodDTModelCopyWithImpl<$Res,
           ? _value.receiveDtTankNo
           : receiveDtTankNo // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -285,7 +293,8 @@ abstract class _$$DocumentReceiveGoodDTModelImplCopyWith<$Res>
       @JsonKey(name: 'receive_dt_master_product_barcode_rate')
       String? receiveDtProductBarcodeRate,
       @JsonKey(name: 'purchaseorder_hd_docuno') String? purchaseorderHdDocuno,
-      @JsonKey(name: 'receive_dt_tank_no') String? receiveDtTankNo});
+      @JsonKey(name: 'receive_dt_tank_no') String? receiveDtTankNo,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -325,6 +334,7 @@ class __$$DocumentReceiveGoodDTModelImplCopyWithImpl<$Res>
     Object? receiveDtProductBarcodeRate = freezed,
     Object? purchaseorderHdDocuno = freezed,
     Object? receiveDtTankNo = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_$DocumentReceiveGoodDTModelImpl(
       receiveDtId: freezed == receiveDtId
@@ -417,6 +427,10 @@ class __$$DocumentReceiveGoodDTModelImplCopyWithImpl<$Res>
           ? _value.receiveDtTankNo
           : receiveDtTankNo // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -451,7 +465,8 @@ class _$DocumentReceiveGoodDTModelImpl implements _DocumentReceiveGoodDTModel {
       @JsonKey(name: 'receive_dt_master_product_barcode_rate')
       this.receiveDtProductBarcodeRate,
       @JsonKey(name: 'purchaseorder_hd_docuno') this.purchaseorderHdDocuno,
-      @JsonKey(name: 'receive_dt_tank_no') this.receiveDtTankNo});
+      @JsonKey(name: 'receive_dt_tank_no') this.receiveDtTankNo,
+      @JsonKey(name: 'is_cancel') this.isCancel});
 
   factory _$DocumentReceiveGoodDTModelImpl.fromJson(
           Map<String, dynamic> json) =>
@@ -523,10 +538,13 @@ class _$DocumentReceiveGoodDTModelImpl implements _DocumentReceiveGoodDTModel {
   @override
   @JsonKey(name: 'receive_dt_tank_no')
   final String? receiveDtTankNo;
+  @override
+  @JsonKey(name: 'is_cancel')
+  final bool? isCancel;
 
   @override
   String toString() {
-    return 'DocumentReceiveGoodDTModel(receiveDtId: $receiveDtId, receiveHdId: $receiveHdId, purchaseorderDtId: $purchaseorderDtId, receiveDtListno: $receiveDtListno, productId: $productId, productCode: $productCode, productName: $productName, unitId: $unitId, unitName: $unitName, receiveDtVatFlag: $receiveDtVatFlag, accountId: $accountId, receiveDtPrice: $receiveDtPrice, receiveDtQty: $receiveDtQty, receiveDtDiscount: $receiveDtDiscount, receiveDtNetamnt: $receiveDtNetamnt, receiveDtProductBarcodeId: $receiveDtProductBarcodeId, receiveDtProductBarcodeCode: $receiveDtProductBarcodeCode, receiveDtProductBarcodeMasterUnitId: $receiveDtProductBarcodeMasterUnitId, receiveDtProductBarcodeMasterUnitName: $receiveDtProductBarcodeMasterUnitName, receiveDtProductBarcodeRate: $receiveDtProductBarcodeRate, purchaseorderHdDocuno: $purchaseorderHdDocuno, receiveDtTankNo: $receiveDtTankNo)';
+    return 'DocumentReceiveGoodDTModel(receiveDtId: $receiveDtId, receiveHdId: $receiveHdId, purchaseorderDtId: $purchaseorderDtId, receiveDtListno: $receiveDtListno, productId: $productId, productCode: $productCode, productName: $productName, unitId: $unitId, unitName: $unitName, receiveDtVatFlag: $receiveDtVatFlag, accountId: $accountId, receiveDtPrice: $receiveDtPrice, receiveDtQty: $receiveDtQty, receiveDtDiscount: $receiveDtDiscount, receiveDtNetamnt: $receiveDtNetamnt, receiveDtProductBarcodeId: $receiveDtProductBarcodeId, receiveDtProductBarcodeCode: $receiveDtProductBarcodeCode, receiveDtProductBarcodeMasterUnitId: $receiveDtProductBarcodeMasterUnitId, receiveDtProductBarcodeMasterUnitName: $receiveDtProductBarcodeMasterUnitName, receiveDtProductBarcodeRate: $receiveDtProductBarcodeRate, purchaseorderHdDocuno: $purchaseorderHdDocuno, receiveDtTankNo: $receiveDtTankNo, isCancel: $isCancel)';
   }
 
   @override
@@ -583,7 +601,9 @@ class _$DocumentReceiveGoodDTModelImpl implements _DocumentReceiveGoodDTModel {
             (identical(other.purchaseorderHdDocuno, purchaseorderHdDocuno) ||
                 other.purchaseorderHdDocuno == purchaseorderHdDocuno) &&
             (identical(other.receiveDtTankNo, receiveDtTankNo) ||
-                other.receiveDtTankNo == receiveDtTankNo));
+                other.receiveDtTankNo == receiveDtTankNo) &&
+            (identical(other.isCancel, isCancel) ||
+                other.isCancel == isCancel));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -611,7 +631,8 @@ class _$DocumentReceiveGoodDTModelImpl implements _DocumentReceiveGoodDTModel {
         receiveDtProductBarcodeMasterUnitName,
         receiveDtProductBarcodeRate,
         purchaseorderHdDocuno,
-        receiveDtTankNo
+        receiveDtTankNo,
+        isCancel
       ]);
 
   /// Create a copy of DocumentReceiveGoodDTModel
@@ -661,7 +682,8 @@ abstract class _DocumentReceiveGoodDTModel
           final String? receiveDtProductBarcodeRate,
           @JsonKey(name: 'purchaseorder_hd_docuno')
           final String? purchaseorderHdDocuno,
-          @JsonKey(name: 'receive_dt_tank_no') final String? receiveDtTankNo}) =
+          @JsonKey(name: 'receive_dt_tank_no') final String? receiveDtTankNo,
+          @JsonKey(name: 'is_cancel') final bool? isCancel}) =
       _$DocumentReceiveGoodDTModelImpl;
 
   factory _DocumentReceiveGoodDTModel.fromJson(Map<String, dynamic> json) =
@@ -733,6 +755,9 @@ abstract class _DocumentReceiveGoodDTModel
   @override
   @JsonKey(name: 'receive_dt_tank_no')
   String? get receiveDtTankNo;
+  @override
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel;
 
   /// Create a copy of DocumentReceiveGoodDTModel
   /// with the given fields replaced by the non-null parameter values.

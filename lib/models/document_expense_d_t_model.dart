@@ -25,6 +25,7 @@ class DocumentExpenseDTModel with _$DocumentExpenseDTModel {
   @JsonKey(name: 'expense_dt_qty') String? expenseDtQty,
   @JsonKey(name: 'expense_dt_discount') String? expenseDtDiscount,
   @JsonKey(name: 'expense_dt_netamnt') String? expenseDtNetamnt,
+  @JsonKey(name: 'is_cancel') bool? isCancel,
   }) = _DocumentExpenseDTModel;
 
   factory DocumentExpenseDTModel.fromJson(Map<String, dynamic> json) => _$DocumentExpenseDTModelFromJson(json);

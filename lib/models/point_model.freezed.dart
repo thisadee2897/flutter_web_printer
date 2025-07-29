@@ -24,6 +24,8 @@ mixin _$PointModel {
   String? get pointName => throw _privateConstructorUsedError;
   @JsonKey(name: 'point_value')
   String? get pointValue => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel => throw _privateConstructorUsedError;
 
   /// Serializes this PointModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -43,7 +45,8 @@ abstract class $PointModelCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'point_name') String? pointName,
-      @JsonKey(name: 'point_value') String? pointValue});
+      @JsonKey(name: 'point_value') String? pointValue,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -63,6 +66,7 @@ class _$PointModelCopyWithImpl<$Res, $Val extends PointModel>
   $Res call({
     Object? pointName = freezed,
     Object? pointValue = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_value.copyWith(
       pointName: freezed == pointName
@@ -73,6 +77,10 @@ class _$PointModelCopyWithImpl<$Res, $Val extends PointModel>
           ? _value.pointValue
           : pointValue // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -87,7 +95,8 @@ abstract class _$$PointModelImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: 'point_name') String? pointName,
-      @JsonKey(name: 'point_value') String? pointValue});
+      @JsonKey(name: 'point_value') String? pointValue,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -105,6 +114,7 @@ class __$$PointModelImplCopyWithImpl<$Res>
   $Res call({
     Object? pointName = freezed,
     Object? pointValue = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_$PointModelImpl(
       pointName: freezed == pointName
@@ -115,6 +125,10 @@ class __$$PointModelImplCopyWithImpl<$Res>
           ? _value.pointValue
           : pointValue // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -124,7 +138,8 @@ class __$$PointModelImplCopyWithImpl<$Res>
 class _$PointModelImpl implements _PointModel {
   const _$PointModelImpl(
       {@JsonKey(name: 'point_name') this.pointName,
-      @JsonKey(name: 'point_value') this.pointValue});
+      @JsonKey(name: 'point_value') this.pointValue,
+      @JsonKey(name: 'is_cancel') this.isCancel});
 
   factory _$PointModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$PointModelImplFromJson(json);
@@ -135,10 +150,13 @@ class _$PointModelImpl implements _PointModel {
   @override
   @JsonKey(name: 'point_value')
   final String? pointValue;
+  @override
+  @JsonKey(name: 'is_cancel')
+  final bool? isCancel;
 
   @override
   String toString() {
-    return 'PointModel(pointName: $pointName, pointValue: $pointValue)';
+    return 'PointModel(pointName: $pointName, pointValue: $pointValue, isCancel: $isCancel)';
   }
 
   @override
@@ -149,12 +167,14 @@ class _$PointModelImpl implements _PointModel {
             (identical(other.pointName, pointName) ||
                 other.pointName == pointName) &&
             (identical(other.pointValue, pointValue) ||
-                other.pointValue == pointValue));
+                other.pointValue == pointValue) &&
+            (identical(other.isCancel, isCancel) ||
+                other.isCancel == isCancel));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, pointName, pointValue);
+  int get hashCode => Object.hash(runtimeType, pointName, pointValue, isCancel);
 
   /// Create a copy of PointModel
   /// with the given fields replaced by the non-null parameter values.
@@ -174,9 +194,9 @@ class _$PointModelImpl implements _PointModel {
 
 abstract class _PointModel implements PointModel {
   const factory _PointModel(
-          {@JsonKey(name: 'point_name') final String? pointName,
-          @JsonKey(name: 'point_value') final String? pointValue}) =
-      _$PointModelImpl;
+      {@JsonKey(name: 'point_name') final String? pointName,
+      @JsonKey(name: 'point_value') final String? pointValue,
+      @JsonKey(name: 'is_cancel') final bool? isCancel}) = _$PointModelImpl;
 
   factory _PointModel.fromJson(Map<String, dynamic> json) =
       _$PointModelImpl.fromJson;
@@ -187,6 +207,9 @@ abstract class _PointModel implements PointModel {
   @override
   @JsonKey(name: 'point_value')
   String? get pointValue;
+  @override
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel;
 
   /// Create a copy of PointModel
   /// with the given fields replaced by the non-null parameter values.

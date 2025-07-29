@@ -13,6 +13,7 @@ class FooterFullTaxInvoiceModel with _$FooterFullTaxInvoiceModel {
   @JsonKey(name: 'vat_amount') num? vatAmount,
   @JsonKey(name: 'withholding_tax') num? withholdingTax,
   @JsonKey(name: 'net_amount') num? netAmount,
+  @JsonKey(name: 'is_cancel') bool? isCancel,
   }) = _FooterFullTaxInvoiceModel;
 
   factory FooterFullTaxInvoiceModel.fromJson(Map<String, dynamic> json) => _$FooterFullTaxInvoiceModelFromJson(json);

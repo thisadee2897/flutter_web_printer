@@ -41,6 +41,8 @@ mixin _$DocumentReceivableCashDTModel {
       throw _privateConstructorUsedError;
   @JsonKey(name: 'receivable_dt_receiveamount')
   String? get receivableDtReceiveamount => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel => throw _privateConstructorUsedError;
 
   /// Serializes this DocumentReceivableCashDTModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -72,7 +74,8 @@ abstract class $DocumentReceivableCashDTModelCopyWith<$Res> {
       @JsonKey(name: 'receivable_dt_invoice_lastamount')
       String? receivableDtInvoiceLastamount,
       @JsonKey(name: 'receivable_dt_receiveamount')
-      String? receivableDtReceiveamount});
+      String? receivableDtReceiveamount,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -100,6 +103,7 @@ class _$DocumentReceivableCashDTModelCopyWithImpl<$Res,
     Object? receivableDtInvoiceTotoalamount = freezed,
     Object? receivableDtInvoiceLastamount = freezed,
     Object? receivableDtReceiveamount = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_value.copyWith(
       receivableDtId: freezed == receivableDtId
@@ -139,6 +143,10 @@ class _$DocumentReceivableCashDTModelCopyWithImpl<$Res,
           ? _value.receivableDtReceiveamount
           : receivableDtReceiveamount // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -164,7 +172,8 @@ abstract class _$$DocumentReceivableCashDTModelImplCopyWith<$Res>
       @JsonKey(name: 'receivable_dt_invoice_lastamount')
       String? receivableDtInvoiceLastamount,
       @JsonKey(name: 'receivable_dt_receiveamount')
-      String? receivableDtReceiveamount});
+      String? receivableDtReceiveamount,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -191,6 +200,7 @@ class __$$DocumentReceivableCashDTModelImplCopyWithImpl<$Res>
     Object? receivableDtInvoiceTotoalamount = freezed,
     Object? receivableDtInvoiceLastamount = freezed,
     Object? receivableDtReceiveamount = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_$DocumentReceivableCashDTModelImpl(
       receivableDtId: freezed == receivableDtId
@@ -230,6 +240,10 @@ class __$$DocumentReceivableCashDTModelImplCopyWithImpl<$Res>
           ? _value.receivableDtReceiveamount
           : receivableDtReceiveamount // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -250,7 +264,8 @@ class _$DocumentReceivableCashDTModelImpl
       @JsonKey(name: 'receivable_dt_invoice_lastamount')
       this.receivableDtInvoiceLastamount,
       @JsonKey(name: 'receivable_dt_receiveamount')
-      this.receivableDtReceiveamount});
+      this.receivableDtReceiveamount,
+      @JsonKey(name: 'is_cancel') this.isCancel});
 
   factory _$DocumentReceivableCashDTModelImpl.fromJson(
           Map<String, dynamic> json) =>
@@ -283,10 +298,13 @@ class _$DocumentReceivableCashDTModelImpl
   @override
   @JsonKey(name: 'receivable_dt_receiveamount')
   final String? receivableDtReceiveamount;
+  @override
+  @JsonKey(name: 'is_cancel')
+  final bool? isCancel;
 
   @override
   String toString() {
-    return 'DocumentReceivableCashDTModel(receivableDtId: $receivableDtId, receivableHdId: $receivableHdId, receivableDtListno: $receivableDtListno, saleHdId: $saleHdId, saleHdDocudate: $saleHdDocudate, saleHdDocuno: $saleHdDocuno, receivableDtInvoiceTotoalamount: $receivableDtInvoiceTotoalamount, receivableDtInvoiceLastamount: $receivableDtInvoiceLastamount, receivableDtReceiveamount: $receivableDtReceiveamount)';
+    return 'DocumentReceivableCashDTModel(receivableDtId: $receivableDtId, receivableHdId: $receivableHdId, receivableDtListno: $receivableDtListno, saleHdId: $saleHdId, saleHdDocudate: $saleHdDocudate, saleHdDocuno: $saleHdDocuno, receivableDtInvoiceTotoalamount: $receivableDtInvoiceTotoalamount, receivableDtInvoiceLastamount: $receivableDtInvoiceLastamount, receivableDtReceiveamount: $receivableDtReceiveamount, isCancel: $isCancel)';
   }
 
   @override
@@ -316,7 +334,9 @@ class _$DocumentReceivableCashDTModelImpl
                     receivableDtInvoiceLastamount) &&
             (identical(other.receivableDtReceiveamount,
                     receivableDtReceiveamount) ||
-                other.receivableDtReceiveamount == receivableDtReceiveamount));
+                other.receivableDtReceiveamount == receivableDtReceiveamount) &&
+            (identical(other.isCancel, isCancel) ||
+                other.isCancel == isCancel));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -331,7 +351,8 @@ class _$DocumentReceivableCashDTModelImpl
       saleHdDocuno,
       receivableDtInvoiceTotoalamount,
       receivableDtInvoiceLastamount,
-      receivableDtReceiveamount);
+      receivableDtReceiveamount,
+      isCancel);
 
   /// Create a copy of DocumentReceivableCashDTModel
   /// with the given fields replaced by the non-null parameter values.
@@ -365,7 +386,8 @@ abstract class _DocumentReceivableCashDTModel
           @JsonKey(name: 'receivable_dt_invoice_lastamount')
           final String? receivableDtInvoiceLastamount,
           @JsonKey(name: 'receivable_dt_receiveamount')
-          final String? receivableDtReceiveamount}) =
+          final String? receivableDtReceiveamount,
+          @JsonKey(name: 'is_cancel') final bool? isCancel}) =
       _$DocumentReceivableCashDTModelImpl;
 
   factory _DocumentReceivableCashDTModel.fromJson(Map<String, dynamic> json) =
@@ -398,6 +420,9 @@ abstract class _DocumentReceivableCashDTModel
   @override
   @JsonKey(name: 'receivable_dt_receiveamount')
   String? get receivableDtReceiveamount;
+  @override
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel;
 
   /// Create a copy of DocumentReceivableCashDTModel
   /// with the given fields replaced by the non-null parameter values.

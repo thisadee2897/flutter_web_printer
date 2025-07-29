@@ -11,6 +11,7 @@ _$PaymentMethodModelImpl _$$PaymentMethodModelImplFromJson(
     _$PaymentMethodModelImpl(
       paymentMethod: json['payment_method'] as String?,
       amount: json['amount'] as num?,
+      isCancel: json['is_cancel'] as bool?,
     );
 
 Map<String, dynamic> _$$PaymentMethodModelImplToJson(
@@ -18,4 +19,5 @@ Map<String, dynamic> _$$PaymentMethodModelImplToJson(
     <String, dynamic>{
       'payment_method': instance.paymentMethod,
       'amount': instance.amount,
+      'is_cancel': instance.isCancel,
     };

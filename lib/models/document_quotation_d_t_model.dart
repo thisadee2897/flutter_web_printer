@@ -23,6 +23,7 @@ class DocumentQuotationDTModel with _$DocumentQuotationDTModel {
   @JsonKey(name: 'quotation_dt_qty') String? quotationDtQty,
   @JsonKey(name: 'quotation_dt_discount') String? quotationDtDiscount,
   @JsonKey(name: 'quotation_dt_netamnt') String? quotationDtNetamnt,
+  @JsonKey(name: 'is_cancel') bool? isCancel,
   }) = _DocumentQuotationDTModel;
 
   factory DocumentQuotationDTModel.fromJson(Map<String, dynamic> json) => _$DocumentQuotationDTModelFromJson(json);

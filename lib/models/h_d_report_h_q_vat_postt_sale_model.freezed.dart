@@ -55,6 +55,8 @@ mixin _$HDReportHQVatPosttSaleModel {
   String? get endDate => throw _privateConstructorUsedError;
   @JsonKey(name: 'branchs_name')
   List<String>? get branchsName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel => throw _privateConstructorUsedError;
 
   /// Serializes this HDReportHQVatPosttSaleModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -79,7 +81,8 @@ abstract class $HDReportHQVatPosttSaleModelCopyWith<$Res> {
       @JsonKey(name: 'master_company_taxid') String? companyTaxid,
       @JsonKey(name: 'start_date') String? startDate,
       @JsonKey(name: 'end_date') String? endDate,
-      @JsonKey(name: 'branchs_name') List<String>? branchsName});
+      @JsonKey(name: 'branchs_name') List<String>? branchsName,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -103,6 +106,7 @@ class _$HDReportHQVatPosttSaleModelCopyWithImpl<$Res,
     Object? startDate = freezed,
     Object? endDate = freezed,
     Object? branchsName = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_value.copyWith(
       companyName: freezed == companyName
@@ -125,6 +129,10 @@ class _$HDReportHQVatPosttSaleModelCopyWithImpl<$Res,
           ? _value.branchsName
           : branchsName // ignore: cast_nullable_to_non_nullable
               as List<String>?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -143,7 +151,8 @@ abstract class _$$HDReportHQVatPosttSaleModelImplCopyWith<$Res>
       @JsonKey(name: 'master_company_taxid') String? companyTaxid,
       @JsonKey(name: 'start_date') String? startDate,
       @JsonKey(name: 'end_date') String? endDate,
-      @JsonKey(name: 'branchs_name') List<String>? branchsName});
+      @JsonKey(name: 'branchs_name') List<String>? branchsName,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -166,6 +175,7 @@ class __$$HDReportHQVatPosttSaleModelImplCopyWithImpl<$Res>
     Object? startDate = freezed,
     Object? endDate = freezed,
     Object? branchsName = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_$HDReportHQVatPosttSaleModelImpl(
       companyName: freezed == companyName
@@ -188,6 +198,10 @@ class __$$HDReportHQVatPosttSaleModelImplCopyWithImpl<$Res>
           ? _value._branchsName
           : branchsName // ignore: cast_nullable_to_non_nullable
               as List<String>?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -201,7 +215,8 @@ class _$HDReportHQVatPosttSaleModelImpl
       @JsonKey(name: 'master_company_taxid') this.companyTaxid,
       @JsonKey(name: 'start_date') this.startDate,
       @JsonKey(name: 'end_date') this.endDate,
-      @JsonKey(name: 'branchs_name') final List<String>? branchsName})
+      @JsonKey(name: 'branchs_name') final List<String>? branchsName,
+      @JsonKey(name: 'is_cancel') this.isCancel})
       : _branchsName = branchsName;
 
   factory _$HDReportHQVatPosttSaleModelImpl.fromJson(
@@ -256,8 +271,12 @@ class _$HDReportHQVatPosttSaleModelImpl
   }
 
   @override
+  @JsonKey(name: 'is_cancel')
+  final bool? isCancel;
+
+  @override
   String toString() {
-    return 'HDReportHQVatPosttSaleModel(companyName: $companyName, companyTaxid: $companyTaxid, startDate: $startDate, endDate: $endDate, branchsName: $branchsName)';
+    return 'HDReportHQVatPosttSaleModel(companyName: $companyName, companyTaxid: $companyTaxid, startDate: $startDate, endDate: $endDate, branchsName: $branchsName, isCancel: $isCancel)';
   }
 
   @override
@@ -273,13 +292,21 @@ class _$HDReportHQVatPosttSaleModelImpl
                 other.startDate == startDate) &&
             (identical(other.endDate, endDate) || other.endDate == endDate) &&
             const DeepCollectionEquality()
-                .equals(other._branchsName, _branchsName));
+                .equals(other._branchsName, _branchsName) &&
+            (identical(other.isCancel, isCancel) ||
+                other.isCancel == isCancel));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, companyName, companyTaxid,
-      startDate, endDate, const DeepCollectionEquality().hash(_branchsName));
+  int get hashCode => Object.hash(
+      runtimeType,
+      companyName,
+      companyTaxid,
+      startDate,
+      endDate,
+      const DeepCollectionEquality().hash(_branchsName),
+      isCancel);
 
   /// Create a copy of HDReportHQVatPosttSaleModel
   /// with the given fields replaced by the non-null parameter values.
@@ -305,7 +332,8 @@ abstract class _HDReportHQVatPosttSaleModel
           @JsonKey(name: 'master_company_taxid') final String? companyTaxid,
           @JsonKey(name: 'start_date') final String? startDate,
           @JsonKey(name: 'end_date') final String? endDate,
-          @JsonKey(name: 'branchs_name') final List<String>? branchsName}) =
+          @JsonKey(name: 'branchs_name') final List<String>? branchsName,
+          @JsonKey(name: 'is_cancel') final bool? isCancel}) =
       _$HDReportHQVatPosttSaleModelImpl;
 
   factory _HDReportHQVatPosttSaleModel.fromJson(Map<String, dynamic> json) =
@@ -350,6 +378,9 @@ abstract class _HDReportHQVatPosttSaleModel
   @override
   @JsonKey(name: 'branchs_name')
   List<String>? get branchsName;
+  @override
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel;
 
   /// Create a copy of HDReportHQVatPosttSaleModel
   /// with the given fields replaced by the non-null parameter values.

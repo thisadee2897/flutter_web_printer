@@ -48,6 +48,7 @@ _$DocumentProductReturnModelImpl _$$DocumentProductReturnModelImplFromJson(
       vatGroupName: json['master_vat_group_name'] as String?,
       contactTel: json['master_contact_tel'] as String?,
       contactTaxid: json['master_contact_taxid'] as String?,
+      isCancel: json['is_cancel'] as bool?,
     );
 
 Map<String, dynamic> _$$DocumentProductReturnModelImplToJson(
@@ -90,4 +91,5 @@ Map<String, dynamic> _$$DocumentProductReturnModelImplToJson(
       'master_vat_group_name': instance.vatGroupName,
       'master_contact_tel': instance.contactTel,
       'master_contact_taxid': instance.contactTaxid,
+      'is_cancel': instance.isCancel,
     };

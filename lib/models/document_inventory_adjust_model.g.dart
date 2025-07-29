@@ -21,6 +21,7 @@ _$DocumentInventoryAdjustModelImpl _$$DocumentInventoryAdjustModelImplFromJson(
       fullname: json['fullname'] as String?,
       menuId: json['master_menu_id'] as String?,
       adjustAmount: json['adjust_amount'] as String?,
+      isCancel: json['is_cancel'] as bool?,
     );
 
 Map<String, dynamic> _$$DocumentInventoryAdjustModelImplToJson(
@@ -38,4 +39,5 @@ Map<String, dynamic> _$$DocumentInventoryAdjustModelImplToJson(
       'fullname': instance.fullname,
       'master_menu_id': instance.menuId,
       'adjust_amount': instance.adjustAmount,
+      'is_cancel': instance.isCancel,
     };

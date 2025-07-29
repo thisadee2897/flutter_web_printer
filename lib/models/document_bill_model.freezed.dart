@@ -54,6 +54,8 @@ mixin _$DocumentBillModel {
   String? get contactTel => throw _privateConstructorUsedError;
   @JsonKey(name: 'master_contact_taxid')
   String? get contactTaxid => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel => throw _privateConstructorUsedError;
 
   /// Serializes this DocumentBillModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -88,7 +90,8 @@ abstract class $DocumentBillModelCopyWith<$Res> {
       @JsonKey(name: 'fullname') String? fullname,
       @JsonKey(name: 'master_contact_address') String? contactAddress,
       @JsonKey(name: 'master_contact_tel') String? contactTel,
-      @JsonKey(name: 'master_contact_taxid') String? contactTaxid});
+      @JsonKey(name: 'master_contact_taxid') String? contactTaxid,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -123,6 +126,7 @@ class _$DocumentBillModelCopyWithImpl<$Res, $Val extends DocumentBillModel>
     Object? contactAddress = freezed,
     Object? contactTel = freezed,
     Object? contactTaxid = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_value.copyWith(
       billHdId: freezed == billHdId
@@ -193,6 +197,10 @@ class _$DocumentBillModelCopyWithImpl<$Res, $Val extends DocumentBillModel>
           ? _value.contactTaxid
           : contactTaxid // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -222,7 +230,8 @@ abstract class _$$DocumentBillModelImplCopyWith<$Res>
       @JsonKey(name: 'fullname') String? fullname,
       @JsonKey(name: 'master_contact_address') String? contactAddress,
       @JsonKey(name: 'master_contact_tel') String? contactTel,
-      @JsonKey(name: 'master_contact_taxid') String? contactTaxid});
+      @JsonKey(name: 'master_contact_taxid') String? contactTaxid,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -255,6 +264,7 @@ class __$$DocumentBillModelImplCopyWithImpl<$Res>
     Object? contactAddress = freezed,
     Object? contactTel = freezed,
     Object? contactTaxid = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_$DocumentBillModelImpl(
       billHdId: freezed == billHdId
@@ -325,6 +335,10 @@ class __$$DocumentBillModelImplCopyWithImpl<$Res>
           ? _value.contactTaxid
           : contactTaxid // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -349,7 +363,8 @@ class _$DocumentBillModelImpl implements _DocumentBillModel {
       @JsonKey(name: 'fullname') this.fullname,
       @JsonKey(name: 'master_contact_address') this.contactAddress,
       @JsonKey(name: 'master_contact_tel') this.contactTel,
-      @JsonKey(name: 'master_contact_taxid') this.contactTaxid});
+      @JsonKey(name: 'master_contact_taxid') this.contactTaxid,
+      @JsonKey(name: 'is_cancel') this.isCancel});
 
   factory _$DocumentBillModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$DocumentBillModelImplFromJson(json);
@@ -405,10 +420,13 @@ class _$DocumentBillModelImpl implements _DocumentBillModel {
   @override
   @JsonKey(name: 'master_contact_taxid')
   final String? contactTaxid;
+  @override
+  @JsonKey(name: 'is_cancel')
+  final bool? isCancel;
 
   @override
   String toString() {
-    return 'DocumentBillModel(billHdId: $billHdId, companyId: $companyId, branchId: $branchId, branchName: $branchName, billHdDocudate: $billHdDocudate, billHdDocuno: $billHdDocuno, billHdStatusId: $billHdStatusId, contactId: $contactId, contactCode: $contactCode, contactName: $contactName, billHdDueDate: $billHdDueDate, billHdRemark: $billHdRemark, billHdAmount: $billHdAmount, fullname: $fullname, contactAddress: $contactAddress, contactTel: $contactTel, contactTaxid: $contactTaxid)';
+    return 'DocumentBillModel(billHdId: $billHdId, companyId: $companyId, branchId: $branchId, branchName: $branchName, billHdDocudate: $billHdDocudate, billHdDocuno: $billHdDocuno, billHdStatusId: $billHdStatusId, contactId: $contactId, contactCode: $contactCode, contactName: $contactName, billHdDueDate: $billHdDueDate, billHdRemark: $billHdRemark, billHdAmount: $billHdAmount, fullname: $fullname, contactAddress: $contactAddress, contactTel: $contactTel, contactTaxid: $contactTaxid, isCancel: $isCancel)';
   }
 
   @override
@@ -449,7 +467,9 @@ class _$DocumentBillModelImpl implements _DocumentBillModel {
             (identical(other.contactTel, contactTel) ||
                 other.contactTel == contactTel) &&
             (identical(other.contactTaxid, contactTaxid) ||
-                other.contactTaxid == contactTaxid));
+                other.contactTaxid == contactTaxid) &&
+            (identical(other.isCancel, isCancel) ||
+                other.isCancel == isCancel));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -472,7 +492,8 @@ class _$DocumentBillModelImpl implements _DocumentBillModel {
       fullname,
       contactAddress,
       contactTel,
-      contactTaxid);
+      contactTaxid,
+      isCancel);
 
   /// Create a copy of DocumentBillModel
   /// with the given fields replaced by the non-null parameter values.
@@ -509,7 +530,8 @@ abstract class _DocumentBillModel implements DocumentBillModel {
           @JsonKey(name: 'fullname') final String? fullname,
           @JsonKey(name: 'master_contact_address') final String? contactAddress,
           @JsonKey(name: 'master_contact_tel') final String? contactTel,
-          @JsonKey(name: 'master_contact_taxid') final String? contactTaxid}) =
+          @JsonKey(name: 'master_contact_taxid') final String? contactTaxid,
+          @JsonKey(name: 'is_cancel') final bool? isCancel}) =
       _$DocumentBillModelImpl;
 
   factory _DocumentBillModel.fromJson(Map<String, dynamic> json) =
@@ -566,6 +588,9 @@ abstract class _DocumentBillModel implements DocumentBillModel {
   @override
   @JsonKey(name: 'master_contact_taxid')
   String? get contactTaxid;
+  @override
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel;
 
   /// Create a copy of DocumentBillModel
   /// with the given fields replaced by the non-null parameter values.

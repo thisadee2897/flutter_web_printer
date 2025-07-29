@@ -77,6 +77,8 @@ mixin _$DocumentReceivableCashModel {
   String? get contactTel => throw _privateConstructorUsedError;
   @JsonKey(name: 'master_contact_taxid')
   String? get contactTaxid => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel => throw _privateConstructorUsedError;
 
   /// Serializes this DocumentReceivableCashModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -129,7 +131,8 @@ abstract class $DocumentReceivableCashModelCopyWith<$Res> {
       @JsonKey(name: 'fullname') String? fullname,
       @JsonKey(name: 'master_contact_address') String? contactAddress,
       @JsonKey(name: 'master_contact_tel') String? contactTel,
-      @JsonKey(name: 'master_contact_taxid') String? contactTaxid});
+      @JsonKey(name: 'master_contact_taxid') String? contactTaxid,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -176,6 +179,7 @@ class _$DocumentReceivableCashModelCopyWithImpl<$Res,
     Object? contactAddress = freezed,
     Object? contactTel = freezed,
     Object? contactTaxid = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_value.copyWith(
       receivableHdId: freezed == receivableHdId
@@ -290,6 +294,10 @@ class _$DocumentReceivableCashModelCopyWithImpl<$Res,
           ? _value.contactTaxid
           : contactTaxid // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -336,7 +344,8 @@ abstract class _$$DocumentReceivableCashModelImplCopyWith<$Res>
       @JsonKey(name: 'fullname') String? fullname,
       @JsonKey(name: 'master_contact_address') String? contactAddress,
       @JsonKey(name: 'master_contact_tel') String? contactTel,
-      @JsonKey(name: 'master_contact_taxid') String? contactTaxid});
+      @JsonKey(name: 'master_contact_taxid') String? contactTaxid,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -382,6 +391,7 @@ class __$$DocumentReceivableCashModelImplCopyWithImpl<$Res>
     Object? contactAddress = freezed,
     Object? contactTel = freezed,
     Object? contactTaxid = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_$DocumentReceivableCashModelImpl(
       receivableHdId: freezed == receivableHdId
@@ -496,6 +506,10 @@ class __$$DocumentReceivableCashModelImplCopyWithImpl<$Res>
           ? _value.contactTaxid
           : contactTaxid // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -536,7 +550,8 @@ class _$DocumentReceivableCashModelImpl
       @JsonKey(name: 'fullname') this.fullname,
       @JsonKey(name: 'master_contact_address') this.contactAddress,
       @JsonKey(name: 'master_contact_tel') this.contactTel,
-      @JsonKey(name: 'master_contact_taxid') this.contactTaxid});
+      @JsonKey(name: 'master_contact_taxid') this.contactTaxid,
+      @JsonKey(name: 'is_cancel') this.isCancel});
 
   factory _$DocumentReceivableCashModelImpl.fromJson(
           Map<String, dynamic> json) =>
@@ -626,10 +641,13 @@ class _$DocumentReceivableCashModelImpl
   @override
   @JsonKey(name: 'master_contact_taxid')
   final String? contactTaxid;
+  @override
+  @JsonKey(name: 'is_cancel')
+  final bool? isCancel;
 
   @override
   String toString() {
-    return 'DocumentReceivableCashModel(receivableHdId: $receivableHdId, companyId: $companyId, branchId: $branchId, branchName: $branchName, receivableHdDocudate: $receivableHdDocudate, receivableHdDocuno: $receivableHdDocuno, receivableStatusId: $receivableStatusId, receivableStatusName: $receivableStatusName, contactId: $contactId, contactCode: $contactCode, contactName: $contactName, receivableHdRemark: $receivableHdRemark, receivableHdCashAmount: $receivableHdCashAmount, receivableHdTransferAmount: $receivableHdTransferAmount, receivableHdCreditAmount: $receivableHdCreditAmount, branchBankbookId: $branchBankbookId, bankId: $bankId, bankName: $bankName, branchBankbookName: $branchBankbookName, branchBankbookBankbookno: $branchBankbookBankbookno, branchBankbookBranchname: $branchBankbookBranchname, receivableHdAmount: $receivableHdAmount, receivableHdWhtAmount: $receivableHdWhtAmount, receivableHdNetamnt: $receivableHdNetamnt, fullname: $fullname, contactAddress: $contactAddress, contactTel: $contactTel, contactTaxid: $contactTaxid)';
+    return 'DocumentReceivableCashModel(receivableHdId: $receivableHdId, companyId: $companyId, branchId: $branchId, branchName: $branchName, receivableHdDocudate: $receivableHdDocudate, receivableHdDocuno: $receivableHdDocuno, receivableStatusId: $receivableStatusId, receivableStatusName: $receivableStatusName, contactId: $contactId, contactCode: $contactCode, contactName: $contactName, receivableHdRemark: $receivableHdRemark, receivableHdCashAmount: $receivableHdCashAmount, receivableHdTransferAmount: $receivableHdTransferAmount, receivableHdCreditAmount: $receivableHdCreditAmount, branchBankbookId: $branchBankbookId, bankId: $bankId, bankName: $bankName, branchBankbookName: $branchBankbookName, branchBankbookBankbookno: $branchBankbookBankbookno, branchBankbookBranchname: $branchBankbookBranchname, receivableHdAmount: $receivableHdAmount, receivableHdWhtAmount: $receivableHdWhtAmount, receivableHdNetamnt: $receivableHdNetamnt, fullname: $fullname, contactAddress: $contactAddress, contactTel: $contactTel, contactTaxid: $contactTaxid, isCancel: $isCancel)';
   }
 
   @override
@@ -694,7 +712,9 @@ class _$DocumentReceivableCashModelImpl
             (identical(other.contactTel, contactTel) ||
                 other.contactTel == contactTel) &&
             (identical(other.contactTaxid, contactTaxid) ||
-                other.contactTaxid == contactTaxid));
+                other.contactTaxid == contactTaxid) &&
+            (identical(other.isCancel, isCancel) ||
+                other.isCancel == isCancel));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -728,7 +748,8 @@ class _$DocumentReceivableCashModelImpl
         fullname,
         contactAddress,
         contactTel,
-        contactTaxid
+        contactTaxid,
+        isCancel
       ]);
 
   /// Create a copy of DocumentReceivableCashModel
@@ -788,8 +809,9 @@ abstract class _DocumentReceivableCashModel
       @JsonKey(name: 'fullname') final String? fullname,
       @JsonKey(name: 'master_contact_address') final String? contactAddress,
       @JsonKey(name: 'master_contact_tel') final String? contactTel,
-      @JsonKey(name: 'master_contact_taxid')
-      final String? contactTaxid}) = _$DocumentReceivableCashModelImpl;
+      @JsonKey(name: 'master_contact_taxid') final String? contactTaxid,
+      @JsonKey(name: 'is_cancel')
+      final bool? isCancel}) = _$DocumentReceivableCashModelImpl;
 
   factory _DocumentReceivableCashModel.fromJson(Map<String, dynamic> json) =
       _$DocumentReceivableCashModelImpl.fromJson;
@@ -878,6 +900,9 @@ abstract class _DocumentReceivableCashModel
   @override
   @JsonKey(name: 'master_contact_taxid')
   String? get contactTaxid;
+  @override
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel;
 
   /// Create a copy of DocumentReceivableCashModel
   /// with the given fields replaced by the non-null parameter values.

@@ -34,6 +34,7 @@ class DocumentEarningStatementDTNotifier extends StateNotifier<AsyncValue<List<E
         hd.branchId = branchId!.map((e) => e as int).toList();
         hd.companyId = companyId;
         hd.typeFind = typeFind;
+        hd.isCancel = response.any((element) => element.isCancel == true);
       } catch (e) {
         if (kDebugMode) print('Error : $e');
       }
@@ -112,12 +113,14 @@ class EarningStatementHD {
   List<int>? branchId;
   String? companyId;
   String? typeFind;
+  bool? isCancel;
   EarningStatementHD({
     this.startDate,
     this.endDate,
     this.branchId,
     this.companyId,
     this.typeFind,
+    this.isCancel = false,
   });
   //tojson
   Map<String, dynamic> toJson() {
@@ -127,6 +130,7 @@ class EarningStatementHD {
       "branch_id": branchId,
       "company_id": companyId,
       "type_find": typeFind,
+      "is_cancel": isCancel,
     };
   }
 }

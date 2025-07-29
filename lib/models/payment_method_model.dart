@@ -9,6 +9,7 @@ class PaymentMethodModel with _$PaymentMethodModel {
   const factory PaymentMethodModel({
   @JsonKey(name: 'payment_method') String? paymentMethod,
   @JsonKey(name: 'amount') num? amount,
+  @JsonKey(name: 'is_cancel') bool? isCancel,
   }) = _PaymentMethodModel;
 
   factory PaymentMethodModel.fromJson(Map<String, dynamic> json) => _$PaymentMethodModelFromJson(json);

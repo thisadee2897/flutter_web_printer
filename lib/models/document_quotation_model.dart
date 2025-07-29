@@ -33,6 +33,7 @@ class DocumentQuotationModel with _$DocumentQuotationModel {
   @JsonKey(name: 'master_contact_postcode_id') String? contactPostcodeId,
   @JsonKey(name: 'master_contact_tel') String? contactTel,
   @JsonKey(name: 'master_contact_taxid') String? contactTaxid,
+  @JsonKey(name: 'is_cancel') bool? isCancel,
   }) = _DocumentQuotationModel;
 
   factory DocumentQuotationModel.fromJson(Map<String, dynamic> json) => _$DocumentQuotationModelFromJson(json);

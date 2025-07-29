@@ -35,6 +35,7 @@ class HDReportHQVatPosttSaleModel with _$HDReportHQVatPosttSaleModel {
   @JsonKey(name: 'start_date') String? startDate,
   @JsonKey(name: 'end_date') String? endDate,
   @JsonKey(name: 'branchs_name') List<String>? branchsName,
+  @JsonKey(name: 'is_cancel') bool? isCancel,
   }) = _HDReportHQVatPosttSaleModel;
 
   factory HDReportHQVatPosttSaleModel.fromJson(Map<String, dynamic> json) => _$HDReportHQVatPosttSaleModelFromJson(json);

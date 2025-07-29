@@ -36,6 +36,7 @@ _$DocumentReceiveGoodDTModelImpl _$$DocumentReceiveGoodDTModelImplFromJson(
           json['receive_dt_master_product_barcode_rate'] as String?,
       purchaseorderHdDocuno: json['purchaseorder_hd_docuno'] as String?,
       receiveDtTankNo: json['receive_dt_tank_no'] as String?,
+      isCancel: json['is_cancel'] as bool?,
     );
 
 Map<String, dynamic> _$$DocumentReceiveGoodDTModelImplToJson(
@@ -68,4 +69,5 @@ Map<String, dynamic> _$$DocumentReceiveGoodDTModelImplToJson(
           instance.receiveDtProductBarcodeRate,
       'purchaseorder_hd_docuno': instance.purchaseorderHdDocuno,
       'receive_dt_tank_no': instance.receiveDtTankNo,
+      'is_cancel': instance.isCancel,
     };

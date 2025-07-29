@@ -24,6 +24,8 @@ mixin _$PaymentMethodModel {
   String? get paymentMethod => throw _privateConstructorUsedError;
   @JsonKey(name: 'amount')
   num? get amount => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel => throw _privateConstructorUsedError;
 
   /// Serializes this PaymentMethodModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -43,7 +45,8 @@ abstract class $PaymentMethodModelCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'payment_method') String? paymentMethod,
-      @JsonKey(name: 'amount') num? amount});
+      @JsonKey(name: 'amount') num? amount,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -63,6 +66,7 @@ class _$PaymentMethodModelCopyWithImpl<$Res, $Val extends PaymentMethodModel>
   $Res call({
     Object? paymentMethod = freezed,
     Object? amount = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_value.copyWith(
       paymentMethod: freezed == paymentMethod
@@ -73,6 +77,10 @@ class _$PaymentMethodModelCopyWithImpl<$Res, $Val extends PaymentMethodModel>
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as num?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -87,7 +95,8 @@ abstract class _$$PaymentMethodModelImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: 'payment_method') String? paymentMethod,
-      @JsonKey(name: 'amount') num? amount});
+      @JsonKey(name: 'amount') num? amount,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -105,6 +114,7 @@ class __$$PaymentMethodModelImplCopyWithImpl<$Res>
   $Res call({
     Object? paymentMethod = freezed,
     Object? amount = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_$PaymentMethodModelImpl(
       paymentMethod: freezed == paymentMethod
@@ -115,6 +125,10 @@ class __$$PaymentMethodModelImplCopyWithImpl<$Res>
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as num?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -124,7 +138,8 @@ class __$$PaymentMethodModelImplCopyWithImpl<$Res>
 class _$PaymentMethodModelImpl implements _PaymentMethodModel {
   const _$PaymentMethodModelImpl(
       {@JsonKey(name: 'payment_method') this.paymentMethod,
-      @JsonKey(name: 'amount') this.amount});
+      @JsonKey(name: 'amount') this.amount,
+      @JsonKey(name: 'is_cancel') this.isCancel});
 
   factory _$PaymentMethodModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$PaymentMethodModelImplFromJson(json);
@@ -135,10 +150,13 @@ class _$PaymentMethodModelImpl implements _PaymentMethodModel {
   @override
   @JsonKey(name: 'amount')
   final num? amount;
+  @override
+  @JsonKey(name: 'is_cancel')
+  final bool? isCancel;
 
   @override
   String toString() {
-    return 'PaymentMethodModel(paymentMethod: $paymentMethod, amount: $amount)';
+    return 'PaymentMethodModel(paymentMethod: $paymentMethod, amount: $amount, isCancel: $isCancel)';
   }
 
   @override
@@ -148,12 +166,14 @@ class _$PaymentMethodModelImpl implements _PaymentMethodModel {
             other is _$PaymentMethodModelImpl &&
             (identical(other.paymentMethod, paymentMethod) ||
                 other.paymentMethod == paymentMethod) &&
-            (identical(other.amount, amount) || other.amount == amount));
+            (identical(other.amount, amount) || other.amount == amount) &&
+            (identical(other.isCancel, isCancel) ||
+                other.isCancel == isCancel));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, paymentMethod, amount);
+  int get hashCode => Object.hash(runtimeType, paymentMethod, amount, isCancel);
 
   /// Create a copy of PaymentMethodModel
   /// with the given fields replaced by the non-null parameter values.
@@ -174,8 +194,10 @@ class _$PaymentMethodModelImpl implements _PaymentMethodModel {
 
 abstract class _PaymentMethodModel implements PaymentMethodModel {
   const factory _PaymentMethodModel(
-      {@JsonKey(name: 'payment_method') final String? paymentMethod,
-      @JsonKey(name: 'amount') final num? amount}) = _$PaymentMethodModelImpl;
+          {@JsonKey(name: 'payment_method') final String? paymentMethod,
+          @JsonKey(name: 'amount') final num? amount,
+          @JsonKey(name: 'is_cancel') final bool? isCancel}) =
+      _$PaymentMethodModelImpl;
 
   factory _PaymentMethodModel.fromJson(Map<String, dynamic> json) =
       _$PaymentMethodModelImpl.fromJson;
@@ -186,6 +208,9 @@ abstract class _PaymentMethodModel implements PaymentMethodModel {
   @override
   @JsonKey(name: 'amount')
   num? get amount;
+  @override
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel;
 
   /// Create a copy of PaymentMethodModel
   /// with the given fields replaced by the non-null parameter values.

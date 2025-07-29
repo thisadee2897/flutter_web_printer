@@ -43,6 +43,8 @@ mixin _$DocumentGeneralLedgerDTModel {
   String? get creditamnt => throw _privateConstructorUsedError;
   @JsonKey(name: 'gldt_remark')
   String? get gldtRemark => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel => throw _privateConstructorUsedError;
 
   /// Serializes this DocumentGeneralLedgerDTModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -73,7 +75,8 @@ abstract class $DocumentGeneralLedgerDTModelCopyWith<$Res> {
       @JsonKey(name: 'master_branch_job_id') String? branchJobId,
       @JsonKey(name: 'debitamnt') String? debitamnt,
       @JsonKey(name: 'creditamnt') String? creditamnt,
-      @JsonKey(name: 'gldt_remark') String? gldtRemark});
+      @JsonKey(name: 'gldt_remark') String? gldtRemark,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -103,6 +106,7 @@ class _$DocumentGeneralLedgerDTModelCopyWithImpl<$Res,
     Object? debitamnt = freezed,
     Object? creditamnt = freezed,
     Object? gldtRemark = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_value.copyWith(
       gldtid: freezed == gldtid
@@ -149,6 +153,10 @@ class _$DocumentGeneralLedgerDTModelCopyWithImpl<$Res,
           ? _value.gldtRemark
           : gldtRemark // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -173,7 +181,8 @@ abstract class _$$DocumentGeneralLedgerDTModelImplCopyWith<$Res>
       @JsonKey(name: 'master_branch_job_id') String? branchJobId,
       @JsonKey(name: 'debitamnt') String? debitamnt,
       @JsonKey(name: 'creditamnt') String? creditamnt,
-      @JsonKey(name: 'gldt_remark') String? gldtRemark});
+      @JsonKey(name: 'gldt_remark') String? gldtRemark,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -202,6 +211,7 @@ class __$$DocumentGeneralLedgerDTModelImplCopyWithImpl<$Res>
     Object? debitamnt = freezed,
     Object? creditamnt = freezed,
     Object? gldtRemark = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_$DocumentGeneralLedgerDTModelImpl(
       gldtid: freezed == gldtid
@@ -248,6 +258,10 @@ class __$$DocumentGeneralLedgerDTModelImplCopyWithImpl<$Res>
           ? _value.gldtRemark
           : gldtRemark // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -267,7 +281,8 @@ class _$DocumentGeneralLedgerDTModelImpl
       @JsonKey(name: 'master_branch_job_id') this.branchJobId,
       @JsonKey(name: 'debitamnt') this.debitamnt,
       @JsonKey(name: 'creditamnt') this.creditamnt,
-      @JsonKey(name: 'gldt_remark') this.gldtRemark});
+      @JsonKey(name: 'gldt_remark') this.gldtRemark,
+      @JsonKey(name: 'is_cancel') this.isCancel});
 
   factory _$DocumentGeneralLedgerDTModelImpl.fromJson(
           Map<String, dynamic> json) =>
@@ -306,10 +321,13 @@ class _$DocumentGeneralLedgerDTModelImpl
   @override
   @JsonKey(name: 'gldt_remark')
   final String? gldtRemark;
+  @override
+  @JsonKey(name: 'is_cancel')
+  final bool? isCancel;
 
   @override
   String toString() {
-    return 'DocumentGeneralLedgerDTModel(gldtid: $gldtid, glhdid: $glhdid, gldtListno: $gldtListno, accountId: $accountId, accountCode: $accountCode, accountName: $accountName, branchId: $branchId, branchJobId: $branchJobId, debitamnt: $debitamnt, creditamnt: $creditamnt, gldtRemark: $gldtRemark)';
+    return 'DocumentGeneralLedgerDTModel(gldtid: $gldtid, glhdid: $glhdid, gldtListno: $gldtListno, accountId: $accountId, accountCode: $accountCode, accountName: $accountName, branchId: $branchId, branchJobId: $branchJobId, debitamnt: $debitamnt, creditamnt: $creditamnt, gldtRemark: $gldtRemark, isCancel: $isCancel)';
   }
 
   @override
@@ -336,7 +354,9 @@ class _$DocumentGeneralLedgerDTModelImpl
             (identical(other.creditamnt, creditamnt) ||
                 other.creditamnt == creditamnt) &&
             (identical(other.gldtRemark, gldtRemark) ||
-                other.gldtRemark == gldtRemark));
+                other.gldtRemark == gldtRemark) &&
+            (identical(other.isCancel, isCancel) ||
+                other.isCancel == isCancel));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -353,7 +373,8 @@ class _$DocumentGeneralLedgerDTModelImpl
       branchJobId,
       debitamnt,
       creditamnt,
-      gldtRemark);
+      gldtRemark,
+      isCancel);
 
   /// Create a copy of DocumentGeneralLedgerDTModel
   /// with the given fields replaced by the non-null parameter values.
@@ -386,7 +407,8 @@ abstract class _DocumentGeneralLedgerDTModel
           @JsonKey(name: 'master_branch_job_id') final String? branchJobId,
           @JsonKey(name: 'debitamnt') final String? debitamnt,
           @JsonKey(name: 'creditamnt') final String? creditamnt,
-          @JsonKey(name: 'gldt_remark') final String? gldtRemark}) =
+          @JsonKey(name: 'gldt_remark') final String? gldtRemark,
+          @JsonKey(name: 'is_cancel') final bool? isCancel}) =
       _$DocumentGeneralLedgerDTModelImpl;
 
   factory _DocumentGeneralLedgerDTModel.fromJson(Map<String, dynamic> json) =
@@ -425,6 +447,9 @@ abstract class _DocumentGeneralLedgerDTModel
   @override
   @JsonKey(name: 'gldt_remark')
   String? get gldtRemark;
+  @override
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel;
 
   /// Create a copy of DocumentGeneralLedgerDTModel
   /// with the given fields replaced by the non-null parameter values.

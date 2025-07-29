@@ -93,6 +93,8 @@ mixin _$DocumentPayTheDipositModel {
   String? get contactTel => throw _privateConstructorUsedError;
   @JsonKey(name: 'master_contact_taxid')
   String? get contactTaxid => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel => throw _privateConstructorUsedError;
 
   /// Serializes this DocumentPayTheDipositModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -151,7 +153,8 @@ abstract class $DocumentPayTheDipositModelCopyWith<$Res> {
       @JsonKey(name: 'master_bank_name') String? bankName,
       @JsonKey(name: 'master_contact_address') String? contactAddress,
       @JsonKey(name: 'master_contact_tel') String? contactTel,
-      @JsonKey(name: 'master_contact_taxid') String? contactTaxid});
+      @JsonKey(name: 'master_contact_taxid') String? contactTaxid,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -206,6 +209,7 @@ class _$DocumentPayTheDipositModelCopyWithImpl<$Res,
     Object? contactAddress = freezed,
     Object? contactTel = freezed,
     Object? contactTaxid = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_value.copyWith(
       payDepositId: freezed == payDepositId
@@ -352,6 +356,10 @@ class _$DocumentPayTheDipositModelCopyWithImpl<$Res,
           ? _value.contactTaxid
           : contactTaxid // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -405,7 +413,8 @@ abstract class _$$DocumentPayTheDipositModelImplCopyWith<$Res>
       @JsonKey(name: 'master_bank_name') String? bankName,
       @JsonKey(name: 'master_contact_address') String? contactAddress,
       @JsonKey(name: 'master_contact_tel') String? contactTel,
-      @JsonKey(name: 'master_contact_taxid') String? contactTaxid});
+      @JsonKey(name: 'master_contact_taxid') String? contactTaxid,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -459,6 +468,7 @@ class __$$DocumentPayTheDipositModelImplCopyWithImpl<$Res>
     Object? contactAddress = freezed,
     Object? contactTel = freezed,
     Object? contactTaxid = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_$DocumentPayTheDipositModelImpl(
       payDepositId: freezed == payDepositId
@@ -605,6 +615,10 @@ class __$$DocumentPayTheDipositModelImplCopyWithImpl<$Res>
           ? _value.contactTaxid
           : contactTaxid // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -651,7 +665,8 @@ class _$DocumentPayTheDipositModelImpl implements _DocumentPayTheDipositModel {
       @JsonKey(name: 'master_bank_name') this.bankName,
       @JsonKey(name: 'master_contact_address') this.contactAddress,
       @JsonKey(name: 'master_contact_tel') this.contactTel,
-      @JsonKey(name: 'master_contact_taxid') this.contactTaxid});
+      @JsonKey(name: 'master_contact_taxid') this.contactTaxid,
+      @JsonKey(name: 'is_cancel') this.isCancel});
 
   factory _$DocumentPayTheDipositModelImpl.fromJson(
           Map<String, dynamic> json) =>
@@ -765,10 +780,13 @@ class _$DocumentPayTheDipositModelImpl implements _DocumentPayTheDipositModel {
   @override
   @JsonKey(name: 'master_contact_taxid')
   final String? contactTaxid;
+  @override
+  @JsonKey(name: 'is_cancel')
+  final bool? isCancel;
 
   @override
   String toString() {
-    return 'DocumentPayTheDipositModel(payDepositId: $payDepositId, companyId: $companyId, branchId: $branchId, branchCode: $branchCode, branchName: $branchName, payDepositDocudate: $payDepositDocudate, payDepositDocuno: $payDepositDocuno, payDepositStatusId: $payDepositStatusId, contactId: $contactId, contactCode: $contactCode, contactName: $contactName, payDepositRemark: $payDepositRemark, vatGroupId: $vatGroupId, vatRate: $vatRate, branchBankbookId: $branchBankbookId, vendorBankId: $vendorBankId, vendorBankName: $vendorBankName, vendorBankbookno: $vendorBankbookno, vendorBankbookName: $vendorBankbookName, vendorBankBranchname: $vendorBankBranchname, payDepositAmount: $payDepositAmount, payDepositBaseamnt: $payDepositBaseamnt, payDepositVatamnt: $payDepositVatamnt, payDepositNetamnt: $payDepositNetamnt, payDepositCashAmount: $payDepositCashAmount, payDepositTransferAmount: $payDepositTransferAmount, payDepositBalanceAmount: $payDepositBalanceAmount, fullname: $fullname, vatGroupName: $vatGroupName, branchBankbookBankbookno: $branchBankbookBankbookno, branchBankbookBranchname: $branchBankbookBranchname, branchBankbookName: $branchBankbookName, bankName: $bankName, contactAddress: $contactAddress, contactTel: $contactTel, contactTaxid: $contactTaxid)';
+    return 'DocumentPayTheDipositModel(payDepositId: $payDepositId, companyId: $companyId, branchId: $branchId, branchCode: $branchCode, branchName: $branchName, payDepositDocudate: $payDepositDocudate, payDepositDocuno: $payDepositDocuno, payDepositStatusId: $payDepositStatusId, contactId: $contactId, contactCode: $contactCode, contactName: $contactName, payDepositRemark: $payDepositRemark, vatGroupId: $vatGroupId, vatRate: $vatRate, branchBankbookId: $branchBankbookId, vendorBankId: $vendorBankId, vendorBankName: $vendorBankName, vendorBankbookno: $vendorBankbookno, vendorBankbookName: $vendorBankbookName, vendorBankBranchname: $vendorBankBranchname, payDepositAmount: $payDepositAmount, payDepositBaseamnt: $payDepositBaseamnt, payDepositVatamnt: $payDepositVatamnt, payDepositNetamnt: $payDepositNetamnt, payDepositCashAmount: $payDepositCashAmount, payDepositTransferAmount: $payDepositTransferAmount, payDepositBalanceAmount: $payDepositBalanceAmount, fullname: $fullname, vatGroupName: $vatGroupName, branchBankbookBankbookno: $branchBankbookBankbookno, branchBankbookBranchname: $branchBankbookBranchname, branchBankbookName: $branchBankbookName, bankName: $bankName, contactAddress: $contactAddress, contactTel: $contactTel, contactTaxid: $contactTaxid, isCancel: $isCancel)';
   }
 
   @override
@@ -848,7 +866,8 @@ class _$DocumentPayTheDipositModelImpl implements _DocumentPayTheDipositModel {
             (identical(other.contactTel, contactTel) ||
                 other.contactTel == contactTel) &&
             (identical(other.contactTaxid, contactTaxid) ||
-                other.contactTaxid == contactTaxid));
+                other.contactTaxid == contactTaxid) &&
+            (identical(other.isCancel, isCancel) || other.isCancel == isCancel));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -890,7 +909,8 @@ class _$DocumentPayTheDipositModelImpl implements _DocumentPayTheDipositModel {
         bankName,
         contactAddress,
         contactTel,
-        contactTaxid
+        contactTaxid,
+        isCancel
       ]);
 
   /// Create a copy of DocumentPayTheDipositModel
@@ -956,8 +976,9 @@ abstract class _DocumentPayTheDipositModel
       @JsonKey(name: 'master_bank_name') final String? bankName,
       @JsonKey(name: 'master_contact_address') final String? contactAddress,
       @JsonKey(name: 'master_contact_tel') final String? contactTel,
-      @JsonKey(name: 'master_contact_taxid')
-      final String? contactTaxid}) = _$DocumentPayTheDipositModelImpl;
+      @JsonKey(name: 'master_contact_taxid') final String? contactTaxid,
+      @JsonKey(name: 'is_cancel')
+      final bool? isCancel}) = _$DocumentPayTheDipositModelImpl;
 
   factory _DocumentPayTheDipositModel.fromJson(Map<String, dynamic> json) =
       _$DocumentPayTheDipositModelImpl.fromJson;
@@ -1070,6 +1091,9 @@ abstract class _DocumentPayTheDipositModel
   @override
   @JsonKey(name: 'master_contact_taxid')
   String? get contactTaxid;
+  @override
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel;
 
   /// Create a copy of DocumentPayTheDipositModel
   /// with the given fields replaced by the non-null parameter values.

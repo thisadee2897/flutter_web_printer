@@ -35,6 +35,7 @@ class DocumentReceivableCashModel with _$DocumentReceivableCashModel {
   @JsonKey(name: 'master_contact_address') String? contactAddress,
   @JsonKey(name: 'master_contact_tel') String? contactTel,
   @JsonKey(name: 'master_contact_taxid') String? contactTaxid,
+  @JsonKey(name: 'is_cancel') bool? isCancel,
   }) = _DocumentReceivableCashModel;
 
   factory DocumentReceivableCashModel.fromJson(Map<String, dynamic> json) => _$DocumentReceivableCashModelFromJson(json);

@@ -41,6 +41,7 @@ class DocumentProductReturnModel with _$DocumentProductReturnModel {
   @JsonKey(name: 'master_vat_group_name') String? vatGroupName,
   @JsonKey(name: 'master_contact_tel') String? contactTel,
   @JsonKey(name: 'master_contact_taxid') String? contactTaxid,
+  @JsonKey(name: 'is_cancel') bool? isCancel,
   }) = _DocumentProductReturnModel;
 
   factory DocumentProductReturnModel.fromJson(Map<String, dynamic> json) => _$DocumentProductReturnModelFromJson(json);

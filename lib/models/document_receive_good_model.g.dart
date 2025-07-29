@@ -56,6 +56,7 @@ _$DocumentReceiveGoodModelImpl _$$DocumentReceiveGoodModelImplFromJson(
       contactTaxid: json['master_contact_taxid'] as String?,
       receiveHdInvoiceNo: json['receive_hd_invoice_no'] as String?,
       receiveHdInvoiceDate: json['receive_hd_invoice_date'] as String?,
+      isCancel: json['is_cancel'] as bool?,
     );
 
 Map<String, dynamic> _$$DocumentReceiveGoodModelImplToJson(
@@ -107,4 +108,5 @@ Map<String, dynamic> _$$DocumentReceiveGoodModelImplToJson(
       'master_contact_taxid': instance.contactTaxid,
       'receive_hd_invoice_no': instance.receiveHdInvoiceNo,
       'receive_hd_invoice_date': instance.receiveHdInvoiceDate,
+      'is_cancel': instance.isCancel,
     };

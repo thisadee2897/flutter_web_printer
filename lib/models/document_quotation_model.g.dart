@@ -35,6 +35,7 @@ _$DocumentQuotationModelImpl _$$DocumentQuotationModelImplFromJson(
       contactPostcodeId: json['master_contact_postcode_id'] as String?,
       contactTel: json['master_contact_tel'] as String?,
       contactTaxid: json['master_contact_taxid'] as String?,
+      isCancel: json['is_cancel'] as bool?,
     );
 
 Map<String, dynamic> _$$DocumentQuotationModelImplToJson(
@@ -66,4 +67,5 @@ Map<String, dynamic> _$$DocumentQuotationModelImplToJson(
       'master_contact_postcode_id': instance.contactPostcodeId,
       'master_contact_tel': instance.contactTel,
       'master_contact_taxid': instance.contactTaxid,
+      'is_cancel': instance.isCancel,
     };

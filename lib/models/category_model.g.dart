@@ -11,6 +11,7 @@ _$CategoryModelImpl _$$CategoryModelImplFromJson(Map<String, dynamic> json) =>
       categoryName: json['category_name'] as String?,
       quantity: json['quantity'] as num?,
       amount: json['amount'] as num?,
+      isCancel: json['is_cancel'] as bool?,
     );
 
 Map<String, dynamic> _$$CategoryModelImplToJson(_$CategoryModelImpl instance) =>
@@ -18,4 +19,5 @@ Map<String, dynamic> _$$CategoryModelImplToJson(_$CategoryModelImpl instance) =>
       'category_name': instance.categoryName,
       'quantity': instance.quantity,
       'amount': instance.amount,
+      'is_cancel': instance.isCancel,
     };

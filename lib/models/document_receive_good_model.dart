@@ -51,6 +51,7 @@ class DocumentReceiveGoodModel with _$DocumentReceiveGoodModel {
   @JsonKey(name: 'master_contact_taxid') String? contactTaxid,
   @JsonKey(name: 'receive_hd_invoice_no') String? receiveHdInvoiceNo,
   @JsonKey(name: 'receive_hd_invoice_date') String? receiveHdInvoiceDate,
+  @JsonKey(name: 'is_cancel') bool? isCancel,
   }) = _DocumentReceiveGoodModel;
 
   factory DocumentReceiveGoodModel.fromJson(Map<String, dynamic> json) => _$DocumentReceiveGoodModelFromJson(json);

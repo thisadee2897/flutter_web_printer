@@ -111,6 +111,8 @@ mixin _$DocumentReceiveGoodModel {
   String? get receiveHdInvoiceNo => throw _privateConstructorUsedError;
   @JsonKey(name: 'receive_hd_invoice_date')
   String? get receiveHdInvoiceDate => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel => throw _privateConstructorUsedError;
 
   /// Serializes this DocumentReceiveGoodModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -181,7 +183,8 @@ abstract class $DocumentReceiveGoodModelCopyWith<$Res> {
       @JsonKey(name: 'master_contact_tel') String? contactTel,
       @JsonKey(name: 'master_contact_taxid') String? contactTaxid,
       @JsonKey(name: 'receive_hd_invoice_no') String? receiveHdInvoiceNo,
-      @JsonKey(name: 'receive_hd_invoice_date') String? receiveHdInvoiceDate});
+      @JsonKey(name: 'receive_hd_invoice_date') String? receiveHdInvoiceDate,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -244,6 +247,7 @@ class _$DocumentReceiveGoodModelCopyWithImpl<$Res,
     Object? contactTaxid = freezed,
     Object? receiveHdInvoiceNo = freezed,
     Object? receiveHdInvoiceDate = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_value.copyWith(
       receiveHdId: freezed == receiveHdId
@@ -424,6 +428,10 @@ class _$DocumentReceiveGoodModelCopyWithImpl<$Res,
           ? _value.receiveHdInvoiceDate
           : receiveHdInvoiceDate // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -490,7 +498,8 @@ abstract class _$$DocumentReceiveGoodModelImplCopyWith<$Res>
       @JsonKey(name: 'master_contact_tel') String? contactTel,
       @JsonKey(name: 'master_contact_taxid') String? contactTaxid,
       @JsonKey(name: 'receive_hd_invoice_no') String? receiveHdInvoiceNo,
-      @JsonKey(name: 'receive_hd_invoice_date') String? receiveHdInvoiceDate});
+      @JsonKey(name: 'receive_hd_invoice_date') String? receiveHdInvoiceDate,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -552,6 +561,7 @@ class __$$DocumentReceiveGoodModelImplCopyWithImpl<$Res>
     Object? contactTaxid = freezed,
     Object? receiveHdInvoiceNo = freezed,
     Object? receiveHdInvoiceDate = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_$DocumentReceiveGoodModelImpl(
       receiveHdId: freezed == receiveHdId
@@ -732,6 +742,10 @@ class __$$DocumentReceiveGoodModelImplCopyWithImpl<$Res>
           ? _value.receiveHdInvoiceDate
           : receiveHdInvoiceDate // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -788,7 +802,8 @@ class _$DocumentReceiveGoodModelImpl implements _DocumentReceiveGoodModel {
       @JsonKey(name: 'master_contact_tel') this.contactTel,
       @JsonKey(name: 'master_contact_taxid') this.contactTaxid,
       @JsonKey(name: 'receive_hd_invoice_no') this.receiveHdInvoiceNo,
-      @JsonKey(name: 'receive_hd_invoice_date') this.receiveHdInvoiceDate});
+      @JsonKey(name: 'receive_hd_invoice_date') this.receiveHdInvoiceDate,
+      @JsonKey(name: 'is_cancel') this.isCancel});
 
   factory _$DocumentReceiveGoodModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$DocumentReceiveGoodModelImplFromJson(json);
@@ -925,10 +940,13 @@ class _$DocumentReceiveGoodModelImpl implements _DocumentReceiveGoodModel {
   @override
   @JsonKey(name: 'receive_hd_invoice_date')
   final String? receiveHdInvoiceDate;
+  @override
+  @JsonKey(name: 'is_cancel')
+  final bool? isCancel;
 
   @override
   String toString() {
-    return 'DocumentReceiveGoodModel(receiveHdId: $receiveHdId, companyId: $companyId, branchId: $branchId, branchCode: $branchCode, branchName: $branchName, receiveHdDocudate: $receiveHdDocudate, receiveHdDocuno: $receiveHdDocuno, receiveHdStatusId: $receiveHdStatusId, contactId: $contactId, contactCode: $contactCode, contactName: $contactName, receiveHdRemark: $receiveHdRemark, vatGroupId: $vatGroupId, vatGroupName: $vatGroupName, receiveHdAmount: $receiveHdAmount, receiveHdTotalexcludeamnt: $receiveHdTotalexcludeamnt, receiveHdTotalincludeamnt: $receiveHdTotalincludeamnt, receiveHdBaseamnt: $receiveHdBaseamnt, receiveHdVatamnt: $receiveHdVatamnt, receiveHdDiscountAmount: $receiveHdDiscountAmount, receiveHdNetamnt: $receiveHdNetamnt, receiveHdCreditday: $receiveHdCreditday, receiveHdCashAmount: $receiveHdCashAmount, receiveHdTransferAmount: $receiveHdTransferAmount, bankId: $bankId, receiveHdBankbookno: $receiveHdBankbookno, receiveHdBankName: $receiveHdBankName, receiveHdBankBranchname: $receiveHdBankBranchname, bankName: $bankName, branchBankbookId: $branchBankbookId, bankIdComany: $bankIdComany, bankNameCompany: $bankNameCompany, branchBankbookBankbooknoCompany: $branchBankbookBankbooknoCompany, branchBankbookBranchnameCompany: $branchBankbookBranchnameCompany, branchBankbookNameComapny: $branchBankbookNameComapny, vatRate: $vatRate, fullname: $fullname, receiveHdDepositAmount: $receiveHdDepositAmount, menuId: $menuId, contactAddress: $contactAddress, contactTel: $contactTel, contactTaxid: $contactTaxid, receiveHdInvoiceNo: $receiveHdInvoiceNo, receiveHdInvoiceDate: $receiveHdInvoiceDate)';
+    return 'DocumentReceiveGoodModel(receiveHdId: $receiveHdId, companyId: $companyId, branchId: $branchId, branchCode: $branchCode, branchName: $branchName, receiveHdDocudate: $receiveHdDocudate, receiveHdDocuno: $receiveHdDocuno, receiveHdStatusId: $receiveHdStatusId, contactId: $contactId, contactCode: $contactCode, contactName: $contactName, receiveHdRemark: $receiveHdRemark, vatGroupId: $vatGroupId, vatGroupName: $vatGroupName, receiveHdAmount: $receiveHdAmount, receiveHdTotalexcludeamnt: $receiveHdTotalexcludeamnt, receiveHdTotalincludeamnt: $receiveHdTotalincludeamnt, receiveHdBaseamnt: $receiveHdBaseamnt, receiveHdVatamnt: $receiveHdVatamnt, receiveHdDiscountAmount: $receiveHdDiscountAmount, receiveHdNetamnt: $receiveHdNetamnt, receiveHdCreditday: $receiveHdCreditday, receiveHdCashAmount: $receiveHdCashAmount, receiveHdTransferAmount: $receiveHdTransferAmount, bankId: $bankId, receiveHdBankbookno: $receiveHdBankbookno, receiveHdBankName: $receiveHdBankName, receiveHdBankBranchname: $receiveHdBankBranchname, bankName: $bankName, branchBankbookId: $branchBankbookId, bankIdComany: $bankIdComany, bankNameCompany: $bankNameCompany, branchBankbookBankbooknoCompany: $branchBankbookBankbooknoCompany, branchBankbookBranchnameCompany: $branchBankbookBranchnameCompany, branchBankbookNameComapny: $branchBankbookNameComapny, vatRate: $vatRate, fullname: $fullname, receiveHdDepositAmount: $receiveHdDepositAmount, menuId: $menuId, contactAddress: $contactAddress, contactTel: $contactTel, contactTaxid: $contactTaxid, receiveHdInvoiceNo: $receiveHdInvoiceNo, receiveHdInvoiceDate: $receiveHdInvoiceDate, isCancel: $isCancel)';
   }
 
   @override
@@ -1013,7 +1031,8 @@ class _$DocumentReceiveGoodModelImpl implements _DocumentReceiveGoodModel {
             (identical(other.contactTel, contactTel) || other.contactTel == contactTel) &&
             (identical(other.contactTaxid, contactTaxid) || other.contactTaxid == contactTaxid) &&
             (identical(other.receiveHdInvoiceNo, receiveHdInvoiceNo) || other.receiveHdInvoiceNo == receiveHdInvoiceNo) &&
-            (identical(other.receiveHdInvoiceDate, receiveHdInvoiceDate) || other.receiveHdInvoiceDate == receiveHdInvoiceDate));
+            (identical(other.receiveHdInvoiceDate, receiveHdInvoiceDate) || other.receiveHdInvoiceDate == receiveHdInvoiceDate) &&
+            (identical(other.isCancel, isCancel) || other.isCancel == isCancel));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -1063,7 +1082,8 @@ class _$DocumentReceiveGoodModelImpl implements _DocumentReceiveGoodModel {
         contactTel,
         contactTaxid,
         receiveHdInvoiceNo,
-        receiveHdInvoiceDate
+        receiveHdInvoiceDate,
+        isCancel
       ]);
 
   /// Create a copy of DocumentReceiveGoodModel
@@ -1140,7 +1160,9 @@ abstract class _DocumentReceiveGoodModel implements DocumentReceiveGoodModel {
       @JsonKey(name: 'master_contact_taxid') final String? contactTaxid,
       @JsonKey(name: 'receive_hd_invoice_no') final String? receiveHdInvoiceNo,
       @JsonKey(name: 'receive_hd_invoice_date')
-      final String? receiveHdInvoiceDate}) = _$DocumentReceiveGoodModelImpl;
+      final String? receiveHdInvoiceDate,
+      @JsonKey(name: 'is_cancel')
+      final bool? isCancel}) = _$DocumentReceiveGoodModelImpl;
 
   factory _DocumentReceiveGoodModel.fromJson(Map<String, dynamic> json) =
       _$DocumentReceiveGoodModelImpl.fromJson;
@@ -1277,6 +1299,9 @@ abstract class _DocumentReceiveGoodModel implements DocumentReceiveGoodModel {
   @override
   @JsonKey(name: 'receive_hd_invoice_date')
   String? get receiveHdInvoiceDate;
+  @override
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel;
 
   /// Create a copy of DocumentReceiveGoodModel
   /// with the given fields replaced by the non-null parameter values.

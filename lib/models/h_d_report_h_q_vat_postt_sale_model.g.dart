@@ -16,6 +16,7 @@ _$HDReportHQVatPosttSaleModelImpl _$$HDReportHQVatPosttSaleModelImplFromJson(
       branchsName: (json['branchs_name'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
+      isCancel: json['is_cancel'] as bool?,
     );
 
 Map<String, dynamic> _$$HDReportHQVatPosttSaleModelImplToJson(
@@ -26,4 +27,5 @@ Map<String, dynamic> _$$HDReportHQVatPosttSaleModelImplToJson(
       'start_date': instance.startDate,
       'end_date': instance.endDate,
       'branchs_name': instance.branchsName,
+      'is_cancel': instance.isCancel,
     };

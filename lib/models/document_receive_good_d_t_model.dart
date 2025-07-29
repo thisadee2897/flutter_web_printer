@@ -29,6 +29,7 @@ class DocumentReceiveGoodDTModel with _$DocumentReceiveGoodDTModel {
   @JsonKey(name: 'receive_dt_master_product_barcode_rate') String? receiveDtProductBarcodeRate,
   @JsonKey(name: 'purchaseorder_hd_docuno') String? purchaseorderHdDocuno,
   @JsonKey(name: 'receive_dt_tank_no') String? receiveDtTankNo,
+  @JsonKey(name: 'is_cancel') bool? isCancel,
   }) = _DocumentReceiveGoodDTModel;
 
   factory DocumentReceiveGoodDTModel.fromJson(Map<String, dynamic> json) => _$DocumentReceiveGoodDTModelFromJson(json);

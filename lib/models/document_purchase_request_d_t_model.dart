@@ -24,6 +24,7 @@ class DocumentPurchaseRequestDTModel with _$DocumentPurchaseRequestDTModel {
   @JsonKey(name: 'purchaserequest_dt_master_product_barcode_master_unit_id') String? purchaserequestDtProductBarcodeMasterUnitId,
   @JsonKey(name: 'purchaserequest_dt_master_product_barcode_master_unit_name') String? purchaserequestDtProductBarcodeMasterUnitName,
   @JsonKey(name: 'purchaserequest_dt_master_product_barcode_rate') String? purchaserequestDtProductBarcodeRate,
+  @JsonKey(name: 'is_cancel') bool? isCancel,
   }) = _DocumentPurchaseRequestDTModel;
 
   factory DocumentPurchaseRequestDTModel.fromJson(Map<String, dynamic> json) => _$DocumentPurchaseRequestDTModelFromJson(json);

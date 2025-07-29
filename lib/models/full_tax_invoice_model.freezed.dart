@@ -31,6 +31,8 @@ mixin _$FullTaxInvoiceModel {
       throw _privateConstructorUsedError;
   @JsonKey(name: 'footer')
   FooterFullTaxInvoiceModel? get footer => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel => throw _privateConstructorUsedError;
 
   /// Serializes this FullTaxInvoiceModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -53,7 +55,8 @@ abstract class $FullTaxInvoiceModelCopyWith<$Res> {
       @JsonKey(name: 'copy') bool? copy,
       @JsonKey(name: 'header') HeaderFullTaxInvoiceModel? header,
       @JsonKey(name: 'details') List<DetailTaxInvoiceModel>? details,
-      @JsonKey(name: 'footer') FooterFullTaxInvoiceModel? footer});
+      @JsonKey(name: 'footer') FooterFullTaxInvoiceModel? footer,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 
   $HeaderFullTaxInvoiceModelCopyWith<$Res>? get header;
   $FooterFullTaxInvoiceModelCopyWith<$Res>? get footer;
@@ -79,6 +82,7 @@ class _$FullTaxInvoiceModelCopyWithImpl<$Res, $Val extends FullTaxInvoiceModel>
     Object? header = freezed,
     Object? details = freezed,
     Object? footer = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_value.copyWith(
       original: freezed == original
@@ -101,6 +105,10 @@ class _$FullTaxInvoiceModelCopyWithImpl<$Res, $Val extends FullTaxInvoiceModel>
           ? _value.footer
           : footer // ignore: cast_nullable_to_non_nullable
               as FooterFullTaxInvoiceModel?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 
@@ -146,7 +154,8 @@ abstract class _$$FullTaxInvoiceModelImplCopyWith<$Res>
       @JsonKey(name: 'copy') bool? copy,
       @JsonKey(name: 'header') HeaderFullTaxInvoiceModel? header,
       @JsonKey(name: 'details') List<DetailTaxInvoiceModel>? details,
-      @JsonKey(name: 'footer') FooterFullTaxInvoiceModel? footer});
+      @JsonKey(name: 'footer') FooterFullTaxInvoiceModel? footer,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 
   @override
   $HeaderFullTaxInvoiceModelCopyWith<$Res>? get header;
@@ -172,6 +181,7 @@ class __$$FullTaxInvoiceModelImplCopyWithImpl<$Res>
     Object? header = freezed,
     Object? details = freezed,
     Object? footer = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_$FullTaxInvoiceModelImpl(
       original: freezed == original
@@ -194,6 +204,10 @@ class __$$FullTaxInvoiceModelImplCopyWithImpl<$Res>
           ? _value.footer
           : footer // ignore: cast_nullable_to_non_nullable
               as FooterFullTaxInvoiceModel?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -206,7 +220,8 @@ class _$FullTaxInvoiceModelImpl implements _FullTaxInvoiceModel {
       @JsonKey(name: 'copy') this.copy,
       @JsonKey(name: 'header') this.header,
       @JsonKey(name: 'details') final List<DetailTaxInvoiceModel>? details,
-      @JsonKey(name: 'footer') this.footer})
+      @JsonKey(name: 'footer') this.footer,
+      @JsonKey(name: 'is_cancel') this.isCancel})
       : _details = details;
 
   factory _$FullTaxInvoiceModelImpl.fromJson(Map<String, dynamic> json) =>
@@ -235,10 +250,13 @@ class _$FullTaxInvoiceModelImpl implements _FullTaxInvoiceModel {
   @override
   @JsonKey(name: 'footer')
   final FooterFullTaxInvoiceModel? footer;
+  @override
+  @JsonKey(name: 'is_cancel')
+  final bool? isCancel;
 
   @override
   String toString() {
-    return 'FullTaxInvoiceModel(original: $original, copy: $copy, header: $header, details: $details, footer: $footer)';
+    return 'FullTaxInvoiceModel(original: $original, copy: $copy, header: $header, details: $details, footer: $footer, isCancel: $isCancel)';
   }
 
   @override
@@ -251,13 +269,15 @@ class _$FullTaxInvoiceModelImpl implements _FullTaxInvoiceModel {
             (identical(other.copy, copy) || other.copy == copy) &&
             (identical(other.header, header) || other.header == header) &&
             const DeepCollectionEquality().equals(other._details, _details) &&
-            (identical(other.footer, footer) || other.footer == footer));
+            (identical(other.footer, footer) || other.footer == footer) &&
+            (identical(other.isCancel, isCancel) ||
+                other.isCancel == isCancel));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, original, copy, header,
-      const DeepCollectionEquality().hash(_details), footer);
+      const DeepCollectionEquality().hash(_details), footer, isCancel);
 
   /// Create a copy of FullTaxInvoiceModel
   /// with the given fields replaced by the non-null parameter values.
@@ -282,7 +302,8 @@ abstract class _FullTaxInvoiceModel implements FullTaxInvoiceModel {
           @JsonKey(name: 'copy') final bool? copy,
           @JsonKey(name: 'header') final HeaderFullTaxInvoiceModel? header,
           @JsonKey(name: 'details') final List<DetailTaxInvoiceModel>? details,
-          @JsonKey(name: 'footer') final FooterFullTaxInvoiceModel? footer}) =
+          @JsonKey(name: 'footer') final FooterFullTaxInvoiceModel? footer,
+          @JsonKey(name: 'is_cancel') final bool? isCancel}) =
       _$FullTaxInvoiceModelImpl;
 
   factory _FullTaxInvoiceModel.fromJson(Map<String, dynamic> json) =
@@ -303,6 +324,9 @@ abstract class _FullTaxInvoiceModel implements FullTaxInvoiceModel {
   @override
   @JsonKey(name: 'footer')
   FooterFullTaxInvoiceModel? get footer;
+  @override
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel;
 
   /// Create a copy of FullTaxInvoiceModel
   /// with the given fields replaced by the non-null parameter values.

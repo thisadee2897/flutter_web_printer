@@ -66,6 +66,8 @@ mixin _$DocumentPurchaseOrderDTModel {
   @JsonKey(name: 'purchaseorder_dt_master_product_barcode_rate')
   String? get purchaseorderDtProductBarcodeRate =>
       throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel => throw _privateConstructorUsedError;
 
   /// Serializes this DocumentPurchaseOrderDTModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -112,7 +114,8 @@ abstract class $DocumentPurchaseOrderDTModelCopyWith<$Res> {
       @JsonKey(name: 'purchaseorder_dt_master_product_barcode_master_unit_name')
       String? purchaseorderDtProductBarcodeMasterUnitName,
       @JsonKey(name: 'purchaseorder_dt_master_product_barcode_rate')
-      String? purchaseorderDtProductBarcodeRate});
+      String? purchaseorderDtProductBarcodeRate,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -151,6 +154,7 @@ class _$DocumentPurchaseOrderDTModelCopyWithImpl<$Res,
     Object? purchaseorderDtProductBarcodeMasterUnitId = freezed,
     Object? purchaseorderDtProductBarcodeMasterUnitName = freezed,
     Object? purchaseorderDtProductBarcodeRate = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_value.copyWith(
       purchaseorderDtId: freezed == purchaseorderDtId
@@ -238,6 +242,10 @@ class _$DocumentPurchaseOrderDTModelCopyWithImpl<$Res,
           ? _value.purchaseorderDtProductBarcodeRate
           : purchaseorderDtProductBarcodeRate // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -278,7 +286,8 @@ abstract class _$$DocumentPurchaseOrderDTModelImplCopyWith<$Res>
       @JsonKey(name: 'purchaseorder_dt_master_product_barcode_master_unit_name')
       String? purchaseorderDtProductBarcodeMasterUnitName,
       @JsonKey(name: 'purchaseorder_dt_master_product_barcode_rate')
-      String? purchaseorderDtProductBarcodeRate});
+      String? purchaseorderDtProductBarcodeRate,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -316,6 +325,7 @@ class __$$DocumentPurchaseOrderDTModelImplCopyWithImpl<$Res>
     Object? purchaseorderDtProductBarcodeMasterUnitId = freezed,
     Object? purchaseorderDtProductBarcodeMasterUnitName = freezed,
     Object? purchaseorderDtProductBarcodeRate = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_$DocumentPurchaseOrderDTModelImpl(
       purchaseorderDtId: freezed == purchaseorderDtId
@@ -403,6 +413,10 @@ class __$$DocumentPurchaseOrderDTModelImplCopyWithImpl<$Res>
           ? _value.purchaseorderDtProductBarcodeRate
           : purchaseorderDtProductBarcodeRate // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -436,7 +450,8 @@ class _$DocumentPurchaseOrderDTModelImpl
       @JsonKey(name: 'purchaseorder_dt_master_product_barcode_master_unit_name')
       this.purchaseorderDtProductBarcodeMasterUnitName,
       @JsonKey(name: 'purchaseorder_dt_master_product_barcode_rate')
-      this.purchaseorderDtProductBarcodeRate});
+      this.purchaseorderDtProductBarcodeRate,
+      @JsonKey(name: 'is_cancel') this.isCancel});
 
   factory _$DocumentPurchaseOrderDTModelImpl.fromJson(
           Map<String, dynamic> json) =>
@@ -502,10 +517,13 @@ class _$DocumentPurchaseOrderDTModelImpl
   @override
   @JsonKey(name: 'purchaseorder_dt_master_product_barcode_rate')
   final String? purchaseorderDtProductBarcodeRate;
+  @override
+  @JsonKey(name: 'is_cancel')
+  final bool? isCancel;
 
   @override
   String toString() {
-    return 'DocumentPurchaseOrderDTModel(purchaseorderDtId: $purchaseorderDtId, purchaseorderHdId: $purchaseorderHdId, purchaserequestDtId: $purchaserequestDtId, purchaseorderDtListno: $purchaseorderDtListno, productId: $productId, productCode: $productCode, productName: $productName, unitId: $unitId, unitName: $unitName, purchaseorderDtVatFlag: $purchaseorderDtVatFlag, purchaseorderDtPrice: $purchaseorderDtPrice, purchaseorderDtQty: $purchaseorderDtQty, purchaseorderDtDiscount: $purchaseorderDtDiscount, purchaseorderDtNetamnt: $purchaseorderDtNetamnt, purchaserequestHdDocuno: $purchaserequestHdDocuno, purchaseorderDtProductBarcodeId: $purchaseorderDtProductBarcodeId, purchaseorderDtProductBarcodeCode: $purchaseorderDtProductBarcodeCode, purchaseorderDtProductBarcodeMasterUnitId: $purchaseorderDtProductBarcodeMasterUnitId, purchaseorderDtProductBarcodeMasterUnitName: $purchaseorderDtProductBarcodeMasterUnitName, purchaseorderDtProductBarcodeRate: $purchaseorderDtProductBarcodeRate)';
+    return 'DocumentPurchaseOrderDTModel(purchaseorderDtId: $purchaseorderDtId, purchaseorderHdId: $purchaseorderHdId, purchaserequestDtId: $purchaserequestDtId, purchaseorderDtListno: $purchaseorderDtListno, productId: $productId, productCode: $productCode, productName: $productName, unitId: $unitId, unitName: $unitName, purchaseorderDtVatFlag: $purchaseorderDtVatFlag, purchaseorderDtPrice: $purchaseorderDtPrice, purchaseorderDtQty: $purchaseorderDtQty, purchaseorderDtDiscount: $purchaseorderDtDiscount, purchaseorderDtNetamnt: $purchaseorderDtNetamnt, purchaserequestHdDocuno: $purchaserequestHdDocuno, purchaseorderDtProductBarcodeId: $purchaseorderDtProductBarcodeId, purchaseorderDtProductBarcodeCode: $purchaseorderDtProductBarcodeCode, purchaseorderDtProductBarcodeMasterUnitId: $purchaseorderDtProductBarcodeMasterUnitId, purchaseorderDtProductBarcodeMasterUnitName: $purchaseorderDtProductBarcodeMasterUnitName, purchaseorderDtProductBarcodeRate: $purchaseorderDtProductBarcodeRate, isCancel: $isCancel)';
   }
 
   @override
@@ -558,7 +576,8 @@ class _$DocumentPurchaseOrderDTModelImpl
                     purchaseorderDtProductBarcodeMasterUnitName) &&
             (identical(other.purchaseorderDtProductBarcodeRate,
                     purchaseorderDtProductBarcodeRate) ||
-                other.purchaseorderDtProductBarcodeRate == purchaseorderDtProductBarcodeRate));
+                other.purchaseorderDtProductBarcodeRate == purchaseorderDtProductBarcodeRate) &&
+            (identical(other.isCancel, isCancel) || other.isCancel == isCancel));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -584,7 +603,8 @@ class _$DocumentPurchaseOrderDTModelImpl
         purchaseorderDtProductBarcodeCode,
         purchaseorderDtProductBarcodeMasterUnitId,
         purchaseorderDtProductBarcodeMasterUnitName,
-        purchaseorderDtProductBarcodeRate
+        purchaseorderDtProductBarcodeRate,
+        isCancel
       ]);
 
   /// Create a copy of DocumentPurchaseOrderDTModel
@@ -638,8 +658,9 @@ abstract class _DocumentPurchaseOrderDTModel
       @JsonKey(name: 'purchaseorder_dt_master_product_barcode_master_unit_name')
       final String? purchaseorderDtProductBarcodeMasterUnitName,
       @JsonKey(name: 'purchaseorder_dt_master_product_barcode_rate')
-      final String?
-          purchaseorderDtProductBarcodeRate}) = _$DocumentPurchaseOrderDTModelImpl;
+      final String? purchaseorderDtProductBarcodeRate,
+      @JsonKey(name: 'is_cancel')
+      final bool? isCancel}) = _$DocumentPurchaseOrderDTModelImpl;
 
   factory _DocumentPurchaseOrderDTModel.fromJson(Map<String, dynamic> json) =
       _$DocumentPurchaseOrderDTModelImpl.fromJson;
@@ -704,6 +725,9 @@ abstract class _DocumentPurchaseOrderDTModel
   @override
   @JsonKey(name: 'purchaseorder_dt_master_product_barcode_rate')
   String? get purchaseorderDtProductBarcodeRate;
+  @override
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel;
 
   /// Create a copy of DocumentPurchaseOrderDTModel
   /// with the given fields replaced by the non-null parameter values.

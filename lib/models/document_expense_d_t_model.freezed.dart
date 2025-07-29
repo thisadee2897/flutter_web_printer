@@ -59,6 +59,8 @@ mixin _$DocumentExpenseDTModel {
   String? get expenseDtDiscount => throw _privateConstructorUsedError;
   @JsonKey(name: 'expense_dt_netamnt')
   String? get expenseDtNetamnt => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel => throw _privateConstructorUsedError;
 
   /// Serializes this DocumentExpenseDTModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -99,7 +101,8 @@ abstract class $DocumentExpenseDTModelCopyWith<$Res> {
       @JsonKey(name: 'expense_dt_price') String? expenseDtPrice,
       @JsonKey(name: 'expense_dt_qty') String? expenseDtQty,
       @JsonKey(name: 'expense_dt_discount') String? expenseDtDiscount,
-      @JsonKey(name: 'expense_dt_netamnt') String? expenseDtNetamnt});
+      @JsonKey(name: 'expense_dt_netamnt') String? expenseDtNetamnt,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -136,6 +139,7 @@ class _$DocumentExpenseDTModelCopyWithImpl<$Res,
     Object? expenseDtQty = freezed,
     Object? expenseDtDiscount = freezed,
     Object? expenseDtNetamnt = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_value.copyWith(
       expenseDtId: freezed == expenseDtId
@@ -212,6 +216,10 @@ class _$DocumentExpenseDTModelCopyWithImpl<$Res,
           ? _value.expenseDtNetamnt
           : expenseDtNetamnt // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -248,7 +256,8 @@ abstract class _$$DocumentExpenseDTModelImplCopyWith<$Res>
       @JsonKey(name: 'expense_dt_price') String? expenseDtPrice,
       @JsonKey(name: 'expense_dt_qty') String? expenseDtQty,
       @JsonKey(name: 'expense_dt_discount') String? expenseDtDiscount,
-      @JsonKey(name: 'expense_dt_netamnt') String? expenseDtNetamnt});
+      @JsonKey(name: 'expense_dt_netamnt') String? expenseDtNetamnt,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -284,6 +293,7 @@ class __$$DocumentExpenseDTModelImplCopyWithImpl<$Res>
     Object? expenseDtQty = freezed,
     Object? expenseDtDiscount = freezed,
     Object? expenseDtNetamnt = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_$DocumentExpenseDTModelImpl(
       expenseDtId: freezed == expenseDtId
@@ -360,6 +370,10 @@ class __$$DocumentExpenseDTModelImplCopyWithImpl<$Res>
           ? _value.expenseDtNetamnt
           : expenseDtNetamnt // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -390,7 +404,8 @@ class _$DocumentExpenseDTModelImpl implements _DocumentExpenseDTModel {
       @JsonKey(name: 'expense_dt_price') this.expenseDtPrice,
       @JsonKey(name: 'expense_dt_qty') this.expenseDtQty,
       @JsonKey(name: 'expense_dt_discount') this.expenseDtDiscount,
-      @JsonKey(name: 'expense_dt_netamnt') this.expenseDtNetamnt});
+      @JsonKey(name: 'expense_dt_netamnt') this.expenseDtNetamnt,
+      @JsonKey(name: 'is_cancel') this.isCancel});
 
   factory _$DocumentExpenseDTModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$DocumentExpenseDTModelImplFromJson(json);
@@ -449,10 +464,13 @@ class _$DocumentExpenseDTModelImpl implements _DocumentExpenseDTModel {
   @override
   @JsonKey(name: 'expense_dt_netamnt')
   final String? expenseDtNetamnt;
+  @override
+  @JsonKey(name: 'is_cancel')
+  final bool? isCancel;
 
   @override
   String toString() {
-    return 'DocumentExpenseDTModel(expenseDtId: $expenseDtId, expenseHdId: $expenseHdId, expenseDtListno: $expenseDtListno, productId: $productId, productCode: $productCode, unitId: $unitId, expenseDtProductBarcodeId: $expenseDtProductBarcodeId, expenseDtProductBarcodeCode: $expenseDtProductBarcodeCode, productBarcodeName: $productBarcodeName, expenseDtProductBarcodeMasterUnitId: $expenseDtProductBarcodeMasterUnitId, expenseDtProductBarcodeMasterUnitName: $expenseDtProductBarcodeMasterUnitName, expenseDtProductBarcodeRate: $expenseDtProductBarcodeRate, expenseDtVatFlag: $expenseDtVatFlag, accountId: $accountId, expenseDtPrice: $expenseDtPrice, expenseDtQty: $expenseDtQty, expenseDtDiscount: $expenseDtDiscount, expenseDtNetamnt: $expenseDtNetamnt)';
+    return 'DocumentExpenseDTModel(expenseDtId: $expenseDtId, expenseHdId: $expenseHdId, expenseDtListno: $expenseDtListno, productId: $productId, productCode: $productCode, unitId: $unitId, expenseDtProductBarcodeId: $expenseDtProductBarcodeId, expenseDtProductBarcodeCode: $expenseDtProductBarcodeCode, productBarcodeName: $productBarcodeName, expenseDtProductBarcodeMasterUnitId: $expenseDtProductBarcodeMasterUnitId, expenseDtProductBarcodeMasterUnitName: $expenseDtProductBarcodeMasterUnitName, expenseDtProductBarcodeRate: $expenseDtProductBarcodeRate, expenseDtVatFlag: $expenseDtVatFlag, accountId: $accountId, expenseDtPrice: $expenseDtPrice, expenseDtQty: $expenseDtQty, expenseDtDiscount: $expenseDtDiscount, expenseDtNetamnt: $expenseDtNetamnt, isCancel: $isCancel)';
   }
 
   @override
@@ -500,31 +518,34 @@ class _$DocumentExpenseDTModelImpl implements _DocumentExpenseDTModel {
             (identical(other.expenseDtDiscount, expenseDtDiscount) ||
                 other.expenseDtDiscount == expenseDtDiscount) &&
             (identical(other.expenseDtNetamnt, expenseDtNetamnt) ||
-                other.expenseDtNetamnt == expenseDtNetamnt));
+                other.expenseDtNetamnt == expenseDtNetamnt) &&
+            (identical(other.isCancel, isCancel) || other.isCancel == isCancel));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      expenseDtId,
-      expenseHdId,
-      expenseDtListno,
-      productId,
-      productCode,
-      unitId,
-      expenseDtProductBarcodeId,
-      expenseDtProductBarcodeCode,
-      productBarcodeName,
-      expenseDtProductBarcodeMasterUnitId,
-      expenseDtProductBarcodeMasterUnitName,
-      expenseDtProductBarcodeRate,
-      expenseDtVatFlag,
-      accountId,
-      expenseDtPrice,
-      expenseDtQty,
-      expenseDtDiscount,
-      expenseDtNetamnt);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        expenseDtId,
+        expenseHdId,
+        expenseDtListno,
+        productId,
+        productCode,
+        unitId,
+        expenseDtProductBarcodeId,
+        expenseDtProductBarcodeCode,
+        productBarcodeName,
+        expenseDtProductBarcodeMasterUnitId,
+        expenseDtProductBarcodeMasterUnitName,
+        expenseDtProductBarcodeRate,
+        expenseDtVatFlag,
+        accountId,
+        expenseDtPrice,
+        expenseDtQty,
+        expenseDtDiscount,
+        expenseDtNetamnt,
+        isCancel
+      ]);
 
   /// Create a copy of DocumentExpenseDTModel
   /// with the given fields replaced by the non-null parameter values.
@@ -545,31 +566,32 @@ class _$DocumentExpenseDTModelImpl implements _DocumentExpenseDTModel {
 
 abstract class _DocumentExpenseDTModel implements DocumentExpenseDTModel {
   const factory _DocumentExpenseDTModel(
-      {@JsonKey(name: 'expense_dt_id') final String? expenseDtId,
-      @JsonKey(name: 'expense_hd_id') final String? expenseHdId,
-      @JsonKey(name: 'expense_dt_listno') final num? expenseDtListno,
-      @JsonKey(name: 'master_product_id') final String? productId,
-      @JsonKey(name: 'master_product_code') final String? productCode,
-      @JsonKey(name: 'master_unit_id') final String? unitId,
-      @JsonKey(name: 'expense_dt_master_product_barcode_id')
-      final String? expenseDtProductBarcodeId,
-      @JsonKey(name: 'expense_dt_master_product_barcode_code')
-      final String? expenseDtProductBarcodeCode,
-      @JsonKey(name: 'master_product_barcode_name')
-      final String? productBarcodeName,
-      @JsonKey(name: 'expense_dt_master_product_barcode_master_unit_id')
-      final String? expenseDtProductBarcodeMasterUnitId,
-      @JsonKey(name: 'expense_dt_master_product_barcode_master_unit_name')
-      final String? expenseDtProductBarcodeMasterUnitName,
-      @JsonKey(name: 'expense_dt_master_product_barcode_rate')
-      final String? expenseDtProductBarcodeRate,
-      @JsonKey(name: 'expense_dt_vat_flag') final bool? expenseDtVatFlag,
-      @JsonKey(name: 'master_account_id') final String? accountId,
-      @JsonKey(name: 'expense_dt_price') final String? expenseDtPrice,
-      @JsonKey(name: 'expense_dt_qty') final String? expenseDtQty,
-      @JsonKey(name: 'expense_dt_discount') final String? expenseDtDiscount,
-      @JsonKey(name: 'expense_dt_netamnt')
-      final String? expenseDtNetamnt}) = _$DocumentExpenseDTModelImpl;
+          {@JsonKey(name: 'expense_dt_id') final String? expenseDtId,
+          @JsonKey(name: 'expense_hd_id') final String? expenseHdId,
+          @JsonKey(name: 'expense_dt_listno') final num? expenseDtListno,
+          @JsonKey(name: 'master_product_id') final String? productId,
+          @JsonKey(name: 'master_product_code') final String? productCode,
+          @JsonKey(name: 'master_unit_id') final String? unitId,
+          @JsonKey(name: 'expense_dt_master_product_barcode_id')
+          final String? expenseDtProductBarcodeId,
+          @JsonKey(name: 'expense_dt_master_product_barcode_code')
+          final String? expenseDtProductBarcodeCode,
+          @JsonKey(name: 'master_product_barcode_name')
+          final String? productBarcodeName,
+          @JsonKey(name: 'expense_dt_master_product_barcode_master_unit_id')
+          final String? expenseDtProductBarcodeMasterUnitId,
+          @JsonKey(name: 'expense_dt_master_product_barcode_master_unit_name')
+          final String? expenseDtProductBarcodeMasterUnitName,
+          @JsonKey(name: 'expense_dt_master_product_barcode_rate')
+          final String? expenseDtProductBarcodeRate,
+          @JsonKey(name: 'expense_dt_vat_flag') final bool? expenseDtVatFlag,
+          @JsonKey(name: 'master_account_id') final String? accountId,
+          @JsonKey(name: 'expense_dt_price') final String? expenseDtPrice,
+          @JsonKey(name: 'expense_dt_qty') final String? expenseDtQty,
+          @JsonKey(name: 'expense_dt_discount') final String? expenseDtDiscount,
+          @JsonKey(name: 'expense_dt_netamnt') final String? expenseDtNetamnt,
+          @JsonKey(name: 'is_cancel') final bool? isCancel}) =
+      _$DocumentExpenseDTModelImpl;
 
   factory _DocumentExpenseDTModel.fromJson(Map<String, dynamic> json) =
       _$DocumentExpenseDTModelImpl.fromJson;
@@ -628,6 +650,9 @@ abstract class _DocumentExpenseDTModel implements DocumentExpenseDTModel {
   @override
   @JsonKey(name: 'expense_dt_netamnt')
   String? get expenseDtNetamnt;
+  @override
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel;
 
   /// Create a copy of DocumentExpenseDTModel
   /// with the given fields replaced by the non-null parameter values.

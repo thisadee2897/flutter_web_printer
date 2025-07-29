@@ -15,6 +15,7 @@ _$FooterFullTaxInvoiceModelImpl _$$FooterFullTaxInvoiceModelImplFromJson(
       vatAmount: json['vat_amount'] as num?,
       withholdingTax: json['withholding_tax'] as num?,
       netAmount: json['net_amount'] as num?,
+      isCancel: json['is_cancel'] as bool?,
     );
 
 Map<String, dynamic> _$$FooterFullTaxInvoiceModelImplToJson(
@@ -26,4 +27,5 @@ Map<String, dynamic> _$$FooterFullTaxInvoiceModelImplToJson(
       'vat_amount': instance.vatAmount,
       'withholding_tax': instance.withholdingTax,
       'net_amount': instance.netAmount,
+      'is_cancel': instance.isCancel,
     };

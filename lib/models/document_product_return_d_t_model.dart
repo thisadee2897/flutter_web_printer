@@ -28,6 +28,7 @@ class DocumentProductReturnDTModel with _$DocumentProductReturnDTModel {
   @JsonKey(name: 'returnproduct_dt_vat_flag') bool? returnproductDtVatFlag,
   @JsonKey(name: 'returnproduct_dt_discount') String? returnproductDtDiscount,
   @JsonKey(name: 'sale_hd_docuno') String? saleHdDocuno,
+  @JsonKey(name: 'is_cancel') bool? isCancel,
   }) = _DocumentProductReturnDTModel;
 
   factory DocumentProductReturnDTModel.fromJson(Map<String, dynamic> json) => _$DocumentProductReturnDTModelFromJson(json);

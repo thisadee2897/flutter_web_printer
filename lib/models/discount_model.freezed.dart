@@ -23,7 +23,9 @@ mixin _$DiscountModel {
   @JsonKey(name: 'discount_name')
   String? get discountName => throw _privateConstructorUsedError;
   @JsonKey(name: 'discount_value')
-  num? get discountValue => throw _privateConstructorUsedError;
+  num? get discountValue => throw _privateConstructorUsedError; //is_cancel
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel => throw _privateConstructorUsedError;
 
   /// Serializes this DiscountModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -43,7 +45,8 @@ abstract class $DiscountModelCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'discount_name') String? discountName,
-      @JsonKey(name: 'discount_value') num? discountValue});
+      @JsonKey(name: 'discount_value') num? discountValue,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -63,6 +66,7 @@ class _$DiscountModelCopyWithImpl<$Res, $Val extends DiscountModel>
   $Res call({
     Object? discountName = freezed,
     Object? discountValue = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_value.copyWith(
       discountName: freezed == discountName
@@ -73,6 +77,10 @@ class _$DiscountModelCopyWithImpl<$Res, $Val extends DiscountModel>
           ? _value.discountValue
           : discountValue // ignore: cast_nullable_to_non_nullable
               as num?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -87,7 +95,8 @@ abstract class _$$DiscountModelImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: 'discount_name') String? discountName,
-      @JsonKey(name: 'discount_value') num? discountValue});
+      @JsonKey(name: 'discount_value') num? discountValue,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -105,6 +114,7 @@ class __$$DiscountModelImplCopyWithImpl<$Res>
   $Res call({
     Object? discountName = freezed,
     Object? discountValue = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_$DiscountModelImpl(
       discountName: freezed == discountName
@@ -115,6 +125,10 @@ class __$$DiscountModelImplCopyWithImpl<$Res>
           ? _value.discountValue
           : discountValue // ignore: cast_nullable_to_non_nullable
               as num?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -124,7 +138,8 @@ class __$$DiscountModelImplCopyWithImpl<$Res>
 class _$DiscountModelImpl implements _DiscountModel {
   const _$DiscountModelImpl(
       {@JsonKey(name: 'discount_name') this.discountName,
-      @JsonKey(name: 'discount_value') this.discountValue});
+      @JsonKey(name: 'discount_value') this.discountValue,
+      @JsonKey(name: 'is_cancel') this.isCancel});
 
   factory _$DiscountModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$DiscountModelImplFromJson(json);
@@ -135,10 +150,14 @@ class _$DiscountModelImpl implements _DiscountModel {
   @override
   @JsonKey(name: 'discount_value')
   final num? discountValue;
+//is_cancel
+  @override
+  @JsonKey(name: 'is_cancel')
+  final bool? isCancel;
 
   @override
   String toString() {
-    return 'DiscountModel(discountName: $discountName, discountValue: $discountValue)';
+    return 'DiscountModel(discountName: $discountName, discountValue: $discountValue, isCancel: $isCancel)';
   }
 
   @override
@@ -149,12 +168,15 @@ class _$DiscountModelImpl implements _DiscountModel {
             (identical(other.discountName, discountName) ||
                 other.discountName == discountName) &&
             (identical(other.discountValue, discountValue) ||
-                other.discountValue == discountValue));
+                other.discountValue == discountValue) &&
+            (identical(other.isCancel, isCancel) ||
+                other.isCancel == isCancel));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, discountName, discountValue);
+  int get hashCode =>
+      Object.hash(runtimeType, discountName, discountValue, isCancel);
 
   /// Create a copy of DiscountModel
   /// with the given fields replaced by the non-null parameter values.
@@ -174,9 +196,9 @@ class _$DiscountModelImpl implements _DiscountModel {
 
 abstract class _DiscountModel implements DiscountModel {
   const factory _DiscountModel(
-          {@JsonKey(name: 'discount_name') final String? discountName,
-          @JsonKey(name: 'discount_value') final num? discountValue}) =
-      _$DiscountModelImpl;
+      {@JsonKey(name: 'discount_name') final String? discountName,
+      @JsonKey(name: 'discount_value') final num? discountValue,
+      @JsonKey(name: 'is_cancel') final bool? isCancel}) = _$DiscountModelImpl;
 
   factory _DiscountModel.fromJson(Map<String, dynamic> json) =
       _$DiscountModelImpl.fromJson;
@@ -186,7 +208,10 @@ abstract class _DiscountModel implements DiscountModel {
   String? get discountName;
   @override
   @JsonKey(name: 'discount_value')
-  num? get discountValue;
+  num? get discountValue; //is_cancel
+  @override
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel;
 
   /// Create a copy of DiscountModel
   /// with the given fields replaced by the non-null parameter values.

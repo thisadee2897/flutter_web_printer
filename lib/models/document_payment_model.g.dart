@@ -42,6 +42,7 @@ _$DocumentPaymentModelImpl _$$DocumentPaymentModelImplFromJson(
       contactTel: json['master_contact_tel'] as String?,
       contactTaxid: json['master_contact_taxid'] as String?,
       paymentHdNetamnt: json['payment_hd_netamnt'] as String?,
+      isCancel: json['is_cancel'] as bool?,
     );
 
 Map<String, dynamic> _$$DocumentPaymentModelImplToJson(
@@ -78,4 +79,5 @@ Map<String, dynamic> _$$DocumentPaymentModelImplToJson(
       'master_contact_tel': instance.contactTel,
       'master_contact_taxid': instance.contactTaxid,
       'payment_hd_netamnt': instance.paymentHdNetamnt,
+      'is_cancel': instance.isCancel,
     };

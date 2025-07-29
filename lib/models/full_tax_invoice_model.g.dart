@@ -23,6 +23,7 @@ _$FullTaxInvoiceModelImpl _$$FullTaxInvoiceModelImplFromJson(
           ? null
           : FooterFullTaxInvoiceModel.fromJson(
               json['footer'] as Map<String, dynamic>),
+      isCancel: json['is_cancel'] as bool?,
     );
 
 Map<String, dynamic> _$$FullTaxInvoiceModelImplToJson(
@@ -33,4 +34,5 @@ Map<String, dynamic> _$$FullTaxInvoiceModelImplToJson(
       'header': instance.header,
       'details': instance.details,
       'footer': instance.footer,
+      'is_cancel': instance.isCancel,
     };

@@ -102,6 +102,8 @@ mixin _$DocumentExpenseModel {
   String? get expenseHdInvoiceDate => throw _privateConstructorUsedError;
   @JsonKey(name: 'expense_hd_invoice_no')
   String? get expenseHdInvoiceNo => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel => throw _privateConstructorUsedError;
 
   /// Serializes this DocumentExpenseModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -167,7 +169,8 @@ abstract class $DocumentExpenseModelCopyWith<$Res> {
       @JsonKey(name: 'master_contact_taxid') String? contactTaxid,
       @JsonKey(name: 'expense_hd_whtamnt') String? expenseHdWhtamnt,
       @JsonKey(name: 'expense_hd_invoice_date') String? expenseHdInvoiceDate,
-      @JsonKey(name: 'expense_hd_invoice_no') String? expenseHdInvoiceNo});
+      @JsonKey(name: 'expense_hd_invoice_no') String? expenseHdInvoiceNo,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -227,6 +230,7 @@ class _$DocumentExpenseModelCopyWithImpl<$Res,
     Object? expenseHdWhtamnt = freezed,
     Object? expenseHdInvoiceDate = freezed,
     Object? expenseHdInvoiceNo = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_value.copyWith(
       expenseHdId: freezed == expenseHdId
@@ -393,6 +397,10 @@ class _$DocumentExpenseModelCopyWithImpl<$Res,
           ? _value.expenseHdInvoiceNo
           : expenseHdInvoiceNo // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -453,7 +461,8 @@ abstract class _$$DocumentExpenseModelImplCopyWith<$Res>
       @JsonKey(name: 'master_contact_taxid') String? contactTaxid,
       @JsonKey(name: 'expense_hd_whtamnt') String? expenseHdWhtamnt,
       @JsonKey(name: 'expense_hd_invoice_date') String? expenseHdInvoiceDate,
-      @JsonKey(name: 'expense_hd_invoice_no') String? expenseHdInvoiceNo});
+      @JsonKey(name: 'expense_hd_invoice_no') String? expenseHdInvoiceNo,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -510,6 +519,7 @@ class __$$DocumentExpenseModelImplCopyWithImpl<$Res>
     Object? expenseHdWhtamnt = freezed,
     Object? expenseHdInvoiceDate = freezed,
     Object? expenseHdInvoiceNo = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_$DocumentExpenseModelImpl(
       expenseHdId: freezed == expenseHdId
@@ -676,6 +686,10 @@ class __$$DocumentExpenseModelImplCopyWithImpl<$Res>
           ? _value.expenseHdInvoiceNo
           : expenseHdInvoiceNo // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -729,7 +743,8 @@ class _$DocumentExpenseModelImpl implements _DocumentExpenseModel {
       @JsonKey(name: 'master_contact_taxid') this.contactTaxid,
       @JsonKey(name: 'expense_hd_whtamnt') this.expenseHdWhtamnt,
       @JsonKey(name: 'expense_hd_invoice_date') this.expenseHdInvoiceDate,
-      @JsonKey(name: 'expense_hd_invoice_no') this.expenseHdInvoiceNo});
+      @JsonKey(name: 'expense_hd_invoice_no') this.expenseHdInvoiceNo,
+      @JsonKey(name: 'is_cancel') this.isCancel});
 
   factory _$DocumentExpenseModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$DocumentExpenseModelImplFromJson(json);
@@ -857,10 +872,13 @@ class _$DocumentExpenseModelImpl implements _DocumentExpenseModel {
   @override
   @JsonKey(name: 'expense_hd_invoice_no')
   final String? expenseHdInvoiceNo;
+  @override
+  @JsonKey(name: 'is_cancel')
+  final bool? isCancel;
 
   @override
   String toString() {
-    return 'DocumentExpenseModel(expenseHdId: $expenseHdId, companyId: $companyId, branchId: $branchId, branchName: $branchName, expenseHdDocudate: $expenseHdDocudate, expenseHdDocuno: $expenseHdDocuno, expenseHdStatusId: $expenseHdStatusId, contactId: $contactId, contactCode: $contactCode, contactName: $contactName, expenseHdRemark: $expenseHdRemark, vatGroupId: $vatGroupId, vatGroupName: $vatGroupName, vatRate: $vatRate, expenseHdTypeId: $expenseHdTypeId, expenseHdCreditday: $expenseHdCreditday, expenseHdCashAmount: $expenseHdCashAmount, expenseHdTransferAmount: $expenseHdTransferAmount, branchBankbookId: $branchBankbookId, bankId: $bankId, bankName: $bankName, branchBankbookBankbookno: $branchBankbookBankbookno, branchBankbookBranchname: $branchBankbookBranchname, branchBankbookName: $branchBankbookName, vendorBankbookno: $vendorBankbookno, vendorBankName: $vendorBankName, vendorBankbookBranchname: $vendorBankbookBranchname, expenseHdAmount: $expenseHdAmount, expenseHdTotalexcludeamnt: $expenseHdTotalexcludeamnt, expenseHdTotalincludeamnt: $expenseHdTotalincludeamnt, expenseHdBaseamnt: $expenseHdBaseamnt, expenseHdVatamnt: $expenseHdVatamnt, expenseHdDiscountAmount: $expenseHdDiscountAmount, expenseHdNetamnt: $expenseHdNetamnt, fullname: $fullname, contactAddress: $contactAddress, contactTel: $contactTel, contactTaxid: $contactTaxid, expenseHdWhtamnt: $expenseHdWhtamnt, expenseHdInvoiceDate: $expenseHdInvoiceDate, expenseHdInvoiceNo: $expenseHdInvoiceNo)';
+    return 'DocumentExpenseModel(expenseHdId: $expenseHdId, companyId: $companyId, branchId: $branchId, branchName: $branchName, expenseHdDocudate: $expenseHdDocudate, expenseHdDocuno: $expenseHdDocuno, expenseHdStatusId: $expenseHdStatusId, contactId: $contactId, contactCode: $contactCode, contactName: $contactName, expenseHdRemark: $expenseHdRemark, vatGroupId: $vatGroupId, vatGroupName: $vatGroupName, vatRate: $vatRate, expenseHdTypeId: $expenseHdTypeId, expenseHdCreditday: $expenseHdCreditday, expenseHdCashAmount: $expenseHdCashAmount, expenseHdTransferAmount: $expenseHdTransferAmount, branchBankbookId: $branchBankbookId, bankId: $bankId, bankName: $bankName, branchBankbookBankbookno: $branchBankbookBankbookno, branchBankbookBranchname: $branchBankbookBranchname, branchBankbookName: $branchBankbookName, vendorBankbookno: $vendorBankbookno, vendorBankName: $vendorBankName, vendorBankbookBranchname: $vendorBankbookBranchname, expenseHdAmount: $expenseHdAmount, expenseHdTotalexcludeamnt: $expenseHdTotalexcludeamnt, expenseHdTotalincludeamnt: $expenseHdTotalincludeamnt, expenseHdBaseamnt: $expenseHdBaseamnt, expenseHdVatamnt: $expenseHdVatamnt, expenseHdDiscountAmount: $expenseHdDiscountAmount, expenseHdNetamnt: $expenseHdNetamnt, fullname: $fullname, contactAddress: $contactAddress, contactTel: $contactTel, contactTaxid: $contactTaxid, expenseHdWhtamnt: $expenseHdWhtamnt, expenseHdInvoiceDate: $expenseHdInvoiceDate, expenseHdInvoiceNo: $expenseHdInvoiceNo, isCancel: $isCancel)';
   }
 
   @override
@@ -942,7 +960,8 @@ class _$DocumentExpenseModelImpl implements _DocumentExpenseModel {
             (identical(other.contactTaxid, contactTaxid) || other.contactTaxid == contactTaxid) &&
             (identical(other.expenseHdWhtamnt, expenseHdWhtamnt) || other.expenseHdWhtamnt == expenseHdWhtamnt) &&
             (identical(other.expenseHdInvoiceDate, expenseHdInvoiceDate) || other.expenseHdInvoiceDate == expenseHdInvoiceDate) &&
-            (identical(other.expenseHdInvoiceNo, expenseHdInvoiceNo) || other.expenseHdInvoiceNo == expenseHdInvoiceNo));
+            (identical(other.expenseHdInvoiceNo, expenseHdInvoiceNo) || other.expenseHdInvoiceNo == expenseHdInvoiceNo) &&
+            (identical(other.isCancel, isCancel) || other.isCancel == isCancel));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -989,7 +1008,8 @@ class _$DocumentExpenseModelImpl implements _DocumentExpenseModel {
         contactTaxid,
         expenseHdWhtamnt,
         expenseHdInvoiceDate,
-        expenseHdInvoiceNo
+        expenseHdInvoiceNo,
+        isCancel
       ]);
 
   /// Create a copy of DocumentExpenseModel
@@ -1063,8 +1083,9 @@ abstract class _DocumentExpenseModel implements DocumentExpenseModel {
       @JsonKey(name: 'expense_hd_whtamnt') final String? expenseHdWhtamnt,
       @JsonKey(name: 'expense_hd_invoice_date')
       final String? expenseHdInvoiceDate,
-      @JsonKey(name: 'expense_hd_invoice_no')
-      final String? expenseHdInvoiceNo}) = _$DocumentExpenseModelImpl;
+      @JsonKey(name: 'expense_hd_invoice_no') final String? expenseHdInvoiceNo,
+      @JsonKey(name: 'is_cancel')
+      final bool? isCancel}) = _$DocumentExpenseModelImpl;
 
   factory _DocumentExpenseModel.fromJson(Map<String, dynamic> json) =
       _$DocumentExpenseModelImpl.fromJson;
@@ -1192,6 +1213,9 @@ abstract class _DocumentExpenseModel implements DocumentExpenseModel {
   @override
   @JsonKey(name: 'expense_hd_invoice_no')
   String? get expenseHdInvoiceNo;
+  @override
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel;
 
   /// Create a copy of DocumentExpenseModel
   /// with the given fields replaced by the non-null parameter values.

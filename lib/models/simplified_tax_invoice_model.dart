@@ -13,6 +13,7 @@ class SimplifiedTaxInvoiceModel with _$SimplifiedTaxInvoiceModel {
   @JsonKey(name: 'header') HeaderSimplifiedTaxInvoiceModel? header,
   @JsonKey(name: 'details') List<DetailTaxInvoiceModel>? details,
   @JsonKey(name: 'footer') FooterSimplifiedTaxInvoiceModel? footer,
+  @JsonKey(name: 'is_cancel') bool? isCancel,
   }) = _SimplifiedTaxInvoiceModel;
 
   factory SimplifiedTaxInvoiceModel.fromJson(Map<String, dynamic> json) => _$SimplifiedTaxInvoiceModelFromJson(json);

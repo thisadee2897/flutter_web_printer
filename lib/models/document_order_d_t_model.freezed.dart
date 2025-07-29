@@ -60,6 +60,8 @@ mixin _$DocumentOrderDTModel {
   bool? get orderDtVatFlag => throw _privateConstructorUsedError;
   @JsonKey(name: 'quotation_hd_docuno')
   String? get quotationHdDocuno => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel => throw _privateConstructorUsedError;
 
   /// Serializes this DocumentOrderDTModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -102,7 +104,8 @@ abstract class $DocumentOrderDTModelCopyWith<$Res> {
       @JsonKey(name: 'order_dt_discount') String? orderDtDiscount,
       @JsonKey(name: 'order_dt_netamnt') String? orderDtNetamnt,
       @JsonKey(name: 'order_dt_vat_flag') bool? orderDtVatFlag,
-      @JsonKey(name: 'quotation_hd_docuno') String? quotationHdDocuno});
+      @JsonKey(name: 'quotation_hd_docuno') String? quotationHdDocuno,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -140,6 +143,7 @@ class _$DocumentOrderDTModelCopyWithImpl<$Res,
     Object? orderDtNetamnt = freezed,
     Object? orderDtVatFlag = freezed,
     Object? quotationHdDocuno = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_value.copyWith(
       orderDtId: freezed == orderDtId
@@ -220,6 +224,10 @@ class _$DocumentOrderDTModelCopyWithImpl<$Res,
           ? _value.quotationHdDocuno
           : quotationHdDocuno // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -257,7 +265,8 @@ abstract class _$$DocumentOrderDTModelImplCopyWith<$Res>
       @JsonKey(name: 'order_dt_discount') String? orderDtDiscount,
       @JsonKey(name: 'order_dt_netamnt') String? orderDtNetamnt,
       @JsonKey(name: 'order_dt_vat_flag') bool? orderDtVatFlag,
-      @JsonKey(name: 'quotation_hd_docuno') String? quotationHdDocuno});
+      @JsonKey(name: 'quotation_hd_docuno') String? quotationHdDocuno,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -292,6 +301,7 @@ class __$$DocumentOrderDTModelImplCopyWithImpl<$Res>
     Object? orderDtNetamnt = freezed,
     Object? orderDtVatFlag = freezed,
     Object? quotationHdDocuno = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_$DocumentOrderDTModelImpl(
       orderDtId: freezed == orderDtId
@@ -372,6 +382,10 @@ class __$$DocumentOrderDTModelImplCopyWithImpl<$Res>
           ? _value.quotationHdDocuno
           : quotationHdDocuno // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -404,7 +418,8 @@ class _$DocumentOrderDTModelImpl implements _DocumentOrderDTModel {
       @JsonKey(name: 'order_dt_discount') this.orderDtDiscount,
       @JsonKey(name: 'order_dt_netamnt') this.orderDtNetamnt,
       @JsonKey(name: 'order_dt_vat_flag') this.orderDtVatFlag,
-      @JsonKey(name: 'quotation_hd_docuno') this.quotationHdDocuno});
+      @JsonKey(name: 'quotation_hd_docuno') this.quotationHdDocuno,
+      @JsonKey(name: 'is_cancel') this.isCancel});
 
   factory _$DocumentOrderDTModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$DocumentOrderDTModelImplFromJson(json);
@@ -466,10 +481,13 @@ class _$DocumentOrderDTModelImpl implements _DocumentOrderDTModel {
   @override
   @JsonKey(name: 'quotation_hd_docuno')
   final String? quotationHdDocuno;
+  @override
+  @JsonKey(name: 'is_cancel')
+  final bool? isCancel;
 
   @override
   String toString() {
-    return 'DocumentOrderDTModel(orderDtId: $orderDtId, orderHdId: $orderHdId, quotationDtId: $quotationDtId, orderDtListno: $orderDtListno, productId: $productId, productCode: $productCode, unitId: $unitId, orderDtProductBarcodeId: $orderDtProductBarcodeId, orderDtProductBarcodeCode: $orderDtProductBarcodeCode, orderDtProductBarcodeName: $orderDtProductBarcodeName, orderDtProductBarcodeMasterUnitId: $orderDtProductBarcodeMasterUnitId, orderDtProductBarcodeMasterUnitName: $orderDtProductBarcodeMasterUnitName, orderDtProductBarcodeRate: $orderDtProductBarcodeRate, orderDtPrice: $orderDtPrice, orderDtQty: $orderDtQty, orderDtDiscount: $orderDtDiscount, orderDtNetamnt: $orderDtNetamnt, orderDtVatFlag: $orderDtVatFlag, quotationHdDocuno: $quotationHdDocuno)';
+    return 'DocumentOrderDTModel(orderDtId: $orderDtId, orderHdId: $orderHdId, quotationDtId: $quotationDtId, orderDtListno: $orderDtListno, productId: $productId, productCode: $productCode, unitId: $unitId, orderDtProductBarcodeId: $orderDtProductBarcodeId, orderDtProductBarcodeCode: $orderDtProductBarcodeCode, orderDtProductBarcodeName: $orderDtProductBarcodeName, orderDtProductBarcodeMasterUnitId: $orderDtProductBarcodeMasterUnitId, orderDtProductBarcodeMasterUnitName: $orderDtProductBarcodeMasterUnitName, orderDtProductBarcodeRate: $orderDtProductBarcodeRate, orderDtPrice: $orderDtPrice, orderDtQty: $orderDtQty, orderDtDiscount: $orderDtDiscount, orderDtNetamnt: $orderDtNetamnt, orderDtVatFlag: $orderDtVatFlag, quotationHdDocuno: $quotationHdDocuno, isCancel: $isCancel)';
   }
 
   @override
@@ -517,7 +535,8 @@ class _$DocumentOrderDTModelImpl implements _DocumentOrderDTModel {
             (identical(other.orderDtVatFlag, orderDtVatFlag) ||
                 other.orderDtVatFlag == orderDtVatFlag) &&
             (identical(other.quotationHdDocuno, quotationHdDocuno) ||
-                other.quotationHdDocuno == quotationHdDocuno));
+                other.quotationHdDocuno == quotationHdDocuno) &&
+            (identical(other.isCancel, isCancel) || other.isCancel == isCancel));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -542,7 +561,8 @@ class _$DocumentOrderDTModelImpl implements _DocumentOrderDTModel {
         orderDtDiscount,
         orderDtNetamnt,
         orderDtVatFlag,
-        quotationHdDocuno
+        quotationHdDocuno,
+        isCancel
       ]);
 
   /// Create a copy of DocumentOrderDTModel
@@ -565,32 +585,33 @@ class _$DocumentOrderDTModelImpl implements _DocumentOrderDTModel {
 
 abstract class _DocumentOrderDTModel implements DocumentOrderDTModel {
   const factory _DocumentOrderDTModel(
-      {@JsonKey(name: 'order_dt_id') final String? orderDtId,
-      @JsonKey(name: 'order_hd_id') final String? orderHdId,
-      @JsonKey(name: 'quotation_dt_id') final String? quotationDtId,
-      @JsonKey(name: 'order_dt_listno') final num? orderDtListno,
-      @JsonKey(name: 'master_product_id') final String? productId,
-      @JsonKey(name: 'master_product_code') final String? productCode,
-      @JsonKey(name: 'master_unit_id') final String? unitId,
-      @JsonKey(name: 'order_dt_master_product_barcode_id')
-      final String? orderDtProductBarcodeId,
-      @JsonKey(name: 'order_dt_master_product_barcode_code')
-      final String? orderDtProductBarcodeCode,
-      @JsonKey(name: 'order_dt_master_product_barcode_name')
-      final String? orderDtProductBarcodeName,
-      @JsonKey(name: 'order_dt_master_product_barcode_master_unit_id')
-      final String? orderDtProductBarcodeMasterUnitId,
-      @JsonKey(name: 'order_dt_master_product_barcode_master_unit_name')
-      final String? orderDtProductBarcodeMasterUnitName,
-      @JsonKey(name: 'order_dt_master_product_barcode_rate')
-      final String? orderDtProductBarcodeRate,
-      @JsonKey(name: 'order_dt_price') final String? orderDtPrice,
-      @JsonKey(name: 'order_dt_qty') final String? orderDtQty,
-      @JsonKey(name: 'order_dt_discount') final String? orderDtDiscount,
-      @JsonKey(name: 'order_dt_netamnt') final String? orderDtNetamnt,
-      @JsonKey(name: 'order_dt_vat_flag') final bool? orderDtVatFlag,
-      @JsonKey(name: 'quotation_hd_docuno')
-      final String? quotationHdDocuno}) = _$DocumentOrderDTModelImpl;
+          {@JsonKey(name: 'order_dt_id') final String? orderDtId,
+          @JsonKey(name: 'order_hd_id') final String? orderHdId,
+          @JsonKey(name: 'quotation_dt_id') final String? quotationDtId,
+          @JsonKey(name: 'order_dt_listno') final num? orderDtListno,
+          @JsonKey(name: 'master_product_id') final String? productId,
+          @JsonKey(name: 'master_product_code') final String? productCode,
+          @JsonKey(name: 'master_unit_id') final String? unitId,
+          @JsonKey(name: 'order_dt_master_product_barcode_id')
+          final String? orderDtProductBarcodeId,
+          @JsonKey(name: 'order_dt_master_product_barcode_code')
+          final String? orderDtProductBarcodeCode,
+          @JsonKey(name: 'order_dt_master_product_barcode_name')
+          final String? orderDtProductBarcodeName,
+          @JsonKey(name: 'order_dt_master_product_barcode_master_unit_id')
+          final String? orderDtProductBarcodeMasterUnitId,
+          @JsonKey(name: 'order_dt_master_product_barcode_master_unit_name')
+          final String? orderDtProductBarcodeMasterUnitName,
+          @JsonKey(name: 'order_dt_master_product_barcode_rate')
+          final String? orderDtProductBarcodeRate,
+          @JsonKey(name: 'order_dt_price') final String? orderDtPrice,
+          @JsonKey(name: 'order_dt_qty') final String? orderDtQty,
+          @JsonKey(name: 'order_dt_discount') final String? orderDtDiscount,
+          @JsonKey(name: 'order_dt_netamnt') final String? orderDtNetamnt,
+          @JsonKey(name: 'order_dt_vat_flag') final bool? orderDtVatFlag,
+          @JsonKey(name: 'quotation_hd_docuno') final String? quotationHdDocuno,
+          @JsonKey(name: 'is_cancel') final bool? isCancel}) =
+      _$DocumentOrderDTModelImpl;
 
   factory _DocumentOrderDTModel.fromJson(Map<String, dynamic> json) =
       _$DocumentOrderDTModelImpl.fromJson;
@@ -652,6 +673,9 @@ abstract class _DocumentOrderDTModel implements DocumentOrderDTModel {
   @override
   @JsonKey(name: 'quotation_hd_docuno')
   String? get quotationHdDocuno;
+  @override
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel;
 
   /// Create a copy of DocumentOrderDTModel
   /// with the given fields replaced by the non-null parameter values.

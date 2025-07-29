@@ -24,6 +24,7 @@ _$HeaderFullTaxInvoiceModelImpl _$$HeaderFullTaxInvoiceModelImplFromJson(
       branchs: (json['branchs'] as List<dynamic>?)
           ?.map((e) => BranchModel.fromJson(e as Map<String, dynamic>))
           .toList(),
+      isCancel: json['is_cancel'] as bool?,
     );
 
 Map<String, dynamic> _$$HeaderFullTaxInvoiceModelImplToJson(
@@ -42,4 +43,5 @@ Map<String, dynamic> _$$HeaderFullTaxInvoiceModelImplToJson(
       'docu_no': instance.docuNo,
       'docu_date': instance.docuDate,
       'branchs': instance.branchs,
+      'is_cancel': instance.isCancel,
     };

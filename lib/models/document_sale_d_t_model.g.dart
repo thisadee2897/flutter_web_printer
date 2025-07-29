@@ -36,6 +36,7 @@ _$DocumentSaleDTModelImpl _$$DocumentSaleDTModelImplFromJson(
       saleDtVatFlag: json['sale_dt_vat_flag'] as bool?,
       saleDtQtyBalance: json['sale_dt_qty_balance'] as String?,
       orderHdDocuno: json['order_hd_docuno'] as String?,
+      isCancel: json['is_cancel'] as bool?,
     );
 
 Map<String, dynamic> _$$DocumentSaleDTModelImplToJson(
@@ -64,4 +65,5 @@ Map<String, dynamic> _$$DocumentSaleDTModelImplToJson(
       'sale_dt_vat_flag': instance.saleDtVatFlag,
       'sale_dt_qty_balance': instance.saleDtQtyBalance,
       'order_hd_docuno': instance.orderHdDocuno,
+      'is_cancel': instance.isCancel,
     };

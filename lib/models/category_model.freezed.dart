@@ -25,7 +25,9 @@ mixin _$CategoryModel {
   @JsonKey(name: 'quantity')
   num? get quantity => throw _privateConstructorUsedError;
   @JsonKey(name: 'amount')
-  num? get amount => throw _privateConstructorUsedError;
+  num? get amount => throw _privateConstructorUsedError; //is_cancel
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel => throw _privateConstructorUsedError;
 
   /// Serializes this CategoryModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -46,7 +48,8 @@ abstract class $CategoryModelCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'category_name') String? categoryName,
       @JsonKey(name: 'quantity') num? quantity,
-      @JsonKey(name: 'amount') num? amount});
+      @JsonKey(name: 'amount') num? amount,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -67,6 +70,7 @@ class _$CategoryModelCopyWithImpl<$Res, $Val extends CategoryModel>
     Object? categoryName = freezed,
     Object? quantity = freezed,
     Object? amount = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_value.copyWith(
       categoryName: freezed == categoryName
@@ -81,6 +85,10 @@ class _$CategoryModelCopyWithImpl<$Res, $Val extends CategoryModel>
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as num?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -96,7 +104,8 @@ abstract class _$$CategoryModelImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: 'category_name') String? categoryName,
       @JsonKey(name: 'quantity') num? quantity,
-      @JsonKey(name: 'amount') num? amount});
+      @JsonKey(name: 'amount') num? amount,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -115,6 +124,7 @@ class __$$CategoryModelImplCopyWithImpl<$Res>
     Object? categoryName = freezed,
     Object? quantity = freezed,
     Object? amount = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_$CategoryModelImpl(
       categoryName: freezed == categoryName
@@ -129,6 +139,10 @@ class __$$CategoryModelImplCopyWithImpl<$Res>
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as num?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -139,7 +153,8 @@ class _$CategoryModelImpl implements _CategoryModel {
   const _$CategoryModelImpl(
       {@JsonKey(name: 'category_name') this.categoryName,
       @JsonKey(name: 'quantity') this.quantity,
-      @JsonKey(name: 'amount') this.amount});
+      @JsonKey(name: 'amount') this.amount,
+      @JsonKey(name: 'is_cancel') this.isCancel});
 
   factory _$CategoryModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$CategoryModelImplFromJson(json);
@@ -153,10 +168,14 @@ class _$CategoryModelImpl implements _CategoryModel {
   @override
   @JsonKey(name: 'amount')
   final num? amount;
+//is_cancel
+  @override
+  @JsonKey(name: 'is_cancel')
+  final bool? isCancel;
 
   @override
   String toString() {
-    return 'CategoryModel(categoryName: $categoryName, quantity: $quantity, amount: $amount)';
+    return 'CategoryModel(categoryName: $categoryName, quantity: $quantity, amount: $amount, isCancel: $isCancel)';
   }
 
   @override
@@ -168,12 +187,15 @@ class _$CategoryModelImpl implements _CategoryModel {
                 other.categoryName == categoryName) &&
             (identical(other.quantity, quantity) ||
                 other.quantity == quantity) &&
-            (identical(other.amount, amount) || other.amount == amount));
+            (identical(other.amount, amount) || other.amount == amount) &&
+            (identical(other.isCancel, isCancel) ||
+                other.isCancel == isCancel));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, categoryName, quantity, amount);
+  int get hashCode =>
+      Object.hash(runtimeType, categoryName, quantity, amount, isCancel);
 
   /// Create a copy of CategoryModel
   /// with the given fields replaced by the non-null parameter values.
@@ -195,7 +217,8 @@ abstract class _CategoryModel implements CategoryModel {
   const factory _CategoryModel(
       {@JsonKey(name: 'category_name') final String? categoryName,
       @JsonKey(name: 'quantity') final num? quantity,
-      @JsonKey(name: 'amount') final num? amount}) = _$CategoryModelImpl;
+      @JsonKey(name: 'amount') final num? amount,
+      @JsonKey(name: 'is_cancel') final bool? isCancel}) = _$CategoryModelImpl;
 
   factory _CategoryModel.fromJson(Map<String, dynamic> json) =
       _$CategoryModelImpl.fromJson;
@@ -208,7 +231,10 @@ abstract class _CategoryModel implements CategoryModel {
   num? get quantity;
   @override
   @JsonKey(name: 'amount')
-  num? get amount;
+  num? get amount; //is_cancel
+  @override
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel;
 
   /// Create a copy of CategoryModel
   /// with the given fields replaced by the non-null parameter values.

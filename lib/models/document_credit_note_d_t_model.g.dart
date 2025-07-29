@@ -38,6 +38,7 @@ _$DocumentCreditNoteDTModelImpl _$$DocumentCreditNoteDTModelImplFromJson(
       accountId: json['master_account_id'] as String?,
       creditnoteDtVatFlag: json['creditnote_dt_vat_flag'] as bool?,
       receiveHdDocuno: json['receive_hd_docuno'] as String?,
+      isCancel: json['is_cancel'] as bool?,
     );
 
 Map<String, dynamic> _$$DocumentCreditNoteDTModelImplToJson(
@@ -70,4 +71,5 @@ Map<String, dynamic> _$$DocumentCreditNoteDTModelImplToJson(
       'master_account_id': instance.accountId,
       'creditnote_dt_vat_flag': instance.creditnoteDtVatFlag,
       'receive_hd_docuno': instance.receiveHdDocuno,
+      'is_cancel': instance.isCancel,
     };

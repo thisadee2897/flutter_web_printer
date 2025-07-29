@@ -16,6 +16,7 @@ _$EarningStatementModelImpl _$$EarningStatementModelImplFromJson(
       companyId: json['master_company_id'] as String?,
       accountCategoryId: json['master_account_category_id'] as num?,
       sumProfit: json['sum_profit'] as String?,
+      isCancel: json['is_cancel'] as bool?,
     );
 
 Map<String, dynamic> _$$EarningStatementModelImplToJson(
@@ -27,4 +28,5 @@ Map<String, dynamic> _$$EarningStatementModelImplToJson(
       'master_company_id': instance.companyId,
       'master_account_category_id': instance.accountCategoryId,
       'sum_profit': instance.sumProfit,
+      'is_cancel': instance.isCancel,
     };

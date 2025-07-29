@@ -47,6 +47,8 @@ mixin _$HeaderFullTaxInvoiceModel {
   String? get docuDate => throw _privateConstructorUsedError;
   @JsonKey(name: 'branchs')
   List<BranchModel>? get branchs => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel => throw _privateConstructorUsedError;
 
   /// Serializes this HeaderFullTaxInvoiceModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -78,7 +80,8 @@ abstract class $HeaderFullTaxInvoiceModelCopyWith<$Res> {
       @JsonKey(name: 'customer_tax_id') String? customerTaxId,
       @JsonKey(name: 'docu_no') String? docuNo,
       @JsonKey(name: 'docu_date') String? docuDate,
-      @JsonKey(name: 'branchs') List<BranchModel>? branchs});
+      @JsonKey(name: 'branchs') List<BranchModel>? branchs,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -110,6 +113,7 @@ class _$HeaderFullTaxInvoiceModelCopyWithImpl<$Res,
     Object? docuNo = freezed,
     Object? docuDate = freezed,
     Object? branchs = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_value.copyWith(
       title: freezed == title
@@ -164,6 +168,10 @@ class _$HeaderFullTaxInvoiceModelCopyWithImpl<$Res,
           ? _value.branchs
           : branchs // ignore: cast_nullable_to_non_nullable
               as List<BranchModel>?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -191,7 +199,8 @@ abstract class _$$HeaderFullTaxInvoiceModelImplCopyWith<$Res>
       @JsonKey(name: 'customer_tax_id') String? customerTaxId,
       @JsonKey(name: 'docu_no') String? docuNo,
       @JsonKey(name: 'docu_date') String? docuDate,
-      @JsonKey(name: 'branchs') List<BranchModel>? branchs});
+      @JsonKey(name: 'branchs') List<BranchModel>? branchs,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -222,6 +231,7 @@ class __$$HeaderFullTaxInvoiceModelImplCopyWithImpl<$Res>
     Object? docuNo = freezed,
     Object? docuDate = freezed,
     Object? branchs = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_$HeaderFullTaxInvoiceModelImpl(
       title: freezed == title
@@ -276,6 +286,10 @@ class __$$HeaderFullTaxInvoiceModelImplCopyWithImpl<$Res>
           ? _value._branchs
           : branchs // ignore: cast_nullable_to_non_nullable
               as List<BranchModel>?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -296,7 +310,8 @@ class _$HeaderFullTaxInvoiceModelImpl implements _HeaderFullTaxInvoiceModel {
       @JsonKey(name: 'customer_tax_id') this.customerTaxId,
       @JsonKey(name: 'docu_no') this.docuNo,
       @JsonKey(name: 'docu_date') this.docuDate,
-      @JsonKey(name: 'branchs') final List<BranchModel>? branchs})
+      @JsonKey(name: 'branchs') final List<BranchModel>? branchs,
+      @JsonKey(name: 'is_cancel') this.isCancel})
       : _branchs = branchs;
 
   factory _$HeaderFullTaxInvoiceModelImpl.fromJson(Map<String, dynamic> json) =>
@@ -350,8 +365,12 @@ class _$HeaderFullTaxInvoiceModelImpl implements _HeaderFullTaxInvoiceModel {
   }
 
   @override
+  @JsonKey(name: 'is_cancel')
+  final bool? isCancel;
+
+  @override
   String toString() {
-    return 'HeaderFullTaxInvoiceModel(title: $title, companyLogoImageNetwork: $companyLogoImageNetwork, companyName: $companyName, companyAddress: $companyAddress, companyPhoneNumber: $companyPhoneNumber, companyTaxId: $companyTaxId, customerName: $customerName, customerAddress: $customerAddress, customerPhoneNumber: $customerPhoneNumber, customerTaxId: $customerTaxId, docuNo: $docuNo, docuDate: $docuDate, branchs: $branchs)';
+    return 'HeaderFullTaxInvoiceModel(title: $title, companyLogoImageNetwork: $companyLogoImageNetwork, companyName: $companyName, companyAddress: $companyAddress, companyPhoneNumber: $companyPhoneNumber, companyTaxId: $companyTaxId, customerName: $customerName, customerAddress: $customerAddress, customerPhoneNumber: $customerPhoneNumber, customerTaxId: $customerTaxId, docuNo: $docuNo, docuDate: $docuDate, branchs: $branchs, isCancel: $isCancel)';
   }
 
   @override
@@ -382,7 +401,9 @@ class _$HeaderFullTaxInvoiceModelImpl implements _HeaderFullTaxInvoiceModel {
             (identical(other.docuNo, docuNo) || other.docuNo == docuNo) &&
             (identical(other.docuDate, docuDate) ||
                 other.docuDate == docuDate) &&
-            const DeepCollectionEquality().equals(other._branchs, _branchs));
+            const DeepCollectionEquality().equals(other._branchs, _branchs) &&
+            (identical(other.isCancel, isCancel) ||
+                other.isCancel == isCancel));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -401,7 +422,8 @@ class _$HeaderFullTaxInvoiceModelImpl implements _HeaderFullTaxInvoiceModel {
       customerTaxId,
       docuNo,
       docuDate,
-      const DeepCollectionEquality().hash(_branchs));
+      const DeepCollectionEquality().hash(_branchs),
+      isCancel);
 
   /// Create a copy of HeaderFullTaxInvoiceModel
   /// with the given fields replaced by the non-null parameter values.
@@ -435,8 +457,9 @@ abstract class _HeaderFullTaxInvoiceModel implements HeaderFullTaxInvoiceModel {
       @JsonKey(name: 'customer_tax_id') final String? customerTaxId,
       @JsonKey(name: 'docu_no') final String? docuNo,
       @JsonKey(name: 'docu_date') final String? docuDate,
-      @JsonKey(name: 'branchs')
-      final List<BranchModel>? branchs}) = _$HeaderFullTaxInvoiceModelImpl;
+      @JsonKey(name: 'branchs') final List<BranchModel>? branchs,
+      @JsonKey(name: 'is_cancel')
+      final bool? isCancel}) = _$HeaderFullTaxInvoiceModelImpl;
 
   factory _HeaderFullTaxInvoiceModel.fromJson(Map<String, dynamic> json) =
       _$HeaderFullTaxInvoiceModelImpl.fromJson;
@@ -480,6 +503,9 @@ abstract class _HeaderFullTaxInvoiceModel implements HeaderFullTaxInvoiceModel {
   @override
   @JsonKey(name: 'branchs')
   List<BranchModel>? get branchs;
+  @override
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel;
 
   /// Create a copy of HeaderFullTaxInvoiceModel
   /// with the given fields replaced by the non-null parameter values.

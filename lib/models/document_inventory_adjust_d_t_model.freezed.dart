@@ -51,6 +51,8 @@ mixin _$DocumentInventoryAdjustDTModel {
   String? get adjustDtPrice => throw _privateConstructorUsedError;
   @JsonKey(name: 'adjust_dt_amount')
   String? get adjustDtAmount => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel => throw _privateConstructorUsedError;
 
   /// Serializes this DocumentInventoryAdjustDTModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -90,7 +92,8 @@ abstract class $DocumentInventoryAdjustDTModelCopyWith<$Res> {
       @JsonKey(name: 'adjust_dt_flag') num? adjustDtFlag,
       @JsonKey(name: 'adjust_dt_qty') String? adjustDtQty,
       @JsonKey(name: 'adjust_dt_price') String? adjustDtPrice,
-      @JsonKey(name: 'adjust_dt_amount') String? adjustDtAmount});
+      @JsonKey(name: 'adjust_dt_amount') String? adjustDtAmount,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -123,6 +126,7 @@ class _$DocumentInventoryAdjustDTModelCopyWithImpl<$Res,
     Object? adjustDtQty = freezed,
     Object? adjustDtPrice = freezed,
     Object? adjustDtAmount = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_value.copyWith(
       adjustDtId: freezed == adjustDtId
@@ -183,6 +187,10 @@ class _$DocumentInventoryAdjustDTModelCopyWithImpl<$Res,
           ? _value.adjustDtAmount
           : adjustDtAmount // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -216,7 +224,8 @@ abstract class _$$DocumentInventoryAdjustDTModelImplCopyWith<$Res>
       @JsonKey(name: 'adjust_dt_flag') num? adjustDtFlag,
       @JsonKey(name: 'adjust_dt_qty') String? adjustDtQty,
       @JsonKey(name: 'adjust_dt_price') String? adjustDtPrice,
-      @JsonKey(name: 'adjust_dt_amount') String? adjustDtAmount});
+      @JsonKey(name: 'adjust_dt_amount') String? adjustDtAmount,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -248,6 +257,7 @@ class __$$DocumentInventoryAdjustDTModelImplCopyWithImpl<$Res>
     Object? adjustDtQty = freezed,
     Object? adjustDtPrice = freezed,
     Object? adjustDtAmount = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_$DocumentInventoryAdjustDTModelImpl(
       adjustDtId: freezed == adjustDtId
@@ -308,6 +318,10 @@ class __$$DocumentInventoryAdjustDTModelImplCopyWithImpl<$Res>
           ? _value.adjustDtAmount
           : adjustDtAmount // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -336,7 +350,8 @@ class _$DocumentInventoryAdjustDTModelImpl
       @JsonKey(name: 'adjust_dt_flag') this.adjustDtFlag,
       @JsonKey(name: 'adjust_dt_qty') this.adjustDtQty,
       @JsonKey(name: 'adjust_dt_price') this.adjustDtPrice,
-      @JsonKey(name: 'adjust_dt_amount') this.adjustDtAmount});
+      @JsonKey(name: 'adjust_dt_amount') this.adjustDtAmount,
+      @JsonKey(name: 'is_cancel') this.isCancel});
 
   factory _$DocumentInventoryAdjustDTModelImpl.fromJson(
           Map<String, dynamic> json) =>
@@ -384,10 +399,13 @@ class _$DocumentInventoryAdjustDTModelImpl
   @override
   @JsonKey(name: 'adjust_dt_amount')
   final String? adjustDtAmount;
+  @override
+  @JsonKey(name: 'is_cancel')
+  final bool? isCancel;
 
   @override
   String toString() {
-    return 'DocumentInventoryAdjustDTModel(adjustDtId: $adjustDtId, adjustHdId: $adjustHdId, adjustDtListno: $adjustDtListno, productId: $productId, adjustDtProductBarcodeId: $adjustDtProductBarcodeId, adjustDtProductBarcodeCode: $adjustDtProductBarcodeCode, adjustDtProductBarcodeName: $adjustDtProductBarcodeName, adjustDtProductBarcodeMasterUnitId: $adjustDtProductBarcodeMasterUnitId, adjustDtProductBarcodeMasterUnitName: $adjustDtProductBarcodeMasterUnitName, adjustDtProductBarcodeRate: $adjustDtProductBarcodeRate, adjustDtFlag: $adjustDtFlag, adjustDtQty: $adjustDtQty, adjustDtPrice: $adjustDtPrice, adjustDtAmount: $adjustDtAmount)';
+    return 'DocumentInventoryAdjustDTModel(adjustDtId: $adjustDtId, adjustHdId: $adjustHdId, adjustDtListno: $adjustDtListno, productId: $productId, adjustDtProductBarcodeId: $adjustDtProductBarcodeId, adjustDtProductBarcodeCode: $adjustDtProductBarcodeCode, adjustDtProductBarcodeName: $adjustDtProductBarcodeName, adjustDtProductBarcodeMasterUnitId: $adjustDtProductBarcodeMasterUnitId, adjustDtProductBarcodeMasterUnitName: $adjustDtProductBarcodeMasterUnitName, adjustDtProductBarcodeRate: $adjustDtProductBarcodeRate, adjustDtFlag: $adjustDtFlag, adjustDtQty: $adjustDtQty, adjustDtPrice: $adjustDtPrice, adjustDtAmount: $adjustDtAmount, isCancel: $isCancel)';
   }
 
   @override
@@ -430,7 +448,8 @@ class _$DocumentInventoryAdjustDTModelImpl
             (identical(other.adjustDtPrice, adjustDtPrice) ||
                 other.adjustDtPrice == adjustDtPrice) &&
             (identical(other.adjustDtAmount, adjustDtAmount) ||
-                other.adjustDtAmount == adjustDtAmount));
+                other.adjustDtAmount == adjustDtAmount) &&
+            (identical(other.isCancel, isCancel) || other.isCancel == isCancel));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -450,7 +469,8 @@ class _$DocumentInventoryAdjustDTModelImpl
       adjustDtFlag,
       adjustDtQty,
       adjustDtPrice,
-      adjustDtAmount);
+      adjustDtAmount,
+      isCancel);
 
   /// Create a copy of DocumentInventoryAdjustDTModel
   /// with the given fields replaced by the non-null parameter values.
@@ -492,7 +512,8 @@ abstract class _DocumentInventoryAdjustDTModel
           @JsonKey(name: 'adjust_dt_flag') final num? adjustDtFlag,
           @JsonKey(name: 'adjust_dt_qty') final String? adjustDtQty,
           @JsonKey(name: 'adjust_dt_price') final String? adjustDtPrice,
-          @JsonKey(name: 'adjust_dt_amount') final String? adjustDtAmount}) =
+          @JsonKey(name: 'adjust_dt_amount') final String? adjustDtAmount,
+          @JsonKey(name: 'is_cancel') final bool? isCancel}) =
       _$DocumentInventoryAdjustDTModelImpl;
 
   factory _DocumentInventoryAdjustDTModel.fromJson(Map<String, dynamic> json) =
@@ -540,6 +561,9 @@ abstract class _DocumentInventoryAdjustDTModel
   @override
   @JsonKey(name: 'adjust_dt_amount')
   String? get adjustDtAmount;
+  @override
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel;
 
   /// Create a copy of DocumentInventoryAdjustDTModel
   /// with the given fields replaced by the non-null parameter values.

@@ -22,6 +22,7 @@ _$DocumentGeneralLedgerModelImpl _$$DocumentGeneralLedgerModelImplFromJson(
       glhdDocutypeId: json['glhd_docutype_id'] as num?,
       fullname: json['fullname'] as String?,
       glhdDocutypeName: json['glhd_docutype_name'] as String?,
+      isCancel: json['is_cancel'] as bool?,
     );
 
 Map<String, dynamic> _$$DocumentGeneralLedgerModelImplToJson(
@@ -40,4 +41,5 @@ Map<String, dynamic> _$$DocumentGeneralLedgerModelImplToJson(
       'glhd_docutype_id': instance.glhdDocutypeId,
       'fullname': instance.fullname,
       'glhd_docutype_name': instance.glhdDocutypeName,
+      'is_cancel': instance.isCancel,
     };

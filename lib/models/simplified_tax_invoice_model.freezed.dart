@@ -30,6 +30,8 @@ mixin _$SimplifiedTaxInvoiceModel {
   @JsonKey(name: 'footer')
   FooterSimplifiedTaxInvoiceModel? get footer =>
       throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel => throw _privateConstructorUsedError;
 
   /// Serializes this SimplifiedTaxInvoiceModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -50,7 +52,8 @@ abstract class $SimplifiedTaxInvoiceModelCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'header') HeaderSimplifiedTaxInvoiceModel? header,
       @JsonKey(name: 'details') List<DetailTaxInvoiceModel>? details,
-      @JsonKey(name: 'footer') FooterSimplifiedTaxInvoiceModel? footer});
+      @JsonKey(name: 'footer') FooterSimplifiedTaxInvoiceModel? footer,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 
   $HeaderSimplifiedTaxInvoiceModelCopyWith<$Res>? get header;
   $FooterSimplifiedTaxInvoiceModelCopyWith<$Res>? get footer;
@@ -75,6 +78,7 @@ class _$SimplifiedTaxInvoiceModelCopyWithImpl<$Res,
     Object? header = freezed,
     Object? details = freezed,
     Object? footer = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_value.copyWith(
       header: freezed == header
@@ -89,6 +93,10 @@ class _$SimplifiedTaxInvoiceModelCopyWithImpl<$Res,
           ? _value.footer
           : footer // ignore: cast_nullable_to_non_nullable
               as FooterSimplifiedTaxInvoiceModel?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 
@@ -135,7 +143,8 @@ abstract class _$$SimplifiedTaxInvoiceModelImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: 'header') HeaderSimplifiedTaxInvoiceModel? header,
       @JsonKey(name: 'details') List<DetailTaxInvoiceModel>? details,
-      @JsonKey(name: 'footer') FooterSimplifiedTaxInvoiceModel? footer});
+      @JsonKey(name: 'footer') FooterSimplifiedTaxInvoiceModel? footer,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 
   @override
   $HeaderSimplifiedTaxInvoiceModelCopyWith<$Res>? get header;
@@ -161,6 +170,7 @@ class __$$SimplifiedTaxInvoiceModelImplCopyWithImpl<$Res>
     Object? header = freezed,
     Object? details = freezed,
     Object? footer = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_$SimplifiedTaxInvoiceModelImpl(
       header: freezed == header
@@ -175,6 +185,10 @@ class __$$SimplifiedTaxInvoiceModelImplCopyWithImpl<$Res>
           ? _value.footer
           : footer // ignore: cast_nullable_to_non_nullable
               as FooterSimplifiedTaxInvoiceModel?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -185,7 +199,8 @@ class _$SimplifiedTaxInvoiceModelImpl implements _SimplifiedTaxInvoiceModel {
   const _$SimplifiedTaxInvoiceModelImpl(
       {@JsonKey(name: 'header') this.header,
       @JsonKey(name: 'details') final List<DetailTaxInvoiceModel>? details,
-      @JsonKey(name: 'footer') this.footer})
+      @JsonKey(name: 'footer') this.footer,
+      @JsonKey(name: 'is_cancel') this.isCancel})
       : _details = details;
 
   factory _$SimplifiedTaxInvoiceModelImpl.fromJson(Map<String, dynamic> json) =>
@@ -208,10 +223,13 @@ class _$SimplifiedTaxInvoiceModelImpl implements _SimplifiedTaxInvoiceModel {
   @override
   @JsonKey(name: 'footer')
   final FooterSimplifiedTaxInvoiceModel? footer;
+  @override
+  @JsonKey(name: 'is_cancel')
+  final bool? isCancel;
 
   @override
   String toString() {
-    return 'SimplifiedTaxInvoiceModel(header: $header, details: $details, footer: $footer)';
+    return 'SimplifiedTaxInvoiceModel(header: $header, details: $details, footer: $footer, isCancel: $isCancel)';
   }
 
   @override
@@ -221,13 +239,15 @@ class _$SimplifiedTaxInvoiceModelImpl implements _SimplifiedTaxInvoiceModel {
             other is _$SimplifiedTaxInvoiceModelImpl &&
             (identical(other.header, header) || other.header == header) &&
             const DeepCollectionEquality().equals(other._details, _details) &&
-            (identical(other.footer, footer) || other.footer == footer));
+            (identical(other.footer, footer) || other.footer == footer) &&
+            (identical(other.isCancel, isCancel) ||
+                other.isCancel == isCancel));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, header,
-      const DeepCollectionEquality().hash(_details), footer);
+      const DeepCollectionEquality().hash(_details), footer, isCancel);
 
   /// Create a copy of SimplifiedTaxInvoiceModel
   /// with the given fields replaced by the non-null parameter values.
@@ -250,9 +270,9 @@ abstract class _SimplifiedTaxInvoiceModel implements SimplifiedTaxInvoiceModel {
   const factory _SimplifiedTaxInvoiceModel(
       {@JsonKey(name: 'header') final HeaderSimplifiedTaxInvoiceModel? header,
       @JsonKey(name: 'details') final List<DetailTaxInvoiceModel>? details,
-      @JsonKey(name: 'footer')
-      final FooterSimplifiedTaxInvoiceModel?
-          footer}) = _$SimplifiedTaxInvoiceModelImpl;
+      @JsonKey(name: 'footer') final FooterSimplifiedTaxInvoiceModel? footer,
+      @JsonKey(name: 'is_cancel')
+      final bool? isCancel}) = _$SimplifiedTaxInvoiceModelImpl;
 
   factory _SimplifiedTaxInvoiceModel.fromJson(Map<String, dynamic> json) =
       _$SimplifiedTaxInvoiceModelImpl.fromJson;
@@ -266,6 +286,9 @@ abstract class _SimplifiedTaxInvoiceModel implements SimplifiedTaxInvoiceModel {
   @override
   @JsonKey(name: 'footer')
   FooterSimplifiedTaxInvoiceModel? get footer;
+  @override
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel;
 
   /// Create a copy of SimplifiedTaxInvoiceModel
   /// with the given fields replaced by the non-null parameter values.

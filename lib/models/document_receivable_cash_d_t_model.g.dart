@@ -21,6 +21,7 @@ _$DocumentReceivableCashDTModelImpl
               json['receivable_dt_invoice_lastamount'] as String?,
           receivableDtReceiveamount:
               json['receivable_dt_receiveamount'] as String?,
+          isCancel: json['is_cancel'] as bool?,
         );
 
 Map<String, dynamic> _$$DocumentReceivableCashDTModelImplToJson(
@@ -37,4 +38,5 @@ Map<String, dynamic> _$$DocumentReceivableCashDTModelImplToJson(
       'receivable_dt_invoice_lastamount':
           instance.receivableDtInvoiceLastamount,
       'receivable_dt_receiveamount': instance.receivableDtReceiveamount,
+      'is_cancel': instance.isCancel,
     };

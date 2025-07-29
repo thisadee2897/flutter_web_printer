@@ -28,6 +28,7 @@ class DocumentSaleDTModel with _$DocumentSaleDTModel {
   @JsonKey(name: 'sale_dt_vat_flag') bool? saleDtVatFlag,
   @JsonKey(name: 'sale_dt_qty_balance') String? saleDtQtyBalance,
   @JsonKey(name: 'order_hd_docuno') String? orderHdDocuno,
+  @JsonKey(name: 'is_cancel') bool? isCancel,
   }) = _DocumentSaleDTModel;
 
   factory DocumentSaleDTModel.fromJson(Map<String, dynamic> json) => _$DocumentSaleDTModelFromJson(json);

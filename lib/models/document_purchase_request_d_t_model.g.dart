@@ -35,6 +35,7 @@ _$DocumentPurchaseRequestDTModelImpl
                   as String?,
           purchaserequestDtProductBarcodeRate:
               json['purchaserequest_dt_master_product_barcode_rate'] as String?,
+          isCancel: json['is_cancel'] as bool?,
         );
 
 Map<String, dynamic> _$$DocumentPurchaseRequestDTModelImplToJson(
@@ -62,4 +63,5 @@ Map<String, dynamic> _$$DocumentPurchaseRequestDTModelImplToJson(
           instance.purchaserequestDtProductBarcodeMasterUnitName,
       'purchaserequest_dt_master_product_barcode_rate':
           instance.purchaserequestDtProductBarcodeRate,
+      'is_cancel': instance.isCancel,
     };

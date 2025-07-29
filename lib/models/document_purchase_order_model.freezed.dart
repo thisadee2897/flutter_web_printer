@@ -76,6 +76,8 @@ mixin _$DocumentPurchaseOrderModel {
   String? get contactTel => throw _privateConstructorUsedError;
   @JsonKey(name: 'master_contact_taxid')
   String? get contactTaxid => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel => throw _privateConstructorUsedError;
 
   /// Serializes this DocumentPurchaseOrderModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -125,7 +127,8 @@ abstract class $DocumentPurchaseOrderModelCopyWith<$Res> {
       @JsonKey(name: 'fullname') String? fullname,
       @JsonKey(name: 'master_contact_address') String? contactAddress,
       @JsonKey(name: 'master_contact_tel') String? contactTel,
-      @JsonKey(name: 'master_contact_taxid') String? contactTaxid});
+      @JsonKey(name: 'master_contact_taxid') String? contactTaxid,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -170,6 +173,7 @@ class _$DocumentPurchaseOrderModelCopyWithImpl<$Res,
     Object? contactAddress = freezed,
     Object? contactTel = freezed,
     Object? contactTaxid = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_value.copyWith(
       purchaseorderHdId: freezed == purchaseorderHdId
@@ -278,6 +282,10 @@ class _$DocumentPurchaseOrderModelCopyWithImpl<$Res,
           ? _value.contactTaxid
           : contactTaxid // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -322,7 +330,8 @@ abstract class _$$DocumentPurchaseOrderModelImplCopyWith<$Res>
       @JsonKey(name: 'fullname') String? fullname,
       @JsonKey(name: 'master_contact_address') String? contactAddress,
       @JsonKey(name: 'master_contact_tel') String? contactTel,
-      @JsonKey(name: 'master_contact_taxid') String? contactTaxid});
+      @JsonKey(name: 'master_contact_taxid') String? contactTaxid,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -366,6 +375,7 @@ class __$$DocumentPurchaseOrderModelImplCopyWithImpl<$Res>
     Object? contactAddress = freezed,
     Object? contactTel = freezed,
     Object? contactTaxid = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_$DocumentPurchaseOrderModelImpl(
       purchaseorderHdId: freezed == purchaseorderHdId
@@ -474,6 +484,10 @@ class __$$DocumentPurchaseOrderModelImplCopyWithImpl<$Res>
           ? _value.contactTaxid
           : contactTaxid // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -510,7 +524,8 @@ class _$DocumentPurchaseOrderModelImpl implements _DocumentPurchaseOrderModel {
       @JsonKey(name: 'fullname') this.fullname,
       @JsonKey(name: 'master_contact_address') this.contactAddress,
       @JsonKey(name: 'master_contact_tel') this.contactTel,
-      @JsonKey(name: 'master_contact_taxid') this.contactTaxid});
+      @JsonKey(name: 'master_contact_taxid') this.contactTaxid,
+      @JsonKey(name: 'is_cancel') this.isCancel});
 
   factory _$DocumentPurchaseOrderModelImpl.fromJson(
           Map<String, dynamic> json) =>
@@ -594,10 +609,13 @@ class _$DocumentPurchaseOrderModelImpl implements _DocumentPurchaseOrderModel {
   @override
   @JsonKey(name: 'master_contact_taxid')
   final String? contactTaxid;
+  @override
+  @JsonKey(name: 'is_cancel')
+  final bool? isCancel;
 
   @override
   String toString() {
-    return 'DocumentPurchaseOrderModel(purchaseorderHdId: $purchaseorderHdId, companyId: $companyId, branchId: $branchId, branchCode: $branchCode, branchName: $branchName, purchaseorderHdDocudate: $purchaseorderHdDocudate, purchaseorderHdDocuno: $purchaseorderHdDocuno, purchaseorderHdStatusId: $purchaseorderHdStatusId, contactId: $contactId, contactCode: $contactCode, contactName: $contactName, purchaseorderHdRemark: $purchaseorderHdRemark, vatGroupId: $vatGroupId, vatGroupName: $vatGroupName, purchaseorderHdAmount: $purchaseorderHdAmount, purchaseorderHdTotalexcludeamnt: $purchaseorderHdTotalexcludeamnt, purchaseorderHdTotalincludeamnt: $purchaseorderHdTotalincludeamnt, purchaseorderHdBaseamnt: $purchaseorderHdBaseamnt, purchaseorderHdVatamnt: $purchaseorderHdVatamnt, purchaseorderHdDiscountAmount: $purchaseorderHdDiscountAmount, purchaseorderHdNetamnt: $purchaseorderHdNetamnt, vatRate: $vatRate, fullname: $fullname, contactAddress: $contactAddress, contactTel: $contactTel, contactTaxid: $contactTaxid)';
+    return 'DocumentPurchaseOrderModel(purchaseorderHdId: $purchaseorderHdId, companyId: $companyId, branchId: $branchId, branchCode: $branchCode, branchName: $branchName, purchaseorderHdDocudate: $purchaseorderHdDocudate, purchaseorderHdDocuno: $purchaseorderHdDocuno, purchaseorderHdStatusId: $purchaseorderHdStatusId, contactId: $contactId, contactCode: $contactCode, contactName: $contactName, purchaseorderHdRemark: $purchaseorderHdRemark, vatGroupId: $vatGroupId, vatGroupName: $vatGroupName, purchaseorderHdAmount: $purchaseorderHdAmount, purchaseorderHdTotalexcludeamnt: $purchaseorderHdTotalexcludeamnt, purchaseorderHdTotalincludeamnt: $purchaseorderHdTotalincludeamnt, purchaseorderHdBaseamnt: $purchaseorderHdBaseamnt, purchaseorderHdVatamnt: $purchaseorderHdVatamnt, purchaseorderHdDiscountAmount: $purchaseorderHdDiscountAmount, purchaseorderHdNetamnt: $purchaseorderHdNetamnt, vatRate: $vatRate, fullname: $fullname, contactAddress: $contactAddress, contactTel: $contactTel, contactTaxid: $contactTaxid, isCancel: $isCancel)';
   }
 
   @override
@@ -641,8 +659,7 @@ class _$DocumentPurchaseOrderModelImpl implements _DocumentPurchaseOrderModel {
             (identical(other.purchaseorderHdTotalincludeamnt, purchaseorderHdTotalincludeamnt) ||
                 other.purchaseorderHdTotalincludeamnt ==
                     purchaseorderHdTotalincludeamnt) &&
-            (identical(
-                    other.purchaseorderHdBaseamnt, purchaseorderHdBaseamnt) ||
+            (identical(other.purchaseorderHdBaseamnt, purchaseorderHdBaseamnt) ||
                 other.purchaseorderHdBaseamnt == purchaseorderHdBaseamnt) &&
             (identical(other.purchaseorderHdVatamnt, purchaseorderHdVatamnt) ||
                 other.purchaseorderHdVatamnt == purchaseorderHdVatamnt) &&
@@ -659,7 +676,9 @@ class _$DocumentPurchaseOrderModelImpl implements _DocumentPurchaseOrderModel {
             (identical(other.contactTel, contactTel) ||
                 other.contactTel == contactTel) &&
             (identical(other.contactTaxid, contactTaxid) ||
-                other.contactTaxid == contactTaxid));
+                other.contactTaxid == contactTaxid) &&
+            (identical(other.isCancel, isCancel) ||
+                other.isCancel == isCancel));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -691,7 +710,8 @@ class _$DocumentPurchaseOrderModelImpl implements _DocumentPurchaseOrderModel {
         fullname,
         contactAddress,
         contactTel,
-        contactTaxid
+        contactTaxid,
+        isCancel
       ]);
 
   /// Create a copy of DocumentPurchaseOrderModel
@@ -750,8 +770,9 @@ abstract class _DocumentPurchaseOrderModel
       @JsonKey(name: 'fullname') final String? fullname,
       @JsonKey(name: 'master_contact_address') final String? contactAddress,
       @JsonKey(name: 'master_contact_tel') final String? contactTel,
-      @JsonKey(name: 'master_contact_taxid')
-      final String? contactTaxid}) = _$DocumentPurchaseOrderModelImpl;
+      @JsonKey(name: 'master_contact_taxid') final String? contactTaxid,
+      @JsonKey(name: 'is_cancel')
+      final bool? isCancel}) = _$DocumentPurchaseOrderModelImpl;
 
   factory _DocumentPurchaseOrderModel.fromJson(Map<String, dynamic> json) =
       _$DocumentPurchaseOrderModelImpl.fromJson;
@@ -834,6 +855,9 @@ abstract class _DocumentPurchaseOrderModel
   @override
   @JsonKey(name: 'master_contact_taxid')
   String? get contactTaxid;
+  @override
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel;
 
   /// Create a copy of DocumentPurchaseOrderModel
   /// with the given fields replaced by the non-null parameter values.

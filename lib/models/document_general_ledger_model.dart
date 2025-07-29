@@ -20,6 +20,7 @@ class DocumentGeneralLedgerModel with _$DocumentGeneralLedgerModel {
   @JsonKey(name: 'glhd_docutype_id') num? glhdDocutypeId,
   @JsonKey(name: 'fullname') String? fullname,
   @JsonKey(name: 'glhd_docutype_name') String? glhdDocutypeName,
+  @JsonKey(name: 'is_cancel') bool? isCancel,
   }) = _DocumentGeneralLedgerModel;
 
   factory DocumentGeneralLedgerModel.fromJson(Map<String, dynamic> json) => _$DocumentGeneralLedgerModelFromJson(json);

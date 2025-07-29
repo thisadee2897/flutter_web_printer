@@ -27,6 +27,7 @@ class PurchaseorderModel with _$PurchaseorderModel {
   @JsonKey(name: 'purchaseorder_dt_master_product_barcode_master_unit_id') String? purchaseorderDtProductBarcodeMasterUnitId,
   @JsonKey(name: 'purchaseorder_dt_master_product_barcode_master_unit_name') String? purchaseorderDtProductBarcodeMasterUnitName,
   @JsonKey(name: 'purchaseorder_dt_master_product_barcode_rate') String? purchaseorderDtProductBarcodeRate,
+  @JsonKey(name: 'is_cancel') bool? isCancel,
   }) = _PurchaseorderModel;
 
   factory PurchaseorderModel.fromJson(Map<String, dynamic> json) => _$PurchaseorderModelFromJson(json);

@@ -101,6 +101,8 @@ mixin _$DocumentCreditNoteModel {
   String? get contactTel => throw _privateConstructorUsedError;
   @JsonKey(name: 'master_contact_taxid')
   String? get contactTaxid => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel => throw _privateConstructorUsedError;
 
   /// Serializes this DocumentCreditNoteModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -164,7 +166,8 @@ abstract class $DocumentCreditNoteModelCopyWith<$Res> {
       @JsonKey(name: 'fullname') String? fullname,
       @JsonKey(name: 'master_contact_address') String? contactAddress,
       @JsonKey(name: 'master_contact_tel') String? contactTel,
-      @JsonKey(name: 'master_contact_taxid') String? contactTaxid});
+      @JsonKey(name: 'master_contact_taxid') String? contactTaxid,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -222,6 +225,7 @@ class _$DocumentCreditNoteModelCopyWithImpl<$Res,
     Object? contactAddress = freezed,
     Object? contactTel = freezed,
     Object? contactTaxid = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_value.copyWith(
       creditnoteHdId: freezed == creditnoteHdId
@@ -380,6 +384,10 @@ class _$DocumentCreditNoteModelCopyWithImpl<$Res,
           ? _value.contactTaxid
           : contactTaxid // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -439,7 +447,8 @@ abstract class _$$DocumentCreditNoteModelImplCopyWith<$Res>
       @JsonKey(name: 'fullname') String? fullname,
       @JsonKey(name: 'master_contact_address') String? contactAddress,
       @JsonKey(name: 'master_contact_tel') String? contactTel,
-      @JsonKey(name: 'master_contact_taxid') String? contactTaxid});
+      @JsonKey(name: 'master_contact_taxid') String? contactTaxid,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -496,6 +505,7 @@ class __$$DocumentCreditNoteModelImplCopyWithImpl<$Res>
     Object? contactAddress = freezed,
     Object? contactTel = freezed,
     Object? contactTaxid = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_$DocumentCreditNoteModelImpl(
       creditnoteHdId: freezed == creditnoteHdId
@@ -654,6 +664,10 @@ class __$$DocumentCreditNoteModelImplCopyWithImpl<$Res>
           ? _value.contactTaxid
           : contactTaxid // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -706,7 +720,8 @@ class _$DocumentCreditNoteModelImpl implements _DocumentCreditNoteModel {
       @JsonKey(name: 'fullname') this.fullname,
       @JsonKey(name: 'master_contact_address') this.contactAddress,
       @JsonKey(name: 'master_contact_tel') this.contactTel,
-      @JsonKey(name: 'master_contact_taxid') this.contactTaxid});
+      @JsonKey(name: 'master_contact_taxid') this.contactTaxid,
+      @JsonKey(name: 'is_cancel') this.isCancel});
 
   factory _$DocumentCreditNoteModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$DocumentCreditNoteModelImplFromJson(json);
@@ -828,10 +843,13 @@ class _$DocumentCreditNoteModelImpl implements _DocumentCreditNoteModel {
   @override
   @JsonKey(name: 'master_contact_taxid')
   final String? contactTaxid;
+  @override
+  @JsonKey(name: 'is_cancel')
+  final bool? isCancel;
 
   @override
   String toString() {
-    return 'DocumentCreditNoteModel(creditnoteHdId: $creditnoteHdId, companyId: $companyId, branchId: $branchId, branchCode: $branchCode, branchName: $branchName, creditnoteHdDocudate: $creditnoteHdDocudate, creditnoteHdDocuno: $creditnoteHdDocuno, creditnoteHdStatusId: $creditnoteHdStatusId, contactId: $contactId, contactCode: $contactCode, contactName: $contactName, creditnoteHdRemark: $creditnoteHdRemark, vatGroupId: $vatGroupId, creditnoteHdVatrate: $creditnoteHdVatrate, vatGroupName: $vatGroupName, creditnoteHdAmount: $creditnoteHdAmount, creditnoteHdTotalexcludeamnt: $creditnoteHdTotalexcludeamnt, creditnoteHdTotalincludeamnt: $creditnoteHdTotalincludeamnt, creditnoteHdBaseamnt: $creditnoteHdBaseamnt, creditnoteHdVatamnt: $creditnoteHdVatamnt, creditnoteHdNetamnt: $creditnoteHdNetamnt, creditnoteHdCreditday: $creditnoteHdCreditday, creditnoteHdCashAmount: $creditnoteHdCashAmount, creditnoteHdTransferAmount: $creditnoteHdTransferAmount, branchBankbookId: $branchBankbookId, bankId: $bankId, bankName: $bankName, branchBankbookBankbookno: $branchBankbookBankbookno, branchBankbookBranchname: $branchBankbookBranchname, branchBankbookName: $branchBankbookName, vendorBankId: $vendorBankId, vendorBankName: $vendorBankName, vendorBankbookno: $vendorBankbookno, vendorBankbookName: $vendorBankbookName, vendorBankbookBranchname: $vendorBankbookBranchname, fullname: $fullname, contactAddress: $contactAddress, contactTel: $contactTel, contactTaxid: $contactTaxid)';
+    return 'DocumentCreditNoteModel(creditnoteHdId: $creditnoteHdId, companyId: $companyId, branchId: $branchId, branchCode: $branchCode, branchName: $branchName, creditnoteHdDocudate: $creditnoteHdDocudate, creditnoteHdDocuno: $creditnoteHdDocuno, creditnoteHdStatusId: $creditnoteHdStatusId, contactId: $contactId, contactCode: $contactCode, contactName: $contactName, creditnoteHdRemark: $creditnoteHdRemark, vatGroupId: $vatGroupId, creditnoteHdVatrate: $creditnoteHdVatrate, vatGroupName: $vatGroupName, creditnoteHdAmount: $creditnoteHdAmount, creditnoteHdTotalexcludeamnt: $creditnoteHdTotalexcludeamnt, creditnoteHdTotalincludeamnt: $creditnoteHdTotalincludeamnt, creditnoteHdBaseamnt: $creditnoteHdBaseamnt, creditnoteHdVatamnt: $creditnoteHdVatamnt, creditnoteHdNetamnt: $creditnoteHdNetamnt, creditnoteHdCreditday: $creditnoteHdCreditday, creditnoteHdCashAmount: $creditnoteHdCashAmount, creditnoteHdTransferAmount: $creditnoteHdTransferAmount, branchBankbookId: $branchBankbookId, bankId: $bankId, bankName: $bankName, branchBankbookBankbookno: $branchBankbookBankbookno, branchBankbookBranchname: $branchBankbookBranchname, branchBankbookName: $branchBankbookName, vendorBankId: $vendorBankId, vendorBankName: $vendorBankName, vendorBankbookno: $vendorBankbookno, vendorBankbookName: $vendorBankbookName, vendorBankbookBranchname: $vendorBankbookBranchname, fullname: $fullname, contactAddress: $contactAddress, contactTel: $contactTel, contactTaxid: $contactTaxid, isCancel: $isCancel)';
   }
 
   @override
@@ -914,7 +932,8 @@ class _$DocumentCreditNoteModelImpl implements _DocumentCreditNoteModel {
             (identical(other.fullname, fullname) || other.fullname == fullname) &&
             (identical(other.contactAddress, contactAddress) || other.contactAddress == contactAddress) &&
             (identical(other.contactTel, contactTel) || other.contactTel == contactTel) &&
-            (identical(other.contactTaxid, contactTaxid) || other.contactTaxid == contactTaxid));
+            (identical(other.contactTaxid, contactTaxid) || other.contactTaxid == contactTaxid) &&
+            (identical(other.isCancel, isCancel) || other.isCancel == isCancel));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -959,7 +978,8 @@ class _$DocumentCreditNoteModelImpl implements _DocumentCreditNoteModel {
         fullname,
         contactAddress,
         contactTel,
-        contactTaxid
+        contactTaxid,
+        isCancel
       ]);
 
   /// Create a copy of DocumentCreditNoteModel
@@ -1031,8 +1051,9 @@ abstract class _DocumentCreditNoteModel implements DocumentCreditNoteModel {
       @JsonKey(name: 'fullname') final String? fullname,
       @JsonKey(name: 'master_contact_address') final String? contactAddress,
       @JsonKey(name: 'master_contact_tel') final String? contactTel,
-      @JsonKey(name: 'master_contact_taxid')
-      final String? contactTaxid}) = _$DocumentCreditNoteModelImpl;
+      @JsonKey(name: 'master_contact_taxid') final String? contactTaxid,
+      @JsonKey(name: 'is_cancel')
+      final bool? isCancel}) = _$DocumentCreditNoteModelImpl;
 
   factory _DocumentCreditNoteModel.fromJson(Map<String, dynamic> json) =
       _$DocumentCreditNoteModelImpl.fromJson;
@@ -1154,6 +1175,9 @@ abstract class _DocumentCreditNoteModel implements DocumentCreditNoteModel {
   @override
   @JsonKey(name: 'master_contact_taxid')
   String? get contactTaxid;
+  @override
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel;
 
   /// Create a copy of DocumentCreditNoteModel
   /// with the given fields replaced by the non-null parameter values.

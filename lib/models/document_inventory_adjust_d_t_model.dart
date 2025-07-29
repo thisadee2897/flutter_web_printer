@@ -21,6 +21,7 @@ class DocumentInventoryAdjustDTModel with _$DocumentInventoryAdjustDTModel {
   @JsonKey(name: 'adjust_dt_qty') String? adjustDtQty,
   @JsonKey(name: 'adjust_dt_price') String? adjustDtPrice,
   @JsonKey(name: 'adjust_dt_amount') String? adjustDtAmount,
+  @JsonKey(name: 'is_cancel') bool? isCancel,
   }) = _DocumentInventoryAdjustDTModel;
 
   factory DocumentInventoryAdjustDTModel.fromJson(Map<String, dynamic> json) => _$DocumentInventoryAdjustDTModelFromJson(json);

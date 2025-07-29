@@ -16,6 +16,7 @@ class DocumentReceivableCashDTModel with _$DocumentReceivableCashDTModel {
   @JsonKey(name: 'receivable_dt_invoice_totoalamount') String? receivableDtInvoiceTotoalamount,
   @JsonKey(name: 'receivable_dt_invoice_lastamount') String? receivableDtInvoiceLastamount,
   @JsonKey(name: 'receivable_dt_receiveamount') String? receivableDtReceiveamount,
+  @JsonKey(name: 'is_cancel') bool? isCancel,
   }) = _DocumentReceivableCashDTModel;
 
   factory DocumentReceivableCashDTModel.fromJson(Map<String, dynamic> json) => _$DocumentReceivableCashDTModelFromJson(json);

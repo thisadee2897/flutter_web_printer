@@ -53,6 +53,8 @@ mixin _$DocumentInventoryRequisitionDTModel {
   String? get requisitionDtPrice => throw _privateConstructorUsedError;
   @JsonKey(name: 'requisition_dt_amount')
   String? get requisitionDtAmount => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel => throw _privateConstructorUsedError;
 
   /// Serializes this DocumentInventoryRequisitionDTModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -92,7 +94,8 @@ abstract class $DocumentInventoryRequisitionDTModelCopyWith<$Res> {
       String? requisitionDtProductBarcodeRate,
       @JsonKey(name: 'requisition_dt_qty') String? requisitionDtQty,
       @JsonKey(name: 'requisition_dt_price') String? requisitionDtPrice,
-      @JsonKey(name: 'requisition_dt_amount') String? requisitionDtAmount});
+      @JsonKey(name: 'requisition_dt_amount') String? requisitionDtAmount,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -124,6 +127,7 @@ class _$DocumentInventoryRequisitionDTModelCopyWithImpl<$Res,
     Object? requisitionDtQty = freezed,
     Object? requisitionDtPrice = freezed,
     Object? requisitionDtAmount = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_value.copyWith(
       requisitionDtId: freezed == requisitionDtId
@@ -183,6 +187,10 @@ class _$DocumentInventoryRequisitionDTModelCopyWithImpl<$Res,
           ? _value.requisitionDtAmount
           : requisitionDtAmount // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -215,7 +223,8 @@ abstract class _$$DocumentInventoryRequisitionDTModelImplCopyWith<$Res>
       String? requisitionDtProductBarcodeRate,
       @JsonKey(name: 'requisition_dt_qty') String? requisitionDtQty,
       @JsonKey(name: 'requisition_dt_price') String? requisitionDtPrice,
-      @JsonKey(name: 'requisition_dt_amount') String? requisitionDtAmount});
+      @JsonKey(name: 'requisition_dt_amount') String? requisitionDtAmount,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -246,6 +255,7 @@ class __$$DocumentInventoryRequisitionDTModelImplCopyWithImpl<$Res>
     Object? requisitionDtQty = freezed,
     Object? requisitionDtPrice = freezed,
     Object? requisitionDtAmount = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_$DocumentInventoryRequisitionDTModelImpl(
       requisitionDtId: freezed == requisitionDtId
@@ -305,6 +315,10 @@ class __$$DocumentInventoryRequisitionDTModelImplCopyWithImpl<$Res>
           ? _value.requisitionDtAmount
           : requisitionDtAmount // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -332,7 +346,8 @@ class _$DocumentInventoryRequisitionDTModelImpl
       this.requisitionDtProductBarcodeRate,
       @JsonKey(name: 'requisition_dt_qty') this.requisitionDtQty,
       @JsonKey(name: 'requisition_dt_price') this.requisitionDtPrice,
-      @JsonKey(name: 'requisition_dt_amount') this.requisitionDtAmount});
+      @JsonKey(name: 'requisition_dt_amount') this.requisitionDtAmount,
+      @JsonKey(name: 'is_cancel') this.isCancel});
 
   factory _$DocumentInventoryRequisitionDTModelImpl.fromJson(
           Map<String, dynamic> json) =>
@@ -377,10 +392,13 @@ class _$DocumentInventoryRequisitionDTModelImpl
   @override
   @JsonKey(name: 'requisition_dt_amount')
   final String? requisitionDtAmount;
+  @override
+  @JsonKey(name: 'is_cancel')
+  final bool? isCancel;
 
   @override
   String toString() {
-    return 'DocumentInventoryRequisitionDTModel(requisitionDtId: $requisitionDtId, requisitionHdId: $requisitionHdId, requisitionDtListno: $requisitionDtListno, productId: $productId, requisitionDtProductBarcodeId: $requisitionDtProductBarcodeId, requisitionDtProductBarcodeCode: $requisitionDtProductBarcodeCode, requisitionDtProductBarcodeName: $requisitionDtProductBarcodeName, requisitionDtProductBarcodeMasterUnitId: $requisitionDtProductBarcodeMasterUnitId, requisitionDtProductBarcodeMasterUnitName: $requisitionDtProductBarcodeMasterUnitName, requisitionDtProductBarcodeRate: $requisitionDtProductBarcodeRate, requisitionDtQty: $requisitionDtQty, requisitionDtPrice: $requisitionDtPrice, requisitionDtAmount: $requisitionDtAmount)';
+    return 'DocumentInventoryRequisitionDTModel(requisitionDtId: $requisitionDtId, requisitionHdId: $requisitionHdId, requisitionDtListno: $requisitionDtListno, productId: $productId, requisitionDtProductBarcodeId: $requisitionDtProductBarcodeId, requisitionDtProductBarcodeCode: $requisitionDtProductBarcodeCode, requisitionDtProductBarcodeName: $requisitionDtProductBarcodeName, requisitionDtProductBarcodeMasterUnitId: $requisitionDtProductBarcodeMasterUnitId, requisitionDtProductBarcodeMasterUnitName: $requisitionDtProductBarcodeMasterUnitName, requisitionDtProductBarcodeRate: $requisitionDtProductBarcodeRate, requisitionDtQty: $requisitionDtQty, requisitionDtPrice: $requisitionDtPrice, requisitionDtAmount: $requisitionDtAmount, isCancel: $isCancel)';
   }
 
   @override
@@ -422,7 +440,8 @@ class _$DocumentInventoryRequisitionDTModelImpl
             (identical(other.requisitionDtPrice, requisitionDtPrice) ||
                 other.requisitionDtPrice == requisitionDtPrice) &&
             (identical(other.requisitionDtAmount, requisitionDtAmount) ||
-                other.requisitionDtAmount == requisitionDtAmount));
+                other.requisitionDtAmount == requisitionDtAmount) &&
+            (identical(other.isCancel, isCancel) || other.isCancel == isCancel));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -441,7 +460,8 @@ class _$DocumentInventoryRequisitionDTModelImpl
       requisitionDtProductBarcodeRate,
       requisitionDtQty,
       requisitionDtPrice,
-      requisitionDtAmount);
+      requisitionDtAmount,
+      isCancel);
 
   /// Create a copy of DocumentInventoryRequisitionDTModel
   /// with the given fields replaced by the non-null parameter values.
@@ -482,9 +502,9 @@ abstract class _DocumentInventoryRequisitionDTModel
       final String? requisitionDtProductBarcodeRate,
       @JsonKey(name: 'requisition_dt_qty') final String? requisitionDtQty,
       @JsonKey(name: 'requisition_dt_price') final String? requisitionDtPrice,
-      @JsonKey(name: 'requisition_dt_amount')
-      final String?
-          requisitionDtAmount}) = _$DocumentInventoryRequisitionDTModelImpl;
+      @JsonKey(name: 'requisition_dt_amount') final String? requisitionDtAmount,
+      @JsonKey(name: 'is_cancel')
+      final bool? isCancel}) = _$DocumentInventoryRequisitionDTModelImpl;
 
   factory _DocumentInventoryRequisitionDTModel.fromJson(
           Map<String, dynamic> json) =
@@ -529,6 +549,9 @@ abstract class _DocumentInventoryRequisitionDTModel
   @override
   @JsonKey(name: 'requisition_dt_amount')
   String? get requisitionDtAmount;
+  @override
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel;
 
   /// Create a copy of DocumentInventoryRequisitionDTModel
   /// with the given fields replaced by the non-null parameter values.

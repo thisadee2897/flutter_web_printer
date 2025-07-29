@@ -9,6 +9,7 @@ class PointModel with _$PointModel {
   const factory PointModel({
   @JsonKey(name: 'point_name') String? pointName,
   @JsonKey(name: 'point_value') String? pointValue,
+  @JsonKey(name: 'is_cancel') bool? isCancel,
   }) = _PointModel;
 
   factory PointModel.fromJson(Map<String, dynamic> json) => _$PointModelFromJson(json);

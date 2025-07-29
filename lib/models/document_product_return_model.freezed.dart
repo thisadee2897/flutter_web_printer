@@ -92,6 +92,8 @@ mixin _$DocumentProductReturnModel {
   String? get contactTel => throw _privateConstructorUsedError;
   @JsonKey(name: 'master_contact_taxid')
   String? get contactTaxid => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel => throw _privateConstructorUsedError;
 
   /// Serializes this DocumentProductReturnModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -153,7 +155,8 @@ abstract class $DocumentProductReturnModelCopyWith<$Res> {
       @JsonKey(name: 'returnproduct_hd_vatrate') String? returnproductHdVatrate,
       @JsonKey(name: 'master_vat_group_name') String? vatGroupName,
       @JsonKey(name: 'master_contact_tel') String? contactTel,
-      @JsonKey(name: 'master_contact_taxid') String? contactTaxid});
+      @JsonKey(name: 'master_contact_taxid') String? contactTaxid,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -206,6 +209,7 @@ class _$DocumentProductReturnModelCopyWithImpl<$Res,
     Object? vatGroupName = freezed,
     Object? contactTel = freezed,
     Object? contactTaxid = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_value.copyWith(
       returnproductHdId: freezed == returnproductHdId
@@ -346,6 +350,10 @@ class _$DocumentProductReturnModelCopyWithImpl<$Res,
           ? _value.contactTaxid
           : contactTaxid // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -402,7 +410,8 @@ abstract class _$$DocumentProductReturnModelImplCopyWith<$Res>
       @JsonKey(name: 'returnproduct_hd_vatrate') String? returnproductHdVatrate,
       @JsonKey(name: 'master_vat_group_name') String? vatGroupName,
       @JsonKey(name: 'master_contact_tel') String? contactTel,
-      @JsonKey(name: 'master_contact_taxid') String? contactTaxid});
+      @JsonKey(name: 'master_contact_taxid') String? contactTaxid,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -454,6 +463,7 @@ class __$$DocumentProductReturnModelImplCopyWithImpl<$Res>
     Object? vatGroupName = freezed,
     Object? contactTel = freezed,
     Object? contactTaxid = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_$DocumentProductReturnModelImpl(
       returnproductHdId: freezed == returnproductHdId
@@ -594,6 +604,10 @@ class __$$DocumentProductReturnModelImplCopyWithImpl<$Res>
           ? _value.contactTaxid
           : contactTaxid // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -641,7 +655,8 @@ class _$DocumentProductReturnModelImpl implements _DocumentProductReturnModel {
       @JsonKey(name: 'returnproduct_hd_vatrate') this.returnproductHdVatrate,
       @JsonKey(name: 'master_vat_group_name') this.vatGroupName,
       @JsonKey(name: 'master_contact_tel') this.contactTel,
-      @JsonKey(name: 'master_contact_taxid') this.contactTaxid});
+      @JsonKey(name: 'master_contact_taxid') this.contactTaxid,
+      @JsonKey(name: 'is_cancel') this.isCancel});
 
   factory _$DocumentProductReturnModelImpl.fromJson(
           Map<String, dynamic> json) =>
@@ -749,10 +764,13 @@ class _$DocumentProductReturnModelImpl implements _DocumentProductReturnModel {
   @override
   @JsonKey(name: 'master_contact_taxid')
   final String? contactTaxid;
+  @override
+  @JsonKey(name: 'is_cancel')
+  final bool? isCancel;
 
   @override
   String toString() {
-    return 'DocumentProductReturnModel(returnproductHdId: $returnproductHdId, companyId: $companyId, branchId: $branchId, branchCode: $branchCode, branchName: $branchName, returnproductHdDocudate: $returnproductHdDocudate, returnproductHdDocuno: $returnproductHdDocuno, returnproductHdStatusId: $returnproductHdStatusId, returnproductHdStatusName: $returnproductHdStatusName, contactId: $contactId, contactCode: $contactCode, contactName: $contactName, contactAddress: $contactAddress, contactDistrictId: $contactDistrictId, contactPrefectureId: $contactPrefectureId, contactProvinceId: $contactProvinceId, contactPostcodeId: $contactPostcodeId, returnproductHdRemark: $returnproductHdRemark, vatGroupId: $vatGroupId, returnproductHdTypeId: $returnproductHdTypeId, returnproductHdCreditday: $returnproductHdCreditday, returnproductHdAmount: $returnproductHdAmount, returnproductHdTotalexcludeamnt: $returnproductHdTotalexcludeamnt, returnproductHdTotalincludeamnt: $returnproductHdTotalincludeamnt, returnproductHdBaseamnt: $returnproductHdBaseamnt, returnproductHdVatamnt: $returnproductHdVatamnt, returnproductHdNetamnt: $returnproductHdNetamnt, returnproductHdCashAmount: $returnproductHdCashAmount, returnproductHdTransferAmount: $returnproductHdTransferAmount, fullname: $fullname, returnproductHdVatrate: $returnproductHdVatrate, vatGroupName: $vatGroupName, contactTel: $contactTel, contactTaxid: $contactTaxid)';
+    return 'DocumentProductReturnModel(returnproductHdId: $returnproductHdId, companyId: $companyId, branchId: $branchId, branchCode: $branchCode, branchName: $branchName, returnproductHdDocudate: $returnproductHdDocudate, returnproductHdDocuno: $returnproductHdDocuno, returnproductHdStatusId: $returnproductHdStatusId, returnproductHdStatusName: $returnproductHdStatusName, contactId: $contactId, contactCode: $contactCode, contactName: $contactName, contactAddress: $contactAddress, contactDistrictId: $contactDistrictId, contactPrefectureId: $contactPrefectureId, contactProvinceId: $contactProvinceId, contactPostcodeId: $contactPostcodeId, returnproductHdRemark: $returnproductHdRemark, vatGroupId: $vatGroupId, returnproductHdTypeId: $returnproductHdTypeId, returnproductHdCreditday: $returnproductHdCreditday, returnproductHdAmount: $returnproductHdAmount, returnproductHdTotalexcludeamnt: $returnproductHdTotalexcludeamnt, returnproductHdTotalincludeamnt: $returnproductHdTotalincludeamnt, returnproductHdBaseamnt: $returnproductHdBaseamnt, returnproductHdVatamnt: $returnproductHdVatamnt, returnproductHdNetamnt: $returnproductHdNetamnt, returnproductHdCashAmount: $returnproductHdCashAmount, returnproductHdTransferAmount: $returnproductHdTransferAmount, fullname: $fullname, returnproductHdVatrate: $returnproductHdVatrate, vatGroupName: $vatGroupName, contactTel: $contactTel, contactTaxid: $contactTaxid, isCancel: $isCancel)';
   }
 
   @override
@@ -819,7 +837,8 @@ class _$DocumentProductReturnModelImpl implements _DocumentProductReturnModel {
             (identical(other.returnproductHdVatrate, returnproductHdVatrate) || other.returnproductHdVatrate == returnproductHdVatrate) &&
             (identical(other.vatGroupName, vatGroupName) || other.vatGroupName == vatGroupName) &&
             (identical(other.contactTel, contactTel) || other.contactTel == contactTel) &&
-            (identical(other.contactTaxid, contactTaxid) || other.contactTaxid == contactTaxid));
+            (identical(other.contactTaxid, contactTaxid) || other.contactTaxid == contactTaxid) &&
+            (identical(other.isCancel, isCancel) || other.isCancel == isCancel));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -859,7 +878,8 @@ class _$DocumentProductReturnModelImpl implements _DocumentProductReturnModel {
         returnproductHdVatrate,
         vatGroupName,
         contactTel,
-        contactTaxid
+        contactTaxid,
+        isCancel
       ]);
 
   /// Create a copy of DocumentProductReturnModel
@@ -935,8 +955,9 @@ abstract class _DocumentProductReturnModel
       final String? returnproductHdVatrate,
       @JsonKey(name: 'master_vat_group_name') final String? vatGroupName,
       @JsonKey(name: 'master_contact_tel') final String? contactTel,
-      @JsonKey(name: 'master_contact_taxid')
-      final String? contactTaxid}) = _$DocumentProductReturnModelImpl;
+      @JsonKey(name: 'master_contact_taxid') final String? contactTaxid,
+      @JsonKey(name: 'is_cancel')
+      final bool? isCancel}) = _$DocumentProductReturnModelImpl;
 
   factory _DocumentProductReturnModel.fromJson(Map<String, dynamic> json) =
       _$DocumentProductReturnModelImpl.fromJson;
@@ -1043,6 +1064,9 @@ abstract class _DocumentProductReturnModel
   @override
   @JsonKey(name: 'master_contact_taxid')
   String? get contactTaxid;
+  @override
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel;
 
   /// Create a copy of DocumentProductReturnModel
   /// with the given fields replaced by the non-null parameter values.

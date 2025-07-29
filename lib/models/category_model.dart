@@ -10,6 +10,8 @@ class CategoryModel with _$CategoryModel {
   @JsonKey(name: 'category_name') String? categoryName,
   @JsonKey(name: 'quantity') num? quantity,
   @JsonKey(name: 'amount') num? amount,
+  //is_cancel
+  @JsonKey(name: 'is_cancel') bool? isCancel,
   }) = _CategoryModel;
 
   factory CategoryModel.fromJson(Map<String, dynamic> json) => _$CategoryModelFromJson(json);

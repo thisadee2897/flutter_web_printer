@@ -21,6 +21,7 @@ _$HeaderSimplifiedTaxInvoiceModelImpl
           tableNumber: json['table_number'] as String?,
           docuNo: json['docu_no'] as String?,
           docuDate: json['docu_date'] as String?,
+          isCancel: json['is_cancel'] as bool?,
         );
 
 Map<String, dynamic> _$$HeaderSimplifiedTaxInvoiceModelImplToJson(
@@ -37,4 +38,5 @@ Map<String, dynamic> _$$HeaderSimplifiedTaxInvoiceModelImplToJson(
       'table_number': instance.tableNumber,
       'docu_no': instance.docuNo,
       'docu_date': instance.docuDate,
+      'is_cancel': instance.isCancel,
     };

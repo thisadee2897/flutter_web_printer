@@ -47,6 +47,8 @@ mixin _$DocumentGeneralLedgerModel {
   String? get fullname => throw _privateConstructorUsedError;
   @JsonKey(name: 'glhd_docutype_name')
   String? get glhdDocutypeName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel => throw _privateConstructorUsedError;
 
   /// Serializes this DocumentGeneralLedgerModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -78,7 +80,8 @@ abstract class $DocumentGeneralLedgerModelCopyWith<$Res> {
       @JsonKey(name: 'glhd_netamount') String? glhdNetamount,
       @JsonKey(name: 'glhd_docutype_id') num? glhdDocutypeId,
       @JsonKey(name: 'fullname') String? fullname,
-      @JsonKey(name: 'glhd_docutype_name') String? glhdDocutypeName});
+      @JsonKey(name: 'glhd_docutype_name') String? glhdDocutypeName,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -110,6 +113,7 @@ class _$DocumentGeneralLedgerModelCopyWithImpl<$Res,
     Object? glhdDocutypeId = freezed,
     Object? fullname = freezed,
     Object? glhdDocutypeName = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_value.copyWith(
       glhdid: freezed == glhdid
@@ -164,6 +168,10 @@ class _$DocumentGeneralLedgerModelCopyWithImpl<$Res,
           ? _value.glhdDocutypeName
           : glhdDocutypeName // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -190,7 +198,8 @@ abstract class _$$DocumentGeneralLedgerModelImplCopyWith<$Res>
       @JsonKey(name: 'glhd_netamount') String? glhdNetamount,
       @JsonKey(name: 'glhd_docutype_id') num? glhdDocutypeId,
       @JsonKey(name: 'fullname') String? fullname,
-      @JsonKey(name: 'glhd_docutype_name') String? glhdDocutypeName});
+      @JsonKey(name: 'glhd_docutype_name') String? glhdDocutypeName,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -221,6 +230,7 @@ class __$$DocumentGeneralLedgerModelImplCopyWithImpl<$Res>
     Object? glhdDocutypeId = freezed,
     Object? fullname = freezed,
     Object? glhdDocutypeName = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_$DocumentGeneralLedgerModelImpl(
       glhdid: freezed == glhdid
@@ -275,6 +285,10 @@ class __$$DocumentGeneralLedgerModelImplCopyWithImpl<$Res>
           ? _value.glhdDocutypeName
           : glhdDocutypeName // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -295,7 +309,8 @@ class _$DocumentGeneralLedgerModelImpl implements _DocumentGeneralLedgerModel {
       @JsonKey(name: 'glhd_netamount') this.glhdNetamount,
       @JsonKey(name: 'glhd_docutype_id') this.glhdDocutypeId,
       @JsonKey(name: 'fullname') this.fullname,
-      @JsonKey(name: 'glhd_docutype_name') this.glhdDocutypeName});
+      @JsonKey(name: 'glhd_docutype_name') this.glhdDocutypeName,
+      @JsonKey(name: 'is_cancel') this.isCancel});
 
   factory _$DocumentGeneralLedgerModelImpl.fromJson(
           Map<String, dynamic> json) =>
@@ -340,10 +355,13 @@ class _$DocumentGeneralLedgerModelImpl implements _DocumentGeneralLedgerModel {
   @override
   @JsonKey(name: 'glhd_docutype_name')
   final String? glhdDocutypeName;
+  @override
+  @JsonKey(name: 'is_cancel')
+  final bool? isCancel;
 
   @override
   String toString() {
-    return 'DocumentGeneralLedgerModel(glhdid: $glhdid, companyId: $companyId, branchId: $branchId, branchCode: $branchCode, branchName: $branchName, gldocudate: $gldocudate, gldocuno: $gldocuno, glhdStatusId: $glhdStatusId, glhdRemark: $glhdRemark, glhdNetamount: $glhdNetamount, glhdDocutypeId: $glhdDocutypeId, fullname: $fullname, glhdDocutypeName: $glhdDocutypeName)';
+    return 'DocumentGeneralLedgerModel(glhdid: $glhdid, companyId: $companyId, branchId: $branchId, branchCode: $branchCode, branchName: $branchName, gldocudate: $gldocudate, gldocuno: $gldocuno, glhdStatusId: $glhdStatusId, glhdRemark: $glhdRemark, glhdNetamount: $glhdNetamount, glhdDocutypeId: $glhdDocutypeId, fullname: $fullname, glhdDocutypeName: $glhdDocutypeName, isCancel: $isCancel)';
   }
 
   @override
@@ -375,7 +393,9 @@ class _$DocumentGeneralLedgerModelImpl implements _DocumentGeneralLedgerModel {
             (identical(other.fullname, fullname) ||
                 other.fullname == fullname) &&
             (identical(other.glhdDocutypeName, glhdDocutypeName) ||
-                other.glhdDocutypeName == glhdDocutypeName));
+                other.glhdDocutypeName == glhdDocutypeName) &&
+            (identical(other.isCancel, isCancel) ||
+                other.isCancel == isCancel));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -394,7 +414,8 @@ class _$DocumentGeneralLedgerModelImpl implements _DocumentGeneralLedgerModel {
       glhdNetamount,
       glhdDocutypeId,
       fullname,
-      glhdDocutypeName);
+      glhdDocutypeName,
+      isCancel);
 
   /// Create a copy of DocumentGeneralLedgerModel
   /// with the given fields replaced by the non-null parameter values.
@@ -416,20 +437,21 @@ class _$DocumentGeneralLedgerModelImpl implements _DocumentGeneralLedgerModel {
 abstract class _DocumentGeneralLedgerModel
     implements DocumentGeneralLedgerModel {
   const factory _DocumentGeneralLedgerModel(
-      {@JsonKey(name: 'glhdid') final String? glhdid,
-      @JsonKey(name: 'master_company_id') final String? companyId,
-      @JsonKey(name: 'master_branch_id') final String? branchId,
-      @JsonKey(name: 'master_branch_code') final String? branchCode,
-      @JsonKey(name: 'master_branch_name') final String? branchName,
-      @JsonKey(name: 'gldocudate') final String? gldocudate,
-      @JsonKey(name: 'gldocuno') final String? gldocuno,
-      @JsonKey(name: 'glhd_status_id') final num? glhdStatusId,
-      @JsonKey(name: 'glhd_remark') final String? glhdRemark,
-      @JsonKey(name: 'glhd_netamount') final String? glhdNetamount,
-      @JsonKey(name: 'glhd_docutype_id') final num? glhdDocutypeId,
-      @JsonKey(name: 'fullname') final String? fullname,
-      @JsonKey(name: 'glhd_docutype_name')
-      final String? glhdDocutypeName}) = _$DocumentGeneralLedgerModelImpl;
+          {@JsonKey(name: 'glhdid') final String? glhdid,
+          @JsonKey(name: 'master_company_id') final String? companyId,
+          @JsonKey(name: 'master_branch_id') final String? branchId,
+          @JsonKey(name: 'master_branch_code') final String? branchCode,
+          @JsonKey(name: 'master_branch_name') final String? branchName,
+          @JsonKey(name: 'gldocudate') final String? gldocudate,
+          @JsonKey(name: 'gldocuno') final String? gldocuno,
+          @JsonKey(name: 'glhd_status_id') final num? glhdStatusId,
+          @JsonKey(name: 'glhd_remark') final String? glhdRemark,
+          @JsonKey(name: 'glhd_netamount') final String? glhdNetamount,
+          @JsonKey(name: 'glhd_docutype_id') final num? glhdDocutypeId,
+          @JsonKey(name: 'fullname') final String? fullname,
+          @JsonKey(name: 'glhd_docutype_name') final String? glhdDocutypeName,
+          @JsonKey(name: 'is_cancel') final bool? isCancel}) =
+      _$DocumentGeneralLedgerModelImpl;
 
   factory _DocumentGeneralLedgerModel.fromJson(Map<String, dynamic> json) =
       _$DocumentGeneralLedgerModelImpl.fromJson;
@@ -473,6 +495,9 @@ abstract class _DocumentGeneralLedgerModel
   @override
   @JsonKey(name: 'glhd_docutype_name')
   String? get glhdDocutypeName;
+  @override
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel;
 
   /// Create a copy of DocumentGeneralLedgerModel
   /// with the given fields replaced by the non-null parameter values.

@@ -28,6 +28,7 @@ class DocumentCreditNoteDTModel with _$DocumentCreditNoteDTModel {
   @JsonKey(name: 'master_account_id') String? accountId,
   @JsonKey(name: 'creditnote_dt_vat_flag') bool? creditnoteDtVatFlag,
   @JsonKey(name: 'receive_hd_docuno') String? receiveHdDocuno,
+  @JsonKey(name: 'is_cancel') bool? isCancel,
   }) = _DocumentCreditNoteDTModel;
 
   factory DocumentCreditNoteDTModel.fromJson(Map<String, dynamic> json) => _$DocumentCreditNoteDTModelFromJson(json);

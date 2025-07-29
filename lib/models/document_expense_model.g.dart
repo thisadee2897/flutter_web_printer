@@ -52,6 +52,7 @@ _$DocumentExpenseModelImpl _$$DocumentExpenseModelImplFromJson(
       expenseHdWhtamnt: json['expense_hd_whtamnt'] as String?,
       expenseHdInvoiceDate: json['expense_hd_invoice_date'] as String?,
       expenseHdInvoiceNo: json['expense_hd_invoice_no'] as String?,
+      isCancel: json['is_cancel'] as bool?,
     );
 
 Map<String, dynamic> _$$DocumentExpenseModelImplToJson(
@@ -98,4 +99,5 @@ Map<String, dynamic> _$$DocumentExpenseModelImplToJson(
       'expense_hd_whtamnt': instance.expenseHdWhtamnt,
       'expense_hd_invoice_date': instance.expenseHdInvoiceDate,
       'expense_hd_invoice_no': instance.expenseHdInvoiceNo,
+      'is_cancel': instance.isCancel,
     };

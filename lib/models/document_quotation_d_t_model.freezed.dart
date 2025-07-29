@@ -58,6 +58,8 @@ mixin _$DocumentQuotationDTModel {
   String? get quotationDtDiscount => throw _privateConstructorUsedError;
   @JsonKey(name: 'quotation_dt_netamnt')
   String? get quotationDtNetamnt => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel => throw _privateConstructorUsedError;
 
   /// Serializes this DocumentQuotationDTModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -97,7 +99,8 @@ abstract class $DocumentQuotationDTModelCopyWith<$Res> {
       @JsonKey(name: 'quotation_dt_price') String? quotationDtPrice,
       @JsonKey(name: 'quotation_dt_qty') String? quotationDtQty,
       @JsonKey(name: 'quotation_dt_discount') String? quotationDtDiscount,
-      @JsonKey(name: 'quotation_dt_netamnt') String? quotationDtNetamnt});
+      @JsonKey(name: 'quotation_dt_netamnt') String? quotationDtNetamnt,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -132,6 +135,7 @@ class _$DocumentQuotationDTModelCopyWithImpl<$Res,
     Object? quotationDtQty = freezed,
     Object? quotationDtDiscount = freezed,
     Object? quotationDtNetamnt = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_value.copyWith(
       quotationDtId: freezed == quotationDtId
@@ -200,6 +204,10 @@ class _$DocumentQuotationDTModelCopyWithImpl<$Res,
           ? _value.quotationDtNetamnt
           : quotationDtNetamnt // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -235,7 +243,8 @@ abstract class _$$DocumentQuotationDTModelImplCopyWith<$Res>
       @JsonKey(name: 'quotation_dt_price') String? quotationDtPrice,
       @JsonKey(name: 'quotation_dt_qty') String? quotationDtQty,
       @JsonKey(name: 'quotation_dt_discount') String? quotationDtDiscount,
-      @JsonKey(name: 'quotation_dt_netamnt') String? quotationDtNetamnt});
+      @JsonKey(name: 'quotation_dt_netamnt') String? quotationDtNetamnt,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -269,6 +278,7 @@ class __$$DocumentQuotationDTModelImplCopyWithImpl<$Res>
     Object? quotationDtQty = freezed,
     Object? quotationDtDiscount = freezed,
     Object? quotationDtNetamnt = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_$DocumentQuotationDTModelImpl(
       quotationDtId: freezed == quotationDtId
@@ -337,6 +347,10 @@ class __$$DocumentQuotationDTModelImplCopyWithImpl<$Res>
           ? _value.quotationDtNetamnt
           : quotationDtNetamnt // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -366,7 +380,8 @@ class _$DocumentQuotationDTModelImpl implements _DocumentQuotationDTModel {
       @JsonKey(name: 'quotation_dt_price') this.quotationDtPrice,
       @JsonKey(name: 'quotation_dt_qty') this.quotationDtQty,
       @JsonKey(name: 'quotation_dt_discount') this.quotationDtDiscount,
-      @JsonKey(name: 'quotation_dt_netamnt') this.quotationDtNetamnt});
+      @JsonKey(name: 'quotation_dt_netamnt') this.quotationDtNetamnt,
+      @JsonKey(name: 'is_cancel') this.isCancel});
 
   factory _$DocumentQuotationDTModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$DocumentQuotationDTModelImplFromJson(json);
@@ -419,10 +434,13 @@ class _$DocumentQuotationDTModelImpl implements _DocumentQuotationDTModel {
   @override
   @JsonKey(name: 'quotation_dt_netamnt')
   final String? quotationDtNetamnt;
+  @override
+  @JsonKey(name: 'is_cancel')
+  final bool? isCancel;
 
   @override
   String toString() {
-    return 'DocumentQuotationDTModel(quotationDtId: $quotationDtId, quotationHdId: $quotationHdId, quotationDtListno: $quotationDtListno, productId: $productId, productCode: $productCode, unitId: $unitId, quotationDtProductBarcodeId: $quotationDtProductBarcodeId, quotationDtProductBarcodeCode: $quotationDtProductBarcodeCode, quotationDtProductBarcodeName: $quotationDtProductBarcodeName, quotationDtProductBarcodeMasterUnitId: $quotationDtProductBarcodeMasterUnitId, quotationDtProductBarcodeMasterUnitName: $quotationDtProductBarcodeMasterUnitName, quotationDtProductBarcodeRate: $quotationDtProductBarcodeRate, quotationDtPrice: $quotationDtPrice, quotationDtQty: $quotationDtQty, quotationDtDiscount: $quotationDtDiscount, quotationDtNetamnt: $quotationDtNetamnt)';
+    return 'DocumentQuotationDTModel(quotationDtId: $quotationDtId, quotationHdId: $quotationHdId, quotationDtListno: $quotationDtListno, productId: $productId, productCode: $productCode, unitId: $unitId, quotationDtProductBarcodeId: $quotationDtProductBarcodeId, quotationDtProductBarcodeCode: $quotationDtProductBarcodeCode, quotationDtProductBarcodeName: $quotationDtProductBarcodeName, quotationDtProductBarcodeMasterUnitId: $quotationDtProductBarcodeMasterUnitId, quotationDtProductBarcodeMasterUnitName: $quotationDtProductBarcodeMasterUnitName, quotationDtProductBarcodeRate: $quotationDtProductBarcodeRate, quotationDtPrice: $quotationDtPrice, quotationDtQty: $quotationDtQty, quotationDtDiscount: $quotationDtDiscount, quotationDtNetamnt: $quotationDtNetamnt, isCancel: $isCancel)';
   }
 
   @override
@@ -468,7 +486,9 @@ class _$DocumentQuotationDTModelImpl implements _DocumentQuotationDTModel {
             (identical(other.quotationDtDiscount, quotationDtDiscount) ||
                 other.quotationDtDiscount == quotationDtDiscount) &&
             (identical(other.quotationDtNetamnt, quotationDtNetamnt) ||
-                other.quotationDtNetamnt == quotationDtNetamnt));
+                other.quotationDtNetamnt == quotationDtNetamnt) &&
+            (identical(other.isCancel, isCancel) ||
+                other.isCancel == isCancel));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -490,7 +510,8 @@ class _$DocumentQuotationDTModelImpl implements _DocumentQuotationDTModel {
       quotationDtPrice,
       quotationDtQty,
       quotationDtDiscount,
-      quotationDtNetamnt);
+      quotationDtNetamnt,
+      isCancel);
 
   /// Create a copy of DocumentQuotationDTModel
   /// with the given fields replaced by the non-null parameter values.
@@ -532,8 +553,9 @@ abstract class _DocumentQuotationDTModel implements DocumentQuotationDTModel {
       @JsonKey(name: 'quotation_dt_price') final String? quotationDtPrice,
       @JsonKey(name: 'quotation_dt_qty') final String? quotationDtQty,
       @JsonKey(name: 'quotation_dt_discount') final String? quotationDtDiscount,
-      @JsonKey(name: 'quotation_dt_netamnt')
-      final String? quotationDtNetamnt}) = _$DocumentQuotationDTModelImpl;
+      @JsonKey(name: 'quotation_dt_netamnt') final String? quotationDtNetamnt,
+      @JsonKey(name: 'is_cancel')
+      final bool? isCancel}) = _$DocumentQuotationDTModelImpl;
 
   factory _DocumentQuotationDTModel.fromJson(Map<String, dynamic> json) =
       _$DocumentQuotationDTModelImpl.fromJson;
@@ -586,6 +608,9 @@ abstract class _DocumentQuotationDTModel implements DocumentQuotationDTModel {
   @override
   @JsonKey(name: 'quotation_dt_netamnt')
   String? get quotationDtNetamnt;
+  @override
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel;
 
   /// Create a copy of DocumentQuotationDTModel
   /// with the given fields replaced by the non-null parameter values.

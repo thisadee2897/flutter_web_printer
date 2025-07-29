@@ -21,6 +21,7 @@ _$SimplifiedTaxInvoiceModelImpl _$$SimplifiedTaxInvoiceModelImplFromJson(
           ? null
           : FooterSimplifiedTaxInvoiceModel.fromJson(
               json['footer'] as Map<String, dynamic>),
+      isCancel: json['is_cancel'] as bool?,
     );
 
 Map<String, dynamic> _$$SimplifiedTaxInvoiceModelImplToJson(
@@ -29,4 +30,5 @@ Map<String, dynamic> _$$SimplifiedTaxInvoiceModelImplToJson(
       'header': instance.header,
       'details': instance.details,
       'footer': instance.footer,
+      'is_cancel': instance.isCancel,
     };

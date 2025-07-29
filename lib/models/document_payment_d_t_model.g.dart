@@ -20,6 +20,7 @@ _$DocumentPaymentDTModelImpl _$$DocumentPaymentDTModelImplFromJson(
       paymentDtPaymentamount: json['payment_dt_paymentamount'] as String?,
       paymentDtInvoiceLastamount:
           json['payment_dt_invoice_lastamount'] as String?,
+      isCancel: json['is_cancel'] as bool?,
     );
 
 Map<String, dynamic> _$$DocumentPaymentDTModelImplToJson(
@@ -34,4 +35,5 @@ Map<String, dynamic> _$$DocumentPaymentDTModelImplToJson(
       'payment_dt_invoice_totoalamount': instance.paymentDtInvoiceTotoalamount,
       'payment_dt_paymentamount': instance.paymentDtPaymentamount,
       'payment_dt_invoice_lastamount': instance.paymentDtInvoiceLastamount,
+      'is_cancel': instance.isCancel,
     };

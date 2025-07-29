@@ -15,6 +15,7 @@ class FullTaxInvoiceModel with _$FullTaxInvoiceModel {
   @JsonKey(name: 'header') HeaderFullTaxInvoiceModel? header,
   @JsonKey(name: 'details') List<DetailTaxInvoiceModel>? details,
   @JsonKey(name: 'footer') FooterFullTaxInvoiceModel? footer,
+  @JsonKey(name: 'is_cancel') bool? isCancel,
   }) = _FullTaxInvoiceModel;
 
   factory FullTaxInvoiceModel.fromJson(Map<String, dynamic> json) => _$FullTaxInvoiceModelFromJson(json);

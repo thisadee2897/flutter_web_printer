@@ -13,6 +13,7 @@ class EarningStatementModel with _$EarningStatementModel {
   @JsonKey(name: 'master_company_id') String? companyId,
   @JsonKey(name: 'master_account_category_id') num? accountCategoryId,
   @JsonKey(name: 'sum_profit') String? sumProfit,
+  @JsonKey(name: 'is_cancel') bool? isCancel,
   }) = _EarningStatementModel;
 
   factory EarningStatementModel.fromJson(Map<String, dynamic> json) => _$EarningStatementModelFromJson(json);

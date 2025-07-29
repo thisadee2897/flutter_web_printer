@@ -20,6 +20,7 @@ _$DocumentGeneralLedgerDTModelImpl _$$DocumentGeneralLedgerDTModelImplFromJson(
       debitamnt: json['debitamnt'] as String?,
       creditamnt: json['creditamnt'] as String?,
       gldtRemark: json['gldt_remark'] as String?,
+      isCancel: json['is_cancel'] as bool?,
     );
 
 Map<String, dynamic> _$$DocumentGeneralLedgerDTModelImplToJson(
@@ -36,4 +37,5 @@ Map<String, dynamic> _$$DocumentGeneralLedgerDTModelImplToJson(
       'debitamnt': instance.debitamnt,
       'creditamnt': instance.creditamnt,
       'gldt_remark': instance.gldtRemark,
+      'is_cancel': instance.isCancel,
     };

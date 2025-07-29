@@ -33,6 +33,8 @@ mixin _$EarningStatementModel {
   num? get accountCategoryId => throw _privateConstructorUsedError;
   @JsonKey(name: 'sum_profit')
   String? get sumProfit => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel => throw _privateConstructorUsedError;
 
   /// Serializes this EarningStatementModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -58,7 +60,8 @@ abstract class $EarningStatementModelCopyWith<$Res> {
       String? accountCategorySubName,
       @JsonKey(name: 'master_company_id') String? companyId,
       @JsonKey(name: 'master_account_category_id') num? accountCategoryId,
-      @JsonKey(name: 'sum_profit') String? sumProfit});
+      @JsonKey(name: 'sum_profit') String? sumProfit,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -83,6 +86,7 @@ class _$EarningStatementModelCopyWithImpl<$Res,
     Object? companyId = freezed,
     Object? accountCategoryId = freezed,
     Object? sumProfit = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_value.copyWith(
       listno: freezed == listno
@@ -109,6 +113,10 @@ class _$EarningStatementModelCopyWithImpl<$Res,
           ? _value.sumProfit
           : sumProfit // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -130,7 +138,8 @@ abstract class _$$EarningStatementModelImplCopyWith<$Res>
       String? accountCategorySubName,
       @JsonKey(name: 'master_company_id') String? companyId,
       @JsonKey(name: 'master_account_category_id') num? accountCategoryId,
-      @JsonKey(name: 'sum_profit') String? sumProfit});
+      @JsonKey(name: 'sum_profit') String? sumProfit,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -153,6 +162,7 @@ class __$$EarningStatementModelImplCopyWithImpl<$Res>
     Object? companyId = freezed,
     Object? accountCategoryId = freezed,
     Object? sumProfit = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_$EarningStatementModelImpl(
       listno: freezed == listno
@@ -179,6 +189,10 @@ class __$$EarningStatementModelImplCopyWithImpl<$Res>
           ? _value.sumProfit
           : sumProfit // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -193,7 +207,8 @@ class _$EarningStatementModelImpl implements _EarningStatementModel {
       this.accountCategorySubName,
       @JsonKey(name: 'master_company_id') this.companyId,
       @JsonKey(name: 'master_account_category_id') this.accountCategoryId,
-      @JsonKey(name: 'sum_profit') this.sumProfit});
+      @JsonKey(name: 'sum_profit') this.sumProfit,
+      @JsonKey(name: 'is_cancel') this.isCancel});
 
   factory _$EarningStatementModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$EarningStatementModelImplFromJson(json);
@@ -216,10 +231,13 @@ class _$EarningStatementModelImpl implements _EarningStatementModel {
   @override
   @JsonKey(name: 'sum_profit')
   final String? sumProfit;
+  @override
+  @JsonKey(name: 'is_cancel')
+  final bool? isCancel;
 
   @override
   String toString() {
-    return 'EarningStatementModel(listno: $listno, accountCategoryName: $accountCategoryName, accountCategorySubName: $accountCategorySubName, companyId: $companyId, accountCategoryId: $accountCategoryId, sumProfit: $sumProfit)';
+    return 'EarningStatementModel(listno: $listno, accountCategoryName: $accountCategoryName, accountCategorySubName: $accountCategorySubName, companyId: $companyId, accountCategoryId: $accountCategoryId, sumProfit: $sumProfit, isCancel: $isCancel)';
   }
 
   @override
@@ -237,13 +255,22 @@ class _$EarningStatementModelImpl implements _EarningStatementModel {
             (identical(other.accountCategoryId, accountCategoryId) ||
                 other.accountCategoryId == accountCategoryId) &&
             (identical(other.sumProfit, sumProfit) ||
-                other.sumProfit == sumProfit));
+                other.sumProfit == sumProfit) &&
+            (identical(other.isCancel, isCancel) ||
+                other.isCancel == isCancel));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, listno, accountCategoryName,
-      accountCategorySubName, companyId, accountCategoryId, sumProfit);
+  int get hashCode => Object.hash(
+      runtimeType,
+      listno,
+      accountCategoryName,
+      accountCategorySubName,
+      companyId,
+      accountCategoryId,
+      sumProfit,
+      isCancel);
 
   /// Create a copy of EarningStatementModel
   /// with the given fields replaced by the non-null parameter values.
@@ -271,8 +298,9 @@ abstract class _EarningStatementModel implements EarningStatementModel {
       final String? accountCategorySubName,
       @JsonKey(name: 'master_company_id') final String? companyId,
       @JsonKey(name: 'master_account_category_id') final num? accountCategoryId,
-      @JsonKey(name: 'sum_profit')
-      final String? sumProfit}) = _$EarningStatementModelImpl;
+      @JsonKey(name: 'sum_profit') final String? sumProfit,
+      @JsonKey(name: 'is_cancel')
+      final bool? isCancel}) = _$EarningStatementModelImpl;
 
   factory _EarningStatementModel.fromJson(Map<String, dynamic> json) =
       _$EarningStatementModelImpl.fromJson;
@@ -295,6 +323,9 @@ abstract class _EarningStatementModel implements EarningStatementModel {
   @override
   @JsonKey(name: 'sum_profit')
   String? get sumProfit;
+  @override
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel;
 
   /// Create a copy of EarningStatementModel
   /// with the given fields replaced by the non-null parameter values.

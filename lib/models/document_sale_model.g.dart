@@ -57,6 +57,7 @@ _$DocumentSaleModelImpl _$$DocumentSaleModelImplFromJson(
       contactBranchname: json['master_contact_branchname'] as String?,
       title: json['title'] as String?,
       khodpunFooter: json['khodpun_footer'] as bool?,
+      isCancel: json['is_cancel'] as bool?,
     );
 
 Map<String, dynamic> _$$DocumentSaleModelImplToJson(
@@ -110,4 +111,5 @@ Map<String, dynamic> _$$DocumentSaleModelImplToJson(
       'master_contact_branchname': instance.contactBranchname,
       'title': instance.title,
       'khodpun_footer': instance.khodpunFooter,
+      'is_cancel': instance.isCancel,
     };

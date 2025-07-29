@@ -32,6 +32,7 @@ _$DocumentQuotationDTModelImpl _$$DocumentQuotationDTModelImplFromJson(
       quotationDtQty: json['quotation_dt_qty'] as String?,
       quotationDtDiscount: json['quotation_dt_discount'] as String?,
       quotationDtNetamnt: json['quotation_dt_netamnt'] as String?,
+      isCancel: json['is_cancel'] as bool?,
     );
 
 Map<String, dynamic> _$$DocumentQuotationDTModelImplToJson(
@@ -59,4 +60,5 @@ Map<String, dynamic> _$$DocumentQuotationDTModelImplToJson(
       'quotation_dt_qty': instance.quotationDtQty,
       'quotation_dt_discount': instance.quotationDtDiscount,
       'quotation_dt_netamnt': instance.quotationDtNetamnt,
+      'is_cancel': instance.isCancel,
     };

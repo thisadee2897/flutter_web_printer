@@ -26,6 +26,7 @@ class DocumentOrderDTModel with _$DocumentOrderDTModel {
   @JsonKey(name: 'order_dt_netamnt') String? orderDtNetamnt,
   @JsonKey(name: 'order_dt_vat_flag') bool? orderDtVatFlag,
   @JsonKey(name: 'quotation_hd_docuno') String? quotationHdDocuno,
+  @JsonKey(name: 'is_cancel') bool? isCancel,
   }) = _DocumentOrderDTModel;
 
   factory DocumentOrderDTModel.fromJson(Map<String, dynamic> json) => _$DocumentOrderDTModelFromJson(json);

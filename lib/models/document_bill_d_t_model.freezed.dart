@@ -38,6 +38,8 @@ mixin _$DocumentBillDTModel {
   String? get billDtInvoiceLastamount => throw _privateConstructorUsedError;
   @JsonKey(name: 'bill_dt_amount')
   String? get billDtAmount => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel => throw _privateConstructorUsedError;
 
   /// Serializes this DocumentBillDTModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -66,7 +68,8 @@ abstract class $DocumentBillDTModelCopyWith<$Res> {
       String? billDtInvoiceTotoalamount,
       @JsonKey(name: 'bill_dt_invoice_lastamount')
       String? billDtInvoiceLastamount,
-      @JsonKey(name: 'bill_dt_amount') String? billDtAmount});
+      @JsonKey(name: 'bill_dt_amount') String? billDtAmount,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -93,6 +96,7 @@ class _$DocumentBillDTModelCopyWithImpl<$Res, $Val extends DocumentBillDTModel>
     Object? billDtInvoiceTotoalamount = freezed,
     Object? billDtInvoiceLastamount = freezed,
     Object? billDtAmount = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_value.copyWith(
       billDtId: freezed == billDtId
@@ -131,6 +135,10 @@ class _$DocumentBillDTModelCopyWithImpl<$Res, $Val extends DocumentBillDTModel>
           ? _value.billDtAmount
           : billDtAmount // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -154,7 +162,8 @@ abstract class _$$DocumentBillDTModelImplCopyWith<$Res>
       String? billDtInvoiceTotoalamount,
       @JsonKey(name: 'bill_dt_invoice_lastamount')
       String? billDtInvoiceLastamount,
-      @JsonKey(name: 'bill_dt_amount') String? billDtAmount});
+      @JsonKey(name: 'bill_dt_amount') String? billDtAmount,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -179,6 +188,7 @@ class __$$DocumentBillDTModelImplCopyWithImpl<$Res>
     Object? billDtInvoiceTotoalamount = freezed,
     Object? billDtInvoiceLastamount = freezed,
     Object? billDtAmount = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_$DocumentBillDTModelImpl(
       billDtId: freezed == billDtId
@@ -217,6 +227,10 @@ class __$$DocumentBillDTModelImplCopyWithImpl<$Res>
           ? _value.billDtAmount
           : billDtAmount // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -234,7 +248,8 @@ class _$DocumentBillDTModelImpl implements _DocumentBillDTModel {
       @JsonKey(name: 'bill_dt_invoice_totoalamount')
       this.billDtInvoiceTotoalamount,
       @JsonKey(name: 'bill_dt_invoice_lastamount') this.billDtInvoiceLastamount,
-      @JsonKey(name: 'bill_dt_amount') this.billDtAmount});
+      @JsonKey(name: 'bill_dt_amount') this.billDtAmount,
+      @JsonKey(name: 'is_cancel') this.isCancel});
 
   factory _$DocumentBillDTModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$DocumentBillDTModelImplFromJson(json);
@@ -266,10 +281,13 @@ class _$DocumentBillDTModelImpl implements _DocumentBillDTModel {
   @override
   @JsonKey(name: 'bill_dt_amount')
   final String? billDtAmount;
+  @override
+  @JsonKey(name: 'is_cancel')
+  final bool? isCancel;
 
   @override
   String toString() {
-    return 'DocumentBillDTModel(billDtId: $billDtId, billHdId: $billHdId, billDtListno: $billDtListno, saleHdId: $saleHdId, saleHdDocudate: $saleHdDocudate, saleHdDocuno: $saleHdDocuno, billDtInvoiceTotoalamount: $billDtInvoiceTotoalamount, billDtInvoiceLastamount: $billDtInvoiceLastamount, billDtAmount: $billDtAmount)';
+    return 'DocumentBillDTModel(billDtId: $billDtId, billHdId: $billHdId, billDtListno: $billDtListno, saleHdId: $saleHdId, saleHdDocudate: $saleHdDocudate, saleHdDocuno: $saleHdDocuno, billDtInvoiceTotoalamount: $billDtInvoiceTotoalamount, billDtInvoiceLastamount: $billDtInvoiceLastamount, billDtAmount: $billDtAmount, isCancel: $isCancel)';
   }
 
   @override
@@ -296,7 +314,9 @@ class _$DocumentBillDTModelImpl implements _DocumentBillDTModel {
                     other.billDtInvoiceLastamount, billDtInvoiceLastamount) ||
                 other.billDtInvoiceLastamount == billDtInvoiceLastamount) &&
             (identical(other.billDtAmount, billDtAmount) ||
-                other.billDtAmount == billDtAmount));
+                other.billDtAmount == billDtAmount) &&
+            (identical(other.isCancel, isCancel) ||
+                other.isCancel == isCancel));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -311,7 +331,8 @@ class _$DocumentBillDTModelImpl implements _DocumentBillDTModel {
       saleHdDocuno,
       billDtInvoiceTotoalamount,
       billDtInvoiceLastamount,
-      billDtAmount);
+      billDtAmount,
+      isCancel);
 
   /// Create a copy of DocumentBillDTModel
   /// with the given fields replaced by the non-null parameter values.
@@ -342,7 +363,8 @@ abstract class _DocumentBillDTModel implements DocumentBillDTModel {
           final String? billDtInvoiceTotoalamount,
           @JsonKey(name: 'bill_dt_invoice_lastamount')
           final String? billDtInvoiceLastamount,
-          @JsonKey(name: 'bill_dt_amount') final String? billDtAmount}) =
+          @JsonKey(name: 'bill_dt_amount') final String? billDtAmount,
+          @JsonKey(name: 'is_cancel') final bool? isCancel}) =
       _$DocumentBillDTModelImpl;
 
   factory _DocumentBillDTModel.fromJson(Map<String, dynamic> json) =
@@ -375,6 +397,9 @@ abstract class _DocumentBillDTModel implements DocumentBillDTModel {
   @override
   @JsonKey(name: 'bill_dt_amount')
   String? get billDtAmount;
+  @override
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel;
 
   /// Create a copy of DocumentBillDTModel
   /// with the given fields replaced by the non-null parameter values.

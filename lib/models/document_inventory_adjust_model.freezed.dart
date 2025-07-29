@@ -45,6 +45,8 @@ mixin _$DocumentInventoryAdjustModel {
   String? get menuId => throw _privateConstructorUsedError;
   @JsonKey(name: 'adjust_amount')
   String? get adjustAmount => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel => throw _privateConstructorUsedError;
 
   /// Serializes this DocumentInventoryAdjustModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -76,7 +78,8 @@ abstract class $DocumentInventoryAdjustModelCopyWith<$Res> {
       @JsonKey(name: 'adjust_hd_remark') String? adjustHdRemark,
       @JsonKey(name: 'fullname') String? fullname,
       @JsonKey(name: 'master_menu_id') String? menuId,
-      @JsonKey(name: 'adjust_amount') String? adjustAmount});
+      @JsonKey(name: 'adjust_amount') String? adjustAmount,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -107,6 +110,7 @@ class _$DocumentInventoryAdjustModelCopyWithImpl<$Res,
     Object? fullname = freezed,
     Object? menuId = freezed,
     Object? adjustAmount = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_value.copyWith(
       adjustHdId: freezed == adjustHdId
@@ -157,6 +161,10 @@ class _$DocumentInventoryAdjustModelCopyWithImpl<$Res,
           ? _value.adjustAmount
           : adjustAmount // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -182,7 +190,8 @@ abstract class _$$DocumentInventoryAdjustModelImplCopyWith<$Res>
       @JsonKey(name: 'adjust_hd_remark') String? adjustHdRemark,
       @JsonKey(name: 'fullname') String? fullname,
       @JsonKey(name: 'master_menu_id') String? menuId,
-      @JsonKey(name: 'adjust_amount') String? adjustAmount});
+      @JsonKey(name: 'adjust_amount') String? adjustAmount,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -212,6 +221,7 @@ class __$$DocumentInventoryAdjustModelImplCopyWithImpl<$Res>
     Object? fullname = freezed,
     Object? menuId = freezed,
     Object? adjustAmount = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_$DocumentInventoryAdjustModelImpl(
       adjustHdId: freezed == adjustHdId
@@ -262,6 +272,10 @@ class __$$DocumentInventoryAdjustModelImplCopyWithImpl<$Res>
           ? _value.adjustAmount
           : adjustAmount // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -282,7 +296,8 @@ class _$DocumentInventoryAdjustModelImpl
       @JsonKey(name: 'adjust_hd_remark') this.adjustHdRemark,
       @JsonKey(name: 'fullname') this.fullname,
       @JsonKey(name: 'master_menu_id') this.menuId,
-      @JsonKey(name: 'adjust_amount') this.adjustAmount});
+      @JsonKey(name: 'adjust_amount') this.adjustAmount,
+      @JsonKey(name: 'is_cancel') this.isCancel});
 
   factory _$DocumentInventoryAdjustModelImpl.fromJson(
           Map<String, dynamic> json) =>
@@ -324,10 +339,13 @@ class _$DocumentInventoryAdjustModelImpl
   @override
   @JsonKey(name: 'adjust_amount')
   final String? adjustAmount;
+  @override
+  @JsonKey(name: 'is_cancel')
+  final bool? isCancel;
 
   @override
   String toString() {
-    return 'DocumentInventoryAdjustModel(adjustHdId: $adjustHdId, companyId: $companyId, branchId: $branchId, branchCode: $branchCode, branchName: $branchName, adjustHdDocudate: $adjustHdDocudate, adjustHdDocuno: $adjustHdDocuno, adjustHdStatusId: $adjustHdStatusId, adjustHdRemark: $adjustHdRemark, fullname: $fullname, menuId: $menuId, adjustAmount: $adjustAmount)';
+    return 'DocumentInventoryAdjustModel(adjustHdId: $adjustHdId, companyId: $companyId, branchId: $branchId, branchCode: $branchCode, branchName: $branchName, adjustHdDocudate: $adjustHdDocudate, adjustHdDocuno: $adjustHdDocuno, adjustHdStatusId: $adjustHdStatusId, adjustHdRemark: $adjustHdRemark, fullname: $fullname, menuId: $menuId, adjustAmount: $adjustAmount, isCancel: $isCancel)';
   }
 
   @override
@@ -357,7 +375,9 @@ class _$DocumentInventoryAdjustModelImpl
                 other.fullname == fullname) &&
             (identical(other.menuId, menuId) || other.menuId == menuId) &&
             (identical(other.adjustAmount, adjustAmount) ||
-                other.adjustAmount == adjustAmount));
+                other.adjustAmount == adjustAmount) &&
+            (identical(other.isCancel, isCancel) ||
+                other.isCancel == isCancel));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -375,7 +395,8 @@ class _$DocumentInventoryAdjustModelImpl
       adjustHdRemark,
       fullname,
       menuId,
-      adjustAmount);
+      adjustAmount,
+      isCancel);
 
   /// Create a copy of DocumentInventoryAdjustModel
   /// with the given fields replaced by the non-null parameter values.
@@ -409,7 +430,8 @@ abstract class _DocumentInventoryAdjustModel
           @JsonKey(name: 'adjust_hd_remark') final String? adjustHdRemark,
           @JsonKey(name: 'fullname') final String? fullname,
           @JsonKey(name: 'master_menu_id') final String? menuId,
-          @JsonKey(name: 'adjust_amount') final String? adjustAmount}) =
+          @JsonKey(name: 'adjust_amount') final String? adjustAmount,
+          @JsonKey(name: 'is_cancel') final bool? isCancel}) =
       _$DocumentInventoryAdjustModelImpl;
 
   factory _DocumentInventoryAdjustModel.fromJson(Map<String, dynamic> json) =
@@ -451,6 +473,9 @@ abstract class _DocumentInventoryAdjustModel
   @override
   @JsonKey(name: 'adjust_amount')
   String? get adjustAmount;
+  @override
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel;
 
   /// Create a copy of DocumentInventoryAdjustModel
   /// with the given fields replaced by the non-null parameter values.

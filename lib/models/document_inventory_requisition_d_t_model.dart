@@ -20,6 +20,7 @@ class DocumentInventoryRequisitionDTModel with _$DocumentInventoryRequisitionDTM
   @JsonKey(name: 'requisition_dt_qty') String? requisitionDtQty,
   @JsonKey(name: 'requisition_dt_price') String? requisitionDtPrice,
   @JsonKey(name: 'requisition_dt_amount') String? requisitionDtAmount,
+  @JsonKey(name: 'is_cancel') bool? isCancel,
   }) = _DocumentInventoryRequisitionDTModel;
 
   factory DocumentInventoryRequisitionDTModel.fromJson(Map<String, dynamic> json) => _$DocumentInventoryRequisitionDTModelFromJson(json);

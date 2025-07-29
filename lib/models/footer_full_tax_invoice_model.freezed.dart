@@ -33,6 +33,8 @@ mixin _$FooterFullTaxInvoiceModel {
   num? get withholdingTax => throw _privateConstructorUsedError;
   @JsonKey(name: 'net_amount')
   num? get netAmount => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel => throw _privateConstructorUsedError;
 
   /// Serializes this FooterFullTaxInvoiceModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -56,7 +58,8 @@ abstract class $FooterFullTaxInvoiceModelCopyWith<$Res> {
       @JsonKey(name: 'vat_included') num? vatIncluded,
       @JsonKey(name: 'vat_amount') num? vatAmount,
       @JsonKey(name: 'withholding_tax') num? withholdingTax,
-      @JsonKey(name: 'net_amount') num? netAmount});
+      @JsonKey(name: 'net_amount') num? netAmount,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -81,6 +84,7 @@ class _$FooterFullTaxInvoiceModelCopyWithImpl<$Res,
     Object? vatAmount = freezed,
     Object? withholdingTax = freezed,
     Object? netAmount = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_value.copyWith(
       paymentMethod: freezed == paymentMethod
@@ -107,6 +111,10 @@ class _$FooterFullTaxInvoiceModelCopyWithImpl<$Res,
           ? _value.netAmount
           : netAmount // ignore: cast_nullable_to_non_nullable
               as num?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -126,7 +134,8 @@ abstract class _$$FooterFullTaxInvoiceModelImplCopyWith<$Res>
       @JsonKey(name: 'vat_included') num? vatIncluded,
       @JsonKey(name: 'vat_amount') num? vatAmount,
       @JsonKey(name: 'withholding_tax') num? withholdingTax,
-      @JsonKey(name: 'net_amount') num? netAmount});
+      @JsonKey(name: 'net_amount') num? netAmount,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -150,6 +159,7 @@ class __$$FooterFullTaxInvoiceModelImplCopyWithImpl<$Res>
     Object? vatAmount = freezed,
     Object? withholdingTax = freezed,
     Object? netAmount = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_$FooterFullTaxInvoiceModelImpl(
       paymentMethod: freezed == paymentMethod
@@ -176,6 +186,10 @@ class __$$FooterFullTaxInvoiceModelImplCopyWithImpl<$Res>
           ? _value.netAmount
           : netAmount // ignore: cast_nullable_to_non_nullable
               as num?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -189,7 +203,8 @@ class _$FooterFullTaxInvoiceModelImpl implements _FooterFullTaxInvoiceModel {
       @JsonKey(name: 'vat_included') this.vatIncluded,
       @JsonKey(name: 'vat_amount') this.vatAmount,
       @JsonKey(name: 'withholding_tax') this.withholdingTax,
-      @JsonKey(name: 'net_amount') this.netAmount});
+      @JsonKey(name: 'net_amount') this.netAmount,
+      @JsonKey(name: 'is_cancel') this.isCancel});
 
   factory _$FooterFullTaxInvoiceModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$FooterFullTaxInvoiceModelImplFromJson(json);
@@ -212,10 +227,13 @@ class _$FooterFullTaxInvoiceModelImpl implements _FooterFullTaxInvoiceModel {
   @override
   @JsonKey(name: 'net_amount')
   final num? netAmount;
+  @override
+  @JsonKey(name: 'is_cancel')
+  final bool? isCancel;
 
   @override
   String toString() {
-    return 'FooterFullTaxInvoiceModel(paymentMethod: $paymentMethod, vatExempt: $vatExempt, vatIncluded: $vatIncluded, vatAmount: $vatAmount, withholdingTax: $withholdingTax, netAmount: $netAmount)';
+    return 'FooterFullTaxInvoiceModel(paymentMethod: $paymentMethod, vatExempt: $vatExempt, vatIncluded: $vatIncluded, vatAmount: $vatAmount, withholdingTax: $withholdingTax, netAmount: $netAmount, isCancel: $isCancel)';
   }
 
   @override
@@ -234,13 +252,15 @@ class _$FooterFullTaxInvoiceModelImpl implements _FooterFullTaxInvoiceModel {
             (identical(other.withholdingTax, withholdingTax) ||
                 other.withholdingTax == withholdingTax) &&
             (identical(other.netAmount, netAmount) ||
-                other.netAmount == netAmount));
+                other.netAmount == netAmount) &&
+            (identical(other.isCancel, isCancel) ||
+                other.isCancel == isCancel));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, paymentMethod, vatExempt,
-      vatIncluded, vatAmount, withholdingTax, netAmount);
+      vatIncluded, vatAmount, withholdingTax, netAmount, isCancel);
 
   /// Create a copy of FooterFullTaxInvoiceModel
   /// with the given fields replaced by the non-null parameter values.
@@ -266,7 +286,8 @@ abstract class _FooterFullTaxInvoiceModel implements FooterFullTaxInvoiceModel {
           @JsonKey(name: 'vat_included') final num? vatIncluded,
           @JsonKey(name: 'vat_amount') final num? vatAmount,
           @JsonKey(name: 'withholding_tax') final num? withholdingTax,
-          @JsonKey(name: 'net_amount') final num? netAmount}) =
+          @JsonKey(name: 'net_amount') final num? netAmount,
+          @JsonKey(name: 'is_cancel') final bool? isCancel}) =
       _$FooterFullTaxInvoiceModelImpl;
 
   factory _FooterFullTaxInvoiceModel.fromJson(Map<String, dynamic> json) =
@@ -290,6 +311,9 @@ abstract class _FooterFullTaxInvoiceModel implements FooterFullTaxInvoiceModel {
   @override
   @JsonKey(name: 'net_amount')
   num? get netAmount;
+  @override
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel;
 
   /// Create a copy of FooterFullTaxInvoiceModel
   /// with the given fields replaced by the non-null parameter values.

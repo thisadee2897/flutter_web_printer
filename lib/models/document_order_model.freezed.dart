@@ -86,6 +86,8 @@ mixin _$DocumentOrderModel {
   String? get contactTel => throw _privateConstructorUsedError;
   @JsonKey(name: 'master_contact_taxid')
   String? get contactTaxid => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel => throw _privateConstructorUsedError;
 
   /// Serializes this DocumentOrderModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -139,7 +141,8 @@ abstract class $DocumentOrderModelCopyWith<$Res> {
       @JsonKey(name: 'master_contact_postcode_id') String? contactPostcodeId,
       @JsonKey(name: 'master_vat_group_name') String? vatGroupName,
       @JsonKey(name: 'master_contact_tel') String? contactTel,
-      @JsonKey(name: 'master_contact_taxid') String? contactTaxid});
+      @JsonKey(name: 'master_contact_taxid') String? contactTaxid,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -190,6 +193,7 @@ class _$DocumentOrderModelCopyWithImpl<$Res, $Val extends DocumentOrderModel>
     Object? vatGroupName = freezed,
     Object? contactTel = freezed,
     Object? contactTaxid = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_value.copyWith(
       orderHdId: freezed == orderHdId
@@ -324,6 +328,10 @@ class _$DocumentOrderModelCopyWithImpl<$Res, $Val extends DocumentOrderModel>
           ? _value.contactTaxid
           : contactTaxid // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -372,7 +380,8 @@ abstract class _$$DocumentOrderModelImplCopyWith<$Res>
       @JsonKey(name: 'master_contact_postcode_id') String? contactPostcodeId,
       @JsonKey(name: 'master_vat_group_name') String? vatGroupName,
       @JsonKey(name: 'master_contact_tel') String? contactTel,
-      @JsonKey(name: 'master_contact_taxid') String? contactTaxid});
+      @JsonKey(name: 'master_contact_taxid') String? contactTaxid,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -421,6 +430,7 @@ class __$$DocumentOrderModelImplCopyWithImpl<$Res>
     Object? vatGroupName = freezed,
     Object? contactTel = freezed,
     Object? contactTaxid = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_$DocumentOrderModelImpl(
       orderHdId: freezed == orderHdId
@@ -555,6 +565,10 @@ class __$$DocumentOrderModelImplCopyWithImpl<$Res>
           ? _value.contactTaxid
           : contactTaxid // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -595,7 +609,8 @@ class _$DocumentOrderModelImpl implements _DocumentOrderModel {
       @JsonKey(name: 'master_contact_postcode_id') this.contactPostcodeId,
       @JsonKey(name: 'master_vat_group_name') this.vatGroupName,
       @JsonKey(name: 'master_contact_tel') this.contactTel,
-      @JsonKey(name: 'master_contact_taxid') this.contactTaxid});
+      @JsonKey(name: 'master_contact_taxid') this.contactTaxid,
+      @JsonKey(name: 'is_cancel') this.isCancel});
 
   factory _$DocumentOrderModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$DocumentOrderModelImplFromJson(json);
@@ -699,10 +714,13 @@ class _$DocumentOrderModelImpl implements _DocumentOrderModel {
   @override
   @JsonKey(name: 'master_contact_taxid')
   final String? contactTaxid;
+  @override
+  @JsonKey(name: 'is_cancel')
+  final bool? isCancel;
 
   @override
   String toString() {
-    return 'DocumentOrderModel(orderHdId: $orderHdId, companyId: $companyId, branchId: $branchId, branchCode: $branchCode, branchName: $branchName, orderHdDocudate: $orderHdDocudate, orderHdDocuno: $orderHdDocuno, orderHdStatusId: $orderHdStatusId, orderHdStatusName: $orderHdStatusName, contactId: $contactId, contactCode: $contactCode, contactName: $contactName, orderHdPersonName: $orderHdPersonName, orderHdPersonTel: $orderHdPersonTel, orderHdRemark: $orderHdRemark, orderHdAmount: $orderHdAmount, orderHdDiscountamount: $orderHdDiscountamount, orderHdNetamount: $orderHdNetamount, fullname: $fullname, vatGroupId: $vatGroupId, orderHdVatrate: $orderHdVatrate, orderHdTotalexcludeamnt: $orderHdTotalexcludeamnt, orderHdTotalincludeamnt: $orderHdTotalincludeamnt, orderHdBaseamnt: $orderHdBaseamnt, orderHdVatamnt: $orderHdVatamnt, contactAddress: $contactAddress, contactDistrictId: $contactDistrictId, contactPrefectureId: $contactPrefectureId, contactProvinceId: $contactProvinceId, contactPostcodeId: $contactPostcodeId, vatGroupName: $vatGroupName, contactTel: $contactTel, contactTaxid: $contactTaxid)';
+    return 'DocumentOrderModel(orderHdId: $orderHdId, companyId: $companyId, branchId: $branchId, branchCode: $branchCode, branchName: $branchName, orderHdDocudate: $orderHdDocudate, orderHdDocuno: $orderHdDocuno, orderHdStatusId: $orderHdStatusId, orderHdStatusName: $orderHdStatusName, contactId: $contactId, contactCode: $contactCode, contactName: $contactName, orderHdPersonName: $orderHdPersonName, orderHdPersonTel: $orderHdPersonTel, orderHdRemark: $orderHdRemark, orderHdAmount: $orderHdAmount, orderHdDiscountamount: $orderHdDiscountamount, orderHdNetamount: $orderHdNetamount, fullname: $fullname, vatGroupId: $vatGroupId, orderHdVatrate: $orderHdVatrate, orderHdTotalexcludeamnt: $orderHdTotalexcludeamnt, orderHdTotalincludeamnt: $orderHdTotalincludeamnt, orderHdBaseamnt: $orderHdBaseamnt, orderHdVatamnt: $orderHdVatamnt, contactAddress: $contactAddress, contactDistrictId: $contactDistrictId, contactPrefectureId: $contactPrefectureId, contactProvinceId: $contactProvinceId, contactPostcodeId: $contactPostcodeId, vatGroupName: $vatGroupName, contactTel: $contactTel, contactTaxid: $contactTaxid, isCancel: $isCancel)';
   }
 
   @override
@@ -777,7 +795,9 @@ class _$DocumentOrderModelImpl implements _DocumentOrderModel {
             (identical(other.contactTel, contactTel) ||
                 other.contactTel == contactTel) &&
             (identical(other.contactTaxid, contactTaxid) ||
-                other.contactTaxid == contactTaxid));
+                other.contactTaxid == contactTaxid) &&
+            (identical(other.isCancel, isCancel) ||
+                other.isCancel == isCancel));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -816,7 +836,8 @@ class _$DocumentOrderModelImpl implements _DocumentOrderModel {
         contactPostcodeId,
         vatGroupName,
         contactTel,
-        contactTaxid
+        contactTaxid,
+        isCancel
       ]);
 
   /// Create a copy of DocumentOrderModel
@@ -877,8 +898,9 @@ abstract class _DocumentOrderModel implements DocumentOrderModel {
       final String? contactPostcodeId,
       @JsonKey(name: 'master_vat_group_name') final String? vatGroupName,
       @JsonKey(name: 'master_contact_tel') final String? contactTel,
-      @JsonKey(name: 'master_contact_taxid')
-      final String? contactTaxid}) = _$DocumentOrderModelImpl;
+      @JsonKey(name: 'master_contact_taxid') final String? contactTaxid,
+      @JsonKey(name: 'is_cancel')
+      final bool? isCancel}) = _$DocumentOrderModelImpl;
 
   factory _DocumentOrderModel.fromJson(Map<String, dynamic> json) =
       _$DocumentOrderModelImpl.fromJson;
@@ -982,6 +1004,9 @@ abstract class _DocumentOrderModel implements DocumentOrderModel {
   @override
   @JsonKey(name: 'master_contact_taxid')
   String? get contactTaxid;
+  @override
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel;
 
   /// Create a copy of DocumentOrderModel
   /// with the given fields replaced by the non-null parameter values.

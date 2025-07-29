@@ -34,6 +34,7 @@ _$DocumentOrderDTModelImpl _$$DocumentOrderDTModelImplFromJson(
       orderDtNetamnt: json['order_dt_netamnt'] as String?,
       orderDtVatFlag: json['order_dt_vat_flag'] as bool?,
       quotationHdDocuno: json['quotation_hd_docuno'] as String?,
+      isCancel: json['is_cancel'] as bool?,
     );
 
 Map<String, dynamic> _$$DocumentOrderDTModelImplToJson(
@@ -63,4 +64,5 @@ Map<String, dynamic> _$$DocumentOrderDTModelImplToJson(
       'order_dt_netamnt': instance.orderDtNetamnt,
       'order_dt_vat_flag': instance.orderDtVatFlag,
       'quotation_hd_docuno': instance.quotationHdDocuno,
+      'is_cancel': instance.isCancel,
     };

@@ -18,6 +18,7 @@ class DocumentGeneralLedgerDTModel with _$DocumentGeneralLedgerDTModel {
   @JsonKey(name: 'debitamnt') String? debitamnt,
   @JsonKey(name: 'creditamnt') String? creditamnt,
   @JsonKey(name: 'gldt_remark') String? gldtRemark,
+  @JsonKey(name: 'is_cancel') bool? isCancel,
   }) = _DocumentGeneralLedgerDTModel;
 
   factory DocumentGeneralLedgerDTModel.fromJson(Map<String, dynamic> json) => _$DocumentGeneralLedgerDTModelFromJson(json);

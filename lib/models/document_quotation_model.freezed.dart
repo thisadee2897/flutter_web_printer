@@ -73,6 +73,8 @@ mixin _$DocumentQuotationModel {
   String? get contactTel => throw _privateConstructorUsedError;
   @JsonKey(name: 'master_contact_taxid')
   String? get contactTaxid => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel => throw _privateConstructorUsedError;
 
   /// Serializes this DocumentQuotationModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -118,7 +120,8 @@ abstract class $DocumentQuotationModelCopyWith<$Res> {
       @JsonKey(name: 'master_contact_province_id') String? contactProvinceId,
       @JsonKey(name: 'master_contact_postcode_id') String? contactPostcodeId,
       @JsonKey(name: 'master_contact_tel') String? contactTel,
-      @JsonKey(name: 'master_contact_taxid') String? contactTaxid});
+      @JsonKey(name: 'master_contact_taxid') String? contactTaxid,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -163,6 +166,7 @@ class _$DocumentQuotationModelCopyWithImpl<$Res,
     Object? contactPostcodeId = freezed,
     Object? contactTel = freezed,
     Object? contactTaxid = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_value.copyWith(
       quotationHdId: freezed == quotationHdId
@@ -269,6 +273,10 @@ class _$DocumentQuotationModelCopyWithImpl<$Res,
           ? _value.contactTaxid
           : contactTaxid // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -310,7 +318,8 @@ abstract class _$$DocumentQuotationModelImplCopyWith<$Res>
       @JsonKey(name: 'master_contact_province_id') String? contactProvinceId,
       @JsonKey(name: 'master_contact_postcode_id') String? contactPostcodeId,
       @JsonKey(name: 'master_contact_tel') String? contactTel,
-      @JsonKey(name: 'master_contact_taxid') String? contactTaxid});
+      @JsonKey(name: 'master_contact_taxid') String? contactTaxid,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -354,6 +363,7 @@ class __$$DocumentQuotationModelImplCopyWithImpl<$Res>
     Object? contactPostcodeId = freezed,
     Object? contactTel = freezed,
     Object? contactTaxid = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_$DocumentQuotationModelImpl(
       quotationHdId: freezed == quotationHdId
@@ -460,6 +470,10 @@ class __$$DocumentQuotationModelImplCopyWithImpl<$Res>
           ? _value.contactTaxid
           : contactTaxid // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -494,7 +508,8 @@ class _$DocumentQuotationModelImpl implements _DocumentQuotationModel {
       @JsonKey(name: 'master_contact_province_id') this.contactProvinceId,
       @JsonKey(name: 'master_contact_postcode_id') this.contactPostcodeId,
       @JsonKey(name: 'master_contact_tel') this.contactTel,
-      @JsonKey(name: 'master_contact_taxid') this.contactTaxid});
+      @JsonKey(name: 'master_contact_taxid') this.contactTaxid,
+      @JsonKey(name: 'is_cancel') this.isCancel});
 
   factory _$DocumentQuotationModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$DocumentQuotationModelImplFromJson(json);
@@ -577,10 +592,13 @@ class _$DocumentQuotationModelImpl implements _DocumentQuotationModel {
   @override
   @JsonKey(name: 'master_contact_taxid')
   final String? contactTaxid;
+  @override
+  @JsonKey(name: 'is_cancel')
+  final bool? isCancel;
 
   @override
   String toString() {
-    return 'DocumentQuotationModel(quotationHdId: $quotationHdId, companyId: $companyId, branchId: $branchId, branchCode: $branchCode, branchName: $branchName, quotationHdDocudate: $quotationHdDocudate, quotationHdDocuno: $quotationHdDocuno, quotationHdStatusId: $quotationHdStatusId, quotationHdStatusName: $quotationHdStatusName, contactId: $contactId, contactCode: $contactCode, contactName: $contactName, quotationHdPersonName: $quotationHdPersonName, quotationHdPersonTel: $quotationHdPersonTel, quotationHdRemark: $quotationHdRemark, quotationHdAmount: $quotationHdAmount, quotationHdDiscountamount: $quotationHdDiscountamount, quotationHdNetamount: $quotationHdNetamount, fullname: $fullname, contactAddress: $contactAddress, contactDistrictId: $contactDistrictId, contactPrefectureId: $contactPrefectureId, contactProvinceId: $contactProvinceId, contactPostcodeId: $contactPostcodeId, contactTel: $contactTel, contactTaxid: $contactTaxid)';
+    return 'DocumentQuotationModel(quotationHdId: $quotationHdId, companyId: $companyId, branchId: $branchId, branchCode: $branchCode, branchName: $branchName, quotationHdDocudate: $quotationHdDocudate, quotationHdDocuno: $quotationHdDocuno, quotationHdStatusId: $quotationHdStatusId, quotationHdStatusName: $quotationHdStatusName, contactId: $contactId, contactCode: $contactCode, contactName: $contactName, quotationHdPersonName: $quotationHdPersonName, quotationHdPersonTel: $quotationHdPersonTel, quotationHdRemark: $quotationHdRemark, quotationHdAmount: $quotationHdAmount, quotationHdDiscountamount: $quotationHdDiscountamount, quotationHdNetamount: $quotationHdNetamount, fullname: $fullname, contactAddress: $contactAddress, contactDistrictId: $contactDistrictId, contactPrefectureId: $contactPrefectureId, contactProvinceId: $contactProvinceId, contactPostcodeId: $contactPostcodeId, contactTel: $contactTel, contactTaxid: $contactTaxid, isCancel: $isCancel)';
   }
 
   @override
@@ -640,7 +658,9 @@ class _$DocumentQuotationModelImpl implements _DocumentQuotationModel {
             (identical(other.contactTel, contactTel) ||
                 other.contactTel == contactTel) &&
             (identical(other.contactTaxid, contactTaxid) ||
-                other.contactTaxid == contactTaxid));
+                other.contactTaxid == contactTaxid) &&
+            (identical(other.isCancel, isCancel) ||
+                other.isCancel == isCancel));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -672,7 +692,8 @@ class _$DocumentQuotationModelImpl implements _DocumentQuotationModel {
         contactProvinceId,
         contactPostcodeId,
         contactTel,
-        contactTaxid
+        contactTaxid,
+        isCancel
       ]);
 
   /// Create a copy of DocumentQuotationModel
@@ -728,8 +749,9 @@ abstract class _DocumentQuotationModel implements DocumentQuotationModel {
       @JsonKey(name: 'master_contact_postcode_id')
       final String? contactPostcodeId,
       @JsonKey(name: 'master_contact_tel') final String? contactTel,
-      @JsonKey(name: 'master_contact_taxid')
-      final String? contactTaxid}) = _$DocumentQuotationModelImpl;
+      @JsonKey(name: 'master_contact_taxid') final String? contactTaxid,
+      @JsonKey(name: 'is_cancel')
+      final bool? isCancel}) = _$DocumentQuotationModelImpl;
 
   factory _DocumentQuotationModel.fromJson(Map<String, dynamic> json) =
       _$DocumentQuotationModelImpl.fromJson;
@@ -812,6 +834,9 @@ abstract class _DocumentQuotationModel implements DocumentQuotationModel {
   @override
   @JsonKey(name: 'master_contact_taxid')
   String? get contactTaxid;
+  @override
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel;
 
   /// Create a copy of DocumentQuotationModel
   /// with the given fields replaced by the non-null parameter values.

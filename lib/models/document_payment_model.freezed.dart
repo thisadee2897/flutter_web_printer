@@ -82,6 +82,8 @@ mixin _$DocumentPaymentModel {
   String? get contactTaxid => throw _privateConstructorUsedError;
   @JsonKey(name: 'payment_hd_netamnt')
   String? get paymentHdNetamnt => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel => throw _privateConstructorUsedError;
 
   /// Serializes this DocumentPaymentModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -134,7 +136,8 @@ abstract class $DocumentPaymentModelCopyWith<$Res> {
       @JsonKey(name: 'master_contact_address') String? contactAddress,
       @JsonKey(name: 'master_contact_tel') String? contactTel,
       @JsonKey(name: 'master_contact_taxid') String? contactTaxid,
-      @JsonKey(name: 'payment_hd_netamnt') String? paymentHdNetamnt});
+      @JsonKey(name: 'payment_hd_netamnt') String? paymentHdNetamnt,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -184,6 +187,7 @@ class _$DocumentPaymentModelCopyWithImpl<$Res,
     Object? contactTel = freezed,
     Object? contactTaxid = freezed,
     Object? paymentHdNetamnt = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_value.copyWith(
       paymentHdId: freezed == paymentHdId
@@ -310,6 +314,10 @@ class _$DocumentPaymentModelCopyWithImpl<$Res,
           ? _value.paymentHdNetamnt
           : paymentHdNetamnt // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -357,7 +365,8 @@ abstract class _$$DocumentPaymentModelImplCopyWith<$Res>
       @JsonKey(name: 'master_contact_address') String? contactAddress,
       @JsonKey(name: 'master_contact_tel') String? contactTel,
       @JsonKey(name: 'master_contact_taxid') String? contactTaxid,
-      @JsonKey(name: 'payment_hd_netamnt') String? paymentHdNetamnt});
+      @JsonKey(name: 'payment_hd_netamnt') String? paymentHdNetamnt,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -404,6 +413,7 @@ class __$$DocumentPaymentModelImplCopyWithImpl<$Res>
     Object? contactTel = freezed,
     Object? contactTaxid = freezed,
     Object? paymentHdNetamnt = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_$DocumentPaymentModelImpl(
       paymentHdId: freezed == paymentHdId
@@ -530,6 +540,10 @@ class __$$DocumentPaymentModelImplCopyWithImpl<$Res>
           ? _value.paymentHdNetamnt
           : paymentHdNetamnt // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -571,7 +585,8 @@ class _$DocumentPaymentModelImpl implements _DocumentPaymentModel {
       @JsonKey(name: 'master_contact_address') this.contactAddress,
       @JsonKey(name: 'master_contact_tel') this.contactTel,
       @JsonKey(name: 'master_contact_taxid') this.contactTaxid,
-      @JsonKey(name: 'payment_hd_netamnt') this.paymentHdNetamnt});
+      @JsonKey(name: 'payment_hd_netamnt') this.paymentHdNetamnt,
+      @JsonKey(name: 'is_cancel') this.isCancel});
 
   factory _$DocumentPaymentModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$DocumentPaymentModelImplFromJson(json);
@@ -669,10 +684,13 @@ class _$DocumentPaymentModelImpl implements _DocumentPaymentModel {
   @override
   @JsonKey(name: 'payment_hd_netamnt')
   final String? paymentHdNetamnt;
+  @override
+  @JsonKey(name: 'is_cancel')
+  final bool? isCancel;
 
   @override
   String toString() {
-    return 'DocumentPaymentModel(paymentHdId: $paymentHdId, companyId: $companyId, branchId: $branchId, branchName: $branchName, paymentHdDocudate: $paymentHdDocudate, paymentHdDocuno: $paymentHdDocuno, paymentStatusId: $paymentStatusId, paymentStatusName: $paymentStatusName, contactId: $contactId, contactCode: $contactCode, contactName: $contactName, paymentHdRemark: $paymentHdRemark, paymentHdAmount: $paymentHdAmount, paymentHdCashAmount: $paymentHdCashAmount, paymentHdTransferAmount: $paymentHdTransferAmount, branchBankbookId: $branchBankbookId, bankId: $bankId, bankName: $bankName, branchBankbookName: $branchBankbookName, branchBankbookBankbookno: $branchBankbookBankbookno, branchBankbookBranchname: $branchBankbookBranchname, vendorBankId: $vendorBankId, vendorBankName: $vendorBankName, vendorBankbookno: $vendorBankbookno, vendorBankbookName: $vendorBankbookName, vendorBankbookBranchname: $vendorBankbookBranchname, fullname: $fullname, contactAddress: $contactAddress, contactTel: $contactTel, contactTaxid: $contactTaxid, paymentHdNetamnt: $paymentHdNetamnt)';
+    return 'DocumentPaymentModel(paymentHdId: $paymentHdId, companyId: $companyId, branchId: $branchId, branchName: $branchName, paymentHdDocudate: $paymentHdDocudate, paymentHdDocuno: $paymentHdDocuno, paymentStatusId: $paymentStatusId, paymentStatusName: $paymentStatusName, contactId: $contactId, contactCode: $contactCode, contactName: $contactName, paymentHdRemark: $paymentHdRemark, paymentHdAmount: $paymentHdAmount, paymentHdCashAmount: $paymentHdCashAmount, paymentHdTransferAmount: $paymentHdTransferAmount, branchBankbookId: $branchBankbookId, bankId: $bankId, bankName: $bankName, branchBankbookName: $branchBankbookName, branchBankbookBankbookno: $branchBankbookBankbookno, branchBankbookBranchname: $branchBankbookBranchname, vendorBankId: $vendorBankId, vendorBankName: $vendorBankName, vendorBankbookno: $vendorBankbookno, vendorBankbookName: $vendorBankbookName, vendorBankbookBranchname: $vendorBankbookBranchname, fullname: $fullname, contactAddress: $contactAddress, contactTel: $contactTel, contactTaxid: $contactTaxid, paymentHdNetamnt: $paymentHdNetamnt, isCancel: $isCancel)';
   }
 
   @override
@@ -742,7 +760,8 @@ class _$DocumentPaymentModelImpl implements _DocumentPaymentModel {
             (identical(other.contactTaxid, contactTaxid) ||
                 other.contactTaxid == contactTaxid) &&
             (identical(other.paymentHdNetamnt, paymentHdNetamnt) ||
-                other.paymentHdNetamnt == paymentHdNetamnt));
+                other.paymentHdNetamnt == paymentHdNetamnt) &&
+            (identical(other.isCancel, isCancel) || other.isCancel == isCancel));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -779,7 +798,8 @@ class _$DocumentPaymentModelImpl implements _DocumentPaymentModel {
         contactAddress,
         contactTel,
         contactTaxid,
-        paymentHdNetamnt
+        paymentHdNetamnt,
+        isCancel
       ]);
 
   /// Create a copy of DocumentPaymentModel
@@ -839,8 +859,9 @@ abstract class _DocumentPaymentModel implements DocumentPaymentModel {
       @JsonKey(name: 'master_contact_address') final String? contactAddress,
       @JsonKey(name: 'master_contact_tel') final String? contactTel,
       @JsonKey(name: 'master_contact_taxid') final String? contactTaxid,
-      @JsonKey(name: 'payment_hd_netamnt')
-      final String? paymentHdNetamnt}) = _$DocumentPaymentModelImpl;
+      @JsonKey(name: 'payment_hd_netamnt') final String? paymentHdNetamnt,
+      @JsonKey(name: 'is_cancel')
+      final bool? isCancel}) = _$DocumentPaymentModelImpl;
 
   factory _DocumentPaymentModel.fromJson(Map<String, dynamic> json) =
       _$DocumentPaymentModelImpl.fromJson;
@@ -938,6 +959,9 @@ abstract class _DocumentPaymentModel implements DocumentPaymentModel {
   @override
   @JsonKey(name: 'payment_hd_netamnt')
   String? get paymentHdNetamnt;
+  @override
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel;
 
   /// Create a copy of DocumentPaymentModel
   /// with the given fields replaced by the non-null parameter values.

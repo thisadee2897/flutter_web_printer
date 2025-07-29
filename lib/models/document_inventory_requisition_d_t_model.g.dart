@@ -31,6 +31,7 @@ _$DocumentInventoryRequisitionDTModelImpl
           requisitionDtQty: json['requisition_dt_qty'] as String?,
           requisitionDtPrice: json['requisition_dt_price'] as String?,
           requisitionDtAmount: json['requisition_dt_amount'] as String?,
+          isCancel: json['is_cancel'] as bool?,
         );
 
 Map<String, dynamic> _$$DocumentInventoryRequisitionDTModelImplToJson(
@@ -55,4 +56,5 @@ Map<String, dynamic> _$$DocumentInventoryRequisitionDTModelImplToJson(
       'requisition_dt_qty': instance.requisitionDtQty,
       'requisition_dt_price': instance.requisitionDtPrice,
       'requisition_dt_amount': instance.requisitionDtAmount,
+      'is_cancel': instance.isCancel,
     };

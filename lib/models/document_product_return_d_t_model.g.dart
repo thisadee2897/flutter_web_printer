@@ -38,6 +38,7 @@ _$DocumentProductReturnDTModelImpl _$$DocumentProductReturnDTModelImplFromJson(
       returnproductDtVatFlag: json['returnproduct_dt_vat_flag'] as bool?,
       returnproductDtDiscount: json['returnproduct_dt_discount'] as String?,
       saleHdDocuno: json['sale_hd_docuno'] as String?,
+      isCancel: json['is_cancel'] as bool?,
     );
 
 Map<String, dynamic> _$$DocumentProductReturnDTModelImplToJson(
@@ -70,4 +71,5 @@ Map<String, dynamic> _$$DocumentProductReturnDTModelImplToJson(
       'returnproduct_dt_vat_flag': instance.returnproductDtVatFlag,
       'returnproduct_dt_discount': instance.returnproductDtDiscount,
       'sale_hd_docuno': instance.saleHdDocuno,
+      'is_cancel': instance.isCancel,
     };

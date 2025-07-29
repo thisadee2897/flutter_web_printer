@@ -40,6 +40,7 @@ _$DocumentReceivableCashModelImpl _$$DocumentReceivableCashModelImplFromJson(
       contactAddress: json['master_contact_address'] as String?,
       contactTel: json['master_contact_tel'] as String?,
       contactTaxid: json['master_contact_taxid'] as String?,
+      isCancel: json['is_cancel'] as bool?,
     );
 
 Map<String, dynamic> _$$DocumentReceivableCashModelImplToJson(
@@ -73,4 +74,5 @@ Map<String, dynamic> _$$DocumentReceivableCashModelImplToJson(
       'master_contact_address': instance.contactAddress,
       'master_contact_tel': instance.contactTel,
       'master_contact_taxid': instance.contactTaxid,
+      'is_cancel': instance.isCancel,
     };

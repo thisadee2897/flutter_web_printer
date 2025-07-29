@@ -19,6 +19,7 @@ _$DocumentBillDTModelImpl _$$DocumentBillDTModelImplFromJson(
           json['bill_dt_invoice_totoalamount'] as String?,
       billDtInvoiceLastamount: json['bill_dt_invoice_lastamount'] as String?,
       billDtAmount: json['bill_dt_amount'] as String?,
+      isCancel: json['is_cancel'] as bool?,
     );
 
 Map<String, dynamic> _$$DocumentBillDTModelImplToJson(
@@ -33,4 +34,5 @@ Map<String, dynamic> _$$DocumentBillDTModelImplToJson(
       'bill_dt_invoice_totoalamount': instance.billDtInvoiceTotoalamount,
       'bill_dt_invoice_lastamount': instance.billDtInvoiceLastamount,
       'bill_dt_amount': instance.billDtAmount,
+      'is_cancel': instance.isCancel,
     };

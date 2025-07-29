@@ -31,6 +31,7 @@ _$DocumentInventoryAdjustDTModelImpl
           adjustDtQty: json['adjust_dt_qty'] as String?,
           adjustDtPrice: json['adjust_dt_price'] as String?,
           adjustDtAmount: json['adjust_dt_amount'] as String?,
+          isCancel: json['is_cancel'] as bool?,
         );
 
 Map<String, dynamic> _$$DocumentInventoryAdjustDTModelImplToJson(
@@ -55,4 +56,5 @@ Map<String, dynamic> _$$DocumentInventoryAdjustDTModelImplToJson(
       'adjust_dt_qty': instance.adjustDtQty,
       'adjust_dt_price': instance.adjustDtPrice,
       'adjust_dt_amount': instance.adjustDtAmount,
+      'is_cancel': instance.isCancel,
     };

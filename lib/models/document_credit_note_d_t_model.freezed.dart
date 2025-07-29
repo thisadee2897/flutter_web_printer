@@ -69,6 +69,8 @@ mixin _$DocumentCreditNoteDTModel {
   bool? get creditnoteDtVatFlag => throw _privateConstructorUsedError;
   @JsonKey(name: 'receive_hd_docuno')
   String? get receiveHdDocuno => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel => throw _privateConstructorUsedError;
 
   /// Serializes this DocumentCreditNoteDTModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -113,7 +115,8 @@ abstract class $DocumentCreditNoteDTModelCopyWith<$Res> {
       @JsonKey(name: 'creditnote_dt_netamnt') String? creditnoteDtNetamnt,
       @JsonKey(name: 'master_account_id') String? accountId,
       @JsonKey(name: 'creditnote_dt_vat_flag') bool? creditnoteDtVatFlag,
-      @JsonKey(name: 'receive_hd_docuno') String? receiveHdDocuno});
+      @JsonKey(name: 'receive_hd_docuno') String? receiveHdDocuno,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -153,6 +156,7 @@ class _$DocumentCreditNoteDTModelCopyWithImpl<$Res,
     Object? accountId = freezed,
     Object? creditnoteDtVatFlag = freezed,
     Object? receiveHdDocuno = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_value.copyWith(
       creditnoteDtId: freezed == creditnoteDtId
@@ -241,6 +245,10 @@ class _$DocumentCreditNoteDTModelCopyWithImpl<$Res,
           ? _value.receiveHdDocuno
           : receiveHdDocuno // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -281,7 +289,8 @@ abstract class _$$DocumentCreditNoteDTModelImplCopyWith<$Res>
       @JsonKey(name: 'creditnote_dt_netamnt') String? creditnoteDtNetamnt,
       @JsonKey(name: 'master_account_id') String? accountId,
       @JsonKey(name: 'creditnote_dt_vat_flag') bool? creditnoteDtVatFlag,
-      @JsonKey(name: 'receive_hd_docuno') String? receiveHdDocuno});
+      @JsonKey(name: 'receive_hd_docuno') String? receiveHdDocuno,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -320,6 +329,7 @@ class __$$DocumentCreditNoteDTModelImplCopyWithImpl<$Res>
     Object? accountId = freezed,
     Object? creditnoteDtVatFlag = freezed,
     Object? receiveHdDocuno = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_$DocumentCreditNoteDTModelImpl(
       creditnoteDtId: freezed == creditnoteDtId
@@ -408,6 +418,10 @@ class __$$DocumentCreditNoteDTModelImplCopyWithImpl<$Res>
           ? _value.receiveHdDocuno
           : receiveHdDocuno // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -442,7 +456,8 @@ class _$DocumentCreditNoteDTModelImpl implements _DocumentCreditNoteDTModel {
       @JsonKey(name: 'creditnote_dt_netamnt') this.creditnoteDtNetamnt,
       @JsonKey(name: 'master_account_id') this.accountId,
       @JsonKey(name: 'creditnote_dt_vat_flag') this.creditnoteDtVatFlag,
-      @JsonKey(name: 'receive_hd_docuno') this.receiveHdDocuno});
+      @JsonKey(name: 'receive_hd_docuno') this.receiveHdDocuno,
+      @JsonKey(name: 'is_cancel') this.isCancel});
 
   factory _$DocumentCreditNoteDTModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$DocumentCreditNoteDTModelImplFromJson(json);
@@ -510,10 +525,13 @@ class _$DocumentCreditNoteDTModelImpl implements _DocumentCreditNoteDTModel {
   @override
   @JsonKey(name: 'receive_hd_docuno')
   final String? receiveHdDocuno;
+  @override
+  @JsonKey(name: 'is_cancel')
+  final bool? isCancel;
 
   @override
   String toString() {
-    return 'DocumentCreditNoteDTModel(creditnoteDtId: $creditnoteDtId, creditnoteHdId: $creditnoteHdId, receiveDtId: $receiveDtId, creditnoteDtListno: $creditnoteDtListno, productId: $productId, productCode: $productCode, unitId: $unitId, creditnoteDtProductBarcodeId: $creditnoteDtProductBarcodeId, creditnoteDtProductBarcodeCode: $creditnoteDtProductBarcodeCode, creditnoteDtProductBarcodeName: $creditnoteDtProductBarcodeName, creditnoteDtProductBarcodeMasterUnitId: $creditnoteDtProductBarcodeMasterUnitId, creditnoteDtProductBarcodeMasterUnitName: $creditnoteDtProductBarcodeMasterUnitName, creditnoteDtProductBarcodeRate: $creditnoteDtProductBarcodeRate, creditnoteDtPrice: $creditnoteDtPrice, receiveDtQty: $receiveDtQty, creditnoteDtQty: $creditnoteDtQty, creditnoteDtDiscount: $creditnoteDtDiscount, creditnoteDtNetamnt: $creditnoteDtNetamnt, accountId: $accountId, creditnoteDtVatFlag: $creditnoteDtVatFlag, receiveHdDocuno: $receiveHdDocuno)';
+    return 'DocumentCreditNoteDTModel(creditnoteDtId: $creditnoteDtId, creditnoteHdId: $creditnoteHdId, receiveDtId: $receiveDtId, creditnoteDtListno: $creditnoteDtListno, productId: $productId, productCode: $productCode, unitId: $unitId, creditnoteDtProductBarcodeId: $creditnoteDtProductBarcodeId, creditnoteDtProductBarcodeCode: $creditnoteDtProductBarcodeCode, creditnoteDtProductBarcodeName: $creditnoteDtProductBarcodeName, creditnoteDtProductBarcodeMasterUnitId: $creditnoteDtProductBarcodeMasterUnitId, creditnoteDtProductBarcodeMasterUnitName: $creditnoteDtProductBarcodeMasterUnitName, creditnoteDtProductBarcodeRate: $creditnoteDtProductBarcodeRate, creditnoteDtPrice: $creditnoteDtPrice, receiveDtQty: $receiveDtQty, creditnoteDtQty: $creditnoteDtQty, creditnoteDtDiscount: $creditnoteDtDiscount, creditnoteDtNetamnt: $creditnoteDtNetamnt, accountId: $accountId, creditnoteDtVatFlag: $creditnoteDtVatFlag, receiveHdDocuno: $receiveHdDocuno, isCancel: $isCancel)';
   }
 
   @override
@@ -568,7 +586,8 @@ class _$DocumentCreditNoteDTModelImpl implements _DocumentCreditNoteDTModel {
             (identical(other.creditnoteDtVatFlag, creditnoteDtVatFlag) ||
                 other.creditnoteDtVatFlag == creditnoteDtVatFlag) &&
             (identical(other.receiveHdDocuno, receiveHdDocuno) ||
-                other.receiveHdDocuno == receiveHdDocuno));
+                other.receiveHdDocuno == receiveHdDocuno) &&
+            (identical(other.isCancel, isCancel) || other.isCancel == isCancel));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -595,7 +614,8 @@ class _$DocumentCreditNoteDTModelImpl implements _DocumentCreditNoteDTModel {
         creditnoteDtNetamnt,
         accountId,
         creditnoteDtVatFlag,
-        receiveHdDocuno
+        receiveHdDocuno,
+        isCancel
       ]);
 
   /// Create a copy of DocumentCreditNoteDTModel
@@ -644,8 +664,9 @@ abstract class _DocumentCreditNoteDTModel implements DocumentCreditNoteDTModel {
       @JsonKey(name: 'creditnote_dt_netamnt') final String? creditnoteDtNetamnt,
       @JsonKey(name: 'master_account_id') final String? accountId,
       @JsonKey(name: 'creditnote_dt_vat_flag') final bool? creditnoteDtVatFlag,
-      @JsonKey(name: 'receive_hd_docuno')
-      final String? receiveHdDocuno}) = _$DocumentCreditNoteDTModelImpl;
+      @JsonKey(name: 'receive_hd_docuno') final String? receiveHdDocuno,
+      @JsonKey(name: 'is_cancel')
+      final bool? isCancel}) = _$DocumentCreditNoteDTModelImpl;
 
   factory _DocumentCreditNoteDTModel.fromJson(Map<String, dynamic> json) =
       _$DocumentCreditNoteDTModelImpl.fromJson;
@@ -713,6 +734,9 @@ abstract class _DocumentCreditNoteDTModel implements DocumentCreditNoteDTModel {
   @override
   @JsonKey(name: 'receive_hd_docuno')
   String? get receiveHdDocuno;
+  @override
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel;
 
   /// Create a copy of DocumentCreditNoteDTModel
   /// with the given fields replaced by the non-null parameter values.

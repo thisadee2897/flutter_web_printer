@@ -43,6 +43,7 @@ class DocumentPayTheDipositModel with _$DocumentPayTheDipositModel {
   @JsonKey(name: 'master_contact_address') String? contactAddress,
   @JsonKey(name: 'master_contact_tel') String? contactTel,
   @JsonKey(name: 'master_contact_taxid') String? contactTaxid,
+  @JsonKey(name: 'is_cancel') bool? isCancel,
   }) = _DocumentPayTheDipositModel;
 
   factory DocumentPayTheDipositModel.fromJson(Map<String, dynamic> json) => _$DocumentPayTheDipositModelFromJson(json);

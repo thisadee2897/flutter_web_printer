@@ -19,6 +19,7 @@ class DocumentInventoryRequisitionModel with _$DocumentInventoryRequisitionModel
   @JsonKey(name: 'fullname') String? fullname,
   @JsonKey(name: 'master_menu_id') String? menuId,
   @JsonKey(name: 'requisition_amount') String? requisitionAmount,
+  @JsonKey(name: 'is_cancel') bool? isCancel,
   }) = _DocumentInventoryRequisitionModel;
 
   factory DocumentInventoryRequisitionModel.fromJson(Map<String, dynamic> json) => _$DocumentInventoryRequisitionModelFromJson(json);

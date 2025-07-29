@@ -69,6 +69,8 @@ mixin _$DocumentProductReturnDTModel {
   String? get returnproductDtDiscount => throw _privateConstructorUsedError;
   @JsonKey(name: 'sale_hd_docuno')
   String? get saleHdDocuno => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel => throw _privateConstructorUsedError;
 
   /// Serializes this DocumentProductReturnDTModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -116,7 +118,8 @@ abstract class $DocumentProductReturnDTModelCopyWith<$Res> {
       @JsonKey(name: 'returnproduct_dt_vat_flag') bool? returnproductDtVatFlag,
       @JsonKey(name: 'returnproduct_dt_discount')
       String? returnproductDtDiscount,
-      @JsonKey(name: 'sale_hd_docuno') String? saleHdDocuno});
+      @JsonKey(name: 'sale_hd_docuno') String? saleHdDocuno,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -156,6 +159,7 @@ class _$DocumentProductReturnDTModelCopyWithImpl<$Res,
     Object? returnproductDtVatFlag = freezed,
     Object? returnproductDtDiscount = freezed,
     Object? saleHdDocuno = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_value.copyWith(
       returnproductDtId: freezed == returnproductDtId
@@ -248,6 +252,10 @@ class _$DocumentProductReturnDTModelCopyWithImpl<$Res,
           ? _value.saleHdDocuno
           : saleHdDocuno // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -289,7 +297,8 @@ abstract class _$$DocumentProductReturnDTModelImplCopyWith<$Res>
       @JsonKey(name: 'returnproduct_dt_vat_flag') bool? returnproductDtVatFlag,
       @JsonKey(name: 'returnproduct_dt_discount')
       String? returnproductDtDiscount,
-      @JsonKey(name: 'sale_hd_docuno') String? saleHdDocuno});
+      @JsonKey(name: 'sale_hd_docuno') String? saleHdDocuno,
+      @JsonKey(name: 'is_cancel') bool? isCancel});
 }
 
 /// @nodoc
@@ -328,6 +337,7 @@ class __$$DocumentProductReturnDTModelImplCopyWithImpl<$Res>
     Object? returnproductDtVatFlag = freezed,
     Object? returnproductDtDiscount = freezed,
     Object? saleHdDocuno = freezed,
+    Object? isCancel = freezed,
   }) {
     return _then(_$DocumentProductReturnDTModelImpl(
       returnproductDtId: freezed == returnproductDtId
@@ -420,6 +430,10 @@ class __$$DocumentProductReturnDTModelImplCopyWithImpl<$Res>
           ? _value.saleHdDocuno
           : saleHdDocuno // ignore: cast_nullable_to_non_nullable
               as String?,
+      isCancel: freezed == isCancel
+          ? _value.isCancel
+          : isCancel // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -455,7 +469,8 @@ class _$DocumentProductReturnDTModelImpl
       @JsonKey(name: 'master_account_id') this.accountId,
       @JsonKey(name: 'returnproduct_dt_vat_flag') this.returnproductDtVatFlag,
       @JsonKey(name: 'returnproduct_dt_discount') this.returnproductDtDiscount,
-      @JsonKey(name: 'sale_hd_docuno') this.saleHdDocuno});
+      @JsonKey(name: 'sale_hd_docuno') this.saleHdDocuno,
+      @JsonKey(name: 'is_cancel') this.isCancel});
 
   factory _$DocumentProductReturnDTModelImpl.fromJson(
           Map<String, dynamic> json) =>
@@ -524,10 +539,13 @@ class _$DocumentProductReturnDTModelImpl
   @override
   @JsonKey(name: 'sale_hd_docuno')
   final String? saleHdDocuno;
+  @override
+  @JsonKey(name: 'is_cancel')
+  final bool? isCancel;
 
   @override
   String toString() {
-    return 'DocumentProductReturnDTModel(returnproductDtId: $returnproductDtId, returnproductHdId: $returnproductHdId, saleDtId: $saleDtId, returnproductDtListno: $returnproductDtListno, productId: $productId, productCode: $productCode, unitId: $unitId, returnproductDtProductBarcodeId: $returnproductDtProductBarcodeId, returnproductDtProductBarcodeCode: $returnproductDtProductBarcodeCode, returnproductDtProductBarcodeName: $returnproductDtProductBarcodeName, returnproductDtProductBarcodeMasterUnitId: $returnproductDtProductBarcodeMasterUnitId, returnproductDtProductBarcodeMasterUnitName: $returnproductDtProductBarcodeMasterUnitName, returnproductDtProductBarcodeRate: $returnproductDtProductBarcodeRate, returnproductDtPrice: $returnproductDtPrice, saleDtQty: $saleDtQty, returnproductDtQty: $returnproductDtQty, returnproductDtNetamnt: $returnproductDtNetamnt, accountId: $accountId, returnproductDtVatFlag: $returnproductDtVatFlag, returnproductDtDiscount: $returnproductDtDiscount, saleHdDocuno: $saleHdDocuno)';
+    return 'DocumentProductReturnDTModel(returnproductDtId: $returnproductDtId, returnproductHdId: $returnproductHdId, saleDtId: $saleDtId, returnproductDtListno: $returnproductDtListno, productId: $productId, productCode: $productCode, unitId: $unitId, returnproductDtProductBarcodeId: $returnproductDtProductBarcodeId, returnproductDtProductBarcodeCode: $returnproductDtProductBarcodeCode, returnproductDtProductBarcodeName: $returnproductDtProductBarcodeName, returnproductDtProductBarcodeMasterUnitId: $returnproductDtProductBarcodeMasterUnitId, returnproductDtProductBarcodeMasterUnitName: $returnproductDtProductBarcodeMasterUnitName, returnproductDtProductBarcodeRate: $returnproductDtProductBarcodeRate, returnproductDtPrice: $returnproductDtPrice, saleDtQty: $saleDtQty, returnproductDtQty: $returnproductDtQty, returnproductDtNetamnt: $returnproductDtNetamnt, accountId: $accountId, returnproductDtVatFlag: $returnproductDtVatFlag, returnproductDtDiscount: $returnproductDtDiscount, saleHdDocuno: $saleHdDocuno, isCancel: $isCancel)';
   }
 
   @override
@@ -582,7 +600,8 @@ class _$DocumentProductReturnDTModelImpl
             (identical(other.returnproductDtDiscount, returnproductDtDiscount) ||
                 other.returnproductDtDiscount == returnproductDtDiscount) &&
             (identical(other.saleHdDocuno, saleHdDocuno) ||
-                other.saleHdDocuno == saleHdDocuno));
+                other.saleHdDocuno == saleHdDocuno) &&
+            (identical(other.isCancel, isCancel) || other.isCancel == isCancel));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -609,7 +628,8 @@ class _$DocumentProductReturnDTModelImpl
         accountId,
         returnproductDtVatFlag,
         returnproductDtDiscount,
-        saleHdDocuno
+        saleHdDocuno,
+        isCancel
       ]);
 
   /// Create a copy of DocumentProductReturnDTModel
@@ -664,8 +684,9 @@ abstract class _DocumentProductReturnDTModel
       final bool? returnproductDtVatFlag,
       @JsonKey(name: 'returnproduct_dt_discount')
       final String? returnproductDtDiscount,
-      @JsonKey(name: 'sale_hd_docuno')
-      final String? saleHdDocuno}) = _$DocumentProductReturnDTModelImpl;
+      @JsonKey(name: 'sale_hd_docuno') final String? saleHdDocuno,
+      @JsonKey(name: 'is_cancel')
+      final bool? isCancel}) = _$DocumentProductReturnDTModelImpl;
 
   factory _DocumentProductReturnDTModel.fromJson(Map<String, dynamic> json) =
       _$DocumentProductReturnDTModelImpl.fromJson;
@@ -733,6 +754,9 @@ abstract class _DocumentProductReturnDTModel
   @override
   @JsonKey(name: 'sale_hd_docuno')
   String? get saleHdDocuno;
+  @override
+  @JsonKey(name: 'is_cancel')
+  bool? get isCancel;
 
   /// Create a copy of DocumentProductReturnDTModel
   /// with the given fields replaced by the non-null parameter values.

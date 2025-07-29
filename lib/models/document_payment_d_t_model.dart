@@ -16,6 +16,7 @@ class DocumentPaymentDTModel with _$DocumentPaymentDTModel {
   @JsonKey(name: 'payment_dt_invoice_totoalamount') String? paymentDtInvoiceTotoalamount,
   @JsonKey(name: 'payment_dt_paymentamount') String? paymentDtPaymentamount,
   @JsonKey(name: 'payment_dt_invoice_lastamount') String? paymentDtInvoiceLastamount,
+  @JsonKey(name: 'is_cancel') bool? isCancel,
   }) = _DocumentPaymentDTModel;
 
   factory DocumentPaymentDTModel.fromJson(Map<String, dynamic> json) => _$DocumentPaymentDTModelFromJson(json);

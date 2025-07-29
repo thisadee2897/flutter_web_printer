@@ -38,6 +38,7 @@ class DocumentPaymentModel with _$DocumentPaymentModel {
   @JsonKey(name: 'master_contact_tel') String? contactTel,
   @JsonKey(name: 'master_contact_taxid') String? contactTaxid,
   @JsonKey(name: 'payment_hd_netamnt') String? paymentHdNetamnt,
+  @JsonKey(name: 'is_cancel') bool? isCancel,
   }) = _DocumentPaymentModel;
 
   factory DocumentPaymentModel.fromJson(Map<String, dynamic> json) => _$DocumentPaymentModelFromJson(json);
